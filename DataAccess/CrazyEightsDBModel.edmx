@@ -20,7 +20,7 @@
             <PropertyRef Name="IDUsuario" />
           </Key>
           <Property Name="IDUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="contraseña" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="contraseña" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="correoElectrónico" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="IDJugador" Type="int" />
         </EntityType>
@@ -74,7 +74,7 @@
             <PropertyRef Name="IDUsuario" />
           </Key>
           <Property Name="IDUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="contraseña" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="contraseña" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="correoElectrónico" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="IDJugador" Type="Int32" />
           <NavigationProperty Name="Jugadores" Relationship="CrazyEightsModel.FK_Jugadores_Usuarios" FromRole="Usuarios" ToRole="Jugadores" />

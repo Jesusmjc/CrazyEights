@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,25 +28,46 @@ namespace CrazyEights
 
         private void GuardarInformaciónUsuario(object sender, RoutedEventArgs e)
         {
-            Jugadores tablaJugadores = new Jugadores();
-            Usuarios tablaUsuarios = new Usuarios();
+            if (tbxNombreUsuario.Text != null && tbxCorreoElectronico.Text != null && pwbContrasena.Password != null)
             {
+                Jugadores tablaJugadores = new Jugadores();
+                Usuarios tablaUsuarios = new Usuarios();
+
                 CrazyEightsEntities CrazyEights = new CrazyEightsEntities();
 
-                tablaUsuarios.contraseña = pwbContrasena.Password;
-                tablaUsuarios.correoElectrónico = tbxCorreoElectronico.Text;
+                Regex expresionRegularContrasena = new Regex("^[0-9]{1}[A-Z]{1}$");
+                Regex expresionRegularCorreoElectronico = new Regex("^[a-zA-Z0-9]{20}@(gmail|outlook|hotmail).com$");
 
-                tablaJugadores.nombreUsuario = tbxNombreUsuario.Text;
+                string contrasena = pwbContrasena.Password;
 
-                CrazyEights.Usuarios.Add(tablaUsuarios);
-                CrazyEights.Jugadores.Add(tablaJugadores);
-                
-                if (CrazyEights.SaveChanges() > 0)
-                {
-                    VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación();
-                    ventanaConfirmacion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                    ventanaConfirmacion.Show();
+                if (contrasena.Length >= 10 && expresionRegularContrasena.IsMatch(contrasena)){
+                    Console.WriteLine("Funciona");
+
+                    tablaUsuarios.contraseña = Encriptacion.GetSHA256(pwbContrasena.Password);
+                    tablaUsuarios.correoElectrónico = tbxCorreoElectronico.Text;
+
+                    tablaJugadores.nombreUsuario = tbxNombreUsuario.Text;
+
+                    CrazyEights.Usuarios.Add(tablaUsuarios);
+                    CrazyEights.Jugadores.Add(tablaJugadores);
+
+                    if (CrazyEights.SaveChanges() > 0)
+                    {
+                        VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación();
+                        ventanaConfirmacion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                        ventanaConfirmacion.Show();
+                    }
                 }
+                else
+                {
+                    Console.WriteLine("No funciona");
+                }
+
+                
+            }
+            else
+            {
+                lblAdvertenciaRegistro.Visibility = Visibility.Visible;
             }
         }
 
