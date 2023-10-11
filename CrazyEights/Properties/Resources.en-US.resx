@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnAceptar" xml:space="preserve">
-    <value>Aceptar</value>
+    <value>Ok</value>
   </data>
   <data name="btnIniciarSesion" xml:space="preserve">
-    <value>Iniciar Sesión</value>
+    <value>Login</value>
   </data>
   <data name="btnJugarComoInvitado" xml:space="preserve">
-    <value>Jugar como Invitado</value>
+    <value>Play as guest</value>
   </data>
   <data name="btnRecuperarContraseña" xml:space="preserve">
-    <value>Recuperar Contraseña</value>
+    <value>Retrieve Password</value>
   </data>
   <data name="btnRegistrarse" xml:space="preserve">
-    <value>Registrarse</value>
+    <value>Register</value>
   </data>
   <data name="lbApoyoIniciarSesion" xml:space="preserve">
-    <value>¿Ya tienes una cuenta?</value>
+    <value>Already registered?</value>
   </data>
   <data name="lbApoyoJugarComoInvitado" xml:space="preserve">
-    <value>¿Te están esperando en una sala?</value>
+    <value>Are they waiting for you in a room?</value>
   </data>
   <data name="lbApoyoRecuperarContraseña" xml:space="preserve">
-    <value>¿Olvidaste tu contraseña?</value>
+    <value>Forgot your password?</value>
   </data>
   <data name="lbApoyoRegistrarse" xml:space="preserve">
-    <value>¿No tienes una cuenta?</value>
+    <value>Not registered?</value>
   </data>
   <data name="lbContraseña" xml:space="preserve">
-    <value>Contraseña:</value>
+    <value>Password:</value>
   </data>
   <data name="lbCorreoElectronico" xml:space="preserve">
-    <value>Correo Electrónico:</value>
+    <value>E-Mail:</value>
   </data>
   <data name="lbNombreUsuario" xml:space="preserve">
-    <value>Nombre de Usuario:</value>
+    <value>User Name:</value>
   </data>
   <data name="lbTituloRegistro" xml:space="preserve">
-    <value>Registro Exitoso</value>
+    <value>Registration succesful</value>
   </data>
   <data name="tbCrazyEights" xml:space="preserve">
     <value>CRAZY EIGHTS</value>
   </data>
   <data name="tbRegistroExitoso" xml:space="preserve">
-    <value>Se ha creado la cuenta correctamente.</value>
+    <value>The account has been created correctly.</value>
   </data>
 </root>
