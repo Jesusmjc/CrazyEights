@@ -28,20 +28,45 @@ namespace CrazyEights
 
         private void GuardarInformaciónUsuario(object sender, RoutedEventArgs e)
         {
-            if (tbxNombreUsuario.Text != null && tbxCorreoElectronico.Text != null && pwbContrasena.Password != null)
+
+            if (tbxNombreUsuario.Text != "" && tbxCorreoElectronico.Text != "" && pwbContrasena.Password != "")
             {
-                Jugadores tablaJugadores = new Jugadores();
-                Usuarios tablaUsuarios = new Usuarios();
+                bool esNombreUsuarioValido = false;
+                bool esContrasenaValida = false;
+                bool esCorreoValido = false;
 
-                CrazyEightsEntities CrazyEights = new CrazyEightsEntities();
+                if (tbxNombreUsuario.Text.Length >= 6) {
+                    esNombreUsuarioValido = true;
+                    lblAdvertenciaNombreUsuarioInvalido.Visibility = Visibility.Hidden;
+                } else
+                {
+                    lblAdvertenciaNombreUsuarioInvalido.Visibility = Visibility.Visible;
+                }
 
-                Regex expresionRegularContrasena = new Regex("^[0-9]{1}[A-Z]{1}$");
-                Regex expresionRegularCorreoElectronico = new Regex("^[a-zA-Z0-9]{20}@(gmail|outlook|hotmail).com$");
+                if (Regex.IsMatch(pwbContrasena.Password, "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&#.$($)\\-_])[A-Za-z\\d$@$!%*?&#.$($)\\-_]{8,16}$"))
+                {
+                    esContrasenaValida = true;
+                    lblAdvertenciaContrasenaInvalida.Visibility = Visibility.Hidden;
+                } else
+                {
+                    lblAdvertenciaCorreoInvalido.Visibility = Visibility.Visible;
+                }
 
-                string contrasena = pwbContrasena.Password;
+                if (Regex.IsMatch(tbxCorreoElectronico.Text, "^[a-zA-Z0-9\\-_]{5,20}@(gmail|outlook|hotmail)\\.com$"))
+                {
+                    esCorreoValido = true;
+                    lblAdvertenciaCorreoInvalido.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    lblAdvertenciaCorreoInvalido.Visibility = Visibility.Visible;
+                }
 
-                if (contrasena.Length >= 10 && expresionRegularContrasena.IsMatch(contrasena)){
-                    Console.WriteLine("Funciona");
+                if (esNombreUsuarioValido && esContrasenaValida && esCorreoValido)
+                {
+                    Jugadores tablaJugadores = new Jugadores();
+                    Usuarios tablaUsuarios = new Usuarios();
+                    CrazyEightsEntities CrazyEights = new CrazyEightsEntities();
 
                     tablaUsuarios.contraseña = Encriptacion.GetSHA256(pwbContrasena.Password);
                     tablaUsuarios.correoElectrónico = tbxCorreoElectronico.Text;
@@ -57,17 +82,15 @@ namespace CrazyEights
                         ventanaConfirmacion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                         ventanaConfirmacion.Show();
                     }
+                    else
+                    {
+                        Console.WriteLine("No funciona");
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("No funciona");
-                }
-
-                
             }
             else
             {
-                lblAdvertenciaRegistro.Visibility = Visibility.Visible;
+                lblAdvertenciaCamposVacios.Visibility = Visibility.Visible;
             }
         }
 
