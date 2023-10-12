@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClassLibrary.Properties {
+namespace DataAccesss.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
