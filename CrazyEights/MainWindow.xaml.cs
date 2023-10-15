@@ -28,7 +28,6 @@ namespace CrazyEights
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-
         /*
             private void Button_Click(object sender, RoutedEventArgs e)
             {
@@ -63,15 +62,5 @@ namespace CrazyEights
             registroUsuario.Show();
             this.Close();
         }
-
-        private void btnConfiguracion(object sender, MouseButtonEventArgs e)
-        {
-            VentanaConfiguracion configuracion = new VentanaConfiguracion();
-            configuracion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            configuracion.Show();
-            this.Close();
-        }
-
-
     }
 }

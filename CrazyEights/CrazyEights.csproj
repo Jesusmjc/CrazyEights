@@ -65,9 +65,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="IngresarComoInvitado.xaml.cs">
-      <DependentUpon>IngresarComoInvitado.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.en-US.Designer.cs">
       <DependentUpon>Resources.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -76,16 +73,9 @@
     <Compile Include="RegistroUsuario.xaml.cs">
       <DependentUpon>RegistroUsuario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VentanaConfiguracion.xaml.cs">
-      <DependentUpon>VentanaConfiguracion.xaml</DependentUpon>
-    </Compile>
     <Compile Include="VentanaConfirmación.xaml.cs">
       <DependentUpon>VentanaConfirmación.xaml</DependentUpon>
     </Compile>
-    <Page Include="IngresarComoInvitado.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,10 +89,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RegistroUsuario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="VentanaConfiguracion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,22 +147,13 @@
     <Resource Include="paginas\FondoVentanaEmergente.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recursos\Image2.png" />
+    <Resource Include="Image2.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{afba1552-8c05-4133-a095-218347de7aac}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Recursos\mexico.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Recursos\united-states.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Recursos\gear.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

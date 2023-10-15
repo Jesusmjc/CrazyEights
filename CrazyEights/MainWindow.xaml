@@ -20,7 +20,5 @@
         <Button x:Name="btnRegistrarse" Content="{x:Static p:Resources.btnRegistrarse}" HorizontalAlignment="Left" Height="32" Margin="226,370,0,0" VerticalAlignment="Top" Width="122" Click="NavegarARegistroUsuario"/>
         <Label x:Name="lbApoyoRegistrarse" Content="{x:Static p:Resources.lbApoyoRegistrarse}" HorizontalAlignment="Left" Height="24" Margin="230,346,0,0" VerticalAlignment="Top" Width="114" FontSize="10"/>
         <Label x:Name="lbApoyoRecuperarContraseña" Content="{x:Static p:Resources.lbApoyoRecuperarContraseña}" HorizontalAlignment="Left" Height="24" Margin="459,346,0,0" VerticalAlignment="Top" Width="124" FontSize="10"/>
-        <Label x:Name="lbConfiguracion" Content="{x:Static p:Resources.lbConfiguracion}" HorizontalAlignment="Left" Margin="682,52,0,0" VerticalAlignment="Top" Width="68"/>
-        <Image HorizontalAlignment="Left" Height="34" Margin="692,22,0,0" VerticalAlignment="Top" Width="34" Source="Recursos\gear.png" MouseLeftButtonDown="btnConfiguracion"/>
     </Grid>
 </Window>

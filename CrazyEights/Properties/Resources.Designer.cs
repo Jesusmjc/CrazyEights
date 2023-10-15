@@ -61,15 +61,6 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Entrar a la sala.
-        /// </summary>
-        public static string btnAccederComoInvitado {
-            get {
-                return ResourceManager.GetString("btnAccederComoInvitado", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Aceptar.
         /// </summary>
         public static string btnAceptar {
@@ -151,24 +142,6 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Código de sala:.
-        /// </summary>
-        public static string lbCodigoSala {
-            get {
-                return ResourceManager.GetString("lbCodigoSala", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configuración.
-        /// </summary>
-        public static string lbConfiguracion {
-            get {
-                return ResourceManager.GetString("lbConfiguracion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Contraseña:.
         /// </summary>
         public static string lbContraseña {
@@ -187,29 +160,11 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Idioma.
-        /// </summary>
-        public static string lbIdioma {
-            get {
-                return ResourceManager.GetString("lbIdioma", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Nombre de Usuario:.
         /// </summary>
         public static string lbNombreUsuario {
             get {
                 return ResourceManager.GetString("lbNombreUsuario", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configuración.
-        /// </summary>
-        public static string lbTituloConfiguracion {
-            get {
-                return ResourceManager.GetString("lbTituloConfiguracion", resourceCulture);
             }
         }
         
