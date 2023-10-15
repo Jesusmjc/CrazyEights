@@ -28,24 +28,6 @@ namespace CrazyEights
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-
-        /*
-            private void Button_Click(object sender, RoutedEventArgs e)
-            {
-                Jugador tablaJugadores = new Jugador();
-                Usuario tablaUsuarios = new Usuario();
-                {
-                    CrazyEightsEntities CrazyEights = new CrazyEightsEntities();
-                    tablaJugadores.nombreUsuario = tbxNombreUsuario.Text;
-                    tablaUsuarios.contraseña = pwbContrasena.Password;
-
-                    CrazyEights.Jugadors.Add(tablaJugadores);
-                    CrazyEights.Usuarios.Add(tablaUsuarios);
-                    CrazyEights.SaveChanges();
-                }
-            }
-        */
-
         private void IniciarSesion(object sender, RoutedEventArgs e)
         {
 

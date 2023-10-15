@@ -65,9 +65,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+
     <Compile Include="IngresarComoInvitado.xaml.cs">
       <DependentUpon>IngresarComoInvitado.xaml</DependentUpon>
     </Compile>
+  
+    <Compile Include="Encriptacion.cs" />
+  
     <Compile Include="Properties\Resources.en-US.Designer.cs">
       <DependentUpon>Resources.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
