@@ -104,7 +104,19 @@ namespace CrazyEights
 
         private void EntrarComoInvitado(object sender, RoutedEventArgs e)
         {
-
+            IngresarComoInvitado ingresarInvitado = new IngresarComoInvitado();
+            ingresarInvitado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ingresarInvitado.Show();
+            this.Close();
         }
+
+        private void btnConfiguracion(object sender, MouseButtonEventArgs e)
+        {
+            VentanaConfiguracion configuracion = new VentanaConfiguracion();
+            configuracion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            configuracion.Show();
+            this.Close();
+        }
+
     }
 }

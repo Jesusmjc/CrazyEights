@@ -1,5 +1,4 @@
-﻿using ClassLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,38 +10,34 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 
 namespace CrazyEights
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for IngresarComoInvitado.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class IngresarComoInvitado : Window
     {
-        public MainWindow()
+        public IngresarComoInvitado()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void IniciarSesion(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RecuperarContrasena(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void NavegarARegistroUsuario(object sender, RoutedEventArgs e)
         {
             RegistroUsuario registroUsuario = new RegistroUsuario();
-            registroUsuario.WindowStartupLocation= WindowStartupLocation.CenterScreen;
+            registroUsuario.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             registroUsuario.Show();
+            this.Close();
+        }
+
+        private void NavegarAIniciarSesión(object sender, RoutedEventArgs e)
+        {
+            MainWindow inicioSesion = new MainWindow();
+            inicioSesion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            inicioSesion.Show();
             this.Close();
         }
 
@@ -53,7 +48,6 @@ namespace CrazyEights
             configuracion.Show();
             this.Close();
         }
-
 
     }
 }
