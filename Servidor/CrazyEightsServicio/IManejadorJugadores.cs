@@ -12,7 +12,7 @@ namespace CrazyEightsServicio
     public interface IManejadorJugadores
     {
         [OperationContract]
-        int GuardarJugador(Usuario usuario, Jugador jugador);
+        //int GuardarJugador(Usuario usuario, Jugador jugador);
 
         // TODO: Add your service operations here
     }

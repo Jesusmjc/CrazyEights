@@ -1,5 +1,4 @@
-﻿using ClassLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,28 +63,10 @@ namespace CrazyEights
 
                 if (esNombreUsuarioValido && esContrasenaValida && esCorreoValido)
                 {
-                    Jugadores tablaJugadores = new Jugadores();
-                    Usuarios tablaUsuarios = new Usuarios();
-                    CrazyEightsEntities CrazyEights = new CrazyEightsEntities();
-
-                    tablaUsuarios.contraseña = Encriptacion.GetSHA256(pwbContrasena.Password);
-                    tablaUsuarios.correoElectrónico = tbxCorreoElectronico.Text;
-
-                    tablaJugadores.nombreUsuario = tbxNombreUsuario.Text;
-
-                    CrazyEights.Usuarios.Add(tablaUsuarios);
-                    CrazyEights.Jugadores.Add(tablaJugadores);
-
-                    if (CrazyEights.SaveChanges() > 0)
-                    {
-                        VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación();
-                        ventanaConfirmacion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                        ventanaConfirmacion.Show();
-                    }
-                    else
-                    {
-                        Console.WriteLine("No funciona");
-                    }
+                   // Usuario usuario = new Usuario();
+                    //Jugador jugador = new Jugador();
+                    
+                    //GuardarJugador(usuario, jugador);
                 }
             }
             else
