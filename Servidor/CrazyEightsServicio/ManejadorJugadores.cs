@@ -1,10 +1,11 @@
-﻿using DataAccesss;
+﻿using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using CrazyEightsDataAccess;
 
 namespace CrazyEightsServicio
 {
@@ -13,30 +14,33 @@ namespace CrazyEightsServicio
     {
         //To Do
         public int GuardarJugador(Usuario usuario, Jugador jugador)
-        {
+        {   
             Jugadores tablaJugadores = new Jugadores();
             Usuarios tablaUsuarios = new Usuarios();
             CrazyEightsEntities CrazyEights = new CrazyEightsEntities();
 
-            tablaUsuarios.contraseña = Encriptacion.GetSHA256(pwbContrasena.Password);
-            tablaUsuarios.correoElectrónico = tbxCorreoElectronico.Text;
+            tablaUsuarios.contraseña = usuario.Contrasena;
+            tablaUsuarios.correoElectrónico = usuario.CorreoElectronico;
 
-            tablaJugadores.nombreUsuario = tbxNombreUsuario.Text;
+            tablaJugadores.nombreUsuario = jugador.NombreUsuario;
 
             CrazyEights.Usuarios.Add(tablaUsuarios);
             CrazyEights.Jugadores.Add(tablaJugadores);
 
-            if (CrazyEights.SaveChanges() > 0)
-            {
-                VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación();
-                ventanaConfirmacion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                ventanaConfirmacion.Show();
-            }
-            else
-            {
-                Console.WriteLine("No funciona");
-            }
-            return 0;
+            //if (CrazyEights.SaveChanges() > 0)
+            //{
+            //    VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación();
+            //    ventanaConfirmacion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //    ventanaConfirmacion.Show();
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No funciona");
+            //}
+            int numeroCambios = 0;
+            numeroCambios = CrazyEights.SaveChanges();
+
+            return numeroCambios;
         }
 
     }

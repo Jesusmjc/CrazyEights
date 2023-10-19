@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccesss
+namespace DataAccess
 {
     using System;
     using System.Data.Entity;

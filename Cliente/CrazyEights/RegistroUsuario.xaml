@@ -25,7 +25,7 @@
         <Label x:Name="lblAdvertenciaContrasenaInvalida" Content="Por favor ingrese una contraseña válida." Height="36" Margin="394,246,164,0" VerticalAlignment="Top" Width="242" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
         <Label x:Name="lblAdvertenciaCorreoInvalido" Content="Por favor ingrese un correo electrónico válido." Height="34" Margin="394,195,164,0" VerticalAlignment="Top" Width="242" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
         <Label x:Name="lblAdvertenciaCamposVacios" Content="Por favor llene todos los campos." Height="36" Margin="394,246,164,0" VerticalAlignment="Top" Width="242" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
-        <Label x:Name="lblAdvertenciaNombreUsuarioInvalido" Content="Por favor ingrsee un nombrevpálido (min. 6 caracteres)." Height="34" Margin="394,145,151,0" VerticalAlignment="Top" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lblAdvertenciaNombreUsuarioInvalido" Content="Por favor ingrese un nombre válido (min. 6 caracteres)." Height="34" Margin="394,145,151,0" VerticalAlignment="Top" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
 
     </Grid>
 </Window>

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using DataAccesss;
 
 namespace CrazyEightsServicio
 {
@@ -12,33 +11,52 @@ namespace CrazyEightsServicio
     public interface IManejadorJugadores
     {
         [OperationContract]
-        //int GuardarJugador(Usuario usuario, Jugador jugador);
-
-        // TODO: Add your service operations here
+        int GuardarJugador(Usuario usuario, Jugador jugador);
     }
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "CrazyEightsServicio.ContractType".
-   
-    //To Do
+    [DataContract]
+    public class Usuario
+    {
+        private int _idUsuario;
+        private string _contrasena;
+        private string _correoElectronico;
+        private int _idJugador;
+
+        [DataMember]
+        public int IdUsuario { get { return _idUsuario; } set { _idUsuario = value; } }
+
+        [DataMember]
+        public string Contrasena { get { return _contrasena; } set { _contrasena = value; } }
+
+        [DataMember]
+        public string CorreoElectronico { get { return _correoElectronico; } set { _correoElectronico = value; } }
+
+        [DataMember]
+        public int IdJugador { get { return _idJugador; } set { _idJugador = value; } }
+    }
+
     [DataContract]
     public class Jugador
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        private int _idJugador;
+        private string _nombreUsuario;
+        private int _monedas;
+        private string _fotoPerfil;
+        private int _idUsuario;
 
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
+        public int IdJugador { get { return _idJugador; } set { _idJugador = value; } }
 
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public string NombreUsuario { get { return _nombreUsuario; } set { _nombreUsuario = value; } }
+
+        [DataMember]
+        public int Monedas { get { return _monedas; } set { _monedas = value; } }
+
+        [DataMember]
+        public string FotoPerfil { get { return _fotoPerfil; } set { _fotoPerfil = value; } }
+
+        [DataMember]
+        public int IdUsuario { get { return _idUsuario; } set { _idUsuario = value; } }
     }
 }
