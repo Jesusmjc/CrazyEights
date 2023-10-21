@@ -79,6 +79,24 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Crear partida.
+        /// </summary>
+        public static string btnCrearPartida {
+            get {
+                return ResourceManager.GetString("btnCrearPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Encontrar partida.
+        /// </summary>
+        public static string btnEncontrarPartida {
+            get {
+                return ResourceManager.GetString("btnEncontrarPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Iniciar Sesión.
         /// </summary>
         public static string btnIniciarSesion {
@@ -115,6 +133,33 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Salir del juego.
+        /// </summary>
+        public static string btnSalirDelJuego {
+            get {
+                return ResourceManager.GetString("btnSalirDelJuego", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tienda.
+        /// </summary>
+        public static string btnTienda {
+            get {
+                return ResourceManager.GetString("btnTienda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amigos.
+        /// </summary>
+        public static string lbAmigosMenuPrincipal {
+            get {
+                return ResourceManager.GetString("lbAmigosMenuPrincipal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ¿Ya tienes una cuenta?.
         /// </summary>
         public static string lbApoyoIniciarSesion {
@@ -147,6 +192,15 @@ namespace CrazyEights.Properties {
         public static string lbApoyoRegistrarse {
             get {
                 return ResourceManager.GetString("lbApoyoRegistrarse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ayuda.
+        /// </summary>
+        public static string lbAyudaMenuPrincipal {
+            get {
+                return ResourceManager.GetString("lbAyudaMenuPrincipal", resourceCulture);
             }
         }
         
@@ -196,11 +250,29 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Misiones.
+        /// </summary>
+        public static string lbMisionesMenuPrincipal {
+            get {
+                return ResourceManager.GetString("lbMisionesMenuPrincipal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nombre de Usuario:.
         /// </summary>
         public static string lbNombreUsuario {
             get {
                 return ResourceManager.GetString("lbNombreUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Perfil.
+        /// </summary>
+        public static string lbPerfilMenuPrincipal {
+            get {
+                return ResourceManager.GetString("lbPerfilMenuPrincipal", resourceCulture);
             }
         }
         
