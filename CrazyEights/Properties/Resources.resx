@@ -123,6 +123,12 @@
   <data name="btnAceptar" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="btnCrearPartida" xml:space="preserve">
+    <value>Crear partida</value>
+  </data>
+  <data name="btnEncontrarPartida" xml:space="preserve">
+    <value>Encontrar partida</value>
+  </data>
   <data name="btnIniciarSesion" xml:space="preserve">
     <value>Iniciar Sesión</value>
   </data>
@@ -135,6 +141,15 @@
   <data name="btnRegistrarse" xml:space="preserve">
     <value>Registrarse</value>
   </data>
+  <data name="btnSalirDelJuego" xml:space="preserve">
+    <value>Salir del juego</value>
+  </data>
+  <data name="btnTienda" xml:space="preserve">
+    <value>Tienda</value>
+  </data>
+  <data name="lbAmigosMenuPrincipal" xml:space="preserve">
+    <value>Amigos</value>
+  </data>
   <data name="lbApoyoIniciarSesion" xml:space="preserve">
     <value>¿Ya tienes una cuenta?</value>
   </data>
@@ -146,6 +161,9 @@
   </data>
   <data name="lbApoyoRegistrarse" xml:space="preserve">
     <value>¿No tienes una cuenta?</value>
+  </data>
+  <data name="lbAyudaMenuPrincipal" xml:space="preserve">
+    <value>Ayuda</value>
   </data>
   <data name="lbCodigoSala" xml:space="preserve">
     <value>Código de sala:</value>
@@ -162,8 +180,14 @@
   <data name="lbIdioma" xml:space="preserve">
     <value>Idioma</value>
   </data>
+  <data name="lbMisionesMenuPrincipal" xml:space="preserve">
+    <value>Misiones</value>
+  </data>
   <data name="lbNombreUsuario" xml:space="preserve">
     <value>Nombre de Usuario:</value>
+  </data>
+  <data name="lbPerfilMenuPrincipal" xml:space="preserve">
+    <value>Perfil</value>
   </data>
   <data name="lbTituloConfiguracion" xml:space="preserve">
     <value>Configuración</value>

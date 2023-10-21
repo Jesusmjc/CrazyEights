@@ -65,13 +65,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-
     <Compile Include="IngresarComoInvitado.xaml.cs">
       <DependentUpon>IngresarComoInvitado.xaml</DependentUpon>
     </Compile>
-  
     <Compile Include="Encriptacion.cs" />
-  
     <Compile Include="Properties\Resources.en-US.Designer.cs">
       <DependentUpon>Resources.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -85,6 +82,9 @@
     </Compile>
     <Compile Include="VentanaConfirmación.xaml.cs">
       <DependentUpon>VentanaConfirmación.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaMenuPrincipal.xaml.cs">
+      <DependentUpon>VentanaMenuPrincipal.xaml</DependentUpon>
     </Compile>
     <Page Include="IngresarComoInvitado.xaml">
       <SubType>Designer</SubType>
@@ -111,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VentanaConfirmación.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaMenuPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +185,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Recursos\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\iconoAyuda.png" />
+    <Resource Include="Recursos\iconoMisiones.png" />
+    <Resource Include="Recursos\iconoUsuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\iconoAmigos.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
