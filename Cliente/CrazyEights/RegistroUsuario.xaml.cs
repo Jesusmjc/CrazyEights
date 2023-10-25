@@ -1,4 +1,4 @@
-﻿using CrazyEights.ManejadorJugadoresServicio;
+﻿using CrazyEights.ReferenciaServicioManejoJugadores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,8 +42,8 @@ namespace CrazyEights
 
                 if (esNombreUsuarioValido && esContrasenaValida && esCorreoElectronicoValido)
                 {
-                    ManejadorJugadoresServicio.ManejadorJugadoresClient cliente = new ManejadorJugadoresServicio.ManejadorJugadoresClient();
-
+                    ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
+                    
                     int cambiosGuardados = 0;
 
                     Usuario usuario = new Usuario();
