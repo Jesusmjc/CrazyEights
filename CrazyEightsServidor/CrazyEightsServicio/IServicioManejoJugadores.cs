@@ -14,7 +14,13 @@ namespace CrazyEightsServicio
         int GuardarJugador(Usuario usuario, Jugador jugador);
 
         [OperationContract]
-        bool validarInicioSesion(Usuario usuario);
+        bool ValidarInicioSesion(Usuario usuario);
+
+        [OperationContract]
+        bool ValidarNombreUsuarioRegistrado(Jugador jugador);
+
+        [OperationContract]
+        bool ValidarCorreoElectronicoRegistrado(Usuario usuario);
     }
 
     [DataContract]

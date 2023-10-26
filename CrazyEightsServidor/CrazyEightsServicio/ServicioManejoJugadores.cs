@@ -23,40 +23,66 @@ namespace CrazyEightsServicio
 
             CrazyEights.Usuarios.Add(tablaUsuarios);
             CrazyEights.Jugadores.Add(tablaJugadores);
-
-            //if (CrazyEights.SaveChanges() > 0)
-            //{
-            //    VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación();
-            //    ventanaConfirmacion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            //    ventanaConfirmacion.Show();
-            //}
-            //else
-            //{
-            //    Console.WriteLine("No funciona");
-            //}
             int numeroCambios = 0;
             numeroCambios = CrazyEights.SaveChanges();
 
             return numeroCambios;
         }
 
-        public bool validarInicioSesion(Usuario usuario)
+        public bool ValidarInicioSesion(Usuario usuario)
         {
             using (var context = new CrazyEightsEntities())
             {
                 var usuarios = (from us in context.Usuarios
                                 where us.correoElectrónico == usuario.CorreoElectronico
-                                where us.contraseña == usuario.Contrasena
+                                && us.contraseña == usuario.Contrasena
                                 select us).ToList();
 
                 bool esUsuarioValido = false;
-                if (usuarios.Count != 0) 
+                if (usuarios.Count != 0)
                 {
                     esUsuarioValido = true;
                 }
 
                 return esUsuarioValido;
             }
+
+            
+        }
+
+        public bool ValidarNombreUsuarioRegistrado(Jugador jugador)
+        {
+            bool existeJugador = true;
+            using (var contexto = new CrazyEightsEntities())
+            {
+                var jugadores = (from jug in contexto.Jugadores
+                                 where jug.nombreUsuario == jugador.NombreUsuario
+                                 select jug).ToList();
+
+                if (jugadores.Count == 0)
+                {
+                    existeJugador = false;
+                }
+            }   
+
+            return existeJugador;
+        }
+
+        public bool ValidarCorreoElectronicoRegistrado(Usuario usuario)
+        {
+            bool existeUsuario = true;
+            using (var contexto = new CrazyEightsEntities())
+            {
+                var usuarios = (from us in contexto.Usuarios
+                                where us.correoElectrónico == usuario.CorreoElectronico
+                                select us).ToList();
+
+                if (usuarios.Count == 0)
+                {
+                    existeUsuario = false;
+                }
+            }
+            return existeUsuario;
         }
     }
 }

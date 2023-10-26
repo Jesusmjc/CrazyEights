@@ -30,26 +30,34 @@ namespace CrazyEights
         {  
             if (ValidarCampos())
             {
-                ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient(); 
+                ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
 
-                Usuario usuario = new Usuario();
-                usuario.Contrasena = Encriptacion.GetSHA256(pwbContrasena.Password);
-                usuario.CorreoElectronico = tbxCorreoElectronico.Text;
-
-                Jugador jugador = new Jugador();
-                jugador.NombreUsuario = tbxNombreUsuario.Text;
-
-                int cambiosGuardados = 0;
-                cambiosGuardados = cliente.GuardarJugador(usuario, jugador);
-                if (cambiosGuardados > 0)
+                if (!cliente.ValidarClienteExiste())
                 {
-                    VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación("Registro Exitoso", "Se ha creado la nueva cuenta correctamente.");
-                    ventanaConfirmacion.Show();
+                    Usuario usuario = new Usuario();
+                    usuario.Contrasena = Encriptacion.GetSHA256(pwbContrasena.Password);
+                    usuario.CorreoElectronico = tbxCorreoElectronico.Text;
+
+                    Jugador jugador = new Jugador();
+                    jugador.NombreUsuario = tbxNombreUsuario.Text;
+
+                    int cambiosGuardados = 0;
+                    cambiosGuardados = cliente.GuardarJugador(usuario, jugador);
+                    if (cambiosGuardados > 0)
+                    {
+                        VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación("Registro Exitoso", "Se ha creado la nueva cuenta correctamente.");
+                        ventanaConfirmacion.Show();
+                    }
+                    else
+                    {
+                        VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Ocurrió un error al crear la cuenta, posiblemente debido a un error con la conexión.");
+                        ventanaAdvertencia.Show();
+                    }
                 }
                 else
                 {
-                    VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Ocurrió un error al crear la cuenta, posiblemente debido a un error con la conexión.");
-                    ventanaAdvertencia.Show();
+                    VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Ya existe una cuenta con el mismo Nombre de Usuario o Correo Electrónico.");
+                    ventanaAdvertencia.Show();    
                 }
             }
         }
