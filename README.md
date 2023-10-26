@@ -3,4 +3,3 @@ To do:
 - Inicio de sesión
 - Pantalla Menú Principal
 - Pantalla Lobby (Vacía por ahora)
-- Implementar estructura Cliente - Servidor (Jesús WIP).
