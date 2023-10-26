@@ -81,6 +81,10 @@
     <Compile Include="RegistroUsuario.xaml.cs">
       <DependentUpon>RegistroUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades.cs" />
+    <Compile Include="VentanaAdvertencia.xaml.cs">
+      <DependentUpon>VentanaAdvertencia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaConfirmación.xaml.cs">
       <DependentUpon>VentanaConfirmación.xaml</DependentUpon>
     </Compile>
@@ -97,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RegistroUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaAdvertencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,9 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="paginas\FondoVentanaEmergente.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image2.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

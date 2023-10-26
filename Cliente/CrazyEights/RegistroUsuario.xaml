@@ -22,10 +22,10 @@
         <TextBlock x:Name="tbCrazyEights" HorizontalAlignment="Center" Height="36" Margin="0,29,0,0" TextWrapping="Wrap" Text="{x:Static p:Resources.tbCrazyEights}" VerticalAlignment="Top" Width="238" FontFamily="Roboto Slab" FontSize="36"/>
         <PasswordBox x:Name="pwbContrasena" HorizontalAlignment="Left" Height="34" Margin="400,217,0,0" VerticalAlignment="Top" Width="242"/>
         <Image Margin="50,77,50,355" Source="\paginas\Line 1.png" Stretch="Fill" Height="2" Width="700"/>
-        <Label x:Name="lblAdvertenciaContrasenaInvalida" Content="Por favor ingrese una contraseña válida." Height="36" Margin="394,246,164,0" VerticalAlignment="Top" Width="242" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
-        <Label x:Name="lblAdvertenciaCorreoInvalido" Content="Por favor ingrese un correo electrónico válido." Height="34" Margin="394,195,164,0" VerticalAlignment="Top" Width="242" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
-        <Label x:Name="lblAdvertenciaCamposVacios" Content="Por favor llene todos los campos." Height="36" Margin="394,246,164,0" VerticalAlignment="Top" Width="242" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
-        <Label x:Name="lblAdvertenciaNombreUsuarioInvalido" Content="Por favor ingrese un nombre válido (min. 6 caracteres)." Height="34" Margin="394,145,151,0" VerticalAlignment="Top" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lbAdvertenciaContrasenaInvalida" Content="Por favor ingrese una contraseña válida." Height="36" Margin="394,246,164,0" VerticalAlignment="Top" Width="242" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lbAdvertenciaCorreoInvalido" Content="Por favor ingrese un correo electrónico válido." Height="34" Margin="394,195,164,0" VerticalAlignment="Top" Width="242" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lbAdvertenciaCamposVacios" Content="Por favor llene todos los campos." Height="36" Margin="394,246,164,0" VerticalAlignment="Top" Width="242" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lbAdvertenciaNombreUsuarioInvalido" Content="Por favor ingrese un nombre válido (min. 6 caracteres)." Height="34" Margin="394,145,151,0" VerticalAlignment="Top" FontSize="10" FontFamily="Roboto Slab" Background="#00000000" Foreground="Red" Visibility="Hidden"/>
 
     </Grid>
 </Window>

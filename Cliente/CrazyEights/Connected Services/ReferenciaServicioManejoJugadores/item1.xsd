@@ -16,4 +16,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="validarInicioSesion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="usuario" nillable="true" type="q3:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validarInicioSesionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validarInicioSesionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

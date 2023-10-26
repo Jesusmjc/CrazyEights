@@ -8,7 +8,6 @@ using System.Text;
 
 namespace CrazyEightsServicio
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServicioManejoJugadores" in both code and config file together.
     public class ServicioManejoJugadores : IServicioManejoJugadores
     {
         public int GuardarJugador(Usuario usuario, Jugador jugador)
@@ -39,6 +38,25 @@ namespace CrazyEightsServicio
             numeroCambios = CrazyEights.SaveChanges();
 
             return numeroCambios;
+        }
+
+        public bool validarInicioSesion(Usuario usuario)
+        {
+            using (var context = new CrazyEightsEntities())
+            {
+                var usuarios = (from us in context.Usuarios
+                                where us.correoElectrónico == usuario.CorreoElectronico
+                                where us.contraseña == usuario.Contrasena
+                                select us).ToList();
+
+                bool esUsuarioValido = false;
+                if (usuarios.Count != 0) 
+                {
+                    esUsuarioValido = true;
+                }
+
+                return esUsuarioValido;
+            }
         }
     }
 }

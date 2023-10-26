@@ -15,21 +15,21 @@ using System.Windows.Shapes;
 namespace CrazyEights
 {
     /// <summary>
-    /// Interaction logic for VentanaConfirmación.xaml
+    /// Interaction logic for VentanaAdvertencia.xaml
     /// </summary>
-    public partial class VentanaConfirmación : Window
+    public partial class VentanaAdvertencia : Window
     {
-        public VentanaConfirmación()
+        public VentanaAdvertencia()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        public VentanaConfirmación(string nombreOperacionExitosa, string detallesOperacionExitosa)
+        public VentanaAdvertencia(string nombreAdvertencia, string detallesAdvertencia)
         {
-            InitializeComponent();
-            lbNombreOperacionExitosa.Content = nombreOperacionExitosa;
-            tbDetallesOperacionExitosa.Text = detallesOperacionExitosa;
+            InitializeComponent(); 
+            lbNombreAdvertencia.Content = nombreAdvertencia;
+            tbDetallesAdvertencia.Text = detallesAdvertencia;
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 

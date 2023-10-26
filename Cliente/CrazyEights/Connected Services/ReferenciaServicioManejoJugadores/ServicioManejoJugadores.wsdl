@@ -42,10 +42,20 @@
   <wsdl:message name="IServicioManejoJugadores_GuardarJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:GuardarJugadorResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_validarInicioSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:validarInicioSesion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_validarInicioSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validarInicioSesionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioManejoJugadores">
     <wsdl:operation name="GuardarJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/GuardarJugador" message="tns:IServicioManejoJugadores_GuardarJugador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/GuardarJugadorResponse" message="tns:IServicioManejoJugadores_GuardarJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validarInicioSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/validarInicioSesion" message="tns:IServicioManejoJugadores_validarInicioSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/validarInicioSesionResponse" message="tns:IServicioManejoJugadores_validarInicioSesion_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioManejoJugadores" type="tns:IServicioManejoJugadores">
@@ -60,12 +70,21 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="validarInicioSesion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/validarInicioSesion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ServicioManejoJugadores">
     <wsdl:port name="NetTcpBinding_IServicioManejoJugadores" binding="tns:NetTcpBinding_IServicioManejoJugadores">
-      <soap12:address location="net.tcp://localhost:8081/MessageService" />
+      <soap12:address location="net.tcp://localhost:8081/CrazyEightsServicio" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8081/CrazyEightsServicio</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>DESKTOP-1HTJ9FC\Jesús Manuel</Upn>
         </Identity>

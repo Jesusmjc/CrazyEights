@@ -9,9 +9,8 @@
         Title="VentanaConfirmación" Height="230" Width="400">
     <Grid>
         <Image Margin="0,-8,0,-8" Source="/paginas/FondoVentanaEmergente.png" Stretch="Fill"/>
-        <Button x:Name="btnAceptar" Content="{x:Static p:Resources.btnAceptar}" HorizontalAlignment="Left" Height="22" Margin="320,146,0,0" VerticalAlignment="Top" Width="57" Click="CerrarVentana" FontSize="10"/>
-        <TextBlock x:Name="tbRegistroExitoso" HorizontalAlignment="Center" Height="70" TextWrapping="Wrap" Text="{x:Static p:Resources.tbRegistroExitoso}" VerticalAlignment="Center" Width="296" FontSize="10"/>
-        <Label x:Name="lbTituloRegistro" Content="{x:Static p:Resources.lbTituloRegistro}" HorizontalAlignment="Center" Height="27" Margin="0,10,0,0" VerticalAlignment="Top" Width="135" FontWeight="Bold"/>
-
+        <Button x:Name="btnAceptar" Content="{x:Static p:Resources.btnAceptar}" HorizontalAlignment="Left" Height="22" Margin="320,160,0,0" VerticalAlignment="Top" Width="57" Click="CerrarVentana" FontSize="10"/>
+        <TextBlock x:Name="tbDetallesOperacionExitosa" HorizontalAlignment="Center" Height="70" TextWrapping="Wrap" Text="{x:Static p:Resources.tbRegistroExitoso}" VerticalAlignment="Center" Width="296" FontSize="10"/>
+        <Label x:Name="lbNombreOperacionExitosa" Content="{x:Static p:Resources.lbTituloRegistro}" HorizontalAlignment="Center" Height="27" Margin="0,10,0,0" VerticalAlignment="Top" Width="135" FontWeight="Bold"/>
     </Grid>
 </Window>

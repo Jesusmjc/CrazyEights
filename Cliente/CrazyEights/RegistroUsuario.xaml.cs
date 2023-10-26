@@ -27,38 +27,30 @@ namespace CrazyEights
         }
 
         private void GuardarInformaciónUsuario(object sender, RoutedEventArgs e)
-        {
-            if (tbxNombreUsuario.Text != "" && tbxCorreoElectronico.Text != "" && pwbContrasena.Password != "")
+        {  
+            if (ValidarCampos())
             {
-                lblAdvertenciaCamposVacios.Visibility = Visibility.Hidden;
+                ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient(); 
 
-                bool esNombreUsuarioValido = false;
-                bool esContrasenaValida = false;
-                bool esCorreoElectronicoValido = false;
+                Usuario usuario = new Usuario();
+                usuario.Contrasena = Encriptacion.GetSHA256(pwbContrasena.Password);
+                usuario.CorreoElectronico = tbxCorreoElectronico.Text;
 
-                esNombreUsuarioValido = ValidarNombreUsuario();
-                esContrasenaValida = ValidarContrasena();
-                esCorreoElectronicoValido = ValidarCorreoElectronico();
+                Jugador jugador = new Jugador();
+                jugador.NombreUsuario = tbxNombreUsuario.Text;
 
-                if (esNombreUsuarioValido && esContrasenaValida && esCorreoElectronicoValido)
+                int cambiosGuardados = 0;
+                cambiosGuardados = cliente.GuardarJugador(usuario, jugador);
+                if (cambiosGuardados > 0)
                 {
-                    ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
-                    
-                    int cambiosGuardados = 0;
-
-                    Usuario usuario = new Usuario();
-                    usuario.Contrasena = Encriptacion.GetSHA256(pwbContrasena.Password);
-                    usuario.CorreoElectronico = tbxCorreoElectronico.Text;
-
-                    Jugador jugador = new Jugador();
-                    jugador.NombreUsuario = tbxNombreUsuario.Text;
-
-                    cambiosGuardados = cliente.GuardarJugador(usuario, jugador);
+                    VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación("Registro Exitoso", "Se ha creado la nueva cuenta correctamente.");
+                    ventanaConfirmacion.Show();
                 }
-            }
-            else
-            {
-                lblAdvertenciaCamposVacios.Visibility = Visibility.Visible;
+                else
+                {
+                    VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Ocurrió un error al crear la cuenta, posiblemente debido a un error con la conexión.");
+                    ventanaAdvertencia.Show();
+                }
             }
         }
 
@@ -75,52 +67,55 @@ namespace CrazyEights
 
         }
 
-        private bool ValidarNombreUsuario()
+        private bool ValidarCampos()
         {
+            lbAdvertenciaCamposVacios.Visibility = Visibility.Hidden;
+
             bool esNombreUsuarioValido = false;
-            if (tbxNombreUsuario.Text.Length >= 6)
-            {
-                esNombreUsuarioValido = true;
-                lblAdvertenciaNombreUsuarioInvalido.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                lblAdvertenciaNombreUsuarioInvalido.Visibility = Visibility.Visible;
-            }
-
-            return esNombreUsuarioValido;
-        }
-
-        private bool ValidarContrasena()
-        {
             bool esContrasenaValida = false;
-            if (Regex.IsMatch(pwbContrasena.Password, "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&#.$($)\\-_])[A-Za-z\\d$@$!%*?&#.$($)\\-_]{8,16}$"))
+            bool esCorreoElectronicoValido = false;
+
+            if (!string.IsNullOrEmpty(tbxNombreUsuario.Text) && !string.IsNullOrEmpty(tbxCorreoElectronico.Text) && !string.IsNullOrEmpty(pwbContrasena.Password))
             {
-                esContrasenaValida = true;
-                lblAdvertenciaContrasenaInvalida.Visibility = Visibility.Hidden;
+                if (Utilidades.ValidarNombreUsuario(tbxNombreUsuario.Text))
+                {
+                    esNombreUsuarioValido = true;
+                    lbAdvertenciaNombreUsuarioInvalido.Visibility = Visibility.Hidden;
+                } 
+                else
+                {
+                    esNombreUsuarioValido = false;
+                    lbAdvertenciaNombreUsuarioInvalido.Visibility = Visibility.Visible;
+                }
+
+                if (Utilidades.ValidarCorreoElectronico(tbxCorreoElectronico.Text))
+                {
+                    esCorreoElectronicoValido = true;
+                    lbAdvertenciaCorreoInvalido.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    esCorreoElectronicoValido = false;
+                    lbAdvertenciaCorreoInvalido.Visibility = Visibility.Visible;
+                }
+
+                if (Utilidades.ValidarContrasena(pwbContrasena.Password))
+                {
+                    esContrasenaValida = true;
+                    lbAdvertenciaContrasenaInvalida.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    esContrasenaValida = false;
+                    lbAdvertenciaContrasenaInvalida.Visibility = Visibility.Visible;
+                }
             }
             else
             {
-                lblAdvertenciaContrasenaInvalida.Visibility = Visibility.Visible;
+                lbAdvertenciaCamposVacios.Visibility = Visibility.Visible;
             }
 
-            return esContrasenaValida;
-        }
-
-        private bool ValidarCorreoElectronico()
-        {
-            bool esCorreoValido = false;
-            if (Regex.IsMatch(tbxCorreoElectronico.Text, "^[a-zA-Z0-9\\-_]{5,20}@(gmail|outlook|hotmail)\\.com$"))
-            {
-                esCorreoValido = true;
-                lblAdvertenciaCorreoInvalido.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                lblAdvertenciaCorreoInvalido.Visibility = Visibility.Visible;
-            }
-
-            return esCorreoValido;
+            return esNombreUsuarioValido&& esCorreoElectronicoValido && esContrasenaValida;
         }
     }
 }

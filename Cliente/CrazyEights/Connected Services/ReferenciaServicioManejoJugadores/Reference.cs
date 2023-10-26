@@ -224,6 +224,12 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/GuardarJugador", ReplyAction="http://tempuri.org/IServicioManejoJugadores/GuardarJugadorResponse")]
         System.Threading.Tasks.Task<int> GuardarJugadorAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario, CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/validarInicioSesion", ReplyAction="http://tempuri.org/IServicioManejoJugadores/validarInicioSesionResponse")]
+        bool validarInicioSesion(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/validarInicioSesion", ReplyAction="http://tempuri.org/IServicioManejoJugadores/validarInicioSesionResponse")]
+        System.Threading.Tasks.Task<bool> validarInicioSesionAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -259,6 +265,14 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         public System.Threading.Tasks.Task<int> GuardarJugadorAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario, CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador) {
             return base.Channel.GuardarJugadorAsync(usuario, jugador);
+        }
+        
+        public bool validarInicioSesion(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
+            return base.Channel.validarInicioSesion(usuario);
+        }
+        
+        public System.Threading.Tasks.Task<bool> validarInicioSesionAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
+            return base.Channel.validarInicioSesionAsync(usuario);
         }
     }
 }
