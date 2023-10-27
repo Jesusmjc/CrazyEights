@@ -32,15 +32,15 @@ namespace CrazyEights
             {
                 ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
 
-                if (!cliente.ValidarClienteExiste())
+                Usuario usuario = new Usuario();
+                usuario.Contrasena = Encriptacion.GetSHA256(pwbContrasena.Password);
+                usuario.CorreoElectronico = tbxCorreoElectronico.Text;
+
+                Jugador jugador = new Jugador();
+                jugador.NombreUsuario = tbxNombreUsuario.Text;
+
+                if (!cliente.ValidarNombreUsuarioRegistrado(jugador) && !cliente.ValidarCorreoElectronicoRegistrado(usuario))
                 {
-                    Usuario usuario = new Usuario();
-                    usuario.Contrasena = Encriptacion.GetSHA256(pwbContrasena.Password);
-                    usuario.CorreoElectronico = tbxCorreoElectronico.Text;
-
-                    Jugador jugador = new Jugador();
-                    jugador.NombreUsuario = tbxNombreUsuario.Text;
-
                     int cambiosGuardados = 0;
                     cambiosGuardados = cliente.GuardarJugador(usuario, jugador);
                     if (cambiosGuardados > 0)
@@ -56,8 +56,25 @@ namespace CrazyEights
                 }
                 else
                 {
-                    VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Ya existe una cuenta con el mismo Nombre de Usuario o Correo Electrónico.");
-                    ventanaAdvertencia.Show();    
+                    if (cliente.ValidarNombreUsuarioRegistrado(jugador))
+                    {
+                        lbAdvertenciaNombreUsuarioInvalido.Content = "El nombre de usuario ya existe.";
+                        lbAdvertenciaNombreUsuarioInvalido.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        lbAdvertenciaNombreUsuarioInvalido.Visibility = Visibility.Hidden;
+                    }
+
+                    if (cliente.ValidarCorreoElectronicoRegistrado(usuario))
+                    {
+                        lbAdvertenciaCorreoInvalido.Content = "Ya existe un usuario con el correo ingresado.";
+                        lbAdvertenciaCorreoInvalido.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        lbAdvertenciaCorreoInvalido.Visibility = Visibility.Hidden;
+                    }
                 }
             }
         }
@@ -123,7 +140,7 @@ namespace CrazyEights
                 lbAdvertenciaCamposVacios.Visibility = Visibility.Visible;
             }
 
-            return esNombreUsuarioValido&& esCorreoElectronicoValido && esContrasenaValida;
+            return esNombreUsuarioValido && esCorreoElectronicoValido && esContrasenaValida;
         }
     }
 }

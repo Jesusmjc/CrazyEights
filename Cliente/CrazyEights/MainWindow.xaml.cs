@@ -39,7 +39,7 @@ namespace CrazyEights
                 usuarioAValidar.Contrasena = Encriptacion.GetSHA256(pwbContrasena.Password);
 
                 bool esInicioSesionValido = false;
-                esInicioSesionValido = cliente.validarInicioSesion(usuarioAValidar);
+                esInicioSesionValido = cliente.ValidarInicioSesion(usuarioAValidar);
 
                 if (esInicioSesionValido)
                 {

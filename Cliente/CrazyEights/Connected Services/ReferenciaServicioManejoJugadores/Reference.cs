@@ -225,11 +225,35 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/GuardarJugador", ReplyAction="http://tempuri.org/IServicioManejoJugadores/GuardarJugadorResponse")]
         System.Threading.Tasks.Task<int> GuardarJugadorAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario, CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/validarInicioSesion", ReplyAction="http://tempuri.org/IServicioManejoJugadores/validarInicioSesionResponse")]
-        bool validarInicioSesion(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesion", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesionResponse")]
+        bool ValidarInicioSesion(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/validarInicioSesion", ReplyAction="http://tempuri.org/IServicioManejoJugadores/validarInicioSesionResponse")]
-        System.Threading.Tasks.Task<bool> validarInicioSesionAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesion", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesionResponse")]
+        System.Threading.Tasks.Task<bool> ValidarInicioSesionAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistrado", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistradoRespons" +
+            "e")]
+        bool ValidarNombreUsuarioRegistrado(CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistrado", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistradoRespons" +
+            "e")]
+        System.Threading.Tasks.Task<bool> ValidarNombreUsuarioRegistradoAsync(CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistrado", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistradoRes" +
+            "ponse")]
+        bool ValidarCorreoElectronicoRegistrado(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistrado", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistradoRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<bool> ValidarCorreoElectronicoRegistradoAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuarioRespons" +
+            "e")]
+        string EnviarCodigoAlCorreoDelUsuario(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuarioRespons" +
+            "e")]
+        System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -267,12 +291,36 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
             return base.Channel.GuardarJugadorAsync(usuario, jugador);
         }
         
-        public bool validarInicioSesion(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
-            return base.Channel.validarInicioSesion(usuario);
+        public bool ValidarInicioSesion(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
+            return base.Channel.ValidarInicioSesion(usuario);
         }
         
-        public System.Threading.Tasks.Task<bool> validarInicioSesionAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
-            return base.Channel.validarInicioSesionAsync(usuario);
+        public System.Threading.Tasks.Task<bool> ValidarInicioSesionAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
+            return base.Channel.ValidarInicioSesionAsync(usuario);
+        }
+        
+        public bool ValidarNombreUsuarioRegistrado(CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador) {
+            return base.Channel.ValidarNombreUsuarioRegistrado(jugador);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarNombreUsuarioRegistradoAsync(CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador) {
+            return base.Channel.ValidarNombreUsuarioRegistradoAsync(jugador);
+        }
+        
+        public bool ValidarCorreoElectronicoRegistrado(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
+            return base.Channel.ValidarCorreoElectronicoRegistrado(usuario);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarCorreoElectronicoRegistradoAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
+            return base.Channel.ValidarCorreoElectronicoRegistradoAsync(usuario);
+        }
+        
+        public string EnviarCodigoAlCorreoDelUsuario(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
+            return base.Channel.EnviarCodigoAlCorreoDelUsuario(usuario);
+        }
+        
+        public System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
+            return base.Channel.EnviarCodigoAlCorreoDelUsuarioAsync(usuario);
         }
     }
 }

@@ -9,7 +9,7 @@ CREATE TABLE Jugadores (
 	PRIMARY KEY(IDJugador)
 )
 
-CREATE TABLE Usuarios(
+CREATE TABLE Usuarios (
 	IDUsuario INT IDENTITY(1,1) NOT NULL,
 	contraseña NVARCHAR(64) NOT NULL,
 	correoElectrónico NVARCHAR(40) NOT NULL,

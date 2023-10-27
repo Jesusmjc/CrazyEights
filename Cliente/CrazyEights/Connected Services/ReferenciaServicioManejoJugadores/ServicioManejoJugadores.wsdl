@@ -42,20 +42,50 @@
   <wsdl:message name="IServicioManejoJugadores_GuardarJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:GuardarJugadorResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioManejoJugadores_validarInicioSesion_InputMessage">
-    <wsdl:part name="parameters" element="tns:validarInicioSesion" />
+  <wsdl:message name="IServicioManejoJugadores_ValidarInicioSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarInicioSesion" />
   </wsdl:message>
-  <wsdl:message name="IServicioManejoJugadores_validarInicioSesion_OutputMessage">
-    <wsdl:part name="parameters" element="tns:validarInicioSesionResponse" />
+  <wsdl:message name="IServicioManejoJugadores_ValidarInicioSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarInicioSesionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ValidarNombreUsuarioRegistrado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarNombreUsuarioRegistrado" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ValidarNombreUsuarioRegistrado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarNombreUsuarioRegistradoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ValidarCorreoElectronicoRegistrado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCorreoElectronicoRegistrado" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ValidarCorreoElectronicoRegistrado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCorreoElectronicoRegistradoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_EnviarCodigoAlCorreoDelUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarCodigoAlCorreoDelUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_EnviarCodigoAlCorreoDelUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarCodigoAlCorreoDelUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioManejoJugadores">
     <wsdl:operation name="GuardarJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/GuardarJugador" message="tns:IServicioManejoJugadores_GuardarJugador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/GuardarJugadorResponse" message="tns:IServicioManejoJugadores_GuardarJugador_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="validarInicioSesion">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/validarInicioSesion" message="tns:IServicioManejoJugadores_validarInicioSesion_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/validarInicioSesionResponse" message="tns:IServicioManejoJugadores_validarInicioSesion_OutputMessage" />
+    <wsdl:operation name="ValidarInicioSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesion" message="tns:IServicioManejoJugadores_ValidarInicioSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesionResponse" message="tns:IServicioManejoJugadores_ValidarInicioSesion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarNombreUsuarioRegistrado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistrado" message="tns:IServicioManejoJugadores_ValidarNombreUsuarioRegistrado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistradoResponse" message="tns:IServicioManejoJugadores_ValidarNombreUsuarioRegistrado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCorreoElectronicoRegistrado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistrado" message="tns:IServicioManejoJugadores_ValidarCorreoElectronicoRegistrado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistradoResponse" message="tns:IServicioManejoJugadores_ValidarCorreoElectronicoRegistrado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCodigoAlCorreoDelUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuario" message="tns:IServicioManejoJugadores_EnviarCodigoAlCorreoDelUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuarioResponse" message="tns:IServicioManejoJugadores_EnviarCodigoAlCorreoDelUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioManejoJugadores" type="tns:IServicioManejoJugadores">
@@ -70,8 +100,35 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="validarInicioSesion">
-      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/validarInicioSesion" style="document" />
+    <wsdl:operation name="ValidarInicioSesion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarNombreUsuarioRegistrado">
+      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistrado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCorreoElectronicoRegistrado">
+      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistrado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCodigoAlCorreoDelUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuario" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

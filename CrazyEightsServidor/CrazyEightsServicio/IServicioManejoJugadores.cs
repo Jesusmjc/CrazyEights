@@ -21,6 +21,9 @@ namespace CrazyEightsServicio
 
         [OperationContract]
         bool ValidarCorreoElectronicoRegistrado(Usuario usuario);
+
+        [OperationContract]
+        string EnviarCodigoAlCorreoDelUsuario(Usuario usuario);
     }
 
     [DataContract]
