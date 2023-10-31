@@ -20,10 +20,14 @@ namespace CrazyEights
     /// </summary>
     public partial class VentanaCódigoVerificación : Window
     {
-        private Usuario usuario;
-        public VentanaCódigoVerificación()
+        private string correoElectronicoUsuario;
+        private string codigoVerificacionActual;
+
+        public VentanaCódigoVerificación(string correoElectronicoUsuario, string codigoVerificacion)
         {
             InitializeComponent();
+            this.correoElectronicoUsuario = correoElectronicoUsuario;
+            this.codigoVerificacionActual = codigoVerificacion;
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
@@ -31,7 +35,18 @@ namespace CrazyEights
         {
             ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
 
-            cliente.EnviarCodigoAlCorreoDelUsuario(Usuario usuario);
+            this.codigoVerificacionActual = cliente.EnviarCodigoAlCorreoDelUsuario(correoElectronicoUsuario);
+        }
+
+        private void CompararCodigoVerificacion(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tbxCodigo.Text))
+            {
+                if (tbxCodigo.Text == codigoVerificacionActual)
+                {
+                    Console.WriteLine("Se he verificado el correo electrónico del usuario");
+                }
+            }
         }
     }
 }

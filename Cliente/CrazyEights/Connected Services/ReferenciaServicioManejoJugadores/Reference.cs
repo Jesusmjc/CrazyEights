@@ -249,11 +249,11 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuarioRespons" +
             "e")]
-        string EnviarCodigoAlCorreoDelUsuario(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
+        string EnviarCodigoAlCorreoDelUsuario(string correoElectronico);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuarioRespons" +
             "e")]
-        System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario);
+        System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(string correoElectronico);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -315,12 +315,12 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
             return base.Channel.ValidarCorreoElectronicoRegistradoAsync(usuario);
         }
         
-        public string EnviarCodigoAlCorreoDelUsuario(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
-            return base.Channel.EnviarCodigoAlCorreoDelUsuario(usuario);
+        public string EnviarCodigoAlCorreoDelUsuario(string correoElectronico) {
+            return base.Channel.EnviarCodigoAlCorreoDelUsuario(correoElectronico);
         }
         
-        public System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario) {
-            return base.Channel.EnviarCodigoAlCorreoDelUsuarioAsync(usuario);
+        public System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(string correoElectronico) {
+            return base.Channel.EnviarCodigoAlCorreoDelUsuarioAsync(correoElectronico);
         }
     }
 }

@@ -89,15 +89,16 @@ namespace CrazyEightsServicio
             return existeUsuario;
         }
 
-        public string EnviarCodigoAlCorreoDelUsuario(Usuario usuario)
+        public string EnviarCodigoAlCorreoDelUsuario(string correoElectronico)
         {
             Random random = new Random();
             string codigoGenerado = random.Next(100000, 999999).ToString("D6");
 
-            var smtpCliente = new SmtpClient("smtp-relay.gmail.com")
+            var smtpCliente = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("crazyeights63@gmail.com", "contr4senaS3gura"),
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential("crazyeights63@gmail.com", "yegj ejiq lxlu fvbv"),
                 EnableSsl = true,
             };
 
@@ -106,9 +107,10 @@ namespace CrazyEightsServicio
                 From = new MailAddress("crazyeights63@gmail.com"),
                 Subject = "Código de Verificación Crazy Eights",
                 Body = "Tu código de verificación es: " + codigoGenerado,
+                Priority = MailPriority.High,
             };
 
-            mensajeCorreo.To.Add(usuario.CorreoElectronico);
+            mensajeCorreo.To.Add(correoElectronico);
             smtpCliente.Send(mensajeCorreo);
 
             return codigoGenerado;

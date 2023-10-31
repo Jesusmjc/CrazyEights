@@ -41,18 +41,23 @@ namespace CrazyEights
 
                 if (!cliente.ValidarNombreUsuarioRegistrado(jugador) && !cliente.ValidarCorreoElectronicoRegistrado(usuario))
                 {
-                    int cambiosGuardados = 0;
-                    cambiosGuardados = cliente.GuardarJugador(usuario, jugador);
-                    if (cambiosGuardados > 0)
-                    {
-                        VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación("Registro Exitoso", "Se ha creado la nueva cuenta correctamente.");
-                        ventanaConfirmacion.Show();
-                    }
-                    else
-                    {
-                        VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Ocurrió un error al crear la cuenta, posiblemente debido a un error con la conexión.");
-                        ventanaAdvertencia.Show();
-                    }
+                    string codigoVerificacion;
+                    codigoVerificacion = cliente.EnviarCodigoAlCorreoDelUsuario(usuario.CorreoElectronico);
+                    VentanaCódigoVerificación ventanaCodigo = new VentanaCódigoVerificación(usuario.CorreoElectronico, codigoVerificacion);
+                    ventanaCodigo.ShowDialog();
+
+                    //int cambiosGuardados;
+                    //cambiosGuardados = cliente.GuardarJugador(usuario, jugador);
+                    //if (cambiosGuardados > 0)
+                    //{
+                    //    VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación("Registro Exitoso", "Se ha creado la nueva cuenta correctamente.");
+                    //    ventanaConfirmacion.Show();
+                    //}
+                    //else
+                    //{
+                    //    VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Ocurrió un error al crear la cuenta, posiblemente debido a un error con la conexión.");
+                    //    ventanaAdvertencia.Show();
+                    //}
                 }
                 else
                 {

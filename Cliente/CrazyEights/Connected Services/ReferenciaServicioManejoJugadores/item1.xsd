@@ -61,7 +61,7 @@
   <xs:element name="EnviarCodigoAlCorreoDelUsuario">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="usuario" nillable="true" type="q6:Usuario" />
+        <xs:element minOccurs="0" name="correoElectronico" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
