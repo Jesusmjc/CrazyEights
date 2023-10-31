@@ -88,6 +88,9 @@
     <Compile Include="VentanaConfirmación.xaml.cs">
       <DependentUpon>VentanaConfirmación.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VentanaCódigoVerificación.xaml.cs">
+      <DependentUpon>VentanaCódigoVerificación.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VentanaConfirmación.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaCódigoVerificación.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

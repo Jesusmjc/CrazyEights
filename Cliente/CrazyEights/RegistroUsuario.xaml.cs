@@ -82,7 +82,6 @@ namespace CrazyEights
         private void NavegarAIniciarSesión(object sender, RoutedEventArgs e)
         {
             MainWindow inicioSesión = new MainWindow();
-            inicioSesión.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             inicioSesión.Show();
             this.Close();
         }

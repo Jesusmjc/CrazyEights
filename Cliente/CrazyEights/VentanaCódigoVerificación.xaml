@@ -1,0 +1,16 @@
+﻿<Window x:Class="CrazyEights.VentanaCódigoVerificación"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CrazyEights"
+        mc:Ignorable="d"
+        Title="VentanaCódigoVerificación" Height="230" Width="400">
+    <Grid>
+        <Image Margin="0,-8,0,-8" Source="/paginas/FondoVentanaEmergente.png" Stretch="Fill"/>
+        <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Height="22" Margin="320,160,0,0" VerticalAlignment="Top" Width="57" FontSize="10"/>
+        <Label x:Name="lbNombreOperacionExitosa" Content="Ingresa el código que enviamos a tu correo" HorizontalAlignment="Center" Height="42" Margin="0,21,0,0" VerticalAlignment="Top" Width="256" FontWeight="Bold"/>
+        <TextBox x:Name="tbxCodigo" HorizontalAlignment="Center" Height="24" TextWrapping="Wrap" Text="6 dígitos" VerticalAlignment="Top" Width="136" TextChanged="TextBox_TextChanged" Margin="0,83,0,0" FontSize="14" Foreground="#FFA5A0A0"/>
+        <Label x:Name="lbGenerarNuevoCodigo" Content="¿No recibiste el código?" HorizontalAlignment="Left" Margin="132,107,0,0" VerticalAlignment="Top" FontSize="8" MouseLeftButtonDown="GenerarNuevoCodigo"/>
+    </Grid>
+</Window>
