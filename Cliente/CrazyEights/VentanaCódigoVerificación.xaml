@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CrazyEights"
         mc:Ignorable="d"
-        Title="VentanaCódigoVerificación" Height="230" Width="400">
+        Title="VentanaCódigoVerificación" Height="230" Width="400" WindowStyle="None">
     <Grid>
         <Image Margin="0,-8,0,-8" Source="/paginas/FondoVentanaEmergente.png" Stretch="Fill"/>
         <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Height="22" Margin="320,160,0,0" VerticalAlignment="Top" Width="57" FontSize="10" Click="CompararCodigoVerificacion"/>
         <Label x:Name="lbNombreOperacionExitosa" Content="Ingresa el código que enviamos a tu correo" HorizontalAlignment="Center" Height="42" Margin="0,21,0,0" VerticalAlignment="Top" Width="256" FontWeight="Bold"/>
-        <TextBox x:Name="tbxCodigo" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="6 dígitos" VerticalAlignment="Top" Width="136" Margin="101,68,0,0" FontSize="14" Foreground="#FFA5A0A0"/>
-        <Label Content="Se ha enviado" HorizontalAlignment="Left" Height="51" Margin="101,97,0,0" VerticalAlignment="Top" Width="208" FontSize="10"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="22" Margin="252,160,0,0" VerticalAlignment="Top" Width="57" FontSize="10"/>
-        <Button x:Name="btnAceptar_Copy" Content="Enviar nuevo código" HorizontalAlignment="Left" Height="22" Margin="242,68,0,0" VerticalAlignment="Top" Width="67" FontSize="6" MouseLeftButtonDown="GenerarNuevoCodigo"/>
+        <TextBox x:Name="tbxCodigo" MaxLength="6" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" Margin="101,68,0,0" FontSize="14" Foreground="Black"/>
+        <Label x:Name="lblAdvertenciaCodigoIncorrecto" Content="El código es incorrecto." HorizontalAlignment="Left" Height="51" Margin="98,90,0,0" VerticalAlignment="Top" Width="208" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="22" Margin="252,160,0,0" VerticalAlignment="Top" Width="57" FontSize="10" Click="CerrarVentana"/>
+        <Button x:Name="btnEnviarNuevoCodigo" Content="Enviar nuevo código" HorizontalAlignment="Left" Height="22" Margin="242,68,0,0" VerticalAlignment="Top" Width="67" FontSize="6" MouseLeftButtonDown="EnviarNuevoCodigo" Click="EnviarNuevoCodigo"/>
     </Grid>
 </Window>

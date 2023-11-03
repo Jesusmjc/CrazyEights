@@ -44,20 +44,9 @@ namespace CrazyEights
                     string codigoVerificacion;
                     codigoVerificacion = cliente.EnviarCodigoAlCorreoDelUsuario(usuario.CorreoElectronico);
                     VentanaCódigoVerificación ventanaCodigo = new VentanaCódigoVerificación(usuario.CorreoElectronico, codigoVerificacion);
+                    ventanaCodigo.EventoRegresarVerificacionCorreo += VentanaCódigoVerificación_EventoRegresarVerificacionCorreo;
                     ventanaCodigo.ShowDialog();
-
-                    //int cambiosGuardados;
-                    //cambiosGuardados = cliente.GuardarJugador(usuario, jugador);
-                    //if (cambiosGuardados > 0)
-                    //{
-                    //    VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación("Registro Exitoso", "Se ha creado la nueva cuenta correctamente.");
-                    //    ventanaConfirmacion.Show();
-                    //}
-                    //else
-                    //{
-                    //    VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Ocurrió un error al crear la cuenta, posiblemente debido a un error con la conexión.");
-                    //    ventanaAdvertencia.Show();
-                    //}
+   
                 }
                 else
                 {
@@ -87,8 +76,8 @@ namespace CrazyEights
         private void NavegarAIniciarSesión(object sender, RoutedEventArgs e)
         {
             MainWindow inicioSesión = new MainWindow();
-            inicioSesión.Show();
             this.Close();
+            inicioSesión.ShowDialog();
         }
 
         private void EntrarComoInvitado(object sender, RoutedEventArgs e)
@@ -145,6 +134,39 @@ namespace CrazyEights
             }
 
             return esNombreUsuarioValido && esCorreoElectronicoValido && esContrasenaValida;
+        }
+
+        private void VentanaCódigoVerificación_EventoRegresarVerificacionCorreo(object sender, bool esCorreoVerificado)
+        {
+            if (esCorreoVerificado) 
+            {
+                ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
+
+                Usuario usuario = new Usuario();
+                usuario.Contrasena = Encriptacion.GetSHA256(pwbContrasena.Password);
+                usuario.CorreoElectronico = tbxCorreoElectronico.Text;
+
+                Jugador jugador = new Jugador();
+                jugador.NombreUsuario = tbxNombreUsuario.Text;
+
+                int cambiosGuardados;
+                cambiosGuardados = cliente.GuardarJugador(usuario, jugador);
+                if (cambiosGuardados > 0)
+                {
+                    VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación("Registro Exitoso", "Se ha creado la nueva cuenta correctamente.");
+                    ventanaConfirmacion.ShowDialog();
+                }
+                else
+                {
+                    VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Ocurrió un error al crear la cuenta, posiblemente debido a un error con la conexión.");
+                    ventanaAdvertencia.ShowDialog();
+                }
+            }
+            else
+            {
+                VentanaAdvertencia ventanAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Por favor verifique su correo electrónico ingresando el código que enviamos.");
+                ventanAdvertencia.ShowDialog();
+            }
         }
     }
 }

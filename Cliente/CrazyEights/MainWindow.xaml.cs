@@ -44,12 +44,12 @@ namespace CrazyEights
                 if (esInicioSesionValido)
                 {
                     VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación("Inicio de Sesión exitoso", "Se encontró una cuenta que coincide con las credenciales dadas.");
-                    ventanaConfirmacion.Show();
+                    ventanaConfirmacion.ShowDialog();
                 }
                 else
                 {
                     VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible iniciar sesión", "Las credenciales ingresadas no coinciden con ninguna cuenta.");
-                    ventanaAdvertencia.Show();
+                    ventanaAdvertencia.ShowDialog();
                 }
             }
         }
@@ -63,8 +63,8 @@ namespace CrazyEights
         {
             RegistroUsuario registroUsuario = new RegistroUsuario();
             registroUsuario.WindowStartupLocation= WindowStartupLocation.CenterScreen;
-            registroUsuario.Show();
             this.Close();
+            registroUsuario.ShowDialog();
         }
 
         private bool ValidarCampos()

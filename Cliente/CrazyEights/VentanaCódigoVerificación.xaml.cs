@@ -23,6 +23,8 @@ namespace CrazyEights
         private string correoElectronicoUsuario;
         private string codigoVerificacionActual;
 
+        public event EventHandler<bool> EventoRegresarVerificacionCorreo;
+
         public VentanaCódigoVerificación(string correoElectronicoUsuario, string codigoVerificacion)
         {
             InitializeComponent();
@@ -31,22 +33,35 @@ namespace CrazyEights
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void GenerarNuevoCodigo(object sender, MouseButtonEventArgs e)
-        {
-            ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
-
-            this.codigoVerificacionActual = cliente.EnviarCodigoAlCorreoDelUsuario(correoElectronicoUsuario);
-        }
-
         private void CompararCodigoVerificacion(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(tbxCodigo.Text))
             {
+                lblAdvertenciaCodigoIncorrecto.Visibility = Visibility.Hidden;
+
                 if (tbxCodigo.Text == codigoVerificacionActual)
                 {
-                    Console.WriteLine("Se he verificado el correo electrónico del usuario");
+                    EventoRegresarVerificacionCorreo(this, true);
+                    this.Close();
+                }
+                else
+                {
+                    lblAdvertenciaCodigoIncorrecto.Visibility = Visibility.Visible;
                 }
             }
+        }
+
+        private void CerrarVentana(object sender, RoutedEventArgs e)
+        {
+            EventoRegresarVerificacionCorreo(this, false);
+            this.Close();
+        }
+
+        private void EnviarNuevoCodigo(object sender, RoutedEventArgs e)
+        {
+            ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
+
+            codigoVerificacionActual = cliente.EnviarCodigoAlCorreoDelUsuario(correoElectronicoUsuario);
         }
     }
 }
