@@ -11,8 +11,8 @@
         <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Height="22" Margin="320,160,0,0" VerticalAlignment="Top" Width="57" FontSize="10" Click="CompararCodigoVerificacion"/>
         <Label x:Name="lbTitulo" Content="Ingresa el código que enviamos a tu correo" HorizontalAlignment="Center" Height="42" Margin="0,21,0,0" VerticalAlignment="Top" Width="256" FontWeight="Bold"/>
         <TextBox x:Name="tbxCodigo" MaxLength="6" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Margin="130,92,0,0" FontSize="14" Foreground="Black" PreviewTextInput="ValidarSoloCaracteresNumericos"/>
-        <Label x:Name="lbAdvertenciaCodigoIncorrecto" Content="El código es incorrecto." HorizontalAlignment="Left" Height="51" Margin="98,90,0,0" VerticalAlignment="Top" Width="208" FontSize="8" Foreground="Red" Visibility="Hidden"/>
-        <Label x:Name="lbNuevoCodigoEnviado" Content="Se ha enviado el nuevo código a tu correo." HorizontalAlignment="Left" Height="51" Margin="98,90,0,0" VerticalAlignment="Top" Width="208" FontSize="8" Visibility="Hidden"/>
+        <Label x:Name="lbAdvertenciaCodigoIncorrecto" Content="El código es incorrecto." HorizontalAlignment="Left" Height="51" Margin="98,116,0,0" VerticalAlignment="Top" Width="208" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lbNuevoCodigoEnviado" Content="Se ha enviado el nuevo código a tu correo." HorizontalAlignment="Left" Height="51" Margin="98,116,0,0" VerticalAlignment="Top" Width="208" FontSize="8" Visibility="Hidden"/>
         <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="22" Margin="252,160,0,0" VerticalAlignment="Top" Width="57" FontSize="10" Click="CerrarVentana"/>
         <Button x:Name="btnEnviarNuevoCodigo" Content="Enviar nuevo código" HorizontalAlignment="Left" Height="22" Margin="202,93,0,0" VerticalAlignment="Top" Width="66" FontSize="6" MouseLeftButtonDown="EnviarNuevoCodigo" Click="EnviarNuevoCodigo"/>
     </Grid>
