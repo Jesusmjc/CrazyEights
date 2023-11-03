@@ -23,3 +23,6 @@ REFERENCES Usuarios(IDUsuario) ON DELETE CASCADE ON UPDATE CASCADE
 
 SELECT * FROM Jugadores;
 SELECT * FROM Usuarios;
+
+--DELETE FROM Jugadores;
+--DELETE FROM Usuarios;

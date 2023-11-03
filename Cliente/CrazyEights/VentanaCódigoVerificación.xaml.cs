@@ -37,7 +37,8 @@ namespace CrazyEights
         {
             if (!string.IsNullOrEmpty(tbxCodigo.Text))
             {
-                lblAdvertenciaCodigoIncorrecto.Visibility = Visibility.Hidden;
+                lbAdvertenciaCodigoIncorrecto.Visibility = Visibility.Hidden;
+                lbNuevoCodigoEnviado.Visibility = Visibility.Hidden;
 
                 if (tbxCodigo.Text == codigoVerificacionActual)
                 {
@@ -46,7 +47,7 @@ namespace CrazyEights
                 }
                 else
                 {
-                    lblAdvertenciaCodigoIncorrecto.Visibility = Visibility.Visible;
+                    lbAdvertenciaCodigoIncorrecto.Visibility = Visibility.Visible;
                 }
             }
         }
@@ -62,6 +63,14 @@ namespace CrazyEights
             ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
 
             codigoVerificacionActual = cliente.EnviarCodigoAlCorreoDelUsuario(correoElectronicoUsuario);
+            lbAdvertenciaCodigoIncorrecto.Visibility = Visibility.Hidden;
+            lbNuevoCodigoEnviado.Visibility = Visibility.Visible;
+        }
+
+        private void ValidarSoloCaracteresNumericos(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !int.TryParse(e.Text, out _);
         }
     }
+
 }
