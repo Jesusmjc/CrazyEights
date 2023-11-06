@@ -46,7 +46,6 @@ namespace CrazyEights
                     VentanaCódigoVerificación ventanaCodigo = new VentanaCódigoVerificación(usuario.CorreoElectronico, codigoVerificacion);
                     ventanaCodigo.EventoRegresarVerificacionCorreo += VentanaCódigoVerificación_EventoRegresarVerificacionCorreo;
                     ventanaCodigo.ShowDialog();
-   
                 }
                 else
                 {
@@ -161,6 +160,9 @@ namespace CrazyEights
                     VentanaAdvertencia ventanaAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Ocurrió un error al crear la cuenta, posiblemente debido a un error con la conexión.");
                     ventanaAdvertencia.ShowDialog();
                 }
+
+                MainWindow ventanaInicioSesion = new MainWindow();
+                ventanaInicioSesion.ShowDialog();
             }
             else
             {
