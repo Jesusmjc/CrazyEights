@@ -42,8 +42,8 @@ namespace CrazyEights
 
                 if (tbxCodigo.Text == codigoVerificacionActual)
                 {
-                    EventoRegresarVerificacionCorreo(this, true);
                     this.Close();
+                    EventoRegresarVerificacionCorreo(this, true);
                 }
                 else
                 {
@@ -54,8 +54,8 @@ namespace CrazyEights
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
         {
-            EventoRegresarVerificacionCorreo(this, false);
             this.Close();
+            EventoRegresarVerificacionCorreo(this, false);
         }
 
         private void EnviarNuevoCodigo(object sender, RoutedEventArgs e)

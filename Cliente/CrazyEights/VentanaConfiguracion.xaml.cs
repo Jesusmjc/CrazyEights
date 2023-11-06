@@ -23,6 +23,7 @@ namespace CrazyEights
         public VentanaConfiguracion()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void btnIdiomaEspañol(object sender, MouseButtonEventArgs e)

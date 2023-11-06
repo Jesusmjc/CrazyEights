@@ -22,6 +22,7 @@ namespace CrazyEights
         public VentanaMenuPrincipal()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
     }
 }

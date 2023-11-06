@@ -43,8 +43,9 @@ namespace CrazyEights
 
                 if (esInicioSesionValido)
                 {
-                    VentanaConfirmación ventanaConfirmacion = new VentanaConfirmación("Inicio de Sesión exitoso", "Se encontró una cuenta que coincide con las credenciales dadas.");
-                    ventanaConfirmacion.ShowDialog();
+                    VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
+                    this.Close();
+                    ventanaMenuPrincipal.ShowDialog();
                 }
                 else
                 {

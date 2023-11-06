@@ -162,6 +162,7 @@ namespace CrazyEights
                 }
 
                 MainWindow ventanaInicioSesion = new MainWindow();
+                this.Close();
                 ventanaInicioSesion.ShowDialog();
             }
             else

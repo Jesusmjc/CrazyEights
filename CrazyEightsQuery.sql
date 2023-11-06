@@ -1,3 +1,4 @@
+--CREATE DATABASE CrazyEights;
 --USE CrazyEights;
 
 CREATE TABLE Jugadores (
