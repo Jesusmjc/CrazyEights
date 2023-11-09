@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +25,7 @@ namespace CrazyEights
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            MostrarComoJugadorEnLinea();
         }
 
         private void NavegarAListaAmigos(object sender, MouseButtonEventArgs e)
@@ -31,6 +33,14 @@ namespace CrazyEights
             VentanaAmigos ventanaAmigos = new VentanaAmigos();
             this.Close();
             ventanaAmigos.ShowDialog();
+        }
+
+        //No muestra los nuevos métodos de callback en el contrato del servicio
+        private void MostrarComoJugadorEnLinea()
+        {
+            InstanceContext contexto = new InstanceContext(this);
+            ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient(contexto.ToString());
+            //cliente.
         }
     }
 }

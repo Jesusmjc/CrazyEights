@@ -26,6 +26,29 @@ namespace CrazyEightsServicio
         string EnviarCodigoAlCorreoDelUsuario(string correoElectronico);
     }
 
+    [ServiceContract(CallbackContract = typeof(IManejadorJugadoresCallback))]
+    public interface IManejadorJugadoresEnLinea
+    {
+        [OperationContract(IsOneWay = true)]
+        void NotificarNuevaConexionAJugadoresEnLinea(string nombreJugador);
+
+        [OperationContract(IsOneWay = true)]
+        void NotificarDesconexionAJugadoresEnLinea(string nombreJugador);
+    }
+
+    [ServiceContract]
+    public interface IManejadorJugadoresCallback
+    {
+        [OperationContract]
+        void NotificarLogInJugador(string username);
+
+        [OperationContract]
+        void NotificarLogOutJugador(string username);
+
+        [OperationContract]
+        void NotificarJugadoresEnLinea(List<string> nombresUsuariosEnLinea);
+    }
+
     [DataContract]
     public class Usuario
     {

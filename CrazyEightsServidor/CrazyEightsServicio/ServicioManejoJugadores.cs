@@ -12,7 +12,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace CrazyEightsServicio
 {
-    public class ServicioManejoJugadores : IServicioManejoJugadores
+    public partial class ServicioManejoJugadores : IServicioManejoJugadores
     {
         public int GuardarJugador(Usuario usuario, Jugador jugador)
         {
@@ -51,7 +51,7 @@ namespace CrazyEightsServicio
                 return esUsuarioValido;
             }
 
-            
+
         }
 
         public bool ValidarNombreUsuarioRegistrado(Jugador jugador)
@@ -67,7 +67,7 @@ namespace CrazyEightsServicio
                 {
                     existeJugador = false;
                 }
-            }   
+            }
 
             return existeJugador;
         }
@@ -114,6 +114,47 @@ namespace CrazyEightsServicio
             smtpCliente.Send(mensajeCorreo);
 
             return codigoGenerado;
+        }
+    }
+
+    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
+    public partial class ServicioManejoJugadores : IManejadorJugadoresEnLinea
+    {
+        private static Dictionary<string, IManejadorJugadoresCallback> jugadoresEnLinea = new Dictionary<string, IManejadorJugadoresCallback>();
+
+        public void NotificarNuevaConexionAJugadoresEnLinea(string nombreJugador)
+        {
+            if(!jugadoresEnLinea.ContainsKey(nombreJugador))
+            {
+                IManejadorJugadoresCallback canalDeCallbackActualDelJugador = OperationContext.Current.GetCallbackChannel<IManejadorJugadoresCallback>();
+
+                List<string> nombresJugadoresEnLinea = jugadoresEnLinea.Keys.ToList();
+                canalDeCallbackActualDelJugador.NotificarJugadoresEnLinea(nombresJugadoresEnLinea);
+
+                jugadoresEnLinea.Add(nombreJugador, canalDeCallbackActualDelJugador);
+
+                foreach (var jugador in jugadoresEnLinea)
+                {
+                    if (jugador.Key != nombreJugador)
+                    {
+                        jugador.Value.NotificarLogInJugador(nombreJugador);
+                    }
+                }
+
+            }
+        }
+
+        public void NotificarDesconexionAJugadoresEnLinea(string nombreJugador)
+        {
+            if (jugadoresEnLinea.ContainsKey(nombreJugador))
+            {
+                jugadoresEnLinea.Remove(nombreJugador);
+
+                foreach (var jugador in jugadoresEnLinea)
+                {
+                    jugador.Value.NotificarLogOutJugador(nombreJugador);
+                }
+            }
         }
     }
 }

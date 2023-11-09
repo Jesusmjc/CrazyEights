@@ -29,5 +29,7 @@ namespace CrazyEights.Ventanas
             DataContext = this;
             ListaDeJugadoresConectados.Add(new EntradaJugador("Yisus", "ID: 4404", "En partida"));
         }
+
+
     }
 }
