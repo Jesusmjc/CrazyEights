@@ -73,34 +73,48 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Encriptacion.cs" />
-    <Compile Include="IngresarComoInvitado.xaml.cs">
-      <DependentUpon>IngresarComoInvitado.xaml</DependentUpon>
+    <Compile Include="Ventanas\EntradaJugador.xaml.cs">
+      <DependentUpon>EntradaJugador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaAmigos.xaml.cs">
+      <DependentUpon>VentanaAmigos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaIngresarComoInvitado.xaml.cs">
+      <DependentUpon>VentanaIngresarComoInvitado.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.en-US.Designer.cs">
       <DependentUpon>Resources.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="RegistroUsuario.xaml.cs">
-      <DependentUpon>RegistroUsuario.xaml</DependentUpon>
+    <Compile Include="Ventanas\VentanaRegistroUsuario.xaml.cs">
+      <DependentUpon>VentanaRegistroUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilidades.cs" />
-    <Compile Include="VentanaAdvertencia.xaml.cs">
+    <Compile Include="Ventanas\VentanaAdvertencia.xaml.cs">
       <DependentUpon>VentanaAdvertencia.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VentanaConfiguracion.xaml.cs">
+    <Compile Include="Ventanas\VentanaConfiguracion.xaml.cs">
       <DependentUpon>VentanaConfiguracion.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VentanaConfirmación.xaml.cs">
+    <Compile Include="Ventanas\VentanaConfirmación.xaml.cs">
       <DependentUpon>VentanaConfirmación.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VentanaCódigoVerificación.xaml.cs">
+    <Compile Include="Ventanas\VentanaCódigoVerificación.xaml.cs">
       <DependentUpon>VentanaCódigoVerificación.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VentanaMenuPrincipal.xaml.cs">
+    <Compile Include="Ventanas\VentanaMenuPrincipal.xaml.cs">
       <DependentUpon>VentanaMenuPrincipal.xaml</DependentUpon>
     </Compile>
-    <Page Include="IngresarComoInvitado.xaml">
+    <Page Include="Ventanas\EntradaJugador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaAmigos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaIngresarComoInvitado.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -116,27 +130,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RegistroUsuario.xaml">
+    <Page Include="Ventanas\VentanaRegistroUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VentanaAdvertencia.xaml">
+    <Page Include="Ventanas\VentanaAdvertencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VentanaConfiguracion.xaml">
+    <Page Include="Ventanas\VentanaConfiguracion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="VentanaConfirmación.xaml">
+    <Page Include="Ventanas\VentanaConfirmación.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VentanaCódigoVerificación.xaml">
+    <Page Include="Ventanas\VentanaCódigoVerificación.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VentanaMenuPrincipal.xaml">
+    <Page Include="Ventanas\VentanaMenuPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -192,15 +206,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="paginas\Fondo1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="paginas\Line 1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="paginas\FondoVentanaEmergente.png" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +236,33 @@
     <Resource Include="Recursos\mexico.png" />
     <Resource Include="Recursos\R.png" />
     <Resource Include="Recursos\united-states.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Fondo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\FondoVentanaEmergente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Line 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Fondo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\RectanguloSeleccion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\RectanguloSeleccion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\iconoCerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\RectanguloEntradaListaAmigos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

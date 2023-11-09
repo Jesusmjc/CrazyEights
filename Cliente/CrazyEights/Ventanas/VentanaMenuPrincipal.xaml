@@ -8,11 +8,11 @@
         mc:Ignorable="d"
         Title="VentanaMenuPrincipal" Height="450" Width="800">
     <Grid>
-        <Image Source="\paginas\Fondo1.png" Stretch="Fill"/>
+        <Image Source="\Recursos\Fondo1.png" Stretch="Fill"/>
         <Image HorizontalAlignment="Center" Height="425" Margin="0,14,0,0" VerticalAlignment="Top" Width="495" Source="/Recursos/R.png"/>
         <TextBlock x:Name="tbCrazyEights" HorizontalAlignment="Center" Margin="0,41,0,0" TextWrapping="Wrap" Text="{x:Static p:Resources.tbCrazyEights}" VerticalAlignment="Top" FontSize="36" Background="#FF50D4F2"/>
         <Image HorizontalAlignment="Left" Height="74" Margin="20,17,0,0" VerticalAlignment="Top" Width="77" Source="/Recursos/iconoUsuario.png"/>
-        <Image HorizontalAlignment="Left" Height="76" Margin="120,13,0,0" VerticalAlignment="Top" Width="81" Source="/Recursos/iconoAmigos.png"/>
+        <Image x:Name="imgAmigos" HorizontalAlignment="Left" Height="76" Margin="120,13,0,0" VerticalAlignment="Top" Width="81" Source="/Recursos/iconoAmigos.png" MouseLeftButtonDown="NavegarAListaAmigos"/>
         <Image HorizontalAlignment="Left" Height="76" Margin="701,19,0,0" VerticalAlignment="Top" Width="74" Source="/Recursos/iconoMisiones.png"/>
         <Image HorizontalAlignment="Left" Height="67" Margin="23,356,0,0" VerticalAlignment="Top" Width="57" Source="/Recursos/iconoAyuda.png"/>
         <Button x:Name="btnCrearPartida" Content="{x:Static p:Resources.btnCrearPartida}" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Height="52" Width="119" Background="#FF50D4F2"/>

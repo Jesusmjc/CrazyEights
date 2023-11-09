@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Image Source="\paginas\Fondo1.png" Stretch="Fill"/>
+        <Image Source="\Recursos\Fondo1.png" Stretch="Fill"/>
         <TextBlock x:Name="tbCrazyEights" HorizontalAlignment="Center" Height="36" Margin="0,29,0,0" TextWrapping="Wrap" Text="{x:Static p:Resources.tbCrazyEights}" VerticalAlignment="Top" Width="238" FontFamily="Roboto Slab" FontSize="36"/>
         <Image Margin="50,77,50,355" Source="\paginas\Line 1.png" Stretch="Fill" Height="2" Width="700"/>
         <Label x:Name="lbNombreUsuario" Content="{x:Static p:Resources.lbCorreoElectronico}" Height="33" Margin="174,116,400,0" VerticalAlignment="Top" Width="226" FontSize="20" FontFamily="Roboto Slab"/>

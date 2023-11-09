@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="RegistroUsuario" Height="450" Width="800">
     <Grid>
-        <Image Source="\paginas\Fondo1.png" Stretch="Fill"/>
+        <Image Source="\Recursos\Fondo1.png" Stretch="Fill"/>
         <Label x:Name="lbNombreUsuario" Content="{x:Static p:Resources.lbNombreUsuario}" Height="33" Margin="174,116,400,0" VerticalAlignment="Top" Width="226" FontSize="20" FontFamily="Roboto Slab"/>
         <Label x:Name="lbCorreoElectronico" Content="{x:Static p:Resources.lbCorreoElectronico}" HorizontalAlignment="Left" Height="33" Margin="174,166,0,0" VerticalAlignment="Top" Width="226" FontFamily="Roboto Slab" FontSize="20"/>
         <TextBox x:Name="tbxNombreUsuario" HorizontalAlignment="Left" Height="34" Margin="400,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontFamily="Roboto Slab" FontSize="20"/>

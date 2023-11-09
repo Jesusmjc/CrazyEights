@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="VentanaAdvertencia" Height="230" Width="400">
     <Grid>
-        <Image Margin="0,-8,0,-8" Source="/paginas/FondoVentanaEmergente.png" Stretch="Fill"/>
+        <Image Margin="0,-8,0,-8" Source="/Recursos/FondoVentanaEmergente.png" Stretch="Fill"/>
         <Label x:Name="lbNombreAdvertencia" Content="Advertencia" HorizontalAlignment="Center" Height="27" Margin="0,10,0,0" VerticalAlignment="Top" Width="296" FontWeight="Bold"/>
         <TextBlock x:Name="tbDetallesAdvertencia" HorizontalAlignment="Center" Height="106" TextWrapping="Wrap" Text="Algo salió mal." VerticalAlignment="Center" Width="296" FontSize="10"/>
         <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Height="22" Margin="320,160,0,0" VerticalAlignment="Top" Width="57" Click="CerrarVentana" FontSize="10"/>

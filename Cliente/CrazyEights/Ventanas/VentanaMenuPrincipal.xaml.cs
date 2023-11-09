@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrazyEights.Ventanas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace CrazyEights
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        }
+
+        private void NavegarAListaAmigos(object sender, MouseButtonEventArgs e)
+        {
+            VentanaAmigos ventanaAmigos = new VentanaAmigos();
+            this.Close();
+            ventanaAmigos.ShowDialog();
         }
     }
 }

@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace CrazyEights.ReferenciaServicioManejoJugadores {
     using System.Runtime.Serialization;
     using System;
@@ -213,6 +216,26 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+
+        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
+        {
+            if (!Equals(field, newValue))
+            {
+                field = newValue;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                return true;
+            }
+
+            return false;
+        }
+
+        private System.Collections.IEnumerable listaDeJugadores;
+
+        public System.Collections.IEnumerable ListaDeJugadores { get => listaDeJugadores; set => SetProperty(ref listaDeJugadores, value); }
+
+        private System.Collections.IEnumerable listaDeJugadoresConectados;
+
+        public System.Collections.IEnumerable ListaDeJugadoresConectados { get => listaDeJugadoresConectados; set => SetProperty(ref listaDeJugadoresConectados, value); }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

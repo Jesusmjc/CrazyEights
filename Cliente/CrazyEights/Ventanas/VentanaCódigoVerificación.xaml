@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="VentanaCódigoVerificación" Height="230" Width="400" WindowStyle="None">
     <Grid>
-        <Image Margin="0,-8,0,-8" Source="/paginas/FondoVentanaEmergente.png" Stretch="Fill"/>
+        <Image Margin="0,-8,0,-8" Source="/Recursos/FondoVentanaEmergente.png" Stretch="Fill"/>
         <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Height="22" Margin="320,160,0,0" VerticalAlignment="Top" Width="57" FontSize="10" Click="CompararCodigoVerificacion"/>
         <Label x:Name="lbTitulo" Content="Ingresa el código que enviamos a tu correo" HorizontalAlignment="Center" Height="42" Margin="0,21,0,0" VerticalAlignment="Top" Width="256" FontWeight="Bold"/>
         <TextBox x:Name="tbxCodigo" MaxLength="6" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Margin="130,92,0,0" FontSize="14" Foreground="Black" PreviewTextInput="ValidarSoloCaracteresNumericos"/>
