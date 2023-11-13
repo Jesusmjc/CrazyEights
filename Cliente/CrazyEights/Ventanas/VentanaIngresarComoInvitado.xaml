@@ -19,8 +19,8 @@
         <Button x:Name="btnRegistrarse" Content="{x:Static p:Resources.btnRegistrarse}" HorizontalAlignment="Left" Height="32" Margin="410,371,0,0" VerticalAlignment="Top" Width="122" Click="NavegarARegistroUsuario"/>
         <Button x:Name="btnIniciarSesion" Content="{x:Static p:Resources.btnIniciarSesion}" HorizontalAlignment="Left" Height="30" Margin="230,370,0,0" VerticalAlignment="Top" Width="121" Click="NavegarAIniciarSesión" FontFamily="Roboto Slab"/>
         <Button Content="{x:Static p:Resources.btnAccederComoInvitado}" HorizontalAlignment="Left" Margin="317,233,0,0" VerticalAlignment="Top" Height="43" Width="132" FontSize="16"/>
-        <Image HorizontalAlignment="Left" Height="34" Margin="692,22,0,0" VerticalAlignment="Top" Width="34" Source="Recursos\gear.png" MouseLeftButtonDown="btnConfiguracion"/>
-        <Label x:Name="lbConfiguracion" Content="{x:Static p:Resources.lbConfiguracion}" HorizontalAlignment="Left" Margin="682,52,0,0" VerticalAlignment="Top" Width="68"/>
+        <Image HorizontalAlignment="Left" Height="34" Margin="692,22,0,0" VerticalAlignment="Top" Width="34" Source="\Recursos\gear.png" MouseLeftButtonDown="Configuracion"/>
+        <Label x:Name="lbConfiguracion" Content="{x:Static p:Resources.lbConfiguracion}" HorizontalAlignment="Left" Margin="660,56,0,0" VerticalAlignment="Top" Width="98" HorizontalContentAlignment="Center"/>
         <Image Margin="50,77,50,355" Source="\paginas\Line 1.png" Stretch="Fill" Height="2" Width="700"/>
     </Grid>
 </Window>

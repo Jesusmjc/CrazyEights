@@ -81,7 +81,10 @@ namespace CrazyEights
 
         private void EntrarComoInvitado(object sender, RoutedEventArgs e)
         {
-
+            IngresarComoInvitado ingresarInvitado = new IngresarComoInvitado();
+            ingresarInvitado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ingresarInvitado.Show();
+            this.Close();
         }
 
         private bool ValidarCampos()
@@ -170,6 +173,14 @@ namespace CrazyEights
                 VentanaAdvertencia ventanAdvertencia = new VentanaAdvertencia("No fue posible crear la cuenta", "Por favor verifique su correo electrónico ingresando el código que enviamos.");
                 ventanAdvertencia.ShowDialog();
             }
+        }
+
+        private void Configuracion(object sender, MouseButtonEventArgs e)
+        {
+            VentanaConfiguracion configuracion = new VentanaConfiguracion();
+            configuracion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            configuracion.Show();
+            this.Close();
         }
     }
 }

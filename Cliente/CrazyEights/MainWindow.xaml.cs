@@ -97,5 +97,13 @@ namespace CrazyEights
 
             return esCorreoElectronicoValido && esContrasenaValida;
         }
+
+        private void Configuracion(object sender, MouseButtonEventArgs e)
+        {
+            VentanaConfiguracion configuracion = new VentanaConfiguracion();
+            configuracion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            configuracion.Show();
+            this.Close();
+        }
     }
 }
