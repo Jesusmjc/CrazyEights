@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" />
+  <xs:element name="GuardarJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="usuario" nillable="true" type="q1:Usuario" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="jugador" nillable="true" type="q2:Jugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GuardarJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GuardarJugadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarInicioSesion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="usuario" nillable="true" type="q3:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarInicioSesionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarInicioSesionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarNombreUsuarioRegistrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="jugador" nillable="true" type="q4:Jugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarNombreUsuarioRegistradoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarNombreUsuarioRegistradoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarCorreoElectronicoRegistrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="usuario" nillable="true" type="q5:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarCorreoElectronicoRegistradoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarCorreoElectronicoRegistradoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarCodigoAlCorreoDelUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="correoElectronico" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarCodigoAlCorreoDelUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EnviarCodigoAlCorreoDelUsuarioResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

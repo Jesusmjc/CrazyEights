@@ -1,0 +1,15 @@
+﻿<Window x:Class="CrazyEights.VentanaAdvertencia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CrazyEights"
+        mc:Ignorable="d"
+        Title="VentanaAdvertencia" Height="230" Width="400">
+    <Grid>
+        <Image Margin="0,-8,0,-8" Source="/Recursos/FondoVentanaEmergente.png" Stretch="Fill"/>
+        <Label x:Name="lbNombreAdvertencia" Content="Advertencia" HorizontalAlignment="Center" Height="27" Margin="0,10,0,0" VerticalAlignment="Top" Width="296" FontWeight="Bold"/>
+        <TextBlock x:Name="tbDetallesAdvertencia" HorizontalAlignment="Center" Height="106" TextWrapping="Wrap" Text="Algo salió mal." VerticalAlignment="Center" Width="296" FontSize="10"/>
+        <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Height="22" Margin="320,160,0,0" VerticalAlignment="Top" Width="57" Click="CerrarVentana" FontSize="10"/>
+    </Grid>
+</Window>
