@@ -67,12 +67,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Baraja.cs" />
+    <Compile Include="Carta.cs" />
     <Compile Include="Connected Services\ReferenciaServicioManejoJugadores\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Encriptacion.cs" />
+    <Compile Include="LogicaDeJuego.cs" />
     <Compile Include="Ventanas\EntradaJugador.xaml.cs">
       <DependentUpon>EntradaJugador.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,9 @@
       <DependentUpon>Resources.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ventanas\VentanaJuegoDeCartas.xaml.cs">
+      <DependentUpon>VentanaJuegoDeCartas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VentanaRegistroUsuario.xaml.cs">
       <DependentUpon>VentanaRegistroUsuario.xaml</DependentUpon>
@@ -130,6 +136,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Ventanas\VentanaJuegoDeCartas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ventanas\VentanaRegistroUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -263,6 +273,65 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Recursos\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\mesaJuego.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Cartas\10C.png" />
+    <Resource Include="Cartas\10D.png" />
+    <Resource Include="Cartas\10P.png" />
+    <Resource Include="Cartas\10T.png" />
+    <Resource Include="Cartas\2C.png" />
+    <Resource Include="Cartas\2D.png" />
+    <Resource Include="Cartas\2P.png" />
+    <Resource Include="Cartas\2T.png" />
+    <Resource Include="Cartas\3C.png" />
+    <Resource Include="Cartas\3D.png" />
+    <Resource Include="Cartas\3P.png" />
+    <Resource Include="Cartas\3T.png" />
+    <Resource Include="Cartas\4C.png" />
+    <Resource Include="Cartas\4D.png" />
+    <Resource Include="Cartas\4P.png" />
+    <Resource Include="Cartas\4T.png" />
+    <Resource Include="Cartas\5C.png" />
+    <Resource Include="Cartas\5D.png" />
+    <Resource Include="Cartas\5P.png" />
+    <Resource Include="Cartas\5T.png" />
+    <Resource Include="Cartas\6C.png" />
+    <Resource Include="Cartas\6D.png" />
+    <Resource Include="Cartas\6P.png" />
+    <Resource Include="Cartas\6T.png" />
+    <Resource Include="Cartas\7C.png" />
+    <Resource Include="Cartas\7D.png" />
+    <Resource Include="Cartas\7P.png" />
+    <Resource Include="Cartas\7T.png" />
+    <Resource Include="Cartas\8C.png" />
+    <Resource Include="Cartas\8D.png" />
+    <Resource Include="Cartas\8P.png" />
+    <Resource Include="Cartas\8T.png" />
+    <Resource Include="Cartas\9C.png" />
+    <Resource Include="Cartas\9D.png" />
+    <Resource Include="Cartas\9P.png" />
+    <Resource Include="Cartas\9T.png" />
+    <Resource Include="Cartas\AC.png" />
+    <Resource Include="Cartas\AD.png" />
+    <Resource Include="Cartas\AP.png" />
+    <Resource Include="Cartas\AT.png" />
+    <Resource Include="Cartas\AtrasCarta.png" />
+    <Resource Include="Cartas\JC.png" />
+    <Resource Include="Cartas\JD.png" />
+    <Resource Include="Cartas\JP.png" />
+    <Resource Include="Cartas\JT.png" />
+    <Resource Include="Cartas\QC.png" />
+    <Resource Include="Cartas\QD.png" />
+    <Resource Include="Cartas\QP.png" />
+    <Resource Include="Cartas\QT.png" />
+    <Resource Include="Cartas\RC.png" />
+    <Resource Include="Cartas\RD.png" />
+    <Resource Include="Cartas\RP.png" />
+    <Resource Include="Cartas\RT.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

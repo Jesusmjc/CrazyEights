@@ -41,13 +41,12 @@ namespace CrazyEights
             this.Close();
         }
 
-        private void btnConfiguracion(object sender, MouseButtonEventArgs e)
+        private void Configuracion(object sender, MouseButtonEventArgs e)
         {
             VentanaConfiguracion configuracion = new VentanaConfiguracion();
             configuracion.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             configuracion.Show();
             this.Close();
         }
-
     }
 }

@@ -11,7 +11,7 @@
         <Image Source="\Recursos\Fondo1.png" Stretch="Fill"/>
         <Label x:Name="lbTituloConfiguracion" Content="{x:Static p:Resources.lbTituloConfiguracion}" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="lbIdioma" Content="{x:Static p:Resources.lbIdioma}" HorizontalAlignment="Left" Margin="128,103,0,0" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" Height="48" Margin="200,90,0,0" VerticalAlignment="Top" Width="48" Source="Recursos\mexico.png" MouseLeftButtonDown="btnIdiomaEspañol"/>
-        <Image HorizontalAlignment="Left" Height="48" Margin="268,90,0,0" VerticalAlignment="Top" Width="48" Source="Recursos\united-states.png" MouseLeftButtonDown="btnIdiomaInglés"/>
+        <Image HorizontalAlignment="Left" Height="48" Margin="200,90,0,0" VerticalAlignment="Top" Width="48" Source="\Recursos\mexico.png" MouseLeftButtonDown="IdiomaEspañol"/>
+        <Image HorizontalAlignment="Left" Height="48" Margin="268,90,0,0" VerticalAlignment="Top" Width="48" Source="\Recursos\united-states.png" MouseLeftButtonDown="IdiomaInglés"/>
     </Grid>
 </Window>

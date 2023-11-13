@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrazyEights.Properties;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -26,24 +27,30 @@ namespace CrazyEights
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void btnIdiomaEspañol(object sender, MouseButtonEventArgs e)
+        private void IdiomaEspañol(object sender, MouseButtonEventArgs e)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-MX");
-            MainWindow ventanaPrincipal = new MainWindow();
-            ventanaPrincipal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ventanaPrincipal.Show();
-            this.Close();
+            string idiomaEspañol = "es-MX";
+            CambioDeIdioma(idiomaEspañol);
         }
 
-        private void btnIdiomaInglés(object sender, MouseButtonEventArgs e)
+        private void IdiomaInglés(object sender, MouseButtonEventArgs e)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-            MainWindow ventanaPrincipal = new MainWindow();
-            ventanaPrincipal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ventanaPrincipal.Show();
-            this.Close();
+            string idiomaInglés = "en-US";
+            CambioDeIdioma(idiomaInglés);
+            
         }
-
         
+        private void CambioDeIdioma(string idioma)
+        {
+            Settings.Default.Idioma = idioma;
+            Properties.Settings.Default.Save();
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(idioma);
+            MainWindow ventanaPrincipal = new MainWindow();
+            ventanaPrincipal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ventanaPrincipal.Show();
+            this.Close();
+        }
+
+
     }
 }

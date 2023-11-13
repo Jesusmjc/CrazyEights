@@ -9,6 +9,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Image Source="\Recursos\Fondo1.png" Stretch="Fill"/>
+        <Label x:Name="lbConfiguracion" Content="{x:Static p:Resources.lbConfiguracion}" HorizontalAlignment="Left" Margin="660,56,0,0" VerticalAlignment="Top" Width="98" HorizontalContentAlignment="Center"/>
+        <Image HorizontalAlignment="Left" Height="34" Margin="692,22,0,0" VerticalAlignment="Top" Width="34" Source="\Recursos\gear.png" MouseLeftButtonDown="Configuracion"/>
         <TextBlock x:Name="tbCrazyEights" HorizontalAlignment="Center" Height="36" Margin="0,29,0,0" TextWrapping="Wrap" Text="{x:Static p:Resources.tbCrazyEights}" VerticalAlignment="Top" Width="238" FontFamily="Roboto Slab" FontSize="36"/>
         <Image Margin="50,77,50,355" Source="\paginas\Line 1.png" Stretch="Fill" Height="2" Width="700"/>
         <Label x:Name="lbNombreUsuario" Content="{x:Static p:Resources.lbCorreoElectronico}" Height="33" Margin="174,116,400,0" VerticalAlignment="Top" Width="226" FontSize="20" FontFamily="Roboto Slab"/>

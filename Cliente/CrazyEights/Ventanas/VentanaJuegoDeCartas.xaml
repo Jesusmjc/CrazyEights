@@ -1,0 +1,26 @@
+﻿<Window x:Class="CrazyEights.Ventanas.VentanaJuegoDeCartas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CrazyEights.Ventanas"
+        xmlns:p = "clr-namespace:CrazyEights.Properties"
+        mc:Ignorable="d"
+        Title="VentanaJuegoDeCartas" Height="450" Width="800">
+    <Grid>
+        <Image Source="\Recursos\mesaJuego.png" Stretch="Fill"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="400" Height="100" VerticalAlignment="Bottom">
+            <StackPanel x:Name="ContenedorDeCartas" Orientation="Horizontal" Background="#FFAF8F4C" VerticalAlignment="Bottom"/>
+        </ScrollViewer>
+
+        <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image x:Name="AtrasCarta" Canvas.Top="-190" Canvas.Left="-360" Height="100" Margin="266,134,0,0" Width="70" Source="/Cartas/AtrasCarta.png"/>
+            <Image x:Name="CartasJuego" Canvas.Top="-190" Canvas.Left="-350" Height="100" Margin="400,134,0,0" Width="100" Drop="CartaInicio_SoltarCarta" AllowDrop="True"/>
+        </Canvas>
+
+        <Canvas VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Button Content="Comer carta" Canvas.Top="-450" Canvas.Left="-220" HorizontalAlignment="Left" Margin="34,328,0,0" VerticalAlignment="Top" Height="48" Width="116" Click="ComerCarta"/>
+            <Button Content="Pasar turno" Canvas.Top="-440" Canvas.Left="-220" HorizontalAlignment="Left" Margin="34,385,0,0" VerticalAlignment="Top" Height="42" Width="116"/>
+        </Canvas>
+    </Grid>
+</Window>
