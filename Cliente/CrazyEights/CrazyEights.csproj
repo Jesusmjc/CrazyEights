@@ -73,6 +73,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Encriptacion.cs" />
+    <Compile Include="SingletonJugador.cs" />
     <Compile Include="Ventanas\EntradaJugador.xaml.cs">
       <DependentUpon>EntradaJugador.xaml</DependentUpon>
     </Compile>
@@ -193,6 +194,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ReferenciaServicioManejoJugadores\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ReferenciaServicioManejoJugadores\ServicioManejoJugadores.wsdl" />

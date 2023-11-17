@@ -39,8 +39,8 @@ namespace CrazyEights
         private void MostrarComoJugadorEnLinea()
         {
             InstanceContext contexto = new InstanceContext(this);
-            ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient(contexto.ToString());
-            //cliente.
+            ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
+            cliente.NotificarNuevaConexionAJugadoresEnLinea(SingletonJugador.Instance.NombreUsuario);
         }
     }
 }

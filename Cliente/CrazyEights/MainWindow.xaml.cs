@@ -43,6 +43,8 @@ namespace CrazyEights
 
                 if (esInicioSesionValido)
                 {
+                    SingletonJugador singletonJugador = SingletonJugador.Instance;
+                    singletonJugador.NombreUsuario = 
                     VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
                     this.Close();
                     ventanaMenuPrincipal.ShowDialog();

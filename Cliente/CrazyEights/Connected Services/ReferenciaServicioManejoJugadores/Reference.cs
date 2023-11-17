@@ -11,8 +11,8 @@
 namespace CrazyEights.ReferenciaServicioManejoJugadores {
     using System.Runtime.Serialization;
     using System;
-    
-    
+    using System.ServiceModel;
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Usuario", Namespace="http://schemas.datacontract.org/2004/07/CrazyEightsServicio")]
@@ -282,7 +282,11 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         public ServicioManejoJugadoresClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
-        
+
+        public ServicioManejoJugadoresClient(InstanceContext callbackInstance) : base(callbackInstance)
+        {
+        }
+
         public int GuardarJugador(CrazyEights.ReferenciaServicioManejoJugadores.Usuario usuario, CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador) {
             return base.Channel.GuardarJugador(usuario, jugador);
         }
@@ -321,6 +325,85 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         public System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(string correoElectronico) {
             return base.Channel.EnviarCodigoAlCorreoDelUsuarioAsync(correoElectronico);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ReferenciaServicioManejoJugadores.IManejadorJugadoresEnLinea", CallbackContract=typeof(CrazyEights.ReferenciaServicioManejoJugadores.IManejadorJugadoresEnLineaCallback))]
+    public interface IManejadorJugadoresEnLinea {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarNuevaConexionAJugadoresEnL" +
+            "inea")]
+        void NotificarNuevaConexionAJugadoresEnLinea(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarNuevaConexionAJugadoresEnL" +
+            "inea")]
+        System.Threading.Tasks.Task NotificarNuevaConexionAJugadoresEnLineaAsync(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarDesconexionAJugadoresEnLin" +
+            "ea")]
+        void NotificarDesconexionAJugadoresEnLinea(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarDesconexionAJugadoresEnLin" +
+            "ea")]
+        System.Threading.Tasks.Task NotificarDesconexionAJugadoresEnLineaAsync(string nombreJugador);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IManejadorJugadoresEnLineaCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarLogInJugador", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarLogInJugadorResponse")]
+        void NotificarLogInJugador(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarLogOutJugador", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarLogOutJugadorResponse")]
+        void NotificarLogOutJugador(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarJugadoresEnLinea", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarJugadoresEnLineaResponse")]
+        void NotificarJugadoresEnLinea(string[] nombresUsuariosEnLinea);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IManejadorJugadoresEnLineaChannel : CrazyEights.ReferenciaServicioManejoJugadores.IManejadorJugadoresEnLinea, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ManejadorJugadoresEnLineaClient : System.ServiceModel.DuplexClientBase<CrazyEights.ReferenciaServicioManejoJugadores.IManejadorJugadoresEnLinea>, CrazyEights.ReferenciaServicioManejoJugadores.IManejadorJugadoresEnLinea {
+        
+        public ManejadorJugadoresEnLineaClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public ManejadorJugadoresEnLineaClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public ManejadorJugadoresEnLineaClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ManejadorJugadoresEnLineaClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ManejadorJugadoresEnLineaClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void NotificarNuevaConexionAJugadoresEnLinea(string nombreJugador) {
+            base.Channel.NotificarNuevaConexionAJugadoresEnLinea(nombreJugador);
+        }
+        
+        public System.Threading.Tasks.Task NotificarNuevaConexionAJugadoresEnLineaAsync(string nombreJugador) {
+            return base.Channel.NotificarNuevaConexionAJugadoresEnLineaAsync(nombreJugador);
+        }
+        
+        public void NotificarDesconexionAJugadoresEnLinea(string nombreJugador) {
+            base.Channel.NotificarDesconexionAJugadoresEnLinea(nombreJugador);
+        }
+        
+        public System.Threading.Tasks.Task NotificarDesconexionAJugadoresEnLineaAsync(string nombreJugador) {
+            return base.Channel.NotificarDesconexionAJugadoresEnLineaAsync(nombreJugador);
         }
     }
 }

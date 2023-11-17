@@ -33,25 +33,43 @@ namespace CrazyEightsServicio
             return numeroCambios;
         }
 
-        public bool ValidarInicioSesion(Usuario usuario)
+        public string ValidarInicioSesion(Usuario usuario)
         {
             using (var context = new CrazyEightsEntities())
             {
                 var usuarios = (from us in context.Usuarios
                                 where us.correoElectrónico == usuario.CorreoElectronico
                                 && us.contraseña == usuario.Contrasena
-                                select us).ToList();
+                                select us.IDUsuario).ToList();
 
-                bool esUsuarioValido = false;
+                Jugador jugador = null;
+
                 if (usuarios.Count != 0)
                 {
-                    esUsuarioValido = true;
+                    recuperarInformacionJugador(usuarios[0]);
                 }
 
                 return esUsuarioValido;
             }
 
 
+        }
+
+        private Jugador recuperarInformacionJugador(int IdUsuario)
+        {
+            Jugador jugador = new Jugador();
+            using (var context = new CrazyEightsEntities())
+            {
+                var informacionJugador = (from jug in context.Jugadores
+                                         where jug.IDUsuario == IdUsuario
+                                         select jug).ToList();
+
+                jugador.NombreUsuario = informacionJugador[0].nombreUsuario;
+                jugador.Monedas = (int)informacionJugador[0].monedas;
+                jugador.FotoPerfil = informacionJugador[0].fotoPerfil;
+            }
+
+            return jugador;
         }
 
         public bool ValidarNombreUsuarioRegistrado(Jugador jugador)
