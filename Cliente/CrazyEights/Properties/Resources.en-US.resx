@@ -123,6 +123,15 @@
   <data name="btnAceptar" xml:space="preserve">
     <value>Ok</value>
   </data>
+  <data name="btnCartasClasicas" xml:space="preserve">
+    <value>Classis cards</value>
+  </data>
+  <data name="btnCartasMinimalistas" xml:space="preserve">
+    <value>Minimal cards</value>
+  </data>
+  <data name="btnCerrarSesionDeJuego" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
   <data name="btnCrearPartida" xml:space="preserve">
     <value>Create game</value>
   </data>
@@ -165,6 +174,9 @@
   <data name="lbAyudaMenuPrincipal" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="lbCerrarVentana" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="lbCodigoSala" xml:space="preserve">
     <value>Room code:</value>
   </data>
@@ -181,7 +193,7 @@
     <value>Language</value>
   </data>
   <data name="lbMisionesMenuPrincipal" xml:space="preserve">
-    <value>Misions</value>
+    <value>Missions</value>
   </data>
   <data name="lbNombreUsuario" xml:space="preserve">
     <value>User Name:</value>
@@ -189,16 +201,64 @@
   <data name="lbPerfilMenuPrincipal" xml:space="preserve">
     <value>Profile</value>
   </data>
+  <data name="lbReglasDeJuego" xml:space="preserve">
+    <value>Game Rules</value>
+  </data>
   <data name="lbTituloConfiguracion" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="lbTituloMisiones" xml:space="preserve">
+    <value>Missions</value>
   </data>
   <data name="lbTituloRegistro" xml:space="preserve">
     <value>Registration succesful</value>
   </data>
+  <data name="lbTituloTienda" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="msbCambioDeBaraja" xml:space="preserve">
+    <value>Deck updated correctly</value>
+  </data>
+  <data name="msbCerrarSesion" xml:space="preserve">
+    <value>Do you want to sign out?</value>
+  </data>
+  <data name="tabCtrlModoClasico" xml:space="preserve">
+    <value>Game mode - Classic</value>
+  </data>
+  <data name="tabCtrlModoOchos" xml:space="preserve">
+    <value>Game mode - Crazy Eights</value>
+  </data>
   <data name="tbCrazyEights" xml:space="preserve">
     <value>CRAZY EIGHTS</value>
   </data>
+  <data name="tbkReglasDeJuegoClasico" xml:space="preserve">
+    <value>Game Mode Classic
+The criteria for playing cards are as follows:
+The card has the same number as the card in the center. For example, a 9 of clubs can be played if there is a 9 of diamonds in the center.
+The card has the same suit as the card in the center. For example, an Ace of spades can be played if there is a 7 of spades in the center.
+The card is an 8. The 8s are considered wild cards and have special properties, which are explained below. That is, an 8 of hearts can be played regardless of the card in the center.
+
+The 8 card is considered a wild card in this game, so it behaves differently from the rest of the cards:
+If, at the start of the game, the first card drawn from the deck is the number 8, this card is ignored, and a new one is drawn from the deck until a different card than 8 comes out.
+During their turn, a player can play a card with the number 8 regardless of the card in the center.
+After playing a card with the number 8, the player can choose a suit, and the next player must play a card that matches the chosen suit. The number of this card is irrelevant when playing; only the suit matters.</value>
+  </data>
+  <data name="tbkReglasDeJuegoOchos" xml:space="preserve">
+    <value>Game Mode Crazy Eights
+
+This is a game mode in which certain cards have special effects. All the rules discussed earlier are maintained, but the following cards will have special effects on other players when played.
+The Jack skips the turn of the next player. That is, they won't be able to play any cards or draw.
+The Queen or the 10 changes the direction of the game. The turn order will be counterclockwise until another card like these is played.
+The 2 makes the next player draw two cards from the deck and skip their turn.
+The Ace forces the next player to draw 3 cards. Multiple Aces can be played in one turn to accumulate the effect. For example, after playing 3 Aces in one turn, the next player will have to draw 9 cards.</value>
+  </data>
   <data name="tbRegistroExitoso" xml:space="preserve">
     <value>The account has been created correctly.</value>
+  </data>
+  <data name="ttlCambioDeBaraja" xml:space="preserve">
+    <value>Deck change</value>
+  </data>
+  <data name="ttlCerrarSesion" xml:space="preserve">
+    <value>Sign out</value>
   </data>
 </root>

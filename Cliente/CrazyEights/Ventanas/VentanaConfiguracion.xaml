@@ -9,6 +9,7 @@
         Title="VentanaConfiguracion" Height="400" Width="400">
     <Grid>
         <Image Source="\Recursos\Fondo1.png" Stretch="Fill"/>
+        <Button x:Name="btnSalirDeJuego" Content="{x:Static p:Resources.btnSalirDelJuego}" HorizontalAlignment="Center" Margin="0,166,0,0" VerticalAlignment="Top" Height="43" Width="120" Background="#FF50D4F2" Click="CerrarJuego" />
         <Label x:Name="lbTituloConfiguracion" Content="{x:Static p:Resources.lbTituloConfiguracion}" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="lbIdioma" Content="{x:Static p:Resources.lbIdioma}" HorizontalAlignment="Left" Margin="128,103,0,0" VerticalAlignment="Top"/>
         <Image HorizontalAlignment="Left" Height="48" Margin="200,90,0,0" VerticalAlignment="Top" Width="48" Source="\Recursos\mexico.png" MouseLeftButtonDown="IdiomaEspañol"/>

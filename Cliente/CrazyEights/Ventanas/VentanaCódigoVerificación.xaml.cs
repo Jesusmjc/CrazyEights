@@ -20,16 +20,16 @@ namespace CrazyEights
     /// </summary>
     public partial class VentanaCódigoVerificación : Window
     {
-        private string correoElectronicoUsuario;
-        private string codigoVerificacionActual;
+        private string _correoElectronicoUsuario;
+        private string _codigoVerificacionActual;
 
         public event EventHandler<bool> EventoRegresarVerificacionCorreo;
 
         public VentanaCódigoVerificación(string correoElectronicoUsuario, string codigoVerificacion)
         {
             InitializeComponent();
-            this.correoElectronicoUsuario = correoElectronicoUsuario;
-            this.codigoVerificacionActual = codigoVerificacion;
+            this._correoElectronicoUsuario = correoElectronicoUsuario;
+            this._codigoVerificacionActual = codigoVerificacion;
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
@@ -40,7 +40,7 @@ namespace CrazyEights
                 lbAdvertenciaCodigoIncorrecto.Visibility = Visibility.Hidden;
                 lbNuevoCodigoEnviado.Visibility = Visibility.Hidden;
 
-                if (tbxCodigo.Text == codigoVerificacionActual)
+                if (tbxCodigo.Text == _codigoVerificacionActual)
                 {
                     this.Close();
                     EventoRegresarVerificacionCorreo(this, true);
@@ -62,7 +62,7 @@ namespace CrazyEights
         {
             ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
 
-            codigoVerificacionActual = cliente.EnviarCodigoAlCorreoDelUsuario(correoElectronicoUsuario);
+            _codigoVerificacionActual = cliente.EnviarCodigoAlCorreoDelUsuario(_correoElectronicoUsuario);
             lbAdvertenciaCodigoIncorrecto.Visibility = Visibility.Hidden;
             lbNuevoCodigoEnviado.Visibility = Visibility.Visible;
         }

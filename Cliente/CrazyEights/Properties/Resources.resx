@@ -123,6 +123,15 @@
   <data name="btnAceptar" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="btnCartasClasicas" xml:space="preserve">
+    <value>Cartas clásicas</value>
+  </data>
+  <data name="btnCartasMinimalistas" xml:space="preserve">
+    <value>Cartas minimalistas</value>
+  </data>
+  <data name="btnCerrarSesionDeJuego" xml:space="preserve">
+    <value>Cerrar sesión</value>
+  </data>
   <data name="btnCrearPartida" xml:space="preserve">
     <value>Crear partida</value>
   </data>
@@ -165,6 +174,9 @@
   <data name="lbAyudaMenuPrincipal" xml:space="preserve">
     <value>Ayuda</value>
   </data>
+  <data name="lbCerrarVentana" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
   <data name="lbCodigoSala" xml:space="preserve">
     <value>Código de sala:</value>
   </data>
@@ -189,16 +201,64 @@
   <data name="lbPerfilMenuPrincipal" xml:space="preserve">
     <value>Perfil</value>
   </data>
+  <data name="lbReglasDeJuego" xml:space="preserve">
+    <value>Reglas de Juego</value>
+  </data>
   <data name="lbTituloConfiguracion" xml:space="preserve">
     <value>Configuración</value>
+  </data>
+  <data name="lbTituloMisiones" xml:space="preserve">
+    <value>Misiones</value>
   </data>
   <data name="lbTituloRegistro" xml:space="preserve">
     <value>Registro Exitoso</value>
   </data>
+  <data name="lbTituloTienda" xml:space="preserve">
+    <value>Tienda</value>
+  </data>
+  <data name="msbCambioDeBaraja" xml:space="preserve">
+    <value>Baraja cambiada adecuadamente</value>
+  </data>
+  <data name="msbCerrarSesion" xml:space="preserve">
+    <value>¿Desea salir cerrar su sesión?</value>
+  </data>
+  <data name="tabCtrlModoClasico" xml:space="preserve">
+    <value>Modo de juego - Clásico </value>
+  </data>
+  <data name="tabCtrlModoOchos" xml:space="preserve">
+    <value>Modo de juego - Ochos locos</value>
+  </data>
   <data name="tbCrazyEights" xml:space="preserve">
     <value>CRAZY EIGHTS</value>
   </data>
+  <data name="tbkReglasDeJuegoClasico" xml:space="preserve">
+    <value>Modo de Juego Clásico
+El criterio para jugar cartas es el siguiente:
+La carta tiene el mismo número que la carta en el centro. Por ejemplo, un 9 de tréboles se puede jugar si hay un 9 de diamantes en el centro.
+La carta tiene el mismo palo que la carta en el centro. Por ejemplo, un As de picas pueda se puede jugar si hay un 7 de picas en el centro.
+La carta es un 8. Los 8s se consideran comodines y tienen propiedades especiales, que se explican más adelante. Es decir, un 8 de corazones puede jugarse sin importar la carta en el centro.
+
+La carta 8 es considerada un comodín en este juego, por lo que tiene un comportamiento diferente del resto de cartas:
+Si al iniciar la partida la primera carta que se toma del mazo tiene el número 8, se ignora esta carta y se toma una nueva del mazo, hasta que salga una diferente de 8.
+Durante su turno, un jugador puede jugar una carta con el número 8 sin importar la carta en el centro.
+Luego de jugar una carta con el número 8, el jugador puede elegir un palo y el siguiente jugador deberá jugar una carta que coincida con el palo elegido. El número de esta carta no tiene relevancia a la hora de jugarse, sólo el palo.</value>
+  </data>
+  <data name="tbkReglasDeJuegoOchos" xml:space="preserve">
+    <value>Modo de Juego Ochos Locos
+
+Este es un modo de juego en el que ciertas cartas tienen efectos especiales. Se mantienen todas las reglas discutidas anteriormente, pero las siguientes cartas tendrán efectos especiales sobre los otros jugadores al ser jugadas.
+La J salta el turno del siguiente jugador. Es decir, este no podrá jugar ninguna carta ni robar.
+La Q o el 10 cambian la dirección del juego. El flujo de turnos será en sentido contrario a las manecillas del reloj hasta que se juegue otra carta como estas.
+El 2 hace que el siguiente jugador tome dos cartas del mazo y pierda su turno.
+La A obliga al siguiente jugador a robar 3 cartas. Se pueden jugar varias A en un turno para acumular el efecto. Por ejemplo, luego de jugar 3 A en un turno, el siguiente jugador deberá robar 9 cartas.</value>
+  </data>
   <data name="tbRegistroExitoso" xml:space="preserve">
     <value>Se ha creado la cuenta correctamente.</value>
+  </data>
+  <data name="ttlCambioDeBaraja" xml:space="preserve">
+    <value>Baraja cambiada</value>
+  </data>
+  <data name="ttlCerrarSesion" xml:space="preserve">
+    <value>Cierre de sesión</value>
   </data>
 </root>

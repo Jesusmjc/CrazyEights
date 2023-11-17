@@ -1,0 +1,20 @@
+﻿<Window x:Class="CrazyEights.Ventanas.VentanaTiendaDeJuego"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CrazyEights.Ventanas"
+        xmlns:p = "clr-namespace:CrazyEights.Properties"
+        mc:Ignorable="d"
+        Title="VentanaTiendaDeJuego" Height="450" Width="800">
+    <Grid>
+        <Image Source="\Recursos\Fondo1.png" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="49" Margin="690,23,0,0" VerticalAlignment="Top" Width="50" Source="/Recursos/iconoCerrarVentana.png" MouseLeftButtonDown="CerrarVentana"/>
+        <Label x:Name="lbCerrarVentana" Content="{x:Static p:Resources.lbCerrarVentana}" HorizontalAlignment="Left" Margin="666,68,0,0" VerticalAlignment="Top" Width="98" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lbTituloTienda" Content="{x:Static p:Resources.lbTituloTienda}" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="283,150,0,0" VerticalAlignment="Top" Width="100" Source="/CartasMinimalistas/RC.png"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="489,150,0,0" VerticalAlignment="Top" Width="100" Source="/Cartas/RC.png"/>
+        <Button x:Name="btnCartasMinimalistas" Content="{x:Static p:Resources.btnCartasMinimalistas}" HorizontalAlignment="Left" Margin="266,255,0,0" VerticalAlignment="Top" Click="CargarCartasMinimalistas" Width="101"/>
+        <Button x:Name="btnCartasClasicas" Content="{x:Static p:Resources.btnCartasClasicas}" HorizontalAlignment="Left" Margin="479,255,0,0" VerticalAlignment="Top" Click="CargarCartasClasicas" Width="89"/>
+    </Grid>
+</Window>

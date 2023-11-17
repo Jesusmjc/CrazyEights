@@ -13,12 +13,12 @@
         <TextBlock x:Name="tbCrazyEights" HorizontalAlignment="Center" Margin="0,41,0,0" TextWrapping="Wrap" Text="{x:Static p:Resources.tbCrazyEights}" VerticalAlignment="Top" FontSize="36" Background="#FF50D4F2"/>
         <Image HorizontalAlignment="Left" Height="74" Margin="20,17,0,0" VerticalAlignment="Top" Width="77" Source="/Recursos/iconoUsuario.png"/>
         <Image x:Name="imgAmigos" HorizontalAlignment="Left" Height="76" Margin="120,13,0,0" VerticalAlignment="Top" Width="81" Source="/Recursos/iconoAmigos.png" MouseLeftButtonDown="NavegarAListaAmigos"/>
-        <Image HorizontalAlignment="Left" Height="76" Margin="701,19,0,0" VerticalAlignment="Top" Width="74" Source="/Recursos/iconoMisiones.png"/>
-        <Image HorizontalAlignment="Left" Height="67" Margin="23,356,0,0" VerticalAlignment="Top" Width="57" Source="/Recursos/iconoAyuda.png"/>
-        <Button x:Name="btnCrearPartida" Content="{x:Static p:Resources.btnCrearPartida}" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Height="52" Width="119" Background="#FF50D4F2"/>
+        <Image HorizontalAlignment="Left" Height="76" Margin="701,19,0,0" VerticalAlignment="Top" Width="74" Source="/Recursos/iconoMisiones.png" MouseLeftButtonDown="IrAVentanaDeMisiones"/>
+        <Image HorizontalAlignment="Left" Height="67" Margin="23,356,0,0" VerticalAlignment="Top" Width="57" Source="/Recursos/iconoAyuda.png" MouseLeftButtonDown="IrAyudaJuego"/>
+        <Button x:Name="btnCrearPartida" Content="{x:Static p:Resources.btnCrearPartida}" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Height="52" Width="119" Background="#FF50D4F2" Click="IrAVentanaDeJuego"/>
         <Button x:Name="btnEncontrarPartida" Content="{x:Static p:Resources.btnEncontrarPartida}" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Height="50" Width="120" Background="#FF50D4F2"/>
-        <Button x:Name="btnTienda" Content="{x:Static p:Resources.btnTienda}" HorizontalAlignment="Center" Margin="0,289,0,0" VerticalAlignment="Top" Height="52" Width="120" Background="#FF50D4F2"/>
-        <Button x:Name="btnSalirDelJuego" Content="{x:Static p:Resources.btnSalirDelJuego}" HorizontalAlignment="Center" Margin="0,356,0,0" VerticalAlignment="Top" Height="43" Width="120" Background="#FF50D4F2"/>
+        <Button x:Name="btnTienda" Content="{x:Static p:Resources.btnTienda}" HorizontalAlignment="Center" Margin="0,289,0,0" VerticalAlignment="Top" Height="52" Width="120" Background="#FF50D4F2" Click="IrTienda"/>
+        <Button x:Name="btnCerrarSesionDeJuego" Content="{x:Static p:Resources.btnCerrarSesionDeJuego}" HorizontalAlignment="Center" Margin="0,356,0,0" VerticalAlignment="Top" Height="43" Width="120" Background="#FF50D4F2" Click="CerrarSesion"/>
         <Label x:Name="lbMisionesMenuPrincipal" Content="{x:Static p:Resources.lbMisionesMenuPrincipal}" HorizontalAlignment="Left" Margin="679,97,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Center" Foreground="White"/>
         <Label x:Name="lbPerfilMenuPrincipal" Content="{x:Static p:Resources.lbPerfilMenuPrincipal}" HorizontalAlignment="Left" Margin="20,91,0,0" VerticalAlignment="Top" Width="74" HorizontalContentAlignment="Center" Foreground="#FFFBF1F1"/>
         <Label x:Name="lbAmigosMenuPrincipal" Content="{x:Static p:Resources.lbAmigosMenuPrincipal}" HorizontalAlignment="Left" Margin="120,89,0,0" VerticalAlignment="Top" Width="76" HorizontalContentAlignment="Center" Foreground="White"/>

@@ -32,5 +32,47 @@ namespace CrazyEights
             this.Close();
             ventanaAmigos.ShowDialog();
         }
+
+        private void IrAyudaJuego(object sender, MouseButtonEventArgs e)
+        {
+            VentanaAyudaDeJuego ventanaAyudaDeJuego = new VentanaAyudaDeJuego();
+            ventanaAyudaDeJuego.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ventanaAyudaDeJuego.ShowDialog();
+        }
+
+        private void IrTienda(object sender, RoutedEventArgs e) //ToDoTemp
+        {
+            VentanaTiendaDeJuego ventanaTiendaDeJuego = new VentanaTiendaDeJuego();
+            ventanaTiendaDeJuego.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ventanaTiendaDeJuego.ShowDialog();
+        }
+
+        private void IrAVentanaDeJuego(object sender, RoutedEventArgs e) //ToDoTemp
+        {
+            VentanaJuegoDeCartas ventanaJuegoDeCartas = new VentanaJuegoDeCartas();
+            ventanaJuegoDeCartas.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ventanaJuegoDeCartas.Show();
+            this.Close();
+        }
+
+        private void IrAVentanaDeMisiones(object sender, MouseButtonEventArgs e)
+        {
+            VentanaMisionesDeJuego ventanaMisionesDeJuego = new VentanaMisionesDeJuego();
+            ventanaMisionesDeJuego.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ventanaMisionesDeJuego.ShowDialog();
+        }
+
+        private void CerrarSesion(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.msbCerrarSesion, 
+                Properties.Resources.ttlCerrarSesion, MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                MainWindow ventanaInicio = new MainWindow();
+                ventanaInicio.Show();
+                this.Close();
+            }
+        }
     }
 }
