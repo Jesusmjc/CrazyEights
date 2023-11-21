@@ -124,6 +124,15 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Guardar cambios.
+        /// </summary>
+        public static string btnGuardarCambiosDePerfil {
+            get {
+                return ResourceManager.GetString("btnGuardarCambiosDePerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Iniciar Sesión.
         /// </summary>
         public static string btnIniciarSesion {
@@ -295,6 +304,15 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nombre de jugador.
+        /// </summary>
+        public static string lbNombreDeJugador {
+            get {
+                return ResourceManager.GetString("lbNombreDeJugador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nombre de Usuario:.
         /// </summary>
         public static string lbNombreUsuario {
@@ -363,6 +381,15 @@ namespace CrazyEights.Properties {
         public static string msbCambioDeBaraja {
             get {
                 return ResourceManager.GetString("msbCambioDeBaraja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Desea cerrar el juego?.
+        /// </summary>
+        public static string msbCerrarJuego {
+            get {
+                return ResourceManager.GetString("msbCerrarJuego", resourceCulture);
             }
         }
         
@@ -443,6 +470,15 @@ namespace CrazyEights.Properties {
         public static string ttlCambioDeBaraja {
             get {
                 return ResourceManager.GetString("ttlCambioDeBaraja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cerrar juego.
+        /// </summary>
+        public static string ttlCerrarJuego {
+            get {
+                return ResourceManager.GetString("ttlCerrarJuego", resourceCulture);
             }
         }
         

@@ -110,7 +110,7 @@ namespace CrazyEights.Ventanas
             }
         }
 
-        private void CartaInicio_SoltarCarta(object sender, DragEventArgs e)
+        private void CartaInicio_ReemplazarCartas(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(Image))) //Nota
             {

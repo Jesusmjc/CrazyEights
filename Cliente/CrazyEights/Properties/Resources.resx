@@ -138,6 +138,9 @@
   <data name="btnEncontrarPartida" xml:space="preserve">
     <value>Encontrar partida</value>
   </data>
+  <data name="btnGuardarCambiosDePerfil" xml:space="preserve">
+    <value>Guardar cambios</value>
+  </data>
   <data name="btnIniciarSesion" xml:space="preserve">
     <value>Iniciar Sesión</value>
   </data>
@@ -195,6 +198,9 @@
   <data name="lbMisionesMenuPrincipal" xml:space="preserve">
     <value>Misiones</value>
   </data>
+  <data name="lbNombreDeJugador" xml:space="preserve">
+    <value>Nombre de jugador</value>
+  </data>
   <data name="lbNombreUsuario" xml:space="preserve">
     <value>Nombre de Usuario:</value>
   </data>
@@ -218,6 +224,9 @@
   </data>
   <data name="msbCambioDeBaraja" xml:space="preserve">
     <value>Baraja cambiada adecuadamente</value>
+  </data>
+  <data name="msbCerrarJuego" xml:space="preserve">
+    <value>¿Desea cerrar el juego?</value>
   </data>
   <data name="msbCerrarSesion" xml:space="preserve">
     <value>¿Desea salir cerrar su sesión?</value>
@@ -257,6 +266,9 @@ La A obliga al siguiente jugador a robar 3 cartas. Se pueden jugar varias A en u
   </data>
   <data name="ttlCambioDeBaraja" xml:space="preserve">
     <value>Baraja cambiada</value>
+  </data>
+  <data name="ttlCerrarJuego" xml:space="preserve">
+    <value>Cerrar juego</value>
   </data>
   <data name="ttlCerrarSesion" xml:space="preserve">
     <value>Cierre de sesión</value>
