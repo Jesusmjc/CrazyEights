@@ -187,6 +187,9 @@
     <Resource Include="fuentes\RobotoSlab-Medium.ttf" />
     <Resource Include="fuentes\RobotoSlab-SemiBold.ttf" />
     <Resource Include="fuentes\RobotoSlab-Thin.ttf" />
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Jugador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ReferenciaServicioManejoJugadores\item.xsd">
       <SubType>Designer</SubType>
     </None>

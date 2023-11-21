@@ -1,4 +1,5 @@
-﻿using CrazyEights.Ventanas;
+﻿using CrazyEights.ReferenciaServicioManejoJugadores;
+using CrazyEights.Ventanas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace CrazyEights
     /// <summary>
     /// Interaction logic for VentanaMenuPrincipal.xaml
     /// </summary>
-    public partial class VentanaMenuPrincipal : Window
+    public partial class VentanaMenuPrincipal : Window, IManejadorJugadoresEnLineaCallback
     {
         public VentanaMenuPrincipal()
         {
@@ -35,12 +36,27 @@ namespace CrazyEights
             ventanaAmigos.ShowDialog();
         }
 
-        //No muestra los nuevos métodos de callback en el contrato del servicio
         private void MostrarComoJugadorEnLinea()
         {
             InstanceContext contexto = new InstanceContext(this);
             ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
-            cliente.NotificarNuevaConexionAJugadoresEnLinea(SingletonJugador.Instance.NombreUsuario);
+            cliente.NotificarNuevaConexionAJugadoresEnLinea(SingletonJugador.Instance.NombreJugador);
+        }
+
+        //Es necesario implementarlos para ejecutar la línea 43, pero no hacen nada en esta ventana.
+        public void NotificarLogInJugador(string nombreJugador)
+        {
+            Console.WriteLine("Se ha conectado un nuevo usuario: " + nombreJugador);
+        }
+
+        public void NotificarLogOutJugador(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void NotificarJugadoresEnLinea(string[] nombresUsuariosEnLinea)
+        {
+            throw new NotImplementedException();
         }
     }
 }

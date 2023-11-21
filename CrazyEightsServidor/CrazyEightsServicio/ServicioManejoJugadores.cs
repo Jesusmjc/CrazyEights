@@ -33,7 +33,7 @@ namespace CrazyEightsServicio
             return numeroCambios;
         }
 
-        public string ValidarInicioSesion(Usuario usuario)
+        public Jugador ValidarInicioSesion(Usuario usuario)
         {
             using (var context = new CrazyEightsEntities())
             {
@@ -46,16 +46,16 @@ namespace CrazyEightsServicio
 
                 if (usuarios.Count != 0)
                 {
-                    recuperarInformacionJugador(usuarios[0]);
+                    jugador = RecuperarInformacionJugador(usuarios[0]);
                 }
 
-                return esUsuarioValido;
+                return jugador;
             }
 
 
         }
 
-        private Jugador recuperarInformacionJugador(int IdUsuario)
+        private Jugador RecuperarInformacionJugador(int IdUsuario)
         {
             Jugador jugador = new Jugador();
             using (var context = new CrazyEightsEntities())
@@ -65,7 +65,7 @@ namespace CrazyEightsServicio
                                          select jug).ToList();
 
                 jugador.NombreUsuario = informacionJugador[0].nombreUsuario;
-                jugador.Monedas = (int)informacionJugador[0].monedas;
+                jugador.Monedas = informacionJugador[0].monedas ?? 0;
                 jugador.FotoPerfil = informacionJugador[0].fotoPerfil;
             }
 
@@ -142,7 +142,7 @@ namespace CrazyEightsServicio
 
         public void NotificarNuevaConexionAJugadoresEnLinea(string nombreJugador)
         {
-            if(!jugadoresEnLinea.ContainsKey(nombreJugador))
+            if (!jugadoresEnLinea.ContainsKey(nombreJugador))
             {
                 IManejadorJugadoresCallback canalDeCallbackActualDelJugador = OperationContext.Current.GetCallbackChannel<IManejadorJugadoresCallback>();
 
@@ -173,6 +173,18 @@ namespace CrazyEightsServicio
                     jugador.Value.NotificarLogOutJugador(nombreJugador);
                 }
             }
+        }
+
+        public List<string> RecuperarNombresJugadoresEnLinea()
+        {
+            List<string> listaNombresJugadores = new List<string>();
+
+            foreach (var jugador in jugadoresEnLinea)
+            {
+                listaNombresJugadores.Add(jugador.Key);
+            }
+
+            return listaNombresJugadores;
         }
     }
 }

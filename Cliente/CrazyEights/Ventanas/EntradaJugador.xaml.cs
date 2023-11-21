@@ -20,10 +20,6 @@ namespace CrazyEights.Ventanas
     /// </summary>
     public partial class EntradaJugador : UserControl
     {
-        private string nombreJugador;
-        private string idJugador;
-        private string estadoJugador;
-
         public EntradaJugador(string nombreJugador, string idJugador, string estadoJugador)
         {
             InitializeComponent();

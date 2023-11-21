@@ -14,7 +14,7 @@ namespace CrazyEightsServicio
         int GuardarJugador(Usuario usuario, Jugador jugador);
 
         [OperationContract]
-        bool ValidarInicioSesion(Usuario usuario);
+        Jugador ValidarInicioSesion(Usuario usuario);
 
         [OperationContract]
         bool ValidarNombreUsuarioRegistrado(Jugador jugador);
@@ -34,16 +34,19 @@ namespace CrazyEightsServicio
 
         [OperationContract(IsOneWay = true)]
         void NotificarDesconexionAJugadoresEnLinea(string nombreJugador);
+
+        [OperationContract]
+        List<string> RecuperarNombresJugadoresEnLinea();
     }
 
     [ServiceContract]
     public interface IManejadorJugadoresCallback
     {
         [OperationContract]
-        void NotificarLogInJugador(string username);
+        void NotificarLogInJugador(string nombreJugador);
 
         [OperationContract]
-        void NotificarLogOutJugador(string username);
+        void NotificarLogOutJugador(string nombreJugador);
 
         [OperationContract]
         void NotificarJugadoresEnLinea(List<string> nombresUsuariosEnLinea);
@@ -56,6 +59,7 @@ namespace CrazyEightsServicio
         private string _contrasena;
         private string _correoElectronico;
         private int _idJugador;
+        
 
         [DataMember]
         public int IdUsuario { get { return _idUsuario; } set { _idUsuario = value; } }
@@ -68,6 +72,8 @@ namespace CrazyEightsServicio
 
         [DataMember]
         public int IdJugador { get { return _idJugador; } set { _idJugador = value; } }
+
+        
     }
 
     [DataContract]
@@ -78,6 +84,7 @@ namespace CrazyEightsServicio
         private int _monedas;
         private string _fotoPerfil;
         private int _idUsuario;
+        private string _estado;
 
         [DataMember]
         public int IdJugador { get { return _idJugador; } set { _idJugador = value; } }
@@ -93,5 +100,8 @@ namespace CrazyEightsServicio
 
         [DataMember]
         public int IdUsuario { get { return _idUsuario; } set { _idUsuario = value; } }
+
+        [DataMember]
+        public string Estado { get { return _estado; } set { _estado = value; } }
     }
 }

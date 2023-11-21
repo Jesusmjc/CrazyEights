@@ -11,7 +11,10 @@ namespace CrazyEights
         private static SingletonJugador instance;
         private static readonly object lockObject = new object();
 
-        public string NombreUsuario { get; set; }
+        public string IdJugador {  get; set; }
+        public string NombreJugador { get; set; }
+        public string Estado { get; set; }
+
     
         private SingletonJugador() { }
 

@@ -38,13 +38,13 @@ namespace CrazyEights
                 usuarioAValidar.CorreoElectronico = tbxCorreoElectronico.Text;
                 usuarioAValidar.Contrasena = Encriptacion.GetSHA256(pwbContrasena.Password);
 
-                bool esInicioSesionValido = false;
-                esInicioSesionValido = cliente.ValidarInicioSesion(usuarioAValidar);
+                Jugador jugadorInicioSesion = new Jugador();
+                jugadorInicioSesion = cliente.ValidarInicioSesion(usuarioAValidar);
 
-                if (esInicioSesionValido)
+                if (jugadorInicioSesion != null)
                 {
                     SingletonJugador singletonJugador = SingletonJugador.Instance;
-                    singletonJugador.NombreUsuario = 
+                    singletonJugador.NombreJugador = jugadorInicioSesion.NombreUsuario;
                     VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
                     this.Close();
                     ventanaMenuPrincipal.ShowDialog();
@@ -72,6 +72,10 @@ namespace CrazyEights
 
         private bool ValidarCampos()
         {
+            lbAdvertenciaCamposVacios.Visibility = Visibility.Hidden;
+            lbAdvertenciaContrasenaInvalida.Visibility = Visibility.Hidden;
+            lbAdvertenciaCorreoElectronicoInvalido.Visibility = Visibility.Hidden;
+
             bool esCorreoElectronicoValido = false;
             bool esContrasenaValida = false;
 
@@ -95,6 +99,10 @@ namespace CrazyEights
                 {
                     lbAdvertenciaContrasenaInvalida.Visibility = Visibility.Visible;
                 }
+            }
+            else
+            {
+                lbAdvertenciaCamposVacios.Visibility = Visibility.Visible;
             }
 
             return esCorreoElectronicoValido && esContrasenaValida;
