@@ -138,6 +138,9 @@
   <data name="btnEncontrarPartida" xml:space="preserve">
     <value>Find game</value>
   </data>
+  <data name="btnGuardarCambiosDePerfil" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
   <data name="btnIniciarSesion" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -195,6 +198,9 @@
   <data name="lbMisionesMenuPrincipal" xml:space="preserve">
     <value>Missions</value>
   </data>
+  <data name="lbNombreDeJugador" xml:space="preserve">
+    <value>Nickname</value>
+  </data>
   <data name="lbNombreUsuario" xml:space="preserve">
     <value>User Name:</value>
   </data>
@@ -218,6 +224,9 @@
   </data>
   <data name="msbCambioDeBaraja" xml:space="preserve">
     <value>Deck updated correctly</value>
+  </data>
+  <data name="msbCerrarJuego" xml:space="preserve">
+    <value>Do you want to close the game?</value>
   </data>
   <data name="msbCerrarSesion" xml:space="preserve">
     <value>Do you want to sign out?</value>
@@ -257,6 +266,9 @@ The Ace forces the next player to draw 3 cards. Multiple Aces can be played in o
   </data>
   <data name="ttlCambioDeBaraja" xml:space="preserve">
     <value>Deck change</value>
+  </data>
+  <data name="ttlCerrarJuego" xml:space="preserve">
+    <value>Close game</value>
   </data>
   <data name="ttlCerrarSesion" xml:space="preserve">
     <value>Sign out</value>

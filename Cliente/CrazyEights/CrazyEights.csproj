@@ -47,6 +47,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
@@ -79,6 +80,11 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\ResourcesDePerfil.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourcesDePerfil.resx</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\EntradaJugador.xaml.cs">
       <DependentUpon>EntradaJugador.xaml</DependentUpon>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <Compile Include="Ventanas\VentanaMisionesDeJuego.xaml.cs">
       <DependentUpon>VentanaMisionesDeJuego.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaPersonalizacionDePerfil.xaml.cs">
+      <DependentUpon>VentanaPersonalizacionDePerfil.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VentanaRegistroUsuario.xaml.cs">
       <DependentUpon>VentanaRegistroUsuario.xaml</DependentUpon>
@@ -156,6 +165,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Ventanas\VentanaPersonalizacionDePerfil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ventanas\VentanaRegistroUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,6 +219,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\ResourcesDePerfil.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesDePerfil.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="fuentes\RobotoSlab-Regular.ttf" />
     <Resource Include="fuentes\RobotoSlab-Black.ttf" />
@@ -411,6 +428,19 @@
     <Resource Include="CartasMinimalistas\QD.png" />
     <Resource Include="CartasMinimalistas\QP.png" />
     <Resource Include="CartasMinimalistas\QT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FotosDePerfil\predeterminada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FotosDePerfil\amogus.jpeg" />
+    <Resource Include="FotosDePerfil\gatoEnojado.jpeg" />
+    <Resource Include="FotosDePerfil\godzilla.jpeg" />
+    <Resource Include="FotosDePerfil\jacket.jpeg" />
+    <Resource Include="FotosDePerfil\perry.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amogus.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

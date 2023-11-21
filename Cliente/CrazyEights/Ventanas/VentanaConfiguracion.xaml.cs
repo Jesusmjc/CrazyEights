@@ -53,8 +53,13 @@ namespace CrazyEights
 
         private void CerrarJuego(object sender, RoutedEventArgs e)
         {
-            //Añadir forma de retroalimentar a usuario
-            this.Close();
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.msbCerrarJuego,
+                Properties.Resources.ttlCerrarJuego, MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }
