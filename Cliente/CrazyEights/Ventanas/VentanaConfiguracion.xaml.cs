@@ -51,6 +51,10 @@ namespace CrazyEights
             this.Close();
         }
 
-
+        private void CerrarJuego(object sender, RoutedEventArgs e)
+        {
+            //Añadir forma de retroalimentar a usuario
+            this.Close();
+        }
     }
 }

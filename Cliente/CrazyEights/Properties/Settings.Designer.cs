@@ -34,5 +34,17 @@ namespace CrazyEights.Properties {
                 this["Idioma"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cartas")]
+        public string Cartas {
+            get {
+                return ((string)(this["Cartas"]));
+            }
+            set {
+                this["Cartas"] = value;
+            }
+        }
     }
 }

@@ -9,8 +9,10 @@
         Title="VentanaJuegoDeCartas" Height="450" Width="800">
     <Grid>
         <Image Source="\Recursos\mesaJuego.png" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="49" Margin="690,23,0,0" VerticalAlignment="Top" Width="50" Source="/Recursos/iconoCerrarVentana.png" MouseLeftButtonDown="CerrarVentana"/>
+        <Label x:Name="lbCerrarVentana" Content="{x:Static p:Resources.lbCerrarVentana}" HorizontalAlignment="Left" Margin="666,68,0,0" VerticalAlignment="Top" Width="98" HorizontalContentAlignment="Center" Foreground="White"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="400" Height="100" VerticalAlignment="Bottom">
-            <StackPanel x:Name="ContenedorDeCartas" Orientation="Horizontal" Background="#FFAF8F4C" VerticalAlignment="Bottom"/>
+            <StackPanel x:Name="ContenedorDeCartas" Orientation="Horizontal" VerticalAlignment="Bottom"/>
         </ScrollViewer>
 
         <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">

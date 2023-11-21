@@ -76,11 +76,17 @@
     </Compile>
     <Compile Include="Encriptacion.cs" />
     <Compile Include="LogicaDeJuego.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\EntradaJugador.xaml.cs">
       <DependentUpon>EntradaJugador.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VentanaAmigos.xaml.cs">
       <DependentUpon>VentanaAmigos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaAyudaDeJuego.xaml.cs">
+      <DependentUpon>VentanaAyudaDeJuego.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VentanaIngresarComoInvitado.xaml.cs">
       <DependentUpon>VentanaIngresarComoInvitado.xaml</DependentUpon>
@@ -92,6 +98,9 @@
     </Compile>
     <Compile Include="Ventanas\VentanaJuegoDeCartas.xaml.cs">
       <DependentUpon>VentanaJuegoDeCartas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaMisionesDeJuego.xaml.cs">
+      <DependentUpon>VentanaMisionesDeJuego.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VentanaRegistroUsuario.xaml.cs">
       <DependentUpon>VentanaRegistroUsuario.xaml</DependentUpon>
@@ -112,6 +121,13 @@
     <Compile Include="Ventanas\VentanaMenuPrincipal.xaml.cs">
       <DependentUpon>VentanaMenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VentanaTiendaDeJuego.xaml.cs">
+      <DependentUpon>VentanaTiendaDeJuego.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ventanas\EntradaJugador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,11 +136,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ventanas\VentanaIngresarComoInvitado.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Ventanas\VentanaAyudaDeJuego.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Ventanas\VentanaIngresarComoInvitado.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -132,11 +148,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="Ventanas\VentanaJuegoDeCartas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaMisionesDeJuego.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,6 +179,10 @@
     <Page Include="Ventanas\VentanaMenuPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventanas\VentanaTiendaDeJuego.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -277,7 +297,9 @@
   <ItemGroup>
     <Resource Include="Recursos\mesaJuego.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Recursos\iconoCerrarVentana.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Cartas\10C.png" />
     <Resource Include="Cartas\10D.png" />
@@ -332,6 +354,63 @@
     <Resource Include="Cartas\RD.png" />
     <Resource Include="Cartas\RP.png" />
     <Resource Include="Cartas\RT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CartasMinimalistas\RC.png" />
+    <Resource Include="CartasMinimalistas\RD.png" />
+    <Resource Include="CartasMinimalistas\RP.png" />
+    <Resource Include="CartasMinimalistas\RT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CartasMinimalistas\10C.png" />
+    <Resource Include="CartasMinimalistas\10D.png" />
+    <Resource Include="CartasMinimalistas\10P.png" />
+    <Resource Include="CartasMinimalistas\10T.png" />
+    <Resource Include="CartasMinimalistas\2C.png" />
+    <Resource Include="CartasMinimalistas\2D.png" />
+    <Resource Include="CartasMinimalistas\2P.png" />
+    <Resource Include="CartasMinimalistas\2T.png" />
+    <Resource Include="CartasMinimalistas\3C.png" />
+    <Resource Include="CartasMinimalistas\3D.png" />
+    <Resource Include="CartasMinimalistas\3P.png" />
+    <Resource Include="CartasMinimalistas\3T.png" />
+    <Resource Include="CartasMinimalistas\4C.png" />
+    <Resource Include="CartasMinimalistas\4D.png" />
+    <Resource Include="CartasMinimalistas\4P.png" />
+    <Resource Include="CartasMinimalistas\4T.png" />
+    <Resource Include="CartasMinimalistas\5C.png" />
+    <Resource Include="CartasMinimalistas\5D.png" />
+    <Resource Include="CartasMinimalistas\5P.png" />
+    <Resource Include="CartasMinimalistas\5T.png" />
+    <Resource Include="CartasMinimalistas\6C.png" />
+    <Resource Include="CartasMinimalistas\6D.png" />
+    <Resource Include="CartasMinimalistas\6P.png" />
+    <Resource Include="CartasMinimalistas\6T.png" />
+    <Resource Include="CartasMinimalistas\7C.png" />
+    <Resource Include="CartasMinimalistas\7D.png" />
+    <Resource Include="CartasMinimalistas\7P.png" />
+    <Resource Include="CartasMinimalistas\7T.png" />
+    <Resource Include="CartasMinimalistas\8C.png" />
+    <Resource Include="CartasMinimalistas\8D.png" />
+    <Resource Include="CartasMinimalistas\8P.png" />
+    <Resource Include="CartasMinimalistas\8T.png" />
+    <Resource Include="CartasMinimalistas\9C.png" />
+    <Resource Include="CartasMinimalistas\9D.png" />
+    <Resource Include="CartasMinimalistas\9P.png" />
+    <Resource Include="CartasMinimalistas\9T.png" />
+    <Resource Include="CartasMinimalistas\AC.png" />
+    <Resource Include="CartasMinimalistas\AD.png" />
+    <Resource Include="CartasMinimalistas\AP.png" />
+    <Resource Include="CartasMinimalistas\AT.png" />
+    <Resource Include="CartasMinimalistas\AtrasCarta.png" />
+    <Resource Include="CartasMinimalistas\JC.png" />
+    <Resource Include="CartasMinimalistas\JD.png" />
+    <Resource Include="CartasMinimalistas\JP.png" />
+    <Resource Include="CartasMinimalistas\JT.png" />
+    <Resource Include="CartasMinimalistas\QC.png" />
+    <Resource Include="CartasMinimalistas\QD.png" />
+    <Resource Include="CartasMinimalistas\QP.png" />
+    <Resource Include="CartasMinimalistas\QT.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

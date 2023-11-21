@@ -31,6 +31,14 @@ namespace CrazyEights.Ventanas
             RepartirCartasAScroll();
         }
 
+        private void CerrarVentana(object sender, MouseButtonEventArgs e)
+        {
+            VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
+            ventanaMenuPrincipal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ventanaMenuPrincipal.Show();
+            this.Close();
+        }
+
         public void SacarCartaInicial()
         {
             Carta cartaAleatoria = _baraja.SacarCartaAleatoria();
@@ -126,6 +134,6 @@ namespace CrazyEights.Ventanas
                     }
                 }
             }
-        }
+        }   
     }
 }

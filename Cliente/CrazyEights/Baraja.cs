@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrazyEights.Properties;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -40,7 +41,7 @@ namespace CrazyEights
             Directory.SetCurrentDirectory(System.IO.Path.Combine(direccionBaseDeDirectorio, "..\\..\\"));
 
             string directorioActual = Directory.GetCurrentDirectory();
-            string nombreFolderRecursos = "Cartas";
+            string nombreFolderRecursos = Settings.Default.Cartas;
             string direccionFinalDeFolderRecursos = System.IO.Path.Combine(directorioActual, nombreFolderRecursos);
 
             foreach (var carta in cartas)
@@ -49,6 +50,7 @@ namespace CrazyEights
                 carta.DireccionImagen = imagePath;
             }
         }
+
         private List<Carta> GenerarTodasLasCartas()
         {
             return new List<Carta>

@@ -5,5 +5,8 @@
     <Setting Name="Idioma" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="Cartas" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cartas</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
