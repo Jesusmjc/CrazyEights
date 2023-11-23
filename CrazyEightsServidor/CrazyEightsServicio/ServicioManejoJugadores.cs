@@ -138,24 +138,25 @@ namespace CrazyEightsServicio
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public partial class ServicioManejoJugadores : IManejadorJugadoresEnLinea
     {
-        private static Dictionary<string, IManejadorJugadoresCallback> jugadoresEnLinea = new Dictionary<string, IManejadorJugadoresCallback>();
-
-        public void NotificarNuevaConexionAJugadoresEnLinea(string nombreJugador)
+        //private static Dictionary<string, IManejadorJugadoresCallback> jugadoresEnLinea = new Dictionary<string, IManejadorJugadoresCallback>();
+        private static Dictionary<string, Jugador> jugadoresEnLinea = new Dictionary<string, Jugador>();
+        public void NotificarNuevaConexionAJugadoresEnLinea(Jugador nuevoJugadorEnLinea)
         {
-            if (!jugadoresEnLinea.ContainsKey(nombreJugador))
+            if (!jugadoresEnLinea.ContainsKey(nuevoJugadorEnLinea.NombreUsuario))
             {
                 IManejadorJugadoresCallback canalDeCallbackActualDelJugador = OperationContext.Current.GetCallbackChannel<IManejadorJugadoresCallback>();
+                nuevoJugadorEnLinea.CanalCallback = canalDeCallbackActualDelJugador;
 
-                List<string> nombresJugadoresEnLinea = jugadoresEnLinea.Keys.ToList();
-                canalDeCallbackActualDelJugador.NotificarJugadoresEnLinea(nombresJugadoresEnLinea);
+                //List<string> nombresJugadoresEnLinea = jugadoresEnLinea.Keys.ToList();
+                //canalDeCallbackActualDelJugador.NotificarJugadoresEnLinea(nombresJugadoresEnLinea);
 
-                jugadoresEnLinea.Add(nombreJugador, canalDeCallbackActualDelJugador);
+                jugadoresEnLinea.Add(nuevoJugadorEnLinea.NombreUsuario, nuevoJugadorEnLinea);
 
-                foreach (var jugador in jugadoresEnLinea)
+                foreach (var jugadorEnLinea in jugadoresEnLinea)
                 {
-                    if (jugador.Key != nombreJugador)
+                    if (!jugadorEnLinea.Key.Equals(nuevoJugadorEnLinea.NombreUsuario))
                     {
-                        jugador.Value.NotificarLogInJugador(nombreJugador);
+                        jugadorEnLinea.Value.CanalCallback.NotificarLogInJugador(nuevoJugadorEnLinea);
                     }
                 }
 
@@ -170,18 +171,18 @@ namespace CrazyEightsServicio
 
                 foreach (var jugador in jugadoresEnLinea)
                 {
-                    jugador.Value.NotificarLogOutJugador(nombreJugador);
+                    jugador.Value.CanalCallback.NotificarLogOutJugador(nombreJugador);
                 }
             }
         }
 
-        public List<string> RecuperarNombresJugadoresEnLinea()
+        public List<Jugador> RecuperarInformacionJugadoresEnLinea()
         {
-            List<string> listaNombresJugadores = new List<string>();
+            List<Jugador> listaNombresJugadores = new List<Jugador>();
 
-            foreach (var jugador in jugadoresEnLinea)
+            foreach (var jugadorEnLinea in jugadoresEnLinea)
             {
-                listaNombresJugadores.Add(jugador.Key);
+                listaNombresJugadores.Add(jugadorEnLinea.Value);
             }
 
             return listaNombresJugadores;

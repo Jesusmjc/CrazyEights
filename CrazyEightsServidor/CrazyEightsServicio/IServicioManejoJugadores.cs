@@ -30,20 +30,20 @@ namespace CrazyEightsServicio
     public interface IManejadorJugadoresEnLinea
     {
         [OperationContract(IsOneWay = true)]
-        void NotificarNuevaConexionAJugadoresEnLinea(string nombreJugador);
+        void NotificarNuevaConexionAJugadoresEnLinea(Jugador jugador);
 
         [OperationContract(IsOneWay = true)]
         void NotificarDesconexionAJugadoresEnLinea(string nombreJugador);
 
         [OperationContract]
-        List<string> RecuperarNombresJugadoresEnLinea();
+        List<Jugador> RecuperarInformacionJugadoresEnLinea();
     }
 
     [ServiceContract]
     public interface IManejadorJugadoresCallback
     {
         [OperationContract]
-        void NotificarLogInJugador(string nombreJugador);
+        void NotificarLogInJugador(Jugador nuevoJugadorEnLinea);
 
         [OperationContract]
         void NotificarLogOutJugador(string nombreJugador);
@@ -85,6 +85,7 @@ namespace CrazyEightsServicio
         private string _fotoPerfil;
         private int _idUsuario;
         private string _estado;
+        private IManejadorJugadoresCallback _canalCallback;
 
         [DataMember]
         public int IdJugador { get { return _idJugador; } set { _idJugador = value; } }
@@ -103,5 +104,8 @@ namespace CrazyEightsServicio
 
         [DataMember]
         public string Estado { get { return _estado; } set { _estado = value; } }
+
+        [DataMember]
+        public IManejadorJugadoresCallback CanalCallback { get { return _canalCallback; } set { _canalCallback = value; } }
     }
 }

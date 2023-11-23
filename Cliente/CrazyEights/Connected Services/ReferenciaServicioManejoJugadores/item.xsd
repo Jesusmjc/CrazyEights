@@ -11,6 +11,8 @@
   <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
   <xs:complexType name="Jugador">
     <xs:sequence>
+      <xs:element minOccurs="0" name="CanalCallback" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FotoPerfil" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdJugador" type="xs:int" />
       <xs:element minOccurs="0" name="IdUsuario" type="xs:int" />
@@ -19,4 +21,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Jugador" nillable="true" type="tns:Jugador" />
+  <xs:complexType name="ArrayOfJugador">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Jugador" nillable="true" type="tns:Jugador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJugador" nillable="true" type="tns:ArrayOfJugador" />
 </xs:schema>

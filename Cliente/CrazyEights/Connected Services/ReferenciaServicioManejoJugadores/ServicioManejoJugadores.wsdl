@@ -102,11 +102,11 @@
   <wsdl:message name="IManejadorJugadoresEnLinea_NotificarDesconexionAJugadoresEnLinea_InputMessage">
     <wsdl:part name="parameters" element="tns:NotificarDesconexionAJugadoresEnLinea" />
   </wsdl:message>
-  <wsdl:message name="IManejadorJugadoresEnLinea_RecuperarNombresJugadoresEnLinea_InputMessage">
-    <wsdl:part name="parameters" element="tns:RecuperarNombresJugadoresEnLinea" />
+  <wsdl:message name="IManejadorJugadoresEnLinea_RecuperarInformacionJugadoresEnLinea_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarInformacionJugadoresEnLinea" />
   </wsdl:message>
-  <wsdl:message name="IManejadorJugadoresEnLinea_RecuperarNombresJugadoresEnLinea_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RecuperarNombresJugadoresEnLineaResponse" />
+  <wsdl:message name="IManejadorJugadoresEnLinea_RecuperarInformacionJugadoresEnLinea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarInformacionJugadoresEnLineaResponse" />
   </wsdl:message>
   <wsdl:message name="IManejadorJugadoresEnLinea_NotificarLogInJugador_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotificarLogInJugador" />
@@ -155,9 +155,9 @@
     <wsdl:operation name="NotificarDesconexionAJugadoresEnLinea">
       <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarDesconexionAJugadoresEnLinea" message="tns:IManejadorJugadoresEnLinea_NotificarDesconexionAJugadoresEnLinea_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RecuperarNombresJugadoresEnLinea">
-      <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarNombresJugadoresEnLinea" message="tns:IManejadorJugadoresEnLinea_RecuperarNombresJugadoresEnLinea_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarNombresJugadoresEnLineaResponse" message="tns:IManejadorJugadoresEnLinea_RecuperarNombresJugadoresEnLinea_OutputMessage" />
+    <wsdl:operation name="RecuperarInformacionJugadoresEnLinea">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInformacionJugadoresEnLinea" message="tns:IManejadorJugadoresEnLinea_RecuperarInformacionJugadoresEnLinea_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInformacionJugadoresEnLineaResponse" message="tns:IManejadorJugadoresEnLinea_RecuperarInformacionJugadoresEnLinea_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="NotificarLogInJugador">
       <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarLogInJugador" message="tns:IManejadorJugadoresEnLinea_NotificarLogInJugador_OutputCallbackMessage" />
@@ -236,8 +236,8 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="RecuperarNombresJugadoresEnLinea">
-      <soap12:operation soapAction="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarNombresJugadoresEnLinea" style="document" />
+    <wsdl:operation name="RecuperarInformacionJugadoresEnLinea">
+      <soap12:operation soapAction="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInformacionJugadoresEnLinea" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

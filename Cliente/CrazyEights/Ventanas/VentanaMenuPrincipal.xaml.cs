@@ -40,13 +40,20 @@ namespace CrazyEights
         {
             InstanceContext contexto = new InstanceContext(this);
             ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
-            cliente.NotificarNuevaConexionAJugadoresEnLinea(SingletonJugador.Instance.NombreJugador);
+            Jugador jugador = new Jugador
+            {
+                IdJugador = SingletonJugador.Instance.IdJugador,
+                NombreUsuario = SingletonJugador.Instance.NombreJugador,
+                Estado = "Conectado"
+            };
+
+            cliente.NotificarNuevaConexionAJugadoresEnLinea(jugador);
         }
 
         //Es necesario implementarlos para ejecutar la línea 43, pero no hacen nada en esta ventana.
-        public void NotificarLogInJugador(string nombreJugador)
+        public void NotificarLogInJugador(Jugador jugador)
         {
-            Console.WriteLine("Se ha conectado un nuevo usuario: " + nombreJugador);
+            Console.WriteLine("Se ha conectado un nuevo usuario: " + jugador.NombreUsuario);
         }
 
         public void NotificarLogOutJugador(string username)
