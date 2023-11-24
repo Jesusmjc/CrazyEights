@@ -17,7 +17,7 @@
         <Image x:Name="imgFotoPerfil" HorizontalAlignment="Left" Height="200" Margin="41,26,0,0" VerticalAlignment="Top" Width="200" Stretch="Fill"/>
         <ListBox x:Name="lstbSeleccionarImagen" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="41,262,0,0" SelectionChanged="SeleccionarImagen" Background="{x:Null}" Foreground="White" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="207" />
         <Label x:Name="lbNombreDeJugador" Content="{x:Static p:Resources.lbNombreDeJugador}" HorizontalAlignment="Left" Margin="288,29,0,0" VerticalAlignment="Top" FontSize="36" Width="345" HorizontalContentAlignment="Center"/>
-        <Button x:Name="btnGuardarCambiosDePerfil" Content="{x:Static p:Resources.btnGuardarCambiosDePerfil}" HorizontalAlignment="Left" Margin="567,354,0,0" VerticalAlignment="Top" FontSize="20" Height="42" Width="196" Click="GuardarCambiosDePerfil"/>
+        <Button x:Name="btnGuardarCambiosDePerfil" Content="{x:Static p:Resources.btnGuardarCambiosDePerfil}" HorizontalAlignment="Left" Margin="543,336,0,0" VerticalAlignment="Top" FontSize="20" Height="42" Width="196" Click="GuardarCambiosDePerfil"/>
 
     </Grid>
 </Window>
