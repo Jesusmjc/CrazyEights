@@ -83,7 +83,6 @@ namespace CrazyEightsServicio
         private string _nombreUsuario;
         private int _monedas;
         private string _fotoPerfil;
-        private int _idUsuario;
         private string _estado;
         private IManejadorJugadoresCallback _canalCallback;
 
@@ -98,9 +97,6 @@ namespace CrazyEightsServicio
 
         [DataMember]
         public string FotoPerfil { get { return _fotoPerfil; } set { _fotoPerfil = value; } }
-
-        [DataMember]
-        public int IdUsuario { get { return _idUsuario; } set { _idUsuario = value; } }
 
         [DataMember]
         public string Estado { get { return _estado; } set { _estado = value; } }

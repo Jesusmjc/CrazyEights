@@ -27,29 +27,31 @@ namespace CrazyEights.Ventanas
         public VentanaAmigos()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.ResizeMode = ResizeMode.NoResize;
             DataContext = this;
-            mostrarJugadoresEnLinea();
+            MostrarJugadoresEnLinea();
         }
 
-        public void mostrarJugadoresEnLinea()
+        public void MostrarJugadoresEnLinea()
         {
             InstanceContext contexto = new InstanceContext(this);
             ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
 
-            string[] nombresJugadoresEnLinea = cliente.RecuperarNombresJugadoresEnLinea();
+            Jugador[] jugadoresEnLinea = cliente.RecuperarInformacionJugadoresEnLinea();
 
-            foreach (var nombreJugador in nombresJugadoresEnLinea)
+            foreach (var jugadorEnLinea in jugadoresEnLinea)
             {
-                if (nombreJugador != SingletonJugador.Instance.NombreJugador)
+                if (jugadorEnLinea.NombreUsuario != SingletonJugador.Instance.NombreJugador)
                 {
-                    ListaDeJugadoresConectados.Add(new EntradaJugador(nombreJugador, "ID: WIP", "Estado WIP"));
+                    ListaDeJugadoresConectados.Add(new EntradaJugador(jugadorEnLinea.NombreUsuario, "ID: " + jugadorEnLinea.IdJugador, jugadorEnLinea.Estado));
                 }
             }
         }
 
-        public void NotificarLogInJugador(string nombreJugador)
+        public void NotificarLogInJugador(Jugador nuevoJugador)
         {
-            ListaDeJugadoresConectados.Add(new EntradaJugador(nombreJugador, "ID: WIP", "Estado WIP"));
+            ListaDeJugadoresConectados.Add(new EntradaJugador(nuevoJugador.NombreUsuario, "ID: " + nuevoJugador.IdJugador, nuevoJugador.Estado));
         }
 
         public void NotificarLogOutJugador(string nombreJugador)
@@ -66,6 +68,13 @@ namespace CrazyEights.Ventanas
         public void NotificarJugadoresEnLinea(string[] nombresUsuariosEnLinea)
         {
             throw new NotImplementedException();
+        }
+
+        private void NavegarAMenuPrincipal(object sender, MouseButtonEventArgs e)
+        {
+            VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
+            this.Close();
+            ventanaMenuPrincipal.ShowDialog();
         }
     }
 }

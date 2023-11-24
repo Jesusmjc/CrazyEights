@@ -131,9 +131,6 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         private int IdJugadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdUsuarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MonedasField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -197,19 +194,6 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
                 if ((this.IdJugadorField.Equals(value) != true)) {
                     this.IdJugadorField = value;
                     this.RaisePropertyChanged("IdJugador");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdUsuario {
-            get {
-                return this.IdUsuarioField;
-            }
-            set {
-                if ((this.IdUsuarioField.Equals(value) != true)) {
-                    this.IdUsuarioField = value;
-                    this.RaisePropertyChanged("IdUsuario");
                 }
             }
         }

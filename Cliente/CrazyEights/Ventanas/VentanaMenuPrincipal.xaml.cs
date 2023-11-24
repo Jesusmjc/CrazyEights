@@ -26,6 +26,7 @@ namespace CrazyEights
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.ResizeMode = ResizeMode.NoResize;
             MostrarComoJugadorEnLinea();
         }
 

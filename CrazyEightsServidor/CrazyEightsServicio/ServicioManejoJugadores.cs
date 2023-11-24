@@ -64,6 +64,7 @@ namespace CrazyEightsServicio
                                          where jug.IDUsuario == IdUsuario
                                          select jug).ToList();
 
+                jugador.IdJugador = informacionJugador[0].IDUsuario;
                 jugador.NombreUsuario = informacionJugador[0].nombreUsuario;
                 jugador.Monedas = informacionJugador[0].monedas ?? 0;
                 jugador.FotoPerfil = informacionJugador[0].fotoPerfil;
