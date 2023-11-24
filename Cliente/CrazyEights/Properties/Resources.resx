@@ -229,7 +229,7 @@
     <value>¿Desea cerrar el juego?</value>
   </data>
   <data name="msbCerrarSesion" xml:space="preserve">
-    <value>¿Desea salir cerrar su sesión?</value>
+    <value>¿Desea cerrar su sesión?</value>
   </data>
   <data name="tabCtrlModoClasico" xml:space="preserve">
     <value>Modo de juego - Clásico </value>

@@ -13,6 +13,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace CrazyEights.Ventanas
 {
@@ -21,12 +22,14 @@ namespace CrazyEights.Ventanas
     /// </summary>
     public partial class VentanaPersonalizacionDePerfil : Window
     {
-        private String _recursoDeImagen;
+        private String _recursoDeImagen = "";
 
         public VentanaPersonalizacionDePerfil()
         {
             InitializeComponent();
+            CargarInformacion();
             CargarRecursos();
+            CargarImagenDePerfil();
         }
 
         private void CargarRecursos()
@@ -36,6 +39,24 @@ namespace CrazyEights.Ventanas
             lstbSeleccionarImagen.Items.Add("godzilla");
             lstbSeleccionarImagen.Items.Add("jacket");
             lstbSeleccionarImagen.Items.Add("perry");
+        }
+
+        private void CargarInformacion()
+        {
+            lbNombreDeJugador.Content = JugadorCliente.JugadorDeCliente.NombreUsuario;
+        }
+        private void CargarImagenDePerfil()
+        {
+            Bitmap imagenPerfil = (Bitmap)Properties.ResourcesDePerfil.ResourceManager.GetObject(JugadorCliente.JugadorDeCliente.FotoPerfil);
+
+            BitmapSource imagenPerfilBitmap = Imaging.CreateBitmapSourceFromHBitmap(
+                imagenPerfil.GetHbitmap(),
+                IntPtr.Zero,
+                Int32Rect.Empty,
+                BitmapSizeOptions.FromEmptyOptions()
+                );
+
+            imgFotoPerfil.Source = imagenPerfilBitmap;
         }
 
         private void SeleccionarImagen(object sender, SelectionChangedEventArgs e) //ToDo
@@ -63,7 +84,7 @@ namespace CrazyEights.Ventanas
 
         private void GuardarCambiosDePerfil(object sender, RoutedEventArgs e)
         {
-
+            JugadorCliente.JugadorDeCliente.FotoPerfil = _recursoDeImagen;
         }
     }
 }

@@ -394,7 +394,7 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Desea salir cerrar su sesión?.
+        ///   Looks up a localized string similar to ¿Desea cerrar su sesión?.
         /// </summary>
         public static string msbCerrarSesion {
             get {

@@ -1,6 +1,7 @@
 ﻿using CrazyEights.Ventanas;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -23,9 +25,20 @@ namespace CrazyEights
         public VentanaMenuPrincipal()
         {
             InitializeComponent();
+            CargarImagenDePerfil();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
+        private void CargarImagenDePerfil()
+        {
+            if (!JugadorCliente.JugadorDeCliente.EsInvitado)
+            {
+                if (string.IsNullOrEmpty(JugadorCliente.JugadorDeCliente.FotoPerfil))
+                {
+                    JugadorCliente.JugadorDeCliente.FotoPerfil = "predeterminada"; //ToDo
+                }
+            }
+        }
         private void NavegarAListaAmigos(object sender, MouseButtonEventArgs e)
         {
             VentanaAmigos ventanaAmigos = new VentanaAmigos();
