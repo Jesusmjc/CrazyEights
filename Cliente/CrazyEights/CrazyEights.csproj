@@ -76,7 +76,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Encriptacion.cs" />
-    <Compile Include="JugadorCliente.cs" />
     <Compile Include="LogicaDeJuego.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

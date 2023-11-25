@@ -35,11 +35,12 @@ namespace CrazyEights
 
         private void CargarImagenDePerfil()
         {
-            if (!JugadorCliente.JugadorDeCliente.EsInvitado)
+            if (!SingletonJugador.Instance.EsInvitado)
             {
-                if (string.IsNullOrEmpty(JugadorCliente.JugadorDeCliente.FotoPerfil))
+                if (string.IsNullOrEmpty(SingletonJugador.Instance.FotoPerfil))
+                //if (string.IsNullOrEmpty(JugadorCliente.JugadorDeCliente.FotoPerfil))
                 {
-                    JugadorCliente.JugadorDeCliente.FotoPerfil = "predeterminada"; //ToDo
+                    SingletonJugador.Instance.FotoPerfil = "predeterminada"; //ToDo
                 }
             }
         }
@@ -88,7 +89,7 @@ namespace CrazyEights
 
         private void CerrarSesion(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(Properties.Resources.msbCerrarSesion, 
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.msbCerrarSesion,
                 Properties.Resources.ttlCerrarSesion, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)
@@ -97,7 +98,8 @@ namespace CrazyEights
                 ventanaInicio.Show();
                 this.Close();
             }
-            
+        }
+
         private void MostrarComoJugadorEnLinea()
         {
             InstanceContext contexto = new InstanceContext(this);

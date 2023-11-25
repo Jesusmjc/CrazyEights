@@ -13,7 +13,9 @@ namespace CrazyEights
 
         public int IdJugador {  get; set; }
         public string NombreJugador { get; set; }
+        public string FotoPerfil { get; set; }
         public string Estado { get; set; }
+        public bool EsInvitado { get; set; }
 
     
         private SingletonJugador() { }
