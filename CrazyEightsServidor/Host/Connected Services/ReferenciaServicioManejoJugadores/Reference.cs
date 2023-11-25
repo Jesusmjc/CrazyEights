@@ -9,221 +9,47 @@
 //------------------------------------------------------------------------------
 
 namespace Host.ReferenciaServicioManejoJugadores {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Usuario", Namespace="http://schemas.datacontract.org/2004/07/CrazyEightsServicio")]
-    [System.SerializableAttribute()]
-    public partial class Usuario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ContrasenaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CorreoElectronicoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdJugadorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdUsuarioField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Contrasena {
-            get {
-                return this.ContrasenaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContrasenaField, value) != true)) {
-                    this.ContrasenaField = value;
-                    this.RaisePropertyChanged("Contrasena");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CorreoElectronico {
-            get {
-                return this.CorreoElectronicoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CorreoElectronicoField, value) != true)) {
-                    this.CorreoElectronicoField = value;
-                    this.RaisePropertyChanged("CorreoElectronico");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdJugador {
-            get {
-                return this.IdJugadorField;
-            }
-            set {
-                if ((this.IdJugadorField.Equals(value) != true)) {
-                    this.IdJugadorField = value;
-                    this.RaisePropertyChanged("IdJugador");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdUsuario {
-            get {
-                return this.IdUsuarioField;
-            }
-            set {
-                if ((this.IdUsuarioField.Equals(value) != true)) {
-                    this.IdUsuarioField = value;
-                    this.RaisePropertyChanged("IdUsuario");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Jugador", Namespace="http://schemas.datacontract.org/2004/07/CrazyEightsServicio")]
-    [System.SerializableAttribute()]
-    public partial class Jugador : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FotoPerfilField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdJugadorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdUsuarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MonedasField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreUsuarioField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FotoPerfil {
-            get {
-                return this.FotoPerfilField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FotoPerfilField, value) != true)) {
-                    this.FotoPerfilField = value;
-                    this.RaisePropertyChanged("FotoPerfil");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdJugador {
-            get {
-                return this.IdJugadorField;
-            }
-            set {
-                if ((this.IdJugadorField.Equals(value) != true)) {
-                    this.IdJugadorField = value;
-                    this.RaisePropertyChanged("IdJugador");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdUsuario {
-            get {
-                return this.IdUsuarioField;
-            }
-            set {
-                if ((this.IdUsuarioField.Equals(value) != true)) {
-                    this.IdUsuarioField = value;
-                    this.RaisePropertyChanged("IdUsuario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Monedas {
-            get {
-                return this.MonedasField;
-            }
-            set {
-                if ((this.MonedasField.Equals(value) != true)) {
-                    this.MonedasField = value;
-                    this.RaisePropertyChanged("Monedas");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreUsuario {
-            get {
-                return this.NombreUsuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreUsuarioField, value) != true)) {
-                    this.NombreUsuarioField = value;
-                    this.RaisePropertyChanged("NombreUsuario");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ReferenciaServicioManejoJugadores.IServicioManejoJugadores")]
     public interface IServicioManejoJugadores {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/GuardarJugador", ReplyAction="http://tempuri.org/IServicioManejoJugadores/GuardarJugadorResponse")]
-        int GuardarJugador(Host.ReferenciaServicioManejoJugadores.Usuario usuario, Host.ReferenciaServicioManejoJugadores.Jugador jugador);
+        int GuardarJugador(CrazyEightsServicio.Usuario usuario, CrazyEightsServicio.Jugador jugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/GuardarJugador", ReplyAction="http://tempuri.org/IServicioManejoJugadores/GuardarJugadorResponse")]
-        System.Threading.Tasks.Task<int> GuardarJugadorAsync(Host.ReferenciaServicioManejoJugadores.Usuario usuario, Host.ReferenciaServicioManejoJugadores.Jugador jugador);
+        System.Threading.Tasks.Task<int> GuardarJugadorAsync(CrazyEightsServicio.Usuario usuario, CrazyEightsServicio.Jugador jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesion", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesionResponse")]
+        bool ValidarInicioSesion(CrazyEightsServicio.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesion", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarInicioSesionResponse")]
+        System.Threading.Tasks.Task<bool> ValidarInicioSesionAsync(CrazyEightsServicio.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistrado", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistradoRespons" +
+            "e")]
+        bool ValidarNombreUsuarioRegistrado(CrazyEightsServicio.Jugador jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistrado", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarNombreUsuarioRegistradoRespons" +
+            "e")]
+        System.Threading.Tasks.Task<bool> ValidarNombreUsuarioRegistradoAsync(CrazyEightsServicio.Jugador jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistrado", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistradoRes" +
+            "ponse")]
+        bool ValidarCorreoElectronicoRegistrado(CrazyEightsServicio.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistrado", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ValidarCorreoElectronicoRegistradoRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<bool> ValidarCorreoElectronicoRegistradoAsync(CrazyEightsServicio.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuarioRespons" +
+            "e")]
+        string EnviarCodigoAlCorreoDelUsuario(string correoElectronico);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuarioRespons" +
+            "e")]
+        System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(string correoElectronico);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -253,12 +79,44 @@ namespace Host.ReferenciaServicioManejoJugadores {
                 base(binding, remoteAddress) {
         }
         
-        public int GuardarJugador(Host.ReferenciaServicioManejoJugadores.Usuario usuario, Host.ReferenciaServicioManejoJugadores.Jugador jugador) {
+        public int GuardarJugador(CrazyEightsServicio.Usuario usuario, CrazyEightsServicio.Jugador jugador) {
             return base.Channel.GuardarJugador(usuario, jugador);
         }
         
-        public System.Threading.Tasks.Task<int> GuardarJugadorAsync(Host.ReferenciaServicioManejoJugadores.Usuario usuario, Host.ReferenciaServicioManejoJugadores.Jugador jugador) {
+        public System.Threading.Tasks.Task<int> GuardarJugadorAsync(CrazyEightsServicio.Usuario usuario, CrazyEightsServicio.Jugador jugador) {
             return base.Channel.GuardarJugadorAsync(usuario, jugador);
+        }
+        
+        public bool ValidarInicioSesion(CrazyEightsServicio.Usuario usuario) {
+            return base.Channel.ValidarInicioSesion(usuario);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarInicioSesionAsync(CrazyEightsServicio.Usuario usuario) {
+            return base.Channel.ValidarInicioSesionAsync(usuario);
+        }
+        
+        public bool ValidarNombreUsuarioRegistrado(CrazyEightsServicio.Jugador jugador) {
+            return base.Channel.ValidarNombreUsuarioRegistrado(jugador);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarNombreUsuarioRegistradoAsync(CrazyEightsServicio.Jugador jugador) {
+            return base.Channel.ValidarNombreUsuarioRegistradoAsync(jugador);
+        }
+        
+        public bool ValidarCorreoElectronicoRegistrado(CrazyEightsServicio.Usuario usuario) {
+            return base.Channel.ValidarCorreoElectronicoRegistrado(usuario);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarCorreoElectronicoRegistradoAsync(CrazyEightsServicio.Usuario usuario) {
+            return base.Channel.ValidarCorreoElectronicoRegistradoAsync(usuario);
+        }
+        
+        public string EnviarCodigoAlCorreoDelUsuario(string correoElectronico) {
+            return base.Channel.EnviarCodigoAlCorreoDelUsuario(correoElectronico);
+        }
+        
+        public System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(string correoElectronico) {
+            return base.Channel.EnviarCodigoAlCorreoDelUsuarioAsync(correoElectronico);
         }
     }
 }
