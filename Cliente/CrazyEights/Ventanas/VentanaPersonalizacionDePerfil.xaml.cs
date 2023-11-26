@@ -84,7 +84,6 @@ namespace CrazyEights.Ventanas
 
         private void GuardarCambiosDePerfil(object sender, RoutedEventArgs e)
         {
-            //Añadir
         }
     }
 }
