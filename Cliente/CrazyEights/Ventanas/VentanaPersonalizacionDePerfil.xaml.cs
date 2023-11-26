@@ -43,11 +43,12 @@ namespace CrazyEights.Ventanas
 
         private void CargarInformacion()
         {
-            lbNombreDeJugador.Content = JugadorCliente.JugadorDeCliente.NombreUsuario;
+            lbNombreDeJugador.Content = SingletonJugador.Instance.NombreJugador;
+            //lbNombreDeJugador.Content = JugadorCliente.JugadorDeCliente.NombreUsuario;
         }
         private void CargarImagenDePerfil()
         {
-            Bitmap imagenPerfil = (Bitmap)Properties.ResourcesDePerfil.ResourceManager.GetObject(JugadorCliente.JugadorDeCliente.FotoPerfil);
+            Bitmap imagenPerfil = (Bitmap)Properties.ResourcesDePerfil.ResourceManager.GetObject(SingletonJugador.Instance.FotoPerfil);
 
             BitmapSource imagenPerfilBitmap = Imaging.CreateBitmapSourceFromHBitmap(
                 imagenPerfil.GetHbitmap(),
@@ -84,7 +85,7 @@ namespace CrazyEights.Ventanas
 
         private void GuardarCambiosDePerfil(object sender, RoutedEventArgs e)
         {
-            JugadorCliente.JugadorDeCliente.FotoPerfil = _recursoDeImagen;
+            SingletonJugador.Instance.FotoPerfil = _recursoDeImagen;
         }
     }
 }

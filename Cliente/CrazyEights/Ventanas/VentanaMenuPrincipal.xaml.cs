@@ -1,8 +1,10 @@
-﻿using CrazyEights.Ventanas;
+﻿using CrazyEights.ReferenciaServicioManejoJugadores;
+using CrazyEights.Ventanas;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,22 +22,25 @@ namespace CrazyEights
     /// <summary>
     /// Interaction logic for VentanaMenuPrincipal.xaml
     /// </summary>
-    public partial class VentanaMenuPrincipal : Window
+    public partial class VentanaMenuPrincipal : Window, IManejadorJugadoresEnLineaCallback
     {
         public VentanaMenuPrincipal()
         {
             InitializeComponent();
             CargarImagenDePerfil();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.ResizeMode = ResizeMode.NoResize;
+            MostrarComoJugadorEnLinea();
         }
 
         private void CargarImagenDePerfil()
         {
-            if (!JugadorCliente.JugadorDeCliente.EsInvitado)
+            if (!SingletonJugador.Instance.EsInvitado)
             {
-                if (string.IsNullOrEmpty(JugadorCliente.JugadorDeCliente.FotoPerfil))
+                if (string.IsNullOrEmpty(SingletonJugador.Instance.FotoPerfil))
+                //if (string.IsNullOrEmpty(JugadorCliente.JugadorDeCliente.FotoPerfil))
                 {
-                    JugadorCliente.JugadorDeCliente.FotoPerfil = "predeterminada"; //ToDo
+                    SingletonJugador.Instance.FotoPerfil = "predeterminada"; //ToDo
                 }
             }
         }
@@ -84,7 +89,7 @@ namespace CrazyEights
 
         private void CerrarSesion(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(Properties.Resources.msbCerrarSesion, 
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.msbCerrarSesion,
                 Properties.Resources.ttlCerrarSesion, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)
@@ -93,6 +98,36 @@ namespace CrazyEights
                 ventanaInicio.Show();
                 this.Close();
             }
+        }
+
+        private void MostrarComoJugadorEnLinea()
+        {
+            InstanceContext contexto = new InstanceContext(this);
+            ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
+            Jugador jugador = new Jugador
+            {
+                IdJugador = SingletonJugador.Instance.IdJugador,
+                NombreUsuario = SingletonJugador.Instance.NombreJugador,
+                Estado = "Conectado"
+            };
+
+            cliente.NotificarNuevaConexionAJugadoresEnLinea(jugador);
+        }
+
+        //Es necesario implementarlos para ejecutar la línea 43, pero no hacen nada en esta ventana.
+        public void NotificarLogInJugador(Jugador jugador)
+        {
+            Console.WriteLine("Se ha conectado un nuevo usuario: " + jugador.NombreUsuario);
+        }
+
+        public void NotificarLogOutJugador(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void NotificarJugadoresEnLinea(string[] nombresUsuariosEnLinea)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,6 @@
 To do:
 - Lobby
-- Manejo de conexiones de usuarios
-- Implementar los callbacks
+- Mostrar usuarios conectados en Lista Amigos
+- Manejo de Excepciones
+- Pruebas de los Métodos del ServiceContract
+- Mover las credenciales del usuario de la BD a un archivo aparte
