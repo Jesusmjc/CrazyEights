@@ -84,7 +84,7 @@ namespace CrazyEights.Ventanas
 
         private void GuardarCambiosDePerfil(object sender, RoutedEventArgs e)
         {
-            //JugadorCliente.JugadorDeCliente.FotoPerfil = _recursoDeImagen;
+            JugadorCliente.JugadorDeCliente.FotoPerfil = _recursoDeImagen;
         }
     }
 }
