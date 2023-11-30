@@ -89,11 +89,17 @@
     <Compile Include="Ventanas\EntradaJugador.xaml.cs">
       <DependentUpon>EntradaJugador.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\JugadorSala.xaml.cs">
+      <DependentUpon>JugadorSala.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VentanaAmigos.xaml.cs">
       <DependentUpon>VentanaAmigos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VentanaAyudaDeJuego.xaml.cs">
       <DependentUpon>VentanaAyudaDeJuego.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaConfiguracionPartida.xaml.cs">
+      <DependentUpon>VentanaConfiguracionPartida.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VentanaIngresarComoInvitado.xaml.cs">
       <DependentUpon>VentanaIngresarComoInvitado.xaml</DependentUpon>
@@ -131,6 +137,9 @@
     <Compile Include="Ventanas\VentanaMenuPrincipal.xaml.cs">
       <DependentUpon>VentanaMenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VentanaSala.xaml.cs">
+      <DependentUpon>VentanaSala.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VentanaTiendaDeJuego.xaml.cs">
       <DependentUpon>VentanaTiendaDeJuego.xaml</DependentUpon>
     </Compile>
@@ -142,6 +151,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Ventanas\JugadorSala.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Ventanas\VentanaAmigos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +162,10 @@
     <Page Include="Ventanas\VentanaAyudaDeJuego.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaConfiguracionPartida.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Ventanas\VentanaIngresarComoInvitado.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -191,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ventanas\VentanaMenuPrincipal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventanas\VentanaSala.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

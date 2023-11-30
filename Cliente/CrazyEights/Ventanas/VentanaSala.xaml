@@ -1,0 +1,65 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CrazyEights.Ventanas"
+        xmlns:Properties="clr-namespace:CrazyEights.Properties" x:Class="CrazyEights.Ventanas.VentanaSala"
+        mc:Ignorable="d"
+        Title="VentanaSala" Height="450" Width="800">
+    <Grid>
+        <Image Source="\Recursos\Fondo3.png" Stretch="Fill"/>
+        <Image Source="\Recursos\RectanguloSala1.png" Stretch="Fill" Margin="100,20,330,0" Height="60" VerticalAlignment="Top"/>
+        <Image Source="\Recursos\RectanguloSala2.png" Stretch="Fill" Margin="490,20,100,0" Height="60" VerticalAlignment="Top"/>
+        <Button x:Name="btnEmpezarPartida" Content="Empezar Partida" Margin="550,0,40,20" Height="40" VerticalAlignment="Bottom" FontSize="20"/>
+        <Image Source="\Recursos\RectanguloSala2.png" Stretch="Fill" Margin="0,0,205,70" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Image Source="\Recursos\ConfigurarSala.png" Stretch="Fill" Margin="480,0,250,20" Width="40" Height="40" VerticalAlignment="Bottom"/>
+        <Image Source="/Recursos/RectanguloSala2.png" Stretch="Fill" Margin="0,0,110,70" Width="80" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Image Source="/Recursos/RectanguloSala2.png" Stretch="Fill" Margin="0,0,40,70" Width="60" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Image x:Name="imgAmigos" HorizontalAlignment="Left" Height="60" Margin="20,20,0,0" VerticalAlignment="Top" Width="60" Source="/Recursos/iconoAmigos.png" RenderTransformOrigin="-0.611,0.606"/>
+        <Label x:Name="lbAmigosMenuPrincipal" Content="{x:Static Properties:Resources.lbAmigosMenuPrincipal}" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top" Width="76" HorizontalContentAlignment="Center" Foreground="White"/>
+        <Label x:Name="lbNombreSala" Content="Nombre Sala" Margin="120,30,350,0" VerticalAlignment="Top" Height="38" FontSize="20"/>
+        <Label x:Name="lbCodigoSala" Content="Codigo de la sala: " Margin="505,34,115,0" VerticalAlignment="Top" Height="32" FontSize="16"/>
+        <Label x:Name="lbModoJuego" Content="Modo de Juego" Margin="0,0,205,67" FontSize="10" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100"/>
+        <Label x:Name="lbNumeroRondas" Content="n rondas" Margin="0,0,110,67" FontSize="10" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
+        <Label x:Name="lbAcceso" Content="Pública" Margin="0,0,40,67" FontSize="10" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="60"/>
+
+
+        <Canvas Width="140" Height="180" Margin="60,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Image Source="\Recursos\PlaceholderJugadorSala.png" Stretch="Fill" Height="140" VerticalAlignment="Top" Canvas.Left="0" Canvas.Top="0"/>
+            <Label x:Name="lbNombreJugador1" Content="Nombre de Jugador" Height="26" VerticalAlignment="Bottom" FontSize="11" Canvas.Left="10" Canvas.Right="10" Canvas.Bottom="50" Width="120"/>
+            <Rectangle HorizontalAlignment="Center" Height="70" Margin="35,23,35,0" VerticalAlignment="Top" Width="70" MouseLeftButtonDown="AbrirListaAmigos"/>
+            <Image x:Name="imgCoronaHost1" Source="\Recursos\corona.png" Stretch="Fill" Margin="0,0,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Center" Canvas.Top="0" Canvas.Left="58" Canvas.Right="58"  Width="24"/>
+            <Image x:Name="imgPalomitaListo1" Source="\Recursos\Palomita.png" Stretch="Fill" Margin="0,0,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Left="55" Canvas.Right="55" Width="30" Visibility="Hidden"/>
+            <Image x:Name="imgPuntosEnEspera1" Source="\Recursos\PuntosEspera.png" Stretch="Fill" Margin="0,0,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Bottom="0" Canvas.Left="48" Width="44"/>
+        </Canvas>
+
+        <Canvas Width="140" Height="180" Margin="240,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Image Source="\Recursos\PlaceholderJugadorSala.png" Stretch="Fill" Height="140" VerticalAlignment="Top" Canvas.Left="0" Canvas.Top="0"/>
+            <Label x:Name="lbNombreJugador2" Content="Nombre de Jugador" Height="26" VerticalAlignment="Bottom" FontSize="11" Canvas.Left="10" Canvas.Right="10" Canvas.Bottom="50" Width="120"/>
+            <Rectangle HorizontalAlignment="Center" Height="70" Margin="35,23,35,0" VerticalAlignment="Top" Width="70" MouseLeftButtonDown="AbrirListaAmigos"/>
+            <Image x:Name="imgCoronaHost2" Source="\Recursos\corona.png" Stretch="Fill" Margin="0,0,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Center" Canvas.Top="0" Canvas.Left="58" Canvas.Right="58"  Width="24" Visibility="Hidden"/>
+            <Image x:Name="imgPalomitaListo2" Source="\Recursos\Palomita.png" Stretch="Fill" Margin="0,0,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Left="55" Canvas.Right="55" Width="30" Visibility="Hidden"/>
+            <Image x:Name="imgPuntosEnEspera2" Source="\Recursos\PuntosEspera.png" Stretch="Fill" Margin="0,0,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Bottom="0" Canvas.Left="48" Width="44"/>
+        </Canvas>
+
+        <Canvas Width="140" Height="180" Margin="420,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Image Source="\Recursos\PlaceholderJugadorSala.png" Stretch="Fill" Height="140" VerticalAlignment="Top" Canvas.Left="0" Canvas.Top="0"/>
+            <Label x:Name="lbNombreJugador3" Content="Nombre de Jugador" Height="26" VerticalAlignment="Bottom" FontSize="11" Canvas.Left="10" Canvas.Right="10" Canvas.Bottom="50" Width="120"/>
+            <Rectangle HorizontalAlignment="Center" Height="70" Margin="35,23,35,0" VerticalAlignment="Top" Width="70" MouseLeftButtonDown="AbrirListaAmigos"/>
+            <Image x:Name="imgCoronaHost3" Source="\Recursos\corona.png" Stretch="Fill" Margin="0,0,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Center" Canvas.Top="0" Canvas.Left="58" Canvas.Right="58"  Width="24" Visibility="Hidden"/>
+            <Image x:Name="imgPalomitaListo3" Source="\Recursos\Palomita.png" Stretch="Fill" Margin="0,0,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Left="55" Canvas.Right="55" Width="30" Visibility="Hidden"/>
+            <Image x:Name="imgPuntosEnEspera3" Source="\Recursos\PuntosEspera.png" Stretch="Fill" Margin="0,0,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Bottom="0" Canvas.Left="48" Width="44"/>
+        </Canvas>
+
+        <Canvas Height="180" Margin="600,0,60,0" VerticalAlignment="Center">
+            <Image Source="\Recursos\PlaceholderJugadorSala.png" Stretch="Fill" Height="140" VerticalAlignment="Top" Canvas.Left="0" Canvas.Top="0"/>
+            <Label x:Name="lbNombreJugador4" Content="Nombre de Jugador" Height="26" VerticalAlignment="Bottom" FontSize="11" Canvas.Left="10" Canvas.Right="10" Canvas.Bottom="50" Width="120"/>
+            <Rectangle HorizontalAlignment="Center" Height="70" Margin="35,23,35,0" VerticalAlignment="Top" Width="70" MouseLeftButtonDown="AbrirListaAmigos"/>
+            <Image x:Name="imgCoronaHost4" Source="\Recursos\corona.png" Stretch="Fill" Margin="0,0,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Center" Canvas.Top="0" Canvas.Left="58" Canvas.Right="58"  Width="24" Visibility="Hidden"/>
+            <Image x:Name="imgPalomitaListo4" Source="\Recursos\Palomita.png" Stretch="Fill" Margin="0,0,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Left="55" Canvas.Right="55" Width="30" Visibility="Hidden"/>
+            <Image x:Name="imgPuntosEnEspera4" Source="\Recursos\PuntosEspera.png" Stretch="Fill" Margin="0,0,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Bottom="0" Canvas.Left="48" Width="44"/>
+        </Canvas>
+
+    </Grid>
+</Window>
