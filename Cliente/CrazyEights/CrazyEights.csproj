@@ -95,6 +95,9 @@
     <Compile Include="Ventanas\VentanaAyudaDeJuego.xaml.cs">
       <DependentUpon>VentanaAyudaDeJuego.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VentanaConfigurarContraseña.xaml.cs">
+      <DependentUpon>VentanaConfigurarContraseña.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VentanaIngresarComoInvitado.xaml.cs">
       <DependentUpon>VentanaIngresarComoInvitado.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ventanas\VentanaAyudaDeJuego.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaConfigurarContraseña.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -252,7 +259,7 @@
     <None Include="Connected Services\ReferenciaServicioManejoJugadores\ServicioManejoJugadores.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
@@ -448,6 +455,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\amogus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FotosDePerfil\catRunner.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -61,5 +61,10 @@ namespace CrazyEights
                 this.Close();
             }
         }
+
+        private void CerrarVentana(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

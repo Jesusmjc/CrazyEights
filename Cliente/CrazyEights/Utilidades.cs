@@ -44,5 +44,15 @@ namespace CrazyEights
 
             return esContrasenaValida;
         }
+
+        public static bool ValidarNuevaContraseña(string contrasena, string nuevaContrasena)
+        {
+            bool esContrasenaValida = false;
+            if (contrasena != nuevaContrasena)
+            {
+                esContrasenaValida = true;
+            }
+            return esContrasenaValida;
+        }
     }
 }

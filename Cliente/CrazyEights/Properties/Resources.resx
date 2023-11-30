@@ -123,6 +123,12 @@
   <data name="btnAceptar" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="btnCambiarContraseña" xml:space="preserve">
+    <value>Cambiar contraseña</value>
+  </data>
+  <data name="btnCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
   <data name="btnCartasClasicas" xml:space="preserve">
     <value>Cartas clásicas</value>
   </data>
@@ -134,6 +140,9 @@
   </data>
   <data name="btnCrearPartida" xml:space="preserve">
     <value>Crear partida</value>
+  </data>
+  <data name="btnEditarContraseña" xml:space="preserve">
+    <value>Cambiar contraseña</value>
   </data>
   <data name="btnEncontrarPartida" xml:space="preserve">
     <value>Encontrar partida</value>
@@ -159,6 +168,12 @@
   <data name="btnTienda" xml:space="preserve">
     <value>Tienda</value>
   </data>
+  <data name="lbAdvertenciaContraseñaInvalida" xml:space="preserve">
+    <value>Por favor ingrese una contraseña válida.</value>
+  </data>
+  <data name="lbAdvertenciaCorreoElectronicoInvalido" xml:space="preserve">
+    <value>Por favor ingrese un correo electrónico válido.</value>
+  </data>
   <data name="lbAmigosMenuPrincipal" xml:space="preserve">
     <value>Amigos</value>
   </data>
@@ -177,6 +192,12 @@
   <data name="lbAyudaMenuPrincipal" xml:space="preserve">
     <value>Ayuda</value>
   </data>
+  <data name="lbCambiarNombreDeUsuario" xml:space="preserve">
+    <value>Cambiar nombre de usuario</value>
+  </data>
+  <data name="lbCamposVacios" xml:space="preserve">
+    <value>Debe de completar todos los campos</value>
+  </data>
   <data name="lbCerrarVentana" xml:space="preserve">
     <value>Cerrar</value>
   </data>
@@ -186,8 +207,17 @@
   <data name="lbConfiguracion" xml:space="preserve">
     <value>Configuración</value>
   </data>
+  <data name="lbConfirmarNuevaContraseña" xml:space="preserve">
+    <value>Confirmar nueva contraseña:</value>
+  </data>
   <data name="lbContraseña" xml:space="preserve">
     <value>Contraseña:</value>
+  </data>
+  <data name="lbContraseñaActual" xml:space="preserve">
+    <value>Contraseña actual:</value>
+  </data>
+  <data name="lbContraseñaActualInvalida" xml:space="preserve">
+    <value>La contraseña actual es incorrecta</value>
   </data>
   <data name="lbCorreoElectronico" xml:space="preserve">
     <value>Correo Electrónico:</value>
@@ -203,6 +233,9 @@
   </data>
   <data name="lbNombreUsuario" xml:space="preserve">
     <value>Nombre de Usuario:</value>
+  </data>
+  <data name="lbNuevaContraseña" xml:space="preserve">
+    <value>Nueva contraseña:</value>
   </data>
   <data name="lbPerfilMenuPrincipal" xml:space="preserve">
     <value>Perfil</value>
@@ -231,11 +264,46 @@
   <data name="msbCerrarSesion" xml:space="preserve">
     <value>¿Desea cerrar su sesión?</value>
   </data>
+  <data name="msbContraseñaCambiada" xml:space="preserve">
+    <value>La contraseña fue cambiada correctamente.</value>
+  </data>
+  <data name="msbContraseñaNoCambiada" xml:space="preserve">
+    <value>La contraseña no pudo ser cambiada.</value>
+  </data>
+  <data name="msbContraseñasNoIguales" xml:space="preserve">
+    <value>Las contraseñas ingresadas no coinciden.</value>
+  </data>
+  <data name="msbDatosCambiados" xml:space="preserve">
+    <value>La información del jugador ha sido actualizada correctamente.</value>
+  </data>
+  <data name="msbDatosNoCambiados" xml:space="preserve">
+    <value>No se han hecho cambios.</value>
+  </data>
+  <data name="msbFotoCambiada" xml:space="preserve">
+    <value>La foto del jugador ha sido actualizada correctamente.</value>
+  </data>
+  <data name="msbNombreDeUsuarioExistente" xml:space="preserve">
+    <value>El nombre de usuario que se ha ingresado ya existe.</value>
+  </data>
+  <data name="msbNombreUsuarioCambiado" xml:space="preserve">
+    <value>El nombre de jugador ha sido actualizado correctamente.</value>
+  </data>
+  <data name="msbNoSePudoRecuperarInformacion" xml:space="preserve">
+    <value>No se pudo recuperar la información actual del jugador.</value>
+  </data>
   <data name="tabCtrlModoClasico" xml:space="preserve">
     <value>Modo de juego - Clásico </value>
   </data>
   <data name="tabCtrlModoOchos" xml:space="preserve">
     <value>Modo de juego - Ochos locos</value>
+  </data>
+  <data name="tbContraseñaInvalida" xml:space="preserve">
+    <value>La contraseña debe contener:
+Al menos una letra minúscula.
+Al menos una letra mayúscula.
+Al menos un dígito.
+Al menos uno de los caracteres especiales especificados: @,$,!,%,*,?,&amp;,#,.,(),\,-,_
+Debe ser tener una longitud de 8 a 16 caracteres.</value>
   </data>
   <data name="tbCrazyEights" xml:space="preserve">
     <value>CRAZY EIGHTS</value>
@@ -272,5 +340,32 @@ La A obliga al siguiente jugador a robar 3 cartas. Se pueden jugar varias A en u
   </data>
   <data name="ttlCerrarSesion" xml:space="preserve">
     <value>Cierre de sesión</value>
+  </data>
+  <data name="ttlContraseñaCambiada" xml:space="preserve">
+    <value>Contraseña cambiada correctamente</value>
+  </data>
+  <data name="ttlContraseñaNoCambiada" xml:space="preserve">
+    <value>No se pudo cambiar la contraseña</value>
+  </data>
+  <data name="ttlContraseñasNoIguales" xml:space="preserve">
+    <value>Las contraseñas no coinciden</value>
+  </data>
+  <data name="ttlDatosCambiados" xml:space="preserve">
+    <value>Datos de jugador cambiados</value>
+  </data>
+  <data name="ttlDatosNoCambiados" xml:space="preserve">
+    <value>Datos de jugador no cambiados</value>
+  </data>
+  <data name="ttlFotoCambiada" xml:space="preserve">
+    <value>Foto de jugador cambiada</value>
+  </data>
+  <data name="ttlNombreDeUsuarioExistente" xml:space="preserve">
+    <value>Nombre de usuario ya existe</value>
+  </data>
+  <data name="ttlNombreUsuarioCambiado" xml:space="preserve">
+    <value>Nombre de jugador cambiado</value>
+  </data>
+  <data name="ttlNoSePudoRecuperarInformacion" xml:space="preserve">
+    <value>Información no recuperada</value>
   </data>
 </root>
