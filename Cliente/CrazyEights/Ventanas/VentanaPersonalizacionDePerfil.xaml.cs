@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrazyEights.ReferenciaServicioManejoJugadores;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -22,18 +23,19 @@ namespace CrazyEights.Ventanas
     /// </summary>
     public partial class VentanaPersonalizacionDePerfil : Window
     {
+        ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient actualizarCliente = new ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient();
         private String _recursoDeImagen = "";
 
         public VentanaPersonalizacionDePerfil()
         {
             InitializeComponent();
-            CargarInformacion();
             CargarRecursos();
-            CargarImagenDePerfil();
+            CargarInformacionDeJugador();
         }
 
         private void CargarRecursos()
         {
+            lstbSeleccionarImagen.Items.Add("catRunner");
             lstbSeleccionarImagen.Items.Add("amogus");
             lstbSeleccionarImagen.Items.Add("gatoEnojado");
             lstbSeleccionarImagen.Items.Add("godzilla");
@@ -41,26 +43,37 @@ namespace CrazyEights.Ventanas
             lstbSeleccionarImagen.Items.Add("perry");
         }
 
-        private void CargarInformacion()
+        private void CargarInformacionDeJugador() //ToDo
         {
-            lbNombreDeJugador.Content = SingletonJugador.Instance.NombreJugador;
-            //lbNombreDeJugador.Content = JugadorCliente.JugadorDeCliente.NombreUsuario;
-        }
-        private void CargarImagenDePerfil()
-        {
-            Bitmap imagenPerfil = (Bitmap)Properties.ResourcesDePerfil.ResourceManager.GetObject(SingletonJugador.Instance.FotoPerfil);
+            SingletonJugador singletonJugador = SingletonJugador.Instance;
+            int idJugador = singletonJugador.IdJugador;
 
-            BitmapSource imagenPerfilBitmap = Imaging.CreateBitmapSourceFromHBitmap(
-                imagenPerfil.GetHbitmap(),
-                IntPtr.Zero,
-                Int32Rect.Empty,
-                BitmapSizeOptions.FromEmptyOptions()
+            string direccionFotoPerfilActual = actualizarCliente.ObtenerDireccionFotoPerfil(idJugador);
+            string nombreUsuario = actualizarCliente.ObtenerNombreUsuario(idJugador);
+            string correoElectronico = singletonJugador.CorreoElectronico;
+
+            if (direccionFotoPerfilActual != null)
+            {
+                Bitmap imagenPerfil = (Bitmap)Properties.ResourcesDePerfil.ResourceManager.GetObject(direccionFotoPerfilActual);
+
+                BitmapSource imagenPerfilBitmap = Imaging.CreateBitmapSourceFromHBitmap(
+                    imagenPerfil.GetHbitmap(),
+                    IntPtr.Zero,
+                    Int32Rect.Empty,
+                    BitmapSizeOptions.FromEmptyOptions()
                 );
 
-            imgFotoPerfil.Source = imagenPerfilBitmap;
+                imgFotoPerfil.Source = imagenPerfilBitmap;
+                lbNombreDeJugador.Content = nombreUsuario;
+                lbCorreoElectronico.Content = correoElectronico;
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.msbNoSePudoRecuperarInformacion, Properties.Resources.ttlNoSePudoRecuperarInformacion, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
-        private void SeleccionarImagen(object sender, SelectionChangedEventArgs e) //ToDo
+        private void SeleccionarImagen(object sender, SelectionChangedEventArgs e) 
         {
             if (lstbSeleccionarImagen.SelectedItem != null)
             {
@@ -85,7 +98,54 @@ namespace CrazyEights.Ventanas
 
         private void GuardarCambiosDePerfil(object sender, RoutedEventArgs e)
         {
-            SingletonJugador.Instance.FotoPerfil = _recursoDeImagen;
+            SingletonJugador singletonJugador = SingletonJugador.Instance;
+            int idJugador = singletonJugador.IdJugador;
+            string nuevaDireccionFotoPerfil = _recursoDeImagen;
+            string nuevoNombreUsuario = tbxNombreUsuario.Text;
+
+            if (!String.IsNullOrWhiteSpace(nuevaDireccionFotoPerfil) && !String.IsNullOrWhiteSpace(nuevoNombreUsuario))
+            {
+                if (actualizarCliente.ActualizarNombreUsuario(idJugador, nuevoNombreUsuario) && Utilidades.ValidarNombreUsuario(nuevoNombreUsuario))
+                {
+                    actualizarCliente.ActualizarFotoPerfil(idJugador, nuevaDireccionFotoPerfil);
+                    MessageBox.Show(Properties.Resources.msbDatosCambiados, Properties.Resources.ttlDatosCambiados, MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.msbNombreDeUsuarioExistente, Properties.Resources.ttlNombreDeUsuarioExistente, MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            else if (!String.IsNullOrWhiteSpace(nuevaDireccionFotoPerfil))
+            {
+                actualizarCliente.ActualizarFotoPerfil(idJugador, nuevaDireccionFotoPerfil);
+                MessageBox.Show(Properties.Resources.msbFotoCambiada, Properties.Resources.ttlFotoCambiada, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (!String.IsNullOrWhiteSpace(nuevoNombreUsuario) && Utilidades.ValidarNombreUsuario(nuevoNombreUsuario))
+            {
+                if (actualizarCliente.ActualizarNombreUsuario(idJugador, nuevoNombreUsuario))
+                {
+                    MessageBox.Show(Properties.Resources.msbNombreUsuarioCambiado, Properties.Resources.ttlNombreUsuarioCambiado, MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.msbNombreDeUsuarioExistente, Properties.Resources.ttlNombreDeUsuarioExistente, MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.msbDatosNoCambiados, Properties.Resources.ttlDatosNoCambiados, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            VentanaPersonalizacionDePerfil ventanaPersonalizacionDePerfil = new VentanaPersonalizacionDePerfil();
+            ventanaPersonalizacionDePerfil.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ventanaPersonalizacionDePerfil.ShowDialog();
+            this.Close();
+        }
+
+        private void EditarContraseña(object sender, RoutedEventArgs e)
+        {
+            VentanaConfigurarContraseña ventanaEdtiarContraseña = new VentanaConfigurarContraseña();
+            ventanaEdtiarContraseña.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ventanaEdtiarContraseña.ShowDialog();
         }
     }
 }

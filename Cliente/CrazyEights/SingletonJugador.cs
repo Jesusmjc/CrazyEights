@@ -16,6 +16,7 @@ namespace CrazyEights
         public string FotoPerfil { get; set; }
         public string Estado { get; set; }
         public bool EsInvitado { get; set; }
+        public string CorreoElectronico { get; set; }
 
     
         private SingletonJugador() { }

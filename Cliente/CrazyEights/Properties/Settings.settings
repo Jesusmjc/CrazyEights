@@ -8,5 +8,8 @@
     <Setting Name="Cartas" Type="System.String" Scope="User">
       <Value Profile="(Default)">Cartas</Value>
     </Setting>
+    <Setting Name="FotoPredeterminada" Type="System.String" Scope="User">
+      <Value Profile="(Default)">predeterminada</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

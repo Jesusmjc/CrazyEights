@@ -16,8 +16,12 @@
         <Rectangle HorizontalAlignment="Left" Height="205" Margin="35,24,0,0" Stroke="White" StrokeThickness="6" VerticalAlignment="Top" Width="213"/>
         <Image x:Name="imgFotoPerfil" HorizontalAlignment="Left" Height="200" Margin="41,26,0,0" VerticalAlignment="Top" Width="200" Stretch="Fill"/>
         <ListBox x:Name="lstbSeleccionarImagen" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="41,262,0,0" SelectionChanged="SeleccionarImagen" Background="{x:Null}" Foreground="White" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="207" />
-        <Label x:Name="lbNombreDeJugador" Content="{x:Static p:Resources.lbNombreDeJugador}" HorizontalAlignment="Left" Margin="288,29,0,0" VerticalAlignment="Top" FontSize="36" Width="345" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lbNombreDeJugador" Content="{x:Static p:Resources.lbNombreDeJugador}" HorizontalAlignment="Left" Margin="265,26,0,0" VerticalAlignment="Top" FontSize="30" Width="345"/>
         <Button x:Name="btnGuardarCambiosDePerfil" Content="{x:Static p:Resources.btnGuardarCambiosDePerfil}" HorizontalAlignment="Left" Margin="543,336,0,0" VerticalAlignment="Top" FontSize="20" Height="42" Width="196" Click="GuardarCambiosDePerfil"/>
+        <Label x:Name="lbCambiarNombreDeUsuario" Content="{x:Static p:Resources.lbCambiarNombreDeUsuario}" HorizontalAlignment="Left" Margin="264,114,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="tbxNombreUsuario" HorizontalAlignment="Left" Margin="268,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+        <Button x:Name="btnEditarContraseña" Content="{x:Static p:Resources.btnEditarContraseña}" HorizontalAlignment="Left" Margin="321,336,0,0" VerticalAlignment="Top" FontSize="20" Height="42" Click="EditarContraseña" Width="188"/>
+        <Label x:Name="lbCorreoElectronico" Content="Sample Email" HorizontalAlignment="Left" Margin="264,72,0,0" VerticalAlignment="Top" Width="345"/>
 
     </Grid>
 </Window>

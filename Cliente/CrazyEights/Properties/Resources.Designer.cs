@@ -79,6 +79,24 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cambiar contraseña.
+        /// </summary>
+        public static string btnCambiarContraseña {
+            get {
+                return ResourceManager.GetString("btnCambiarContraseña", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar.
+        /// </summary>
+        public static string btnCancelar {
+            get {
+                return ResourceManager.GetString("btnCancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cartas clásicas.
         /// </summary>
         public static string btnCartasClasicas {
@@ -111,6 +129,15 @@ namespace CrazyEights.Properties {
         public static string btnCrearPartida {
             get {
                 return ResourceManager.GetString("btnCrearPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cambiar contraseña.
+        /// </summary>
+        public static string btnEditarContraseña {
+            get {
+                return ResourceManager.GetString("btnEditarContraseña", resourceCulture);
             }
         }
         
@@ -187,6 +214,24 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Por favor ingrese una contraseña válida..
+        /// </summary>
+        public static string lbAdvertenciaContraseñaInvalida {
+            get {
+                return ResourceManager.GetString("lbAdvertenciaContraseñaInvalida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Por favor ingrese un correo electrónico válido..
+        /// </summary>
+        public static string lbAdvertenciaCorreoElectronicoInvalido {
+            get {
+                return ResourceManager.GetString("lbAdvertenciaCorreoElectronicoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amigos.
         /// </summary>
         public static string lbAmigosMenuPrincipal {
@@ -241,6 +286,24 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cambiar nombre de usuario.
+        /// </summary>
+        public static string lbCambiarNombreDeUsuario {
+            get {
+                return ResourceManager.GetString("lbCambiarNombreDeUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe de completar todos los campos.
+        /// </summary>
+        public static string lbCamposVacios {
+            get {
+                return ResourceManager.GetString("lbCamposVacios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cerrar.
         /// </summary>
         public static string lbCerrarVentana {
@@ -268,11 +331,38 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirmar nueva contraseña:.
+        /// </summary>
+        public static string lbConfirmarNuevaContraseña {
+            get {
+                return ResourceManager.GetString("lbConfirmarNuevaContraseña", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contraseña:.
         /// </summary>
         public static string lbContraseña {
             get {
                 return ResourceManager.GetString("lbContraseña", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña actual:.
+        /// </summary>
+        public static string lbContraseñaActual {
+            get {
+                return ResourceManager.GetString("lbContraseñaActual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La contraseña actual es incorrecta.
+        /// </summary>
+        public static string lbContraseñaActualInvalida {
+            get {
+                return ResourceManager.GetString("lbContraseñaActualInvalida", resourceCulture);
             }
         }
         
@@ -318,6 +408,15 @@ namespace CrazyEights.Properties {
         public static string lbNombreUsuario {
             get {
                 return ResourceManager.GetString("lbNombreUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nueva contraseña:.
+        /// </summary>
+        public static string lbNuevaContraseña {
+            get {
+                return ResourceManager.GetString("lbNuevaContraseña", resourceCulture);
             }
         }
         
@@ -403,6 +502,87 @@ namespace CrazyEights.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La contraseña fue cambiada correctamente..
+        /// </summary>
+        public static string msbContraseñaCambiada {
+            get {
+                return ResourceManager.GetString("msbContraseñaCambiada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La contraseña no pudo ser cambiada..
+        /// </summary>
+        public static string msbContraseñaNoCambiada {
+            get {
+                return ResourceManager.GetString("msbContraseñaNoCambiada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Las contraseñas ingresadas no coinciden..
+        /// </summary>
+        public static string msbContraseñasNoIguales {
+            get {
+                return ResourceManager.GetString("msbContraseñasNoIguales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La información del jugador ha sido actualizada correctamente..
+        /// </summary>
+        public static string msbDatosCambiados {
+            get {
+                return ResourceManager.GetString("msbDatosCambiados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se han hecho cambios..
+        /// </summary>
+        public static string msbDatosNoCambiados {
+            get {
+                return ResourceManager.GetString("msbDatosNoCambiados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La foto del jugador ha sido actualizada correctamente..
+        /// </summary>
+        public static string msbFotoCambiada {
+            get {
+                return ResourceManager.GetString("msbFotoCambiada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El nombre de usuario que se ha ingresado ya existe..
+        /// </summary>
+        public static string msbNombreDeUsuarioExistente {
+            get {
+                return ResourceManager.GetString("msbNombreDeUsuarioExistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El nombre de jugador ha sido actualizado correctamente..
+        /// </summary>
+        public static string msbNombreUsuarioCambiado {
+            get {
+                return ResourceManager.GetString("msbNombreUsuarioCambiado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se pudo recuperar la información actual del jugador..
+        /// </summary>
+        public static string msbNoSePudoRecuperarInformacion {
+            get {
+                return ResourceManager.GetString("msbNoSePudoRecuperarInformacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Modo de juego - Clásico .
         /// </summary>
         public static string tabCtrlModoClasico {
@@ -417,6 +597,20 @@ namespace CrazyEights.Properties {
         public static string tabCtrlModoOchos {
             get {
                 return ResourceManager.GetString("tabCtrlModoOchos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La contraseña debe contener:
+        ///Al menos una letra minúscula.
+        ///Al menos una letra mayúscula.
+        ///Al menos un dígito.
+        ///Al menos uno de los caracteres especiales especificados: @,$,!,%,*,?,&amp;,#,.,(),\,-,_
+        ///Debe ser tener una longitud de 8 a 16 caracteres..
+        /// </summary>
+        public static string tbContraseñaInvalida {
+            get {
+                return ResourceManager.GetString("tbContraseñaInvalida", resourceCulture);
             }
         }
         
@@ -488,6 +682,87 @@ namespace CrazyEights.Properties {
         public static string ttlCerrarSesion {
             get {
                 return ResourceManager.GetString("ttlCerrarSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña cambiada correctamente.
+        /// </summary>
+        public static string ttlContraseñaCambiada {
+            get {
+                return ResourceManager.GetString("ttlContraseñaCambiada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se pudo cambiar la contraseña.
+        /// </summary>
+        public static string ttlContraseñaNoCambiada {
+            get {
+                return ResourceManager.GetString("ttlContraseñaNoCambiada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Las contraseñas no coinciden.
+        /// </summary>
+        public static string ttlContraseñasNoIguales {
+            get {
+                return ResourceManager.GetString("ttlContraseñasNoIguales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datos de jugador cambiados.
+        /// </summary>
+        public static string ttlDatosCambiados {
+            get {
+                return ResourceManager.GetString("ttlDatosCambiados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datos de jugador no cambiados.
+        /// </summary>
+        public static string ttlDatosNoCambiados {
+            get {
+                return ResourceManager.GetString("ttlDatosNoCambiados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Foto de jugador cambiada.
+        /// </summary>
+        public static string ttlFotoCambiada {
+            get {
+                return ResourceManager.GetString("ttlFotoCambiada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nombre de usuario ya existe.
+        /// </summary>
+        public static string ttlNombreDeUsuarioExistente {
+            get {
+                return ResourceManager.GetString("ttlNombreDeUsuarioExistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nombre de jugador cambiado.
+        /// </summary>
+        public static string ttlNombreUsuarioCambiado {
+            get {
+                return ResourceManager.GetString("ttlNombreUsuarioCambiado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Información no recuperada.
+        /// </summary>
+        public static string ttlNoSePudoRecuperarInformacion {
+            get {
+                return ResourceManager.GetString("ttlNoSePudoRecuperarInformacion", resourceCulture);
             }
         }
     }

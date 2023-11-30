@@ -24,6 +24,16 @@ namespace CrazyEightsServicio
 
         [OperationContract]
         string EnviarCodigoAlCorreoDelUsuario(string correoElectronico);
+        [OperationContract]
+        bool ActualizarFotoPerfil(int idJugador, string nuevaDireccionFotoPerfil);
+        [OperationContract]
+        bool ActualizarNombreUsuario(int idJugador, string nuevoNombreUsuario);
+        [OperationContract]
+        string ObtenerDireccionFotoPerfil(int idJugador);
+        [OperationContract]
+        string ObtenerNombreUsuario(int idJugador);
+        [OperationContract]
+        bool CambiarContraseña(string correoElectronico, string nuevaContrasena);
     }
 
     [ServiceContract(CallbackContract = typeof(IManejadorJugadoresCallback))]
