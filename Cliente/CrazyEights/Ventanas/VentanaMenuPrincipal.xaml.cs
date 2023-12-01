@@ -38,7 +38,6 @@ namespace CrazyEights
             if (!SingletonJugador.Instance.EsInvitado)
             {
                 if (string.IsNullOrEmpty(SingletonJugador.Instance.FotoPerfil))
-                //if (string.IsNullOrEmpty(JugadorCliente.JugadorDeCliente.FotoPerfil))
                 {
                     SingletonJugador.Instance.FotoPerfil = "predeterminada"; //ToDo
                 }
@@ -65,12 +64,11 @@ namespace CrazyEights
             ventanaTiendaDeJuego.ShowDialog();
         }
 
-        private void NavegarAJuego(object sender, RoutedEventArgs e) //ToDoTemp
+        private void NavegarAConfiguracionPartida(object sender, RoutedEventArgs e)
         {
-            VentanaJuegoDeCartas ventanaJuegoDeCartas = new VentanaJuegoDeCartas();
-            ventanaJuegoDeCartas.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ventanaJuegoDeCartas.Show();
+            VentanaConfiguracionPartida ventanaConfiguracionPartida = new VentanaConfiguracionPartida();
             this.Close();
+            ventanaConfiguracionPartida.ShowDialog();
         }
 
         private void NavegarAMisiones(object sender, MouseButtonEventArgs e)

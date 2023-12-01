@@ -15,7 +15,7 @@
         <Image x:Name="imgAmigos" HorizontalAlignment="Left" Height="76" Margin="120,13,0,0" VerticalAlignment="Top" Width="81" Source="/Recursos/iconoAmigos.png" MouseLeftButtonDown="NavegarAListaAmigos"/>
         <Image HorizontalAlignment="Left" Height="76" Margin="701,19,0,0" VerticalAlignment="Top" Width="74" Source="/Recursos/iconoMisiones.png" MouseLeftButtonDown="NavegarAMisiones"/>
         <Image HorizontalAlignment="Left" Height="67" Margin="23,356,0,0" VerticalAlignment="Top" Width="57" Source="/Recursos/iconoAyuda.png" MouseLeftButtonDown="NavegarAyudaJuego"/>
-        <Button x:Name="btnCrearPartida" Content="{x:Static p:Resources.btnCrearPartida}" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Height="52" Width="119" Background="#FF50D4F2" Click="NavegarAJuego"/>
+        <Button x:Name="btnCrearPartida" Content="{x:Static p:Resources.btnCrearPartida}" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Height="52" Width="119" Background="#FF50D4F2" Click="NavegarAConfiguracionPartida"/>
         <Button x:Name="btnEncontrarPartida" Content="{x:Static p:Resources.btnEncontrarPartida}" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Height="50" Width="120" Background="#FF50D4F2"/>
         <Button x:Name="btnTienda" Content="{x:Static p:Resources.btnTienda}" HorizontalAlignment="Center" Margin="0,289,0,0" VerticalAlignment="Top" Height="52" Width="120" Background="#FF50D4F2" Click="NavegarATienda"/>
         <Button x:Name="btnCerrarSesionDeJuego" Content="{x:Static p:Resources.btnCerrarSesionDeJuego}" HorizontalAlignment="Center" Margin="0,356,0,0" VerticalAlignment="Top" Height="43" Width="120" Background="#FF50D4F2" Click="CerrarSesion"/>

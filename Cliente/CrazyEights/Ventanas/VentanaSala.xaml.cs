@@ -22,6 +22,13 @@ namespace CrazyEights.Ventanas
         public VentanaSala()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.ResizeMode = ResizeMode.NoResize;
+        }
+
+        private void AbrirListaAmigos(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

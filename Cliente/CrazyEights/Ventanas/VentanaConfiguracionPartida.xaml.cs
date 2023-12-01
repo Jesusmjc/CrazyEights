@@ -22,6 +22,8 @@ namespace CrazyEights.Ventanas
         public VentanaConfiguracionPartida()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.ResizeMode = ResizeMode.NoResize;
         }
 
         private void CrearSala(object sender, RoutedEventArgs e)
@@ -32,6 +34,13 @@ namespace CrazyEights.Ventanas
         private void CerrarVentana(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void NavegarASala(object sender, RoutedEventArgs e)
+        {
+            VentanaSala ventanaSala = new VentanaSala();
+            this.Close();
+            ventanaSala.ShowDialog();
         }
     }
 }

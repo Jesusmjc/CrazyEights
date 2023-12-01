@@ -470,6 +470,16 @@
   <ItemGroup>
     <None Include="Resources\amogus.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\ConfigurarSala.png" />
+    <Resource Include="Recursos\corona.png" />
+    <Resource Include="Recursos\Fondo3.png" />
+    <Resource Include="Recursos\Palomita.png" />
+    <Resource Include="Recursos\PlaceholderJugadorSala.png" />
+    <Resource Include="Recursos\PuntosEspera.png" />
+    <Resource Include="Recursos\RectanguloSala1.png" />
+    <Resource Include="Recursos\RectanguloSala2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
