@@ -24,6 +24,7 @@ namespace CrazyEights.Ventanas
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.ResizeMode = ResizeMode.NoResize;
+            CargarComboBoxes();
         }
 
         private void CrearSala(object sender, RoutedEventArgs e)
@@ -31,9 +32,11 @@ namespace CrazyEights.Ventanas
 
         }
 
-        private void CerrarVentana(object sender, MouseButtonEventArgs e)
+        private void NavegarAMenuPrincipal(object sender, MouseButtonEventArgs e)
         {
-
+            VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
+            this.Close();
+            ventanaMenuPrincipal.ShowDialog();
         }
 
         private void NavegarASala(object sender, RoutedEventArgs e)
@@ -41,6 +44,45 @@ namespace CrazyEights.Ventanas
             VentanaSala ventanaSala = new VentanaSala();
             this.Close();
             ventanaSala.ShowDialog();
+        }
+
+        private void CargarComboBoxes()
+        {
+            CargarComboBoxModoJuego();
+            CargarComboBoxAcceso();
+            CargarComboBoxRondasParaGanar();
+            CargarComboBoxTiempoPorRonda();
+        }
+
+        private void CargarComboBoxModoJuego()
+        {
+            cbModoJuego.Items.Add("Clásico");
+            cbModoJuego.Items.Add("Crazy");
+        }
+
+        private void CargarComboBoxAcceso()
+        {
+            cbAcceso.Items.Add("Público");
+            cbAcceso.Items.Add("Privado");
+        }
+
+        private void CargarComboBoxRondasParaGanar()
+        {
+            cbRondas.Items.Add("3");
+            cbRondas.Items.Add("5");
+            cbRondas.Items.Add("7");
+        }
+
+        private void CargarComboBoxTiempoPorRonda()
+        {
+            cbTiempoPorTurno.Items.Add("10");
+            cbTiempoPorTurno.Items.Add("15");
+            cbTiempoPorTurno.Items.Add("20");
+            cbTiempoPorTurno.Items.Add("25");
+            cbTiempoPorTurno.Items.Add("30");
+            cbTiempoPorTurno.Items.Add("40");
+            cbTiempoPorTurno.Items.Add("50");
+            cbTiempoPorTurno.Items.Add("60");
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CrazyEights.ReferenciaServicioManejoJugadores;
 
 namespace CrazyEights.Ventanas
 {
@@ -20,9 +21,10 @@ namespace CrazyEights.Ventanas
     /// </summary>
     public partial class JugadorSala : UserControl
     {
-        public JugadorSala()
+        public JugadorSala(Jugador jugadorEnLaSala)
         {
             InitializeComponent();
+            lbNombreJugador.Content = jugadorEnLaSala.NombreUsuario;
         }
 
         private void AbrirListaAmigos(object sender, MouseButtonEventArgs e)
