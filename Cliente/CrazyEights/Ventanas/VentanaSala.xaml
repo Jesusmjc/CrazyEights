@@ -19,7 +19,7 @@
         <Image x:Name="imgAmigos" HorizontalAlignment="Left" Height="60" Margin="20,20,0,0" VerticalAlignment="Top" Width="60" Source="/Recursos/iconoAmigos.png" RenderTransformOrigin="-0.611,0.606"/>
         <Label x:Name="lbAmigosMenuPrincipal" Content="{x:Static Properties:Resources.lbAmigosMenuPrincipal}" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top" Width="76" HorizontalContentAlignment="Center" Foreground="White"/>
         <Label x:Name="lbNombreSala" Content="Nombre Sala" Margin="120,30,370,0" VerticalAlignment="Top" Height="38" FontSize="20"/>
-        <Label x:Name="lbCodigoSala" Content="Codigo de la sala: " Margin="485,34,115,0" VerticalAlignment="Top" Height="32" FontSize="16"/>
+        <Label x:Name="lbCodigoSala" Content="Código de la sala: " Margin="485,34,115,0" VerticalAlignment="Top" Height="32" FontSize="16"/>
         <Label x:Name="lbModoJuego" Content="Modo de Juego" Margin="0,0,205,67" FontSize="10" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100"/>
         <Label x:Name="lbNumeroRondas" Content="n rondas" Margin="0,0,110,67" FontSize="10" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
         <Label x:Name="lbAcceso" Content="Pública" Margin="0,0,40,67" FontSize="10" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="60"/>
