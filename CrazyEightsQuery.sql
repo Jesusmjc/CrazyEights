@@ -27,3 +27,4 @@ SELECT * FROM Usuarios;
 
 --DELETE FROM Jugadores;
 --DELETE FROM Usuarios;
+use master
