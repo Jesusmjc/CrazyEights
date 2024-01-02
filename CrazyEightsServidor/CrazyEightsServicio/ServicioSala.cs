@@ -6,11 +6,43 @@ using System.Threading.Tasks;
 
 namespace CrazyEightsServicio
 {
-    internal class ServicioSala : IServicioSala
+    public partial class ServicioManejoJugadores : IServicioSala
     {
-        public int ActualizarConfiguraciónSala(Sala sala)
+        public static Dictionary<int, Sala> listaSalas = new Dictionary<int, Sala>();
+
+        public int ActualizarConfiguracionSala(Sala salaActualizada)
         {
-            throw new NotImplementedException();
+            if (listaSalas.ContainsKey(salaActualizada.Codigo))
+            {
+                listaSalas[salaActualizada.Codigo] = salaActualizada;
+            }
+
+            return 1;
+        }
+
+        public void AgregarJugadorASala(int codigoSala, Jugador nuevoJugador) 
+        {
+            
+        }
+
+        public void AgregarSalaAListaDeSalas(Sala nuevaSala)
+        {
+            listaSalas.Add(nuevaSala.Codigo, nuevaSala);
+        }
+
+        public bool VerificarCodigoSalaNoRepetido(int codigoSala)
+        {
+            bool esCodigoNoRepetido = true;
+
+            foreach (var sala in listaSalas)
+            {
+                if(sala.Key.Equals(codigoSala))
+                {
+                    esCodigoNoRepetido = false;
+                }
+            }
+
+            return esCodigoNoRepetido;
         }
     }
 }

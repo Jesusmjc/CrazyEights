@@ -112,7 +112,9 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CrazyEights.ReferenciaServicioManejoJugadores.Usuario))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CrazyEights.ReferenciaServicioManejoJugadores.Jugador[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CrazyEights.ReferenciaServicioManejoJugadores.Sala))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(string[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, CrazyEights.ReferenciaServicioManejoJugadores.Jugador>))]
     public partial class Jugador : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -220,6 +222,163 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
                 if ((object.ReferenceEquals(this.NombreUsuarioField, value) != true)) {
                     this.NombreUsuarioField = value;
                     this.RaisePropertyChanged("NombreUsuario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Sala", Namespace="http://schemas.datacontract.org/2004/07/CrazyEightsServicio")]
+    [System.SerializableAttribute()]
+    public partial class Sala : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CodigoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdSalaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, CrazyEights.ReferenciaServicioManejoJugadores.Jugador> JugadoresEnSalaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModoDeJuegoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumeroDeRondasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TiempoPorTurnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoDeAccesoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Codigo {
+            get {
+                return this.CodigoField;
+            }
+            set {
+                if ((this.CodigoField.Equals(value) != true)) {
+                    this.CodigoField = value;
+                    this.RaisePropertyChanged("Codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdSala {
+            get {
+                return this.IdSalaField;
+            }
+            set {
+                if ((this.IdSalaField.Equals(value) != true)) {
+                    this.IdSalaField = value;
+                    this.RaisePropertyChanged("IdSala");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, CrazyEights.ReferenciaServicioManejoJugadores.Jugador> JugadoresEnSala {
+            get {
+                return this.JugadoresEnSalaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JugadoresEnSalaField, value) != true)) {
+                    this.JugadoresEnSalaField = value;
+                    this.RaisePropertyChanged("JugadoresEnSala");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModoDeJuego {
+            get {
+                return this.ModoDeJuegoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModoDeJuegoField, value) != true)) {
+                    this.ModoDeJuegoField = value;
+                    this.RaisePropertyChanged("ModoDeJuego");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumeroDeRondas {
+            get {
+                return this.NumeroDeRondasField;
+            }
+            set {
+                if ((this.NumeroDeRondasField.Equals(value) != true)) {
+                    this.NumeroDeRondasField = value;
+                    this.RaisePropertyChanged("NumeroDeRondas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TiempoPorTurno {
+            get {
+                return this.TiempoPorTurnoField;
+            }
+            set {
+                if ((this.TiempoPorTurnoField.Equals(value) != true)) {
+                    this.TiempoPorTurnoField = value;
+                    this.RaisePropertyChanged("TiempoPorTurno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TipoDeAcceso {
+            get {
+                return this.TipoDeAccesoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoDeAccesoField, value) != true)) {
+                    this.TipoDeAccesoField = value;
+                    this.RaisePropertyChanged("TipoDeAcceso");
                 }
             }
         }
@@ -437,6 +596,95 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         public System.Threading.Tasks.Task<CrazyEights.ReferenciaServicioManejoJugadores.Jugador[]> RecuperarInformacionJugadoresEnLineaAsync() {
             return base.Channel.RecuperarInformacionJugadoresEnLineaAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ReferenciaServicioManejoJugadores.IServicioSala")]
+    public interface IServicioSala {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala", ReplyAction="http://tempuri.org/IServicioSala/ActualizarConfiguracionSalaResponse")]
+        int ActualizarConfiguracionSala(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala", ReplyAction="http://tempuri.org/IServicioSala/ActualizarConfiguracionSalaResponse")]
+        System.Threading.Tasks.Task<int> ActualizarConfiguracionSalaAsync(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/AgregarJugadorASala", ReplyAction="http://tempuri.org/IServicioSala/AgregarJugadorASalaResponse")]
+        void AgregarJugadorASala(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/AgregarJugadorASala", ReplyAction="http://tempuri.org/IServicioSala/AgregarJugadorASalaResponse")]
+        System.Threading.Tasks.Task AgregarJugadorASalaAsync(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalas", ReplyAction="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalasResponse")]
+        void AgregarSalaAListaDeSalas(CrazyEights.ReferenciaServicioManejoJugadores.Sala nuevaSala);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalas", ReplyAction="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalasResponse")]
+        System.Threading.Tasks.Task AgregarSalaAListaDeSalasAsync(CrazyEights.ReferenciaServicioManejoJugadores.Sala nuevaSala);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetido", ReplyAction="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetidoResponse")]
+        bool VerificarCodigoSalaNoRepetido(int codigoSala);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetido", ReplyAction="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetidoResponse")]
+        System.Threading.Tasks.Task<bool> VerificarCodigoSalaNoRepetidoAsync(int codigoSala);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioSalaChannel : CrazyEights.ReferenciaServicioManejoJugadores.IServicioSala, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServicioSalaClient : System.ServiceModel.ClientBase<CrazyEights.ReferenciaServicioManejoJugadores.IServicioSala>, CrazyEights.ReferenciaServicioManejoJugadores.IServicioSala {
+        
+        public ServicioSalaClient() {
+        }
+        
+        public ServicioSalaClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ServicioSalaClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioSalaClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioSalaClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public int ActualizarConfiguracionSala(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala) {
+            return base.Channel.ActualizarConfiguracionSala(sala);
+        }
+        
+        public System.Threading.Tasks.Task<int> ActualizarConfiguracionSalaAsync(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala) {
+            return base.Channel.ActualizarConfiguracionSalaAsync(sala);
+        }
+        
+        public void AgregarJugadorASala(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador) {
+            base.Channel.AgregarJugadorASala(codigoSala, nuevoJugador);
+        }
+        
+        public System.Threading.Tasks.Task AgregarJugadorASalaAsync(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador) {
+            return base.Channel.AgregarJugadorASalaAsync(codigoSala, nuevoJugador);
+        }
+        
+        public void AgregarSalaAListaDeSalas(CrazyEights.ReferenciaServicioManejoJugadores.Sala nuevaSala) {
+            base.Channel.AgregarSalaAListaDeSalas(nuevaSala);
+        }
+        
+        public System.Threading.Tasks.Task AgregarSalaAListaDeSalasAsync(CrazyEights.ReferenciaServicioManejoJugadores.Sala nuevaSala) {
+            return base.Channel.AgregarSalaAListaDeSalasAsync(nuevaSala);
+        }
+        
+        public bool VerificarCodigoSalaNoRepetido(int codigoSala) {
+            return base.Channel.VerificarCodigoSalaNoRepetido(codigoSala);
+        }
+        
+        public System.Threading.Tasks.Task<bool> VerificarCodigoSalaNoRepetidoAsync(int codigoSala) {
+            return base.Channel.VerificarCodigoSalaNoRepetidoAsync(codigoSala);
         }
     }
 }

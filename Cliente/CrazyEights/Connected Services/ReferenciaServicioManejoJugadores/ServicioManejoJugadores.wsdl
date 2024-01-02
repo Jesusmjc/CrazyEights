@@ -58,6 +58,35 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioSala_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -126,6 +155,30 @@
   <wsdl:message name="IManejadorJugadoresEnLinea_NotificarJugadoresEnLinea_InputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotificarJugadoresEnLineaResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioSala_ActualizarConfiguracionSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarConfiguracionSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_ActualizarConfiguracionSala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarConfiguracionSalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_AgregarJugadorASala_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarJugadorASala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_AgregarJugadorASala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarJugadorASalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_AgregarSalaAListaDeSalas_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarSalaAListaDeSalas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_AgregarSalaAListaDeSalas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarSalaAListaDeSalasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_VerificarCodigoSalaNoRepetido_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarCodigoSalaNoRepetido" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_VerificarCodigoSalaNoRepetido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarCodigoSalaNoRepetidoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioManejoJugadores">
     <wsdl:operation name="GuardarJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/GuardarJugador" message="tns:IServicioManejoJugadores_GuardarJugador_InputMessage" />
@@ -170,6 +223,24 @@
     <wsdl:operation name="NotificarJugadoresEnLinea">
       <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarJugadoresEnLinea" message="tns:IManejadorJugadoresEnLinea_NotificarJugadoresEnLinea_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarJugadoresEnLineaResponse" message="tns:IManejadorJugadoresEnLinea_NotificarJugadoresEnLinea_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IServicioSala">
+    <wsdl:operation name="ActualizarConfiguracionSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala" message="tns:IServicioSala_ActualizarConfiguracionSala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/ActualizarConfiguracionSalaResponse" message="tns:IServicioSala_ActualizarConfiguracionSala_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarJugadorASala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/AgregarJugadorASala" message="tns:IServicioSala_AgregarJugadorASala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/AgregarJugadorASalaResponse" message="tns:IServicioSala_AgregarJugadorASala_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarSalaAListaDeSalas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalas" message="tns:IServicioSala_AgregarSalaAListaDeSalas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalasResponse" message="tns:IServicioSala_AgregarSalaAListaDeSalas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCodigoSalaNoRepetido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetido" message="tns:IServicioSala_VerificarCodigoSalaNoRepetido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetidoResponse" message="tns:IServicioSala_VerificarCodigoSalaNoRepetido_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioManejoJugadores" type="tns:IServicioManejoJugadores">
@@ -273,13 +344,53 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IServicioSala" type="tns:IServicioSala">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioSala_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ActualizarConfiguracionSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarJugadorASala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/AgregarJugadorASala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarSalaAListaDeSalas">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCodigoSalaNoRepetido">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="ServicioManejoJugadores">
     <wsdl:port name="NetTcpBinding_IServicioManejoJugadores" binding="tns:NetTcpBinding_IServicioManejoJugadores">
       <soap12:address location="net.tcp://localhost:8081/CrazyEightsServicio" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/CrazyEightsServicio</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-1HTJ9FC\Jesús Manuel</Upn>
+          <Upn>TAKEMIKAZUCHI\jesus</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -288,7 +399,16 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/CrazyEightsServicio</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-1HTJ9FC\Jesús Manuel</Upn>
+          <Upn>TAKEMIKAZUCHI\jesus</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IServicioSala" binding="tns:NetTcpBinding_IServicioSala">
+      <soap12:address location="net.tcp://localhost:8081/CrazyEightsServicio" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8081/CrazyEightsServicio</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>TAKEMIKAZUCHI\jesus</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

@@ -12,7 +12,16 @@ namespace CrazyEightsServicio
     public interface IServicioSala
     {
         [OperationContract]
-        int ActualizarConfiguraciónSala(Sala sala);
+        int ActualizarConfiguracionSala(Sala sala);
+
+        [OperationContract]
+        void AgregarJugadorASala(int codigoSala, Jugador nuevoJugador);
+
+        [OperationContract]
+        void AgregarSalaAListaDeSalas(Sala nuevaSala);
+
+        [OperationContract]
+        bool VerificarCodigoSalaNoRepetido(int codigoSala);
     }
 
     [DataContract]
@@ -24,6 +33,7 @@ namespace CrazyEightsServicio
         private string _modoDeJuego;
         private int _numeroDeRondas;
         private string _tipoDeAcceso;
+        private Dictionary<string, Jugador> _jugadoresEnSala;
 
         [DataMember]
         public int IdSala { get; set; }
@@ -42,5 +52,11 @@ namespace CrazyEightsServicio
 
         [DataMember]
         public string TipoDeAcceso { get; set; }
+
+        [DataMember]
+        public int TiempoPorTurno { get; set; }
+
+        [DataMember]
+        public Dictionary<string, Jugador> JugadoresEnSala {  get; set; }
     }
 }

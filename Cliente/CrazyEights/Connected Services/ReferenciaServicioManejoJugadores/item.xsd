@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8082/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="Usuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
@@ -26,4 +27,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfJugador" nillable="true" type="tns:ArrayOfJugador" />
+  <xs:complexType name="Sala">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="IdSala" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="JugadoresEnSala" nillable="true" type="q1:ArrayOfKeyValueOfstringJugadors4_Ps3q5I" />
+      <xs:element minOccurs="0" name="ModoDeJuego" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumeroDeRondas" type="xs:int" />
+      <xs:element minOccurs="0" name="TiempoPorTurno" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoDeAcceso" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Sala" nillable="true" type="tns:Sala" />
 </xs:schema>

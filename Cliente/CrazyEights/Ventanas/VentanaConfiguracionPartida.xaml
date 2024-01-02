@@ -23,5 +23,10 @@
         <Button x:Name="btnCrearSala" Content="Crear Sala" HorizontalAlignment="Right" Margin="0,370,40,0" VerticalAlignment="Top" Width="100" Height="40" Click="NavegarASala"/>
         <Image x:Name="btnCerrarVentana" HorizontalAlignment="Right" Height="49" Margin="0,30,30,0" VerticalAlignment="Top" Width="50" Source="/Recursos/iconoCerrarVentana.png" MouseLeftButtonDown="NavegarAMenuPrincipal" RenderTransformOrigin="1.045,1.449"/>
         <Label x:Name="lbCerrarVentana" Content="{x:Static Properties:Resources.lbCerrarVentana}" HorizontalAlignment="Left" Margin="696,79,0,0" VerticalAlignment="Top" Width="98" HorizontalContentAlignment="Center" Foreground="White"/>
+        <Label x:Name="lbAdvertenciaNombreInvalido" Content="* Entre 0 y 20 caracteres." Margin="620,120,0,0" VerticalAlignment="Top" Height="40" FontSize="10" HorizontalAlignment="Left" Width="125" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lbAdvertenciaModoJuegoInvalido" Content="*" Margin="620,170,0,0" VerticalAlignment="Top" Height="40" FontSize="10" HorizontalAlignment="Left" Width="126" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lbAdvertenciaAccesoInvalido" Content="*" Margin="620,220,0,0" VerticalAlignment="Top" Height="40" FontSize="10" HorizontalAlignment="Left" Width="125" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lbAdvertenciaRondasParaGanarInvalido" Content="*" Margin="620,270,0,0" VerticalAlignment="Top" Height="40" FontSize="10" HorizontalAlignment="Left" Width="125" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lbAdvertenciaTiempoPorTurnoInvalido" Content="*" Margin="620,320,0,0" VerticalAlignment="Top" Height="40" FontSize="10" HorizontalAlignment="Left" Width="125" Foreground="Red" Visibility="Hidden"/>
     </Grid>
 </Window>

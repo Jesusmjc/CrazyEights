@@ -20,34 +20,62 @@ namespace CrazyEights.Ventanas
     /// </summary>
     public partial class VentanaSala : Window
     {
-        public VentanaSala()
+        private Sala sala;
+        private Grid[] gridsJugadoresEnSala = new Grid[4];
+        private bool estaSalaLlena = false;
+
+        public VentanaSala(Sala sala)
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.ResizeMode = ResizeMode.NoResize;
-            Jugador jugadorEnSala1 = new Jugador
+
+            sala.JugadoresEnSala = new Dictionary<string, Jugador>();
+            this.sala = sala;
+            CargarListaGridsEntradaJugadores();
+            AgregarJugadorASala(new Jugador
             {
-                NombreUsuario = "jesusManuel2"
-            };
-            Jugador jugadorEnSala2 = new Jugador
-            {
-                NombreUsuario = "alvaro3"
-            };
-            Jugador jugadorEnSala3 = new Jugador
-            {
-                NombreUsuario = "elrevo"
-            };
-            
-            JugadorSala jugadorSala1 = new JugadorSala(jugadorEnSala1);
-            JugadorSala jugadorSala2 = new JugadorSala(jugadorEnSala2);
-            JugadorSala jugadorSala3 = new JugadorSala(jugadorEnSala3);
-            //JugadorSala jugadorSala4 = new JugadorSala();
-            gridJugadorSala1.Children.Add(jugadorSala1);
-            gridJugadorSala2.Children.Add(jugadorSala2);
-            gridJugadorSala3.Children.Add(jugadorSala3);
-            //gridJugadorSala4.Children.Add(jugadorSala4);
+                IdJugador = SingletonJugador.Instance.IdJugador,
+                NombreUsuario = SingletonJugador.Instance.NombreJugador,
+                FotoPerfil = SingletonJugador.Instance.FotoPerfil,
+                Estado = SingletonJugador.Instance.Estado
+            });
+            CargarConfiguracion();
         }
 
+        private void CargarListaGridsEntradaJugadores()
+        {
+            gridsJugadoresEnSala[0] = gridJugadorSala1;
+            gridsJugadoresEnSala[1] = gridJugadorSala2;
+            gridsJugadoresEnSala[2] = gridJugadorSala3;
+            gridsJugadoresEnSala[3] = gridJugadorSala4;
+        }
+
+        public void AgregarJugadorASala(Jugador jugador)
+        {
+            if (!estaSalaLlena)
+            {
+                sala.JugadoresEnSala.Add(jugador.NombreUsuario, jugador);
+                
+                JugadorSala entradaJugadorSala = new JugadorSala(jugador);
+                gridsJugadoresEnSala[sala.JugadoresEnSala.Count].Children.Add(entradaJugadorSala);
+
+                if (sala.JugadoresEnSala.Count == 4)
+                {
+                    estaSalaLlena = true;
+                }
+            }
+        }
+
+        public void CargarConfiguracion()
+        {
+            lbModoJuego.Content = sala.ModoDeJuego;
+            lbNumeroRondas.Content = sala.NumeroDeRondas;
+            lbAcceso.Content = sala.TipoDeAcceso;
+            lbNombreSala.Content = sala.Nombre;
+            lbCodigoSalaNumero.Content = sala.Codigo;
+        }
+        
         private void AbrirListaAmigos(object sender, MouseButtonEventArgs e)
         {
 
@@ -62,7 +90,7 @@ namespace CrazyEights.Ventanas
 
         private void NavegarAConfiguracionPartida(object sender, MouseButtonEventArgs e)
         {
-            VentanaConfiguracionPartida ventanaConfiguracionPartida = new VentanaConfiguracionPartida();
+            VentanaConfiguracionPartida ventanaConfiguracionPartida = new VentanaConfiguracionPartida(this.sala);
             this.Close();
             ventanaConfiguracionPartida.ShowDialog();
         }
