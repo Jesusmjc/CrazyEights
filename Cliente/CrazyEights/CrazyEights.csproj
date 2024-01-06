@@ -86,6 +86,9 @@
       <DependentUpon>ResourcesDePerfil.resx</DependentUpon>
     </Compile>
     <Compile Include="SingletonJugador.cs" />
+    <Compile Include="Ventanas\EntradaInvitación.xaml.cs">
+      <DependentUpon>EntradaInvitación.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\EntradaJugador.xaml.cs">
       <DependentUpon>EntradaJugador.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <DependentUpon>VentanaTiendaDeJuego.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\EntradaInvitación.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -255,7 +262,13 @@
     <Resource Include="fuentes\RobotoSlab-Medium.ttf" />
     <Resource Include="fuentes\RobotoSlab-SemiBold.ttf" />
     <Resource Include="fuentes\RobotoSlab-Thin.ttf" />
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Invitacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Jugador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Sala.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ReferenciaServicioManejoJugadores\item.xsd">

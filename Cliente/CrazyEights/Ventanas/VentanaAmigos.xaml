@@ -8,12 +8,22 @@
         Title="VentanaAmigos" Height="450" Width="800">
     <Grid>
         <Image Source="\Recursos\Fondo2.png" Stretch="Fill"/>
-        <Image x:Name="imgCerrar" Source="\Recursos\iconoCerrar.png" Margin="30" Width="40" Height="40" MouseLeftButtonDown="NavegarAMenuPrincipal" VerticalAlignment="Top" HorizontalAlignment="Right" />
-        <Label x:Name="lbConectados" Content="Conectados" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="40" Margin="34,28,0,0" VerticalAlignment="Top" Width="185" FontSize="24"/>
-        <Label x:Name="lbDesconectados" Content="Desconectados" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="40" Margin="262,28,0,0" VerticalAlignment="Top" Width="184" FontSize="24"/>
+        <Image x:Name="imgCerrar" Source="\Recursos\iconoCerrar.png" Margin="30" Width="40" Height="40" MouseLeftButtonDown="CerrarVentanaAmigos" VerticalAlignment="Top" HorizontalAlignment="Right" />
+        <Label x:Name="lbConectados" Content="Conectados" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="40" Margin="34,28,0,0" VerticalAlignment="Top" Width="185" FontSize="24" MouseLeftButtonDown="CambiarAListaAmigos"/>
+        <Label x:Name="lbInvitaciones" Content="Invitaciones" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="40" Margin="262,28,0,0" VerticalAlignment="Top" Width="184" FontSize="24" MouseLeftButtonDown="MostrarInvitaciones"/>
         <Label x:Name="lbSolicitudes" Content="Solicitudes" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="40" Margin="488,28,0,0" VerticalAlignment="Top" Width="184" FontSize="24"/>
-        <ScrollViewer Margin="40,100,40,40" HorizontalContentAlignment="Stretch">
-            <ListBox ItemsSource="{Binding ListaDeJugadoresConectados}" HorizontalContentAlignment="Stretch">
+        <ScrollViewer x:Name="svListaAmigos" Margin="40,100,40,40" HorizontalContentAlignment="Stretch">
+            <ListBox ItemsSource="{Binding ListaDeJugadoresConectados}" HorizontalContentAlignment="Stretch" Background="#FF4E9EFB">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="svListaInvitaciones" Margin="40,100,40,40" HorizontalContentAlignment="Stretch" Visibility="Collapsed">
+            <ListBox ItemsSource="{Binding ListaDeInvitaciones}" HorizontalContentAlignment="Stretch" Background="#FF4E9EFB">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <ContentControl Content="{Binding}" />

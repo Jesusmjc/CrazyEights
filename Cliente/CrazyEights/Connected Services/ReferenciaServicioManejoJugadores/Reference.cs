@@ -111,6 +111,8 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
     [System.Runtime.Serialization.DataContractAttribute(Name="Jugador", Namespace="http://schemas.datacontract.org/2004/07/CrazyEightsServicio")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CrazyEights.ReferenciaServicioManejoJugadores.Usuario))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CrazyEights.ReferenciaServicioManejoJugadores.Invitacion[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CrazyEights.ReferenciaServicioManejoJugadores.Invitacion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CrazyEights.ReferenciaServicioManejoJugadores.Jugador[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CrazyEights.ReferenciaServicioManejoJugadores.Sala))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(string[]))]
@@ -121,7 +123,10 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private object CanalCallbackField;
+        private object CanalCallbackManejadorJugadoresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private object CanalCallbackServicioSalaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EstadoField;
@@ -131,6 +136,9 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdJugadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CrazyEights.ReferenciaServicioManejoJugadores.Invitacion[] InvitacionesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MonedasField;
@@ -149,14 +157,27 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public object CanalCallback {
+        public object CanalCallbackManejadorJugadores {
             get {
-                return this.CanalCallbackField;
+                return this.CanalCallbackManejadorJugadoresField;
             }
             set {
-                if ((object.ReferenceEquals(this.CanalCallbackField, value) != true)) {
-                    this.CanalCallbackField = value;
-                    this.RaisePropertyChanged("CanalCallback");
+                if ((object.ReferenceEquals(this.CanalCallbackManejadorJugadoresField, value) != true)) {
+                    this.CanalCallbackManejadorJugadoresField = value;
+                    this.RaisePropertyChanged("CanalCallbackManejadorJugadores");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object CanalCallbackServicioSala {
+            get {
+                return this.CanalCallbackServicioSalaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CanalCallbackServicioSalaField, value) != true)) {
+                    this.CanalCallbackServicioSalaField = value;
+                    this.RaisePropertyChanged("CanalCallbackServicioSala");
                 }
             }
         }
@@ -201,6 +222,19 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public CrazyEights.ReferenciaServicioManejoJugadores.Invitacion[] Invitaciones {
+            get {
+                return this.InvitacionesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InvitacionesField, value) != true)) {
+                    this.InvitacionesField = value;
+                    this.RaisePropertyChanged("Invitaciones");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Monedas {
             get {
                 return this.MonedasField;
@@ -238,6 +272,83 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Invitacion", Namespace="http://schemas.datacontract.org/2004/07/CrazyEightsServicio")]
+    [System.SerializableAttribute()]
+    public partial class Invitacion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CodigoSalaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreJugadorAnfitrionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreSalaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CodigoSala {
+            get {
+                return this.CodigoSalaField;
+            }
+            set {
+                if ((this.CodigoSalaField.Equals(value) != true)) {
+                    this.CodigoSalaField = value;
+                    this.RaisePropertyChanged("CodigoSala");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreJugadorAnfitrion {
+            get {
+                return this.NombreJugadorAnfitrionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreJugadorAnfitrionField, value) != true)) {
+                    this.NombreJugadorAnfitrionField = value;
+                    this.RaisePropertyChanged("NombreJugadorAnfitrion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreSala {
+            get {
+                return this.NombreSalaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreSalaField, value) != true)) {
+                    this.NombreSalaField = value;
+                    this.RaisePropertyChanged("NombreSala");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Sala", Namespace="http://schemas.datacontract.org/2004/07/CrazyEightsServicio")]
     [System.SerializableAttribute()]
     public partial class Sala : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -247,6 +358,9 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodigoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CrazyEights.ReferenciaServicioManejoJugadores.Jugador HostField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdSalaField;
@@ -288,6 +402,19 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
                 if ((this.CodigoField.Equals(value) != true)) {
                     this.CodigoField = value;
                     this.RaisePropertyChanged("Codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CrazyEights.ReferenciaServicioManejoJugadores.Jugador Host {
+            get {
+                return this.HostField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HostField, value) != true)) {
+                    this.HostField = value;
+                    this.RaisePropertyChanged("Host");
                 }
             }
         }
@@ -531,6 +658,20 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
             "a", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInformacionJugadoresEnLine" +
             "aResponse")]
         System.Threading.Tasks.Task<CrazyEights.ReferenciaServicioManejoJugadores.Jugador[]> RecuperarInformacionJugadoresEnLineaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASala", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASalaResponse")]
+        void InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASala", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASalaResponse")]
+        System.Threading.Tasks.Task InvitarJugadorASalaAsync(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInvitacionesDeJugador", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInvitacionesDeJugadorRespo" +
+            "nse")]
+        CrazyEights.ReferenciaServicioManejoJugadores.Invitacion[] RecuperarInvitacionesDeJugador(string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInvitacionesDeJugador", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInvitacionesDeJugadorRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<CrazyEights.ReferenciaServicioManejoJugadores.Invitacion[]> RecuperarInvitacionesDeJugadorAsync(string nombreJugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -544,6 +685,9 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarJugadoresEnLinea", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarJugadoresEnLineaResponse")]
         void NotificarJugadoresEnLinea(string[] nombresUsuariosEnLinea);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecibirInvitacionASala", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/RecibirInvitacionASalaResponse")]
+        void RecibirInvitacionASala(CrazyEights.ReferenciaServicioManejoJugadores.Invitacion invitacion);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -597,6 +741,22 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         public System.Threading.Tasks.Task<CrazyEights.ReferenciaServicioManejoJugadores.Jugador[]> RecuperarInformacionJugadoresEnLineaAsync() {
             return base.Channel.RecuperarInformacionJugadoresEnLineaAsync();
         }
+        
+        public void InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala) {
+            base.Channel.InvitarJugadorASala(nombreJugadorAnfitrion, nombreJugadorInvitado, codigoSala, nombreSala);
+        }
+        
+        public System.Threading.Tasks.Task InvitarJugadorASalaAsync(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala) {
+            return base.Channel.InvitarJugadorASalaAsync(nombreJugadorAnfitrion, nombreJugadorInvitado, codigoSala, nombreSala);
+        }
+        
+        public CrazyEights.ReferenciaServicioManejoJugadores.Invitacion[] RecuperarInvitacionesDeJugador(string nombreJugador) {
+            return base.Channel.RecuperarInvitacionesDeJugador(nombreJugador);
+        }
+        
+        public System.Threading.Tasks.Task<CrazyEights.ReferenciaServicioManejoJugadores.Invitacion[]> RecuperarInvitacionesDeJugadorAsync(string nombreJugador) {
+            return base.Channel.RecuperarInvitacionesDeJugadorAsync(nombreJugador);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -604,16 +764,10 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
     public interface IServicioSala {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala", ReplyAction="http://tempuri.org/IServicioSala/ActualizarConfiguracionSalaResponse")]
-        int ActualizarConfiguracionSala(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala);
+        void ActualizarConfiguracionSala(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala", ReplyAction="http://tempuri.org/IServicioSala/ActualizarConfiguracionSalaResponse")]
-        System.Threading.Tasks.Task<int> ActualizarConfiguracionSalaAsync(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/AgregarJugadorASala", ReplyAction="http://tempuri.org/IServicioSala/AgregarJugadorASalaResponse")]
-        void AgregarJugadorASala(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/AgregarJugadorASala", ReplyAction="http://tempuri.org/IServicioSala/AgregarJugadorASalaResponse")]
-        System.Threading.Tasks.Task AgregarJugadorASalaAsync(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador);
+        System.Threading.Tasks.Task ActualizarConfiguracionSalaAsync(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalas", ReplyAction="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalasResponse")]
         void AgregarSalaAListaDeSalas(CrazyEights.ReferenciaServicioManejoJugadores.Sala nuevaSala);
@@ -626,6 +780,12 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetido", ReplyAction="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetidoResponse")]
         System.Threading.Tasks.Task<bool> VerificarCodigoSalaNoRepetidoAsync(int codigoSala);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/RecuperarSala", ReplyAction="http://tempuri.org/IServicioSala/RecuperarSalaResponse")]
+        CrazyEights.ReferenciaServicioManejoJugadores.Sala RecuperarSala(int codigoSala);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSala/RecuperarSala", ReplyAction="http://tempuri.org/IServicioSala/RecuperarSalaResponse")]
+        System.Threading.Tasks.Task<CrazyEights.ReferenciaServicioManejoJugadores.Sala> RecuperarSalaAsync(int codigoSala);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -655,20 +815,12 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
                 base(binding, remoteAddress) {
         }
         
-        public int ActualizarConfiguracionSala(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala) {
-            return base.Channel.ActualizarConfiguracionSala(sala);
+        public void ActualizarConfiguracionSala(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala) {
+            base.Channel.ActualizarConfiguracionSala(sala);
         }
         
-        public System.Threading.Tasks.Task<int> ActualizarConfiguracionSalaAsync(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala) {
+        public System.Threading.Tasks.Task ActualizarConfiguracionSalaAsync(CrazyEights.ReferenciaServicioManejoJugadores.Sala sala) {
             return base.Channel.ActualizarConfiguracionSalaAsync(sala);
-        }
-        
-        public void AgregarJugadorASala(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador) {
-            base.Channel.AgregarJugadorASala(codigoSala, nuevoJugador);
-        }
-        
-        public System.Threading.Tasks.Task AgregarJugadorASalaAsync(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador) {
-            return base.Channel.AgregarJugadorASalaAsync(codigoSala, nuevoJugador);
         }
         
         public void AgregarSalaAListaDeSalas(CrazyEights.ReferenciaServicioManejoJugadores.Sala nuevaSala) {
@@ -685,6 +837,69 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         public System.Threading.Tasks.Task<bool> VerificarCodigoSalaNoRepetidoAsync(int codigoSala) {
             return base.Channel.VerificarCodigoSalaNoRepetidoAsync(codigoSala);
+        }
+        
+        public CrazyEights.ReferenciaServicioManejoJugadores.Sala RecuperarSala(int codigoSala) {
+            return base.Channel.RecuperarSala(codigoSala);
+        }
+        
+        public System.Threading.Tasks.Task<CrazyEights.ReferenciaServicioManejoJugadores.Sala> RecuperarSalaAsync(int codigoSala) {
+            return base.Channel.RecuperarSalaAsync(codigoSala);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ReferenciaServicioManejoJugadores.IServicioActualizacionSala", CallbackContract=typeof(CrazyEights.ReferenciaServicioManejoJugadores.IServicioActualizacionSalaCallback))]
+    public interface IServicioActualizacionSala {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/AgregarJugadorASala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/AgregarJugadorASalaResponse")]
+        bool AgregarJugadorASala(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/AgregarJugadorASala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/AgregarJugadorASalaResponse")]
+        System.Threading.Tasks.Task<bool> AgregarJugadorASalaAsync(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioActualizacionSalaCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoJugadorEnSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoJugadorEnSalaResponse")]
+        void MostrarNuevoJugadorEnSala(CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioActualizacionSalaChannel : CrazyEights.ReferenciaServicioManejoJugadores.IServicioActualizacionSala, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServicioActualizacionSalaClient : System.ServiceModel.DuplexClientBase<CrazyEights.ReferenciaServicioManejoJugadores.IServicioActualizacionSala>, CrazyEights.ReferenciaServicioManejoJugadores.IServicioActualizacionSala {
+        
+        public ServicioActualizacionSalaClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public ServicioActualizacionSalaClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public ServicioActualizacionSalaClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioActualizacionSalaClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioActualizacionSalaClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public bool AgregarJugadorASala(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador) {
+            return base.Channel.AgregarJugadorASala(codigoSala, nuevoJugador);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AgregarJugadorASalaAsync(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador) {
+            return base.Channel.AgregarJugadorASalaAsync(codigoSala, nuevoJugador);
         }
     }
 }

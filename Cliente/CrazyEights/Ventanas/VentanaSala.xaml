@@ -13,10 +13,10 @@
         <Image Source="\Recursos\RectanguloSala2.png" Stretch="Fill" Margin="470,20,100,0" Height="60" VerticalAlignment="Top"/>
         <Button x:Name="btnEmpezarPartida" Content="Empezar Partida" Margin="550,0,40,20" Height="40" VerticalAlignment="Bottom" FontSize="20"/>
         <Image Source="\Recursos\RectanguloSala2.png" Stretch="Fill" Margin="0,0,205,70" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-        <Image Source="\Recursos\ConfigurarSala.png" Stretch="Fill" Margin="480,0,250,20" Width="40" Height="40" VerticalAlignment="Bottom" MouseLeftButtonDown="NavegarAConfiguracionPartida"/>
+        <Image x:Name="imgConfiguracionSala" Source="\Recursos\ConfigurarSala.png" Stretch="Fill" Margin="480,0,250,20" Width="40" Height="40" VerticalAlignment="Bottom" MouseLeftButtonDown="NavegarAConfiguracionPartida"/>
         <Image Source="/Recursos/RectanguloSala2.png" Stretch="Fill" Margin="0,0,110,70" Width="80" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <Image Source="/Recursos/RectanguloSala2.png" Stretch="Fill" Margin="0,0,40,70" Width="60" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-        <Image x:Name="imgAmigos" HorizontalAlignment="Left" Height="60" Margin="20,20,0,0" VerticalAlignment="Top" Width="60" Source="/Recursos/iconoAmigos.png" RenderTransformOrigin="-0.611,0.606"/>
+        <Image x:Name="imgAmigos" HorizontalAlignment="Left" Height="60" Margin="20,20,0,0" VerticalAlignment="Top" Width="60" Source="/Recursos/iconoAmigos.png" RenderTransformOrigin="-0.611,0.606" MouseLeftButtonDown="AbrirListaAmigos"/>
         <Label x:Name="lbAmigosMenuPrincipal" Content="{x:Static Properties:Resources.lbAmigosMenuPrincipal}" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top" Width="76" HorizontalContentAlignment="Center" Foreground="White"/>
         <Label x:Name="lbNombreSala" Content="Nombre Sala" Margin="120,30,370,0" VerticalAlignment="Top" Height="38" FontSize="20"/>
         <Label x:Name="lbCodigoSala" Content="Código de la sala: " Margin="480,34,178,0" VerticalAlignment="Top" Height="32" FontSize="16"/>

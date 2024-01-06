@@ -139,25 +139,22 @@ namespace CrazyEightsServicio
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public partial class ServicioManejoJugadores : IManejadorJugadoresEnLinea
     {
-        //private static Dictionary<string, IManejadorJugadoresCallback> jugadoresEnLinea = new Dictionary<string, IManejadorJugadoresCallback>();
         private static Dictionary<string, Jugador> jugadoresEnLinea = new Dictionary<string, Jugador>();
         public void NotificarNuevaConexionAJugadoresEnLinea(Jugador nuevoJugadorEnLinea)
         {
             if (!jugadoresEnLinea.ContainsKey(nuevoJugadorEnLinea.NombreUsuario))
             {
                 IManejadorJugadoresCallback canalDeCallbackActualDelJugador = OperationContext.Current.GetCallbackChannel<IManejadorJugadoresCallback>();
-                nuevoJugadorEnLinea.CanalCallback = canalDeCallbackActualDelJugador;
+                nuevoJugadorEnLinea.CanalCallbackManejadorJugadores = canalDeCallbackActualDelJugador;
 
-                //List<string> nombresJugadoresEnLinea = jugadoresEnLinea.Keys.ToList();
-                //canalDeCallbackActualDelJugador.NotificarJugadoresEnLinea(nombresJugadoresEnLinea);
-
+                nuevoJugadorEnLinea.Invitaciones = new List<Invitacion>();
                 jugadoresEnLinea.Add(nuevoJugadorEnLinea.NombreUsuario, nuevoJugadorEnLinea);
 
                 foreach (var jugadorEnLinea in jugadoresEnLinea)
                 {
                     if (!jugadorEnLinea.Key.Equals(nuevoJugadorEnLinea.NombreUsuario))
                     {
-                        jugadorEnLinea.Value.CanalCallback.NotificarLogInJugador(nuevoJugadorEnLinea);
+                        jugadorEnLinea.Value.CanalCallbackManejadorJugadores.NotificarLogInJugador(nuevoJugadorEnLinea);
                     }
                 }
 
@@ -172,7 +169,7 @@ namespace CrazyEightsServicio
 
                 foreach (var jugador in jugadoresEnLinea)
                 {
-                    jugador.Value.CanalCallback.NotificarLogOutJugador(nombreJugador);
+                    jugador.Value.CanalCallbackManejadorJugadores.NotificarLogOutJugador(nombreJugador);
                 }
             }
         }
@@ -187,6 +184,33 @@ namespace CrazyEightsServicio
             }
 
             return listaNombresJugadores;
+        }
+
+        public void InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala) 
+        {
+            if (jugadoresEnLinea.ContainsKey(nombreJugadorInvitado))
+            {
+                Invitacion nuevaInvitacion = new Invitacion
+                {
+                    NombreJugadorAnfitrion = nombreJugadorAnfitrion,
+                    CodigoSala = codigoSala,
+                    NombreSala = nombreSala
+                };
+                jugadoresEnLinea[nombreJugadorInvitado].Invitaciones.Add(nuevaInvitacion);
+                jugadoresEnLinea[nombreJugadorInvitado].CanalCallbackManejadorJugadores.RecibirInvitacionASala(nuevaInvitacion);
+            }
+        }
+
+        public List<Invitacion> RecuperarInvitacionesDeJugador(string nombreJugador)
+        { 
+            List<Invitacion> invitacionesJugador = new List<Invitacion>();
+
+            if (jugadoresEnLinea.ContainsKey(nombreJugador))
+            {
+                invitacionesJugador = jugadoresEnLinea[nombreJugador].Invitaciones;
+            }
+
+            return invitacionesJugador;
         }
     }
 }

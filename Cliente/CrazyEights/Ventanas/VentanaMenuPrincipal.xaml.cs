@@ -127,5 +127,10 @@ namespace CrazyEights
         {
             throw new NotImplementedException();
         }
+
+        public void RecibirInvitacionASala(Invitacion invitacion)
+        {
+            Console.WriteLine("Invitación a sala recibida: " + invitacion.NombreSala + " " + "de " + invitacion.NombreJugadorAnfitrion);
+        }
     }
 }

@@ -99,10 +99,39 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="InvitarJugadorASala">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugadorAnfitrion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugadorInvitado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoSala" type="xs:int" />
+        <xs:element minOccurs="0" name="nombreSala" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvitarJugadorASalaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarInvitacionesDeJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarInvitacionesDeJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="RecuperarInvitacionesDeJugadorResult" nillable="true" type="q9:ArrayOfInvitacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="NotificarLogInJugador">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="nuevoJugadorEnLinea" nillable="true" type="q9:Jugador" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="nuevoJugadorEnLinea" nillable="true" type="q10:Jugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -126,7 +155,7 @@
   <xs:element name="NotificarJugadoresEnLinea">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="nombresUsuariosEnLinea" nillable="true" type="q10:ArrayOfstring" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="nombresUsuariosEnLinea" nillable="true" type="q11:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -135,29 +164,26 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="RecibirInvitacionASala">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="invitacion" nillable="true" type="q12:Invitacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecibirInvitacionASalaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ActualizarConfiguracionSala">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="sala" nillable="true" type="q11:Sala" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="sala" nillable="true" type="q13:Sala" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ActualizarConfiguracionSalaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ActualizarConfiguracionSalaResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AgregarJugadorASala">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="codigoSala" type="xs:int" />
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="nuevoJugador" nillable="true" type="q12:Jugador" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AgregarJugadorASalaResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -165,7 +191,7 @@
   <xs:element name="AgregarSalaAListaDeSalas">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="nuevaSala" nillable="true" type="q13:Sala" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="nuevaSala" nillable="true" type="q14:Sala" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -186,6 +212,47 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="VerificarCodigoSalaNoRepetidoResult" type="xs:boolean" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarSala">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoSala" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarSalaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="RecuperarSalaResult" nillable="true" type="q15:Sala" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarJugadorASala">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoSala" type="xs:int" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="nuevoJugador" nillable="true" type="q16:Jugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarJugadorASalaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgregarJugadorASalaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarNuevoJugadorEnSala">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="jugador" nillable="true" type="q17:Jugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarNuevoJugadorEnSalaResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

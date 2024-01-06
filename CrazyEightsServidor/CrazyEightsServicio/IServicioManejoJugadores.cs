@@ -6,7 +6,7 @@ using System.ServiceModel;
 using System.Text;
 
 namespace CrazyEightsServicio
- {
+{
     [ServiceContract]
     public interface IServicioManejoJugadores
     {
@@ -37,6 +37,12 @@ namespace CrazyEightsServicio
 
         [OperationContract]
         List<Jugador> RecuperarInformacionJugadoresEnLinea();
+
+        [OperationContract]
+        void InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);
+
+        [OperationContract]
+        List<Invitacion> RecuperarInvitacionesDeJugador(string nombreJugador);
     }
 
     [ServiceContract]
@@ -50,6 +56,9 @@ namespace CrazyEightsServicio
 
         [OperationContract]
         void NotificarJugadoresEnLinea(List<string> nombresUsuariosEnLinea);
+
+        [OperationContract]
+        void RecibirInvitacionASala(Invitacion invitacion);
     }
 
     [DataContract]
@@ -59,7 +68,7 @@ namespace CrazyEightsServicio
         private string _contrasena;
         private string _correoElectronico;
         private int _idJugador;
-        
+
 
         [DataMember]
         public int IdUsuario { get { return _idUsuario; } set { _idUsuario = value; } }
@@ -73,7 +82,7 @@ namespace CrazyEightsServicio
         [DataMember]
         public int IdJugador { get { return _idJugador; } set { _idJugador = value; } }
 
-        
+
     }
 
     [DataContract]
@@ -84,7 +93,9 @@ namespace CrazyEightsServicio
         private int _monedas;
         private string _fotoPerfil;
         private string _estado;
-        private IManejadorJugadoresCallback _canalCallback;
+        private List<Invitacion> _invitaciones;
+        private IManejadorJugadoresCallback _canalCallbackManejadorJugadores;
+        private IServicioSalaCallback _canalCallbackServicioSala;
 
         [DataMember]
         public int IdJugador { get { return _idJugador; } set { _idJugador = value; } }
@@ -102,6 +113,30 @@ namespace CrazyEightsServicio
         public string Estado { get { return _estado; } set { _estado = value; } }
 
         [DataMember]
-        public IManejadorJugadoresCallback CanalCallback { get { return _canalCallback; } set { _canalCallback = value; } }
+        public List<Invitacion> Invitaciones { get; set; } 
+
+        [DataMember]
+        public IManejadorJugadoresCallback CanalCallbackManejadorJugadores { get { return _canalCallbackManejadorJugadores; } set { _canalCallbackManejadorJugadores = value; } }
+        
+        [DataMember]
+        public IServicioSalaCallback CanalCallbackServicioSala { get; set; }
+    }
+
+    [DataContract]
+    public class Invitacion
+    {
+        private string _nombreJugadorAnfitrion;
+        private int _codigoSala;
+        private string _nombreSala;
+
+
+        [DataMember]
+        public string NombreJugadorAnfitrion { get; set; }
+        
+        [DataMember]
+        public int CodigoSala { get; set; }
+
+        [DataMember]
+        public string NombreSala { get; set; }
     }
 }

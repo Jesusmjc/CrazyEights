@@ -12,16 +12,31 @@ namespace CrazyEightsServicio
     public interface IServicioSala
     {
         [OperationContract]
-        int ActualizarConfiguracionSala(Sala sala);
-
-        [OperationContract]
-        void AgregarJugadorASala(int codigoSala, Jugador nuevoJugador);
+        void ActualizarConfiguracionSala(Sala sala);
 
         [OperationContract]
         void AgregarSalaAListaDeSalas(Sala nuevaSala);
 
         [OperationContract]
         bool VerificarCodigoSalaNoRepetido(int codigoSala);
+
+        [OperationContract]
+        Sala RecuperarSala(int codigoSala);
+    }
+
+    [ServiceContract(CallbackContract = typeof(IServicioSalaCallback))]
+
+    public interface IServicioActualizacionSala
+    {
+        [OperationContract]
+        bool AgregarJugadorASala(int codigoSala, Jugador nuevoJugador);
+    }
+
+    [ServiceContract]
+    public interface IServicioSalaCallback
+    {
+        [OperationContract]
+        void MostrarNuevoJugadorEnSala(Jugador jugador);
     }
 
     [DataContract]
@@ -33,6 +48,7 @@ namespace CrazyEightsServicio
         private string _modoDeJuego;
         private int _numeroDeRondas;
         private string _tipoDeAcceso;
+        private Jugador _host;
         private Dictionary<string, Jugador> _jugadoresEnSala;
 
         [DataMember]
@@ -55,6 +71,9 @@ namespace CrazyEightsServicio
 
         [DataMember]
         public int TiempoPorTurno { get; set; }
+
+        [DataMember]
+        public Jugador Host { get; set; }
 
         [DataMember]
         public Dictionary<string, Jugador> JugadoresEnSala {  get; set; }

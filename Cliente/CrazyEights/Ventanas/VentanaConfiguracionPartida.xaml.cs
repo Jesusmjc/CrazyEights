@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.ServiceModel.Configuration;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,6 @@ namespace CrazyEights.Ventanas
     /// </summary>
     public partial class VentanaConfiguracionPartida : Window
     {
-        ReferenciaServicioManejoJugadores.ServicioSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioSalaClient();
         private Sala sala = new Sala();
 
         public VentanaConfiguracionPartida()
@@ -40,59 +40,55 @@ namespace CrazyEights.Ventanas
             this.sala = sala;
             CargarComboBoxes();
             CargarConfiguracionActualSala();
+            OcultarBotonSalir();
         }
 
-        private Sala CrearSala()
+        private void CrearSala()
         {
-            Sala nuevaSala = new Sala
+            this.sala.Codigo = GenerarNuevoCodigoSala();
+            this.sala.Nombre = tbxNombrePartida.Text;
+            this.sala.ModoDeJuego = cbModoJuego.Text;
+            this.sala.TipoDeAcceso = cbAcceso.Text;
+            this.sala.NumeroDeRondas = int.Parse(cbRondas.Text);
+            this.sala.TiempoPorTurno = int.Parse(cbTiempoPorTurno.Text);
+            this.sala.JugadoresEnSala = new Dictionary<string, Jugador>();
+           
+            Jugador jugador = new Jugador
             {
-                Codigo = GenerarNuevoCodigoSala(),
-                Nombre = tbxNombrePartida.Text,
-                ModoDeJuego = cbModoJuego.Text,
-                TipoDeAcceso = cbAcceso.Text,
-                NumeroDeRondas = int.Parse(cbRondas.Text),
-                TiempoPorTurno = int.Parse(cbTiempoPorTurno.Text)
+                IdJugador = SingletonJugador.Instance.IdJugador,
+                NombreUsuario = SingletonJugador.Instance.NombreJugador,
+                FotoPerfil = SingletonJugador.Instance.FotoPerfil,
+                Estado = SingletonJugador.Instance.Estado
             };
-
-            cliente.AgregarSalaAListaDeSalas(nuevaSala);
-            return nuevaSala;
+            this.sala.JugadoresEnSala.Add(jugador.NombreUsuario, jugador);
+            this.sala.Host = jugador;
         }
 
-        private Sala ActualizarSala()
+        private void ActualizarSala()
         {
-            Sala salaActualizada = new Sala
-            {
-                Codigo = this.sala.Codigo,
-                Nombre = tbxNombrePartida.Text,
-                ModoDeJuego = cbModoJuego.Text,
-                TipoDeAcceso = cbAcceso.Text,
-                NumeroDeRondas = int.Parse(cbRondas.Text),
-                TiempoPorTurno = int.Parse(cbTiempoPorTurno.Text)
-            };
+            this.sala.Nombre = tbxNombrePartida.Text;
+            this.sala.ModoDeJuego = cbModoJuego.Text;
+            this.sala.TipoDeAcceso = cbAcceso.Text;
+            this.sala.NumeroDeRondas = int.Parse(cbRondas.Text);
+            this.sala.TiempoPorTurno = int.Parse(cbTiempoPorTurno.Text);
 
-            cliente.ActualizarConfiguracionSala(salaActualizada);
-            return salaActualizada;
+            ReferenciaServicioManejoJugadores.ServicioSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioSalaClient();
+            cliente.ActualizarConfiguracionSala(this.sala);
         }
 
         private int GenerarNuevoCodigoSala()
         {
             Random random = new Random();
 
-            int[] codigoAleatorio = new int[4];
+            int codigoAleatorio = random.Next(1000, 10000);
 
-            for (int i = 0; i < 4; i++)
+            ReferenciaServicioManejoJugadores.ServicioSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioSalaClient();
+            if (!cliente.VerificarCodigoSalaNoRepetido(codigoAleatorio))
             {
-                codigoAleatorio[i] = random.Next(10);
+                codigoAleatorio = GenerarNuevoCodigoSala();
             }
 
-            int codigo = int.Parse(string.Join("", codigoAleatorio));
-
-            if (!cliente.VerificarCodigoSalaNoRepetido(codigo))
-            {
-                codigo = GenerarNuevoCodigoSala();
-            }
-
-            return codigo;
+            return codigoAleatorio;
         }
 
         private void NavegarAMenuPrincipal(object sender, MouseButtonEventArgs e)
@@ -104,20 +100,19 @@ namespace CrazyEights.Ventanas
 
         private void NavegarASala(object sender, RoutedEventArgs e)
         {
-            Sala salaConfigurada;
-
             if (ValidarCamposConfiguracion())
             {
                 if (this.sala.Codigo == 0)
                 {
-                    salaConfigurada = CrearSala();
+                    CrearSala();
                 }
                 else
                 {
-                    salaConfigurada = ActualizarSala();
+                    ActualizarSala();
                 }
-
-                VentanaSala ventanaSala = new VentanaSala(salaConfigurada);
+                
+                VentanaSala ventanaSala = new VentanaSala();
+                ventanaSala.EntrarASala(this.sala);
                 this.Close();
                 ventanaSala.ShowDialog();
             }
@@ -165,6 +160,12 @@ namespace CrazyEights.Ventanas
             cbTiempoPorTurno.Items.Add("30");
             cbTiempoPorTurno.Items.Add("45");
             cbTiempoPorTurno.Items.Add("60");
+        }
+
+        private void OcultarBotonSalir()
+        {
+            btnCerrarVentana.Visibility = Visibility.Hidden;
+            lbCerrarVentana.Visibility = Visibility.Hidden;
         }
 
         private bool ValidarCamposConfiguracion()

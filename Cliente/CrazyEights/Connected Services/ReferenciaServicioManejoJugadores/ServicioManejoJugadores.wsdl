@@ -87,6 +87,35 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioActualizacionSala_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -137,6 +166,18 @@
   <wsdl:message name="IManejadorJugadoresEnLinea_RecuperarInformacionJugadoresEnLinea_OutputMessage">
     <wsdl:part name="parameters" element="tns:RecuperarInformacionJugadoresEnLineaResponse" />
   </wsdl:message>
+  <wsdl:message name="IManejadorJugadoresEnLinea_InvitarJugadorASala_InputMessage">
+    <wsdl:part name="parameters" element="tns:InvitarJugadorASala" />
+  </wsdl:message>
+  <wsdl:message name="IManejadorJugadoresEnLinea_InvitarJugadorASala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InvitarJugadorASalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManejadorJugadoresEnLinea_RecuperarInvitacionesDeJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarInvitacionesDeJugador" />
+  </wsdl:message>
+  <wsdl:message name="IManejadorJugadoresEnLinea_RecuperarInvitacionesDeJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarInvitacionesDeJugadorResponse" />
+  </wsdl:message>
   <wsdl:message name="IManejadorJugadoresEnLinea_NotificarLogInJugador_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotificarLogInJugador" />
   </wsdl:message>
@@ -155,17 +196,17 @@
   <wsdl:message name="IManejadorJugadoresEnLinea_NotificarJugadoresEnLinea_InputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotificarJugadoresEnLineaResponse" />
   </wsdl:message>
+  <wsdl:message name="IManejadorJugadoresEnLinea_RecibirInvitacionASala_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RecibirInvitacionASala" />
+  </wsdl:message>
+  <wsdl:message name="IManejadorJugadoresEnLinea_RecibirInvitacionASala_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RecibirInvitacionASalaResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioSala_ActualizarConfiguracionSala_InputMessage">
     <wsdl:part name="parameters" element="tns:ActualizarConfiguracionSala" />
   </wsdl:message>
   <wsdl:message name="IServicioSala_ActualizarConfiguracionSala_OutputMessage">
     <wsdl:part name="parameters" element="tns:ActualizarConfiguracionSalaResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServicioSala_AgregarJugadorASala_InputMessage">
-    <wsdl:part name="parameters" element="tns:AgregarJugadorASala" />
-  </wsdl:message>
-  <wsdl:message name="IServicioSala_AgregarJugadorASala_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AgregarJugadorASalaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioSala_AgregarSalaAListaDeSalas_InputMessage">
     <wsdl:part name="parameters" element="tns:AgregarSalaAListaDeSalas" />
@@ -178,6 +219,24 @@
   </wsdl:message>
   <wsdl:message name="IServicioSala_VerificarCodigoSalaNoRepetido_OutputMessage">
     <wsdl:part name="parameters" element="tns:VerificarCodigoSalaNoRepetidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_RecuperarSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSala_RecuperarSala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarSalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioActualizacionSala_AgregarJugadorASala_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarJugadorASala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioActualizacionSala_AgregarJugadorASala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarJugadorASalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioActualizacionSala_MostrarNuevoJugadorEnSala_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MostrarNuevoJugadorEnSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioActualizacionSala_MostrarNuevoJugadorEnSala_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MostrarNuevoJugadorEnSalaResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioManejoJugadores">
     <wsdl:operation name="GuardarJugador">
@@ -212,6 +271,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInformacionJugadoresEnLinea" message="tns:IManejadorJugadoresEnLinea_RecuperarInformacionJugadoresEnLinea_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInformacionJugadoresEnLineaResponse" message="tns:IManejadorJugadoresEnLinea_RecuperarInformacionJugadoresEnLinea_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="InvitarJugadorASala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASala" message="tns:IManejadorJugadoresEnLinea_InvitarJugadorASala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASalaResponse" message="tns:IManejadorJugadoresEnLinea_InvitarJugadorASala_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarInvitacionesDeJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInvitacionesDeJugador" message="tns:IManejadorJugadoresEnLinea_RecuperarInvitacionesDeJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInvitacionesDeJugadorResponse" message="tns:IManejadorJugadoresEnLinea_RecuperarInvitacionesDeJugador_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="NotificarLogInJugador">
       <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarLogInJugador" message="tns:IManejadorJugadoresEnLinea_NotificarLogInJugador_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarLogInJugadorResponse" message="tns:IManejadorJugadoresEnLinea_NotificarLogInJugador_InputCallbackMessage" />
@@ -224,15 +291,15 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarJugadoresEnLinea" message="tns:IManejadorJugadoresEnLinea_NotificarJugadoresEnLinea_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarJugadoresEnLineaResponse" message="tns:IManejadorJugadoresEnLinea_NotificarJugadoresEnLinea_InputCallbackMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RecibirInvitacionASala">
+      <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecibirInvitacionASala" message="tns:IManejadorJugadoresEnLinea_RecibirInvitacionASala_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecibirInvitacionASalaResponse" message="tns:IManejadorJugadoresEnLinea_RecibirInvitacionASala_InputCallbackMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioSala">
     <wsdl:operation name="ActualizarConfiguracionSala">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala" message="tns:IServicioSala_ActualizarConfiguracionSala_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/ActualizarConfiguracionSalaResponse" message="tns:IServicioSala_ActualizarConfiguracionSala_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AgregarJugadorASala">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/AgregarJugadorASala" message="tns:IServicioSala_AgregarJugadorASala_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/AgregarJugadorASalaResponse" message="tns:IServicioSala_AgregarJugadorASala_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AgregarSalaAListaDeSalas">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalas" message="tns:IServicioSala_AgregarSalaAListaDeSalas_InputMessage" />
@@ -241,6 +308,20 @@
     <wsdl:operation name="VerificarCodigoSalaNoRepetido">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetido" message="tns:IServicioSala_VerificarCodigoSalaNoRepetido_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetidoResponse" message="tns:IServicioSala_VerificarCodigoSalaNoRepetido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/RecuperarSala" message="tns:IServicioSala_RecuperarSala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/RecuperarSalaResponse" message="tns:IServicioSala_RecuperarSala_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IServicioActualizacionSala">
+    <wsdl:operation name="AgregarJugadorASala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioActualizacionSala/AgregarJugadorASala" message="tns:IServicioActualizacionSala_AgregarJugadorASala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioActualizacionSala/AgregarJugadorASalaResponse" message="tns:IServicioActualizacionSala_AgregarJugadorASala_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MostrarNuevoJugadorEnSala">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoJugadorEnSala" message="tns:IServicioActualizacionSala_MostrarNuevoJugadorEnSala_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoJugadorEnSalaResponse" message="tns:IServicioActualizacionSala_MostrarNuevoJugadorEnSala_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioManejoJugadores" type="tns:IServicioManejoJugadores">
@@ -316,6 +397,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="InvitarJugadorASala">
+      <soap12:operation soapAction="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarInvitacionesDeJugador">
+      <soap12:operation soapAction="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInvitacionesDeJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NotificarLogInJugador">
       <soap12:operation soapAction="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarLogInJugador" style="document" />
       <wsdl:input>
@@ -343,12 +442,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:binding name="NetTcpBinding_IServicioSala" type="tns:IServicioSala">
-    <wsp:PolicyReference URI="#NetTcpBinding_IServicioSala_policy" />
-    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="ActualizarConfiguracionSala">
-      <soap12:operation soapAction="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala" style="document" />
+    <wsdl:operation name="RecibirInvitacionASala">
+      <soap12:operation soapAction="http://tempuri.org/IManejadorJugadoresEnLinea/RecibirInvitacionASala" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -356,8 +451,12 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AgregarJugadorASala">
-      <soap12:operation soapAction="http://tempuri.org/IServicioSala/AgregarJugadorASala" style="document" />
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IServicioSala" type="tns:IServicioSala">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioSala_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ActualizarConfiguracionSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -376,6 +475,37 @@
     </wsdl:operation>
     <wsdl:operation name="VerificarCodigoSalaNoRepetido">
       <soap12:operation soapAction="http://tempuri.org/IServicioSala/VerificarCodigoSalaNoRepetido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSala/RecuperarSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IServicioActualizacionSala" type="tns:IServicioActualizacionSala">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioActualizacionSala_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="AgregarJugadorASala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioActualizacionSala/AgregarJugadorASala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarNuevoJugadorEnSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoJugadorEnSala" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -404,6 +534,15 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IServicioSala" binding="tns:NetTcpBinding_IServicioSala">
+      <soap12:address location="net.tcp://localhost:8081/CrazyEightsServicio" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8081/CrazyEightsServicio</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>TAKEMIKAZUCHI\jesus</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IServicioActualizacionSala" binding="tns:NetTcpBinding_IServicioActualizacionSala">
       <soap12:address location="net.tcp://localhost:8081/CrazyEightsServicio" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/CrazyEightsServicio</wsa10:Address>

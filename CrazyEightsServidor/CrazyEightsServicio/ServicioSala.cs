@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,39 +11,77 @@ namespace CrazyEightsServicio
     {
         public static Dictionary<int, Sala> listaSalas = new Dictionary<int, Sala>();
 
-        public int ActualizarConfiguracionSala(Sala salaActualizada)
+        public void ActualizarConfiguracionSala(Sala salaActualizada)
         {
             if (listaSalas.ContainsKey(salaActualizada.Codigo))
             {
                 listaSalas[salaActualizada.Codigo] = salaActualizada;
             }
-
-            return 1;
-        }
-
-        public void AgregarJugadorASala(int codigoSala, Jugador nuevoJugador) 
-        {
-            
         }
 
         public void AgregarSalaAListaDeSalas(Sala nuevaSala)
         {
-            listaSalas.Add(nuevaSala.Codigo, nuevaSala);
+            if (!listaSalas.ContainsKey(nuevaSala.Codigo))
+            {
+                listaSalas.Add(nuevaSala.Codigo, nuevaSala);
+            }
         }
 
-        public bool VerificarCodigoSalaNoRepetido(int codigoSala)
+        public bool VerificarCodigoSalaNoRepetido(int codigoNuevaSala)
         {
             bool esCodigoNoRepetido = true;
 
-            foreach (var sala in listaSalas)
+            if (listaSalas.ContainsKey(codigoNuevaSala))
             {
-                if(sala.Key.Equals(codigoSala))
-                {
-                    esCodigoNoRepetido = false;
-                }
+                esCodigoNoRepetido = false;
             }
 
             return esCodigoNoRepetido;
+        }
+
+        public Sala RecuperarSala(int codigoSala)
+        {
+            Sala sala = new Sala();
+
+            if (listaSalas.ContainsKey(codigoSala))
+            {
+                sala = listaSalas[codigoSala];
+            }
+
+            return sala;
+        }
+    }
+
+    public partial class ServicioManejoJugadores : IServicioActualizacionSala
+    {
+        public bool AgregarJugadorASala(int codigoSala, Jugador nuevoJugador)
+        {
+            bool operacionExitosa = false;
+
+            if (listaSalas.ContainsKey(codigoSala))
+            {
+                if (listaSalas[codigoSala].JugadoresEnSala.ContainsKey(nuevoJugador.NombreUsuario))
+                {
+                    listaSalas[codigoSala].JugadoresEnSala[nuevoJugador.NombreUsuario].CanalCallbackServicioSala = OperationContext.Current.GetCallbackChannel<IServicioSalaCallback>();
+                    operacionExitosa = true;
+                }
+                else if (listaSalas[codigoSala].JugadoresEnSala.Count <= 3)
+                {
+                    nuevoJugador.CanalCallbackServicioSala = OperationContext.Current.GetCallbackChannel<IServicioSalaCallback>();
+                    listaSalas[codigoSala].JugadoresEnSala.Add(nuevoJugador.NombreUsuario, nuevoJugador);
+
+                    foreach (var jugador in listaSalas[codigoSala].JugadoresEnSala)
+                    {
+                        if (!jugador.Value.NombreUsuario.Equals(nuevoJugador.NombreUsuario))
+                        {
+                            jugador.Value.CanalCallbackServicioSala.MostrarNuevoJugadorEnSala(nuevoJugador);
+                        }
+                    }
+
+                    operacionExitosa = true;
+                }
+            }
+            return operacionExitosa;
         }
     }
 }
