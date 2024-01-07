@@ -43,7 +43,6 @@ namespace CrazyEights.Ventanas
             DataContext = this;
             this.sala = sala;
             MostrarJugadoresEnLinea();
-            this.sala = sala;
         }
 
         public void MostrarJugadoresEnLinea()

@@ -10,6 +10,7 @@ namespace CrazyEightsServicio
     public partial class ServicioManejoJugadores : IServicioSala
     {
         public static Dictionary<int, Sala> listaSalas = new Dictionary<int, Sala>();
+        public static Dictionary<string, bool> listaEstadoJugadores = new Dictionary<string, bool>();
 
         public void ActualizarConfiguracionSala(Sala salaActualizada)
         {
@@ -82,6 +83,32 @@ namespace CrazyEightsServicio
                 }
             }
             return operacionExitosa;
+        }
+
+        public void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador)
+        {
+            if (listaSalas.ContainsKey(codigoSala))
+            {
+                if (listaSalas[codigoSala].JugadoresEnSala.ContainsKey(nombreJugador))
+                {
+                    foreach (var jugadorEnSala in listaSalas[codigoSala].JugadoresEnSala)
+                    {
+                        if (!jugadorEnSala.Value.NombreUsuario.Equals(nombreJugador))
+                        {
+                            jugadorEnSala.Value.CanalCallbackServicioSala.MostrarNuevoEstadoJugadorEnSala(nombreJugador);
+                        }
+                    }
+
+                    if (listaEstadoJugadores[nombreJugador])
+                    {
+                        listaEstadoJugadores[nombreJugador] = false;
+                    }
+                    else
+                    {
+                        listaEstadoJugadores[nombreJugador] = true;
+                    }
+                }
+            }
         }
     }
 }

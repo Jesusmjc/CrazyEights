@@ -51,7 +51,13 @@ namespace CrazyEights.Ventanas
             InstanceContext contexto = new InstanceContext(this);
             ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
 
-            cliente.InvitarJugadorASala(SingletonJugador.Instance.NombreJugador, jugador.NombreUsuario, this.codigoSala, this.nombreSala);
+            if (cliente.InvitarJugadorASala(SingletonJugador.Instance.NombreJugador, jugador.NombreUsuario, this.codigoSala, this.nombreSala))
+            {
+                MessageBox.Show("Se ha enviado la invitación correctamente.", "Invitación exitosa", MessageBoxButton.OK, MessageBoxImage.Information);
+            } else
+            {
+                MessageBox.Show("No se ha podido enviar la invitación al jugador.", "Ocurrió un error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
         public void NotificarLogInJugador(Jugador nuevoJugadorEnLinea)

@@ -39,7 +39,7 @@ namespace CrazyEightsServicio
         List<Jugador> RecuperarInformacionJugadoresEnLinea();
 
         [OperationContract]
-        void InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);
+        bool InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);
 
         [OperationContract]
         List<Invitacion> RecuperarInvitacionesDeJugador(string nombreJugador);

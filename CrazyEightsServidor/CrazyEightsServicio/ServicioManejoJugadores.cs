@@ -186,8 +186,10 @@ namespace CrazyEightsServicio
             return listaNombresJugadores;
         }
 
-        public void InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala) 
+        public bool InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala) 
         {
+            bool operacionExitosa = false;
+
             if (jugadoresEnLinea.ContainsKey(nombreJugadorInvitado))
             {
                 Invitacion nuevaInvitacion = new Invitacion
@@ -198,7 +200,11 @@ namespace CrazyEightsServicio
                 };
                 jugadoresEnLinea[nombreJugadorInvitado].Invitaciones.Add(nuevaInvitacion);
                 jugadoresEnLinea[nombreJugadorInvitado].CanalCallbackManejadorJugadores.RecibirInvitacionASala(nuevaInvitacion);
+
+                operacionExitosa = true;
             }
+
+            return operacionExitosa;
         }
 
         public List<Invitacion> RecuperarInvitacionesDeJugador(string nombreJugador)

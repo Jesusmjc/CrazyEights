@@ -660,10 +660,10 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         System.Threading.Tasks.Task<CrazyEights.ReferenciaServicioManejoJugadores.Jugador[]> RecuperarInformacionJugadoresEnLineaAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASala", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASalaResponse")]
-        void InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);
+        bool InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASala", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/InvitarJugadorASalaResponse")]
-        System.Threading.Tasks.Task InvitarJugadorASalaAsync(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);
+        System.Threading.Tasks.Task<bool> InvitarJugadorASalaAsync(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInvitacionesDeJugador", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInvitacionesDeJugadorRespo" +
             "nse")]
@@ -742,11 +742,11 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
             return base.Channel.RecuperarInformacionJugadoresEnLineaAsync();
         }
         
-        public void InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala) {
-            base.Channel.InvitarJugadorASala(nombreJugadorAnfitrion, nombreJugadorInvitado, codigoSala, nombreSala);
+        public bool InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala) {
+            return base.Channel.InvitarJugadorASala(nombreJugadorAnfitrion, nombreJugadorInvitado, codigoSala, nombreSala);
         }
         
-        public System.Threading.Tasks.Task InvitarJugadorASalaAsync(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala) {
+        public System.Threading.Tasks.Task<bool> InvitarJugadorASalaAsync(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala) {
             return base.Channel.InvitarJugadorASalaAsync(nombreJugadorAnfitrion, nombreJugadorInvitado, codigoSala, nombreSala);
         }
         
@@ -857,6 +857,14 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/AgregarJugadorASala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/AgregarJugadorASalaResponse")]
         System.Threading.Tasks.Task<bool> AgregarJugadorASalaAsync(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/ActualizarEstadoJugadorEnSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/ActualizarEstadoJugadorEnSalaRespon" +
+            "se")]
+        void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/ActualizarEstadoJugadorEnSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/ActualizarEstadoJugadorEnSalaRespon" +
+            "se")]
+        System.Threading.Tasks.Task ActualizarEstadoJugadorEnSalaAsync(int codigoSala, string nombreJugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -864,6 +872,10 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoJugadorEnSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoJugadorEnSalaResponse")]
         void MostrarNuevoJugadorEnSala(CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoEstadoJugadorEnSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoEstadoJugadorEnSalaResp" +
+            "onse")]
+        void MostrarNuevoEstadoJugadorEnSala(string nombreJugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -900,6 +912,14 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         public System.Threading.Tasks.Task<bool> AgregarJugadorASalaAsync(int codigoSala, CrazyEights.ReferenciaServicioManejoJugadores.Jugador nuevoJugador) {
             return base.Channel.AgregarJugadorASalaAsync(codigoSala, nuevoJugador);
+        }
+        
+        public void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador) {
+            base.Channel.ActualizarEstadoJugadorEnSala(codigoSala, nombreJugador);
+        }
+        
+        public System.Threading.Tasks.Task ActualizarEstadoJugadorEnSalaAsync(int codigoSala, string nombreJugador) {
+            return base.Channel.ActualizarEstadoJugadorEnSalaAsync(codigoSala, nombreJugador);
         }
     }
 }
