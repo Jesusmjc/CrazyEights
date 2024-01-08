@@ -40,6 +40,7 @@ namespace CrazyEights.Ventanas
         public void EntrarASala(Sala sala)
         {
             this.sala = sala;
+            SingletonJugador.Instance.Estado = "En espera";
 
             ReferenciaServicioManejoJugadores.ServicioSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioSalaClient();
             if (cliente.RecuperarSala(sala.Codigo).Codigo == 0)
@@ -80,12 +81,13 @@ namespace CrazyEights.Ventanas
             ReferenciaServicioManejoJugadores.ServicioSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioSalaClient();
 
             int i = 0;
-            foreach (var jugador in cliente.RecuperarSala(this.sala.Codigo).JugadoresEnSala)
+            Sala salaEnServidor = cliente.RecuperarSala(this.sala.Codigo);
+            foreach (var jugador in salaEnServidor.JugadoresEnSala)
             {
                 JugadorSala entradaJugadorSala = new JugadorSala(jugador.Value);
 
                 entradaJugadorSala.imgPuntosEnEspera.Visibility = Visibility.Visible;
-                if (i == 0)
+                if (salaEnServidor.Host.NombreUsuario.Equals(jugador.Value.NombreUsuario))
                 {
                     entradaJugadorSala.imgCoronaHost.Visibility = Visibility.Visible;
                     if (jugador.Value.NombreUsuario.Equals(SingletonJugador.Instance.NombreJugador))
@@ -99,6 +101,8 @@ namespace CrazyEights.Ventanas
                     gridsJugadoresEnSala[i].Children.Add(entradaJugadorSala);
                     entradasJugadoresEnSala[i] = entradaJugadorSala;
                 }
+
+                MostrarEstadoJugador(jugador.Value.Estado, entradaJugadorSala);
 
                 i++;
             }
@@ -152,51 +156,128 @@ namespace CrazyEights.Ventanas
                 gridsJugadoresEnSala[this.sala.JugadoresEnSala.Count].Children.Add(nuevoJugadorEnSala);
                 entradasJugadoresEnSala[this.sala.JugadoresEnSala.Count] = nuevoJugadorEnSala;
 
-                ReferenciaServicioManejoJugadores.ServicioSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioSalaClient();
-                this.sala = cliente.RecuperarSala(this.sala.Codigo);
+                this.sala.JugadoresEnSala.Add(jugador.NombreUsuario, jugador);
             }
         }
 
         private void CambiarEstado(object sender, RoutedEventArgs e)
         {
+            if (SingletonJugador.Instance.Estado.Equals("En espera"))
+            {
+                SingletonJugador.Instance.Estado = "Listo";
+                this.sala.JugadoresEnSala[SingletonJugador.Instance.NombreJugador].Estado = "Listo";
+            }
+            else
+            {
+                SingletonJugador.Instance.Estado = "En espera";
+                this.sala.JugadoresEnSala[SingletonJugador.Instance.NombreJugador].Estado = "En espera";
+            }
+            
             for (int i = 0; i < this.sala.JugadoresEnSala.Count; i++)
             {
                 JugadorSala entradaJugador = entradasJugadoresEnSala[i];
                 if (entradaJugador.lbNombreJugador.Content.Equals(SingletonJugador.Instance.NombreJugador))
                 {
-                    AlternarEstadoJugador(entradaJugador);
+                    MostrarEstadoJugador(SingletonJugador.Instance.Estado, entradaJugador);
                 }
             }
 
+            BloquearBotones();
+            VerificarSiJugadoresEstanListos();
+
             InstanceContext contexto = new InstanceContext(this);
             ReferenciaServicioManejoJugadores.ServicioActualizacionSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioActualizacionSalaClient(contexto);
-            cliente.ActualizarEstadoJugadorEnSala(this.sala.Codigo, SingletonJugador.Instance.NombreJugador);
+            cliente.ActualizarEstadoJugadorEnSala(this.sala.Codigo, SingletonJugador.Instance.NombreJugador, SingletonJugador.Instance.Estado);
         }
 
-        public void AlternarEstadoJugador(JugadorSala entradaJugador)
+        public void MostrarEstadoJugador(string estadoJugador, JugadorSala entradaJugador)
         {
-            if (entradaJugador.imgPalomitaListo.Visibility == Visibility.Visible)
+            if (estadoJugador.Equals("En espera"))
             {
                 entradaJugador.imgPalomitaListo.Visibility = Visibility.Hidden;
                 entradaJugador.imgPuntosEnEspera.Visibility = Visibility.Visible;
             }
-            else if (entradaJugador.imgPuntosEnEspera.Visibility == Visibility.Visible)
+            else if (estadoJugador.Equals("Listo"))
             {
                 entradaJugador.imgPuntosEnEspera.Visibility = Visibility.Hidden;
                 entradaJugador.imgPalomitaListo.Visibility = Visibility.Visible;
             }
         }
 
-        public void MostrarNuevoEstadoJugadorEnSala(string nombreJugador)
+        public void BloquearBotones()
         {
+            if (SingletonJugador.Instance.Estado.Equals("Listo"))
+            {
+                if (SingletonJugador.Instance.NombreJugador.Equals(this.sala.Host.NombreUsuario))
+                {
+                    imgConfiguracionSala.Visibility = Visibility.Hidden;
+                }
+                btnCerrarVentana.IsEnabled = false;
+                imgAmigos.IsEnabled = false;
+                imgConfiguracionSala.IsEnabled = false;
+            }
+            else
+            {
+                btnCerrarVentana.IsEnabled = true;
+                imgAmigos.IsEnabled = true;
+                imgConfiguracionSala.IsEnabled = true;
+                if (SingletonJugador.Instance.NombreJugador.Equals(this.sala.Host.NombreUsuario))
+                {
+                    imgConfiguracionSala.Visibility = Visibility.Visible;
+                }
+            }
+        }
+
+        private void VerificarSiJugadoresEstanListos()
+        {
+            if (SingletonJugador.Instance.NombreJugador.Equals(this.sala.Host.NombreUsuario))
+            {
+                bool jugadoresListosParaIniciarPartida = true;
+                if (this.sala.JugadoresEnSala.Count > 1)
+                {
+                    foreach (var jugador in this.sala.JugadoresEnSala)
+                    {
+                        if (!jugador.Value.Estado.Equals("Listo"))
+                        {
+                            jugadoresListosParaIniciarPartida = false;
+                        }
+                    }
+                } 
+                else
+                {
+                    jugadoresListosParaIniciarPartida = false;
+                }
+                
+                if (jugadoresListosParaIniciarPartida)
+                {
+                    imgFlechaIniciarPartida.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    imgFlechaIniciarPartida.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
+        public void MostrarNuevoEstadoJugadorEnSala(string nombreJugador, string estadoJugador)
+        {
+            this.sala.JugadoresEnSala[nombreJugador].Estado = estadoJugador;
+
             for (int i = 0; i < this.sala.JugadoresEnSala.Count; i++) 
             {
                 JugadorSala entradaJugador = entradasJugadoresEnSala[i];
                 if (entradaJugador.lbNombreJugador.Content.Equals(nombreJugador))
                 {
-                    AlternarEstadoJugador(entradaJugador);
+                    MostrarEstadoJugador(estadoJugador, entradaJugador);
                 }
             }
+
+            VerificarSiJugadoresEstanListos();
+        }
+
+        private void EmpezarPartida(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("En este punto se iniciaría la partida.", "Empieza la partida", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

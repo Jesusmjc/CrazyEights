@@ -113,7 +113,7 @@ namespace CrazyEightsServicio
         public string Estado { get { return _estado; } set { _estado = value; } }
 
         [DataMember]
-        public List<Invitacion> Invitaciones { get; set; } 
+        public List<Invitacion> Invitaciones { get; set; }
 
         [DataMember]
         public IManejadorJugadoresCallback CanalCallbackManejadorJugadores { get { return _canalCallbackManejadorJugadores; } set { _canalCallbackManejadorJugadores = value; } }

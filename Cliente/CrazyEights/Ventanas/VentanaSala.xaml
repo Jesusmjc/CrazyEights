@@ -11,9 +11,10 @@
         <Image Source="\Recursos\Fondo3.png" Stretch="Fill"/>
         <Image Source="\Recursos\RectanguloSala1.png" Stretch="Fill" Margin="100,20,350,0" Height="60" VerticalAlignment="Top"/>
         <Image Source="\Recursos\RectanguloSala2.png" Stretch="Fill" Margin="470,20,100,0" Height="60" VerticalAlignment="Top"/>
-        <Button x:Name="btnEmpezarPartida" Content="Empezar Partida" Margin="550,0,40,20" Height="40" VerticalAlignment="Bottom" FontSize="20" Click="CambiarEstado"/>
+        <Button x:Name="btnEmpezarPartida" Content="Listo" Margin="550,0,40,20" Height="40" VerticalAlignment="Bottom" FontSize="20" Click="CambiarEstado"/>
         <Image Source="\Recursos\RectanguloSala2.png" Stretch="Fill" Margin="0,0,205,70" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <Image x:Name="imgConfiguracionSala" Source="\Recursos\ConfigurarSala.png" Stretch="Fill" Margin="480,0,250,20" Width="40" Height="40" VerticalAlignment="Bottom" MouseLeftButtonDown="NavegarAConfiguracionPartida"/>
+        <Image x:Name="imgFlechaIniciarPartida" Source="\Recursos\flechaIniciarPartida.png" Stretch="Fill" Margin="480,0,250,20" Width="40" Height="40" VerticalAlignment="Bottom" MouseLeftButtonDown="EmpezarPartida" Visibility="Hidden"/>
         <Image Source="/Recursos/RectanguloSala2.png" Stretch="Fill" Margin="0,0,110,70" Width="80" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <Image Source="/Recursos/RectanguloSala2.png" Stretch="Fill" Margin="0,0,40,70" Width="60" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <Image x:Name="imgAmigos" HorizontalAlignment="Left" Height="60" Margin="20,20,0,0" VerticalAlignment="Top" Width="60" Source="/Recursos/iconoAmigos.png" RenderTransformOrigin="-0.611,0.606" MouseLeftButtonDown="AbrirListaAmigos"/>

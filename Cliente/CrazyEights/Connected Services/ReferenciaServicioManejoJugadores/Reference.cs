@@ -860,11 +860,11 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/ActualizarEstadoJugadorEnSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/ActualizarEstadoJugadorEnSalaRespon" +
             "se")]
-        void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador);
+        void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador, string estadoJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/ActualizarEstadoJugadorEnSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/ActualizarEstadoJugadorEnSalaRespon" +
             "se")]
-        System.Threading.Tasks.Task ActualizarEstadoJugadorEnSalaAsync(int codigoSala, string nombreJugador);
+        System.Threading.Tasks.Task ActualizarEstadoJugadorEnSalaAsync(int codigoSala, string nombreJugador, string estadoJugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -875,7 +875,7 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoEstadoJugadorEnSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoEstadoJugadorEnSalaResp" +
             "onse")]
-        void MostrarNuevoEstadoJugadorEnSala(string nombreJugador);
+        void MostrarNuevoEstadoJugadorEnSala(string nombreJugador, string estadoJugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -914,12 +914,12 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
             return base.Channel.AgregarJugadorASalaAsync(codigoSala, nuevoJugador);
         }
         
-        public void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador) {
-            base.Channel.ActualizarEstadoJugadorEnSala(codigoSala, nombreJugador);
+        public void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador, string estadoJugador) {
+            base.Channel.ActualizarEstadoJugadorEnSala(codigoSala, nombreJugador, estadoJugador);
         }
         
-        public System.Threading.Tasks.Task ActualizarEstadoJugadorEnSalaAsync(int codigoSala, string nombreJugador) {
-            return base.Channel.ActualizarEstadoJugadorEnSalaAsync(codigoSala, nombreJugador);
+        public System.Threading.Tasks.Task ActualizarEstadoJugadorEnSalaAsync(int codigoSala, string nombreJugador, string estadoJugador) {
+            return base.Channel.ActualizarEstadoJugadorEnSalaAsync(codigoSala, nombreJugador, estadoJugador);
         }
     }
 }

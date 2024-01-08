@@ -58,7 +58,7 @@ namespace CrazyEights.Ventanas
                 IdJugador = SingletonJugador.Instance.IdJugador,
                 NombreUsuario = SingletonJugador.Instance.NombreJugador,
                 FotoPerfil = SingletonJugador.Instance.FotoPerfil,
-                Estado = SingletonJugador.Instance.Estado
+                Estado = "En espera"
             };
             this.sala.JugadoresEnSala.Add(jugador.NombreUsuario, jugador);
             this.sala.Host = jugador;
@@ -150,16 +150,16 @@ namespace CrazyEights.Ventanas
         private void CargarComboBoxRondasParaGanar()
         {
             cbRondas.Items.Add("3");
+            cbRondas.Items.Add("4");
             cbRondas.Items.Add("5");
-            cbRondas.Items.Add("7");
         }
 
         private void CargarComboBoxTiempoPorTurno()
         {
+            cbTiempoPorTurno.Items.Add("5");
+            cbTiempoPorTurno.Items.Add("10");
             cbTiempoPorTurno.Items.Add("15");
-            cbTiempoPorTurno.Items.Add("30");
-            cbTiempoPorTurno.Items.Add("45");
-            cbTiempoPorTurno.Items.Add("60");
+            cbTiempoPorTurno.Items.Add("20");
         }
 
         private void OcultarBotonSalir()

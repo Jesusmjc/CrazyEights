@@ -26,10 +26,5 @@ namespace CrazyEights.Ventanas
             InitializeComponent();
             lbNombreJugador.Content = jugadorEnLaSala.NombreUsuario;
         }
-
-        private void AbrirListaAmigos(object sender, MouseButtonEventArgs e)
-        {
-
-        }
     }
 }

@@ -10,7 +10,6 @@ namespace CrazyEightsServicio
     public partial class ServicioManejoJugadores : IServicioSala
     {
         public static Dictionary<int, Sala> listaSalas = new Dictionary<int, Sala>();
-        public static Dictionary<string, bool> listaEstadoJugadores = new Dictionary<string, bool>();
 
         public void ActualizarConfiguracionSala(Sala salaActualizada)
         {
@@ -64,7 +63,6 @@ namespace CrazyEightsServicio
                 if (listaSalas[codigoSala].JugadoresEnSala.ContainsKey(nuevoJugador.NombreUsuario))
                 {
                     listaSalas[codigoSala].JugadoresEnSala[nuevoJugador.NombreUsuario].CanalCallbackServicioSala = OperationContext.Current.GetCallbackChannel<IServicioSalaCallback>();
-                    operacionExitosa = true;
                 }
                 else if (listaSalas[codigoSala].JugadoresEnSala.Count <= 3)
                 {
@@ -78,34 +76,28 @@ namespace CrazyEightsServicio
                             jugador.Value.CanalCallbackServicioSala.MostrarNuevoJugadorEnSala(nuevoJugador);
                         }
                     }
-
-                    operacionExitosa = true;
                 }
+
+                listaSalas[codigoSala].JugadoresEnSala[nuevoJugador.NombreUsuario].Estado = "En espera";
+                operacionExitosa = true;
             }
             return operacionExitosa;
         }
 
-        public void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador)
+        public void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador, string estadoJugador)
         {
             if (listaSalas.ContainsKey(codigoSala))
             {
                 if (listaSalas[codigoSala].JugadoresEnSala.ContainsKey(nombreJugador))
                 {
+                    listaSalas[codigoSala].JugadoresEnSala[nombreJugador].Estado = estadoJugador;
+
                     foreach (var jugadorEnSala in listaSalas[codigoSala].JugadoresEnSala)
                     {
                         if (!jugadorEnSala.Value.NombreUsuario.Equals(nombreJugador))
                         {
-                            jugadorEnSala.Value.CanalCallbackServicioSala.MostrarNuevoEstadoJugadorEnSala(nombreJugador);
+                            jugadorEnSala.Value.CanalCallbackServicioSala.MostrarNuevoEstadoJugadorEnSala(nombreJugador, estadoJugador);
                         }
-                    }
-
-                    if (listaEstadoJugadores[nombreJugador])
-                    {
-                        listaEstadoJugadores[nombreJugador] = false;
-                    }
-                    else
-                    {
-                        listaEstadoJugadores[nombreJugador] = true;
                     }
                 }
             }

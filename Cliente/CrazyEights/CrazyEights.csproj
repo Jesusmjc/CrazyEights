@@ -493,6 +493,9 @@
     <Resource Include="Recursos\RectanguloSala1.png" />
     <Resource Include="Recursos\RectanguloSala2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\flechaIniciarPartida.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -9,7 +9,7 @@
     <Grid>
         <Image Source="\Recursos\PlaceholderJugadorSala.png" Stretch="Fill" Height="140" VerticalAlignment="Top" Margin="0,0,0,40"/>
         <Label x:Name="lbNombreJugador" Content="Nombre de Jugador" Margin="10,0,10,50" Height="26" VerticalAlignment="Bottom" FontSize="11"/>
-        <Rectangle HorizontalAlignment="Center" Height="70" Margin="0,23,0,0" VerticalAlignment="Top" Width="70" MouseLeftButtonDown="AbrirListaAmigos"/>
+        <Rectangle HorizontalAlignment="Center" Height="70" Margin="0,23,0,0" VerticalAlignment="Top" Width="70"/>
         <Image x:Name="imgCoronaHost" Source="\Recursos\corona.png" Stretch="Fill" Margin="0,0,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Center" Width="24" Visibility="Hidden"/>
         <Image x:Name="imgPalomitaListo" Source="\Recursos\Palomita.png" Stretch="Fill" Margin="0,150,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Width="30" Visibility="Hidden"/>
         <Image x:Name="imgPuntosEnEspera" Source="\Recursos\PuntosEspera.png" Stretch="Fill" Margin="48,150,48,0" Height="30" VerticalAlignment="Top" Width="44" Visibility="Hidden"/>

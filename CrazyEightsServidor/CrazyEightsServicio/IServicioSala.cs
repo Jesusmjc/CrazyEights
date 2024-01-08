@@ -32,7 +32,7 @@ namespace CrazyEightsServicio
         bool AgregarJugadorASala(int codigoSala, Jugador nuevoJugador);
 
         [OperationContract]
-        void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador);
+        void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador, string estadoJugador);
     }
 
     [ServiceContract]
@@ -42,7 +42,7 @@ namespace CrazyEightsServicio
         void MostrarNuevoJugadorEnSala(Jugador jugador);
 
         [OperationContract]
-        void MostrarNuevoEstadoJugadorEnSala(string nombreJugador);
+        void MostrarNuevoEstadoJugadorEnSala(string nombreJugador, string estadoJugador);
     }
 
     [DataContract]
