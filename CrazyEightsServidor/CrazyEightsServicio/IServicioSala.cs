@@ -12,9 +12,6 @@ namespace CrazyEightsServicio
     public interface IServicioSala
     {
         [OperationContract]
-        void ActualizarConfiguracionSala(Sala sala);
-
-        [OperationContract]
         void AgregarSalaAListaDeSalas(Sala nuevaSala);
 
         [OperationContract]
@@ -25,7 +22,6 @@ namespace CrazyEightsServicio
     }
 
     [ServiceContract(CallbackContract = typeof(IServicioSalaCallback))]
-
     public interface IServicioActualizacionSala
     {
         [OperationContract]
@@ -33,6 +29,9 @@ namespace CrazyEightsServicio
 
         [OperationContract]
         void ActualizarEstadoJugadorEnSala(int codigoSala, string nombreJugador, string estadoJugador);
+
+        [OperationContract]
+        void ActualizarConfiguracionDeSala(int codigoSala, string nombre, string modoJuego, string tipoAcceso, int numeroRondas, int tiempoPorTurno);
     }
 
     [ServiceContract]
@@ -43,6 +42,9 @@ namespace CrazyEightsServicio
 
         [OperationContract]
         void MostrarNuevoEstadoJugadorEnSala(string nombreJugador, string estadoJugador);
+
+        [OperationContract]
+        void MostrarNuevoConfiguracionSala(string nombre, string modoJuego, string tipoAcceso, int numeroRondas, int tiempoPorTurno);
     }
 
     [DataContract]

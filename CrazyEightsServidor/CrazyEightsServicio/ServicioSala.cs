@@ -11,14 +11,6 @@ namespace CrazyEightsServicio
     {
         public static Dictionary<int, Sala> listaSalas = new Dictionary<int, Sala>();
 
-        public void ActualizarConfiguracionSala(Sala salaActualizada)
-        {
-            if (listaSalas.ContainsKey(salaActualizada.Codigo))
-            {
-                listaSalas[salaActualizada.Codigo] = salaActualizada;
-            }
-        }
-
         public void AgregarSalaAListaDeSalas(Sala nuevaSala)
         {
             if (!listaSalas.ContainsKey(nuevaSala.Codigo))
@@ -98,6 +90,26 @@ namespace CrazyEightsServicio
                         {
                             jugadorEnSala.Value.CanalCallbackServicioSala.MostrarNuevoEstadoJugadorEnSala(nombreJugador, estadoJugador);
                         }
+                    }
+                }
+            }
+        }
+
+        public void ActualizarConfiguracionDeSala(int codigoSala, string nombre, string modoJuego, string tipoAcceso, int numeroRondas, int tiempoPorTurno)
+        {
+            if (listaSalas.ContainsKey(codigoSala))
+            {
+                listaSalas[codigoSala].Nombre = nombre;
+                listaSalas[codigoSala].ModoDeJuego = modoJuego;
+                listaSalas[codigoSala].TipoDeAcceso = tipoAcceso;
+                listaSalas[codigoSala].NumeroDeRondas = numeroRondas;
+                listaSalas[codigoSala].TiempoPorTurno = tiempoPorTurno;
+
+                foreach (var jugador in listaSalas[codigoSala].JugadoresEnSala)
+                {
+                    if (!jugador.Value.NombreUsuario.Equals(listaSalas[codigoSala].Host.NombreUsuario))
+                    {
+                        jugador.Value.CanalCallbackServicioSala.MostrarNuevoConfiguracionSala(nombre, modoJuego, tipoAcceso, numeroRondas, tiempoPorTurno);
                     }
                 }
             }

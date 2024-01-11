@@ -42,7 +42,7 @@ namespace CrazyEights
                 Jugador jugadorInicioSesion = new Jugador();
                 jugadorInicioSesion = cliente.ValidarInicioSesion(usuarioAValidar);
 
-                if (jugadorInicioSesion != null)
+                if (jugadorInicioSesion.IdJugador > 0)
                 {
                     SingletonJugador singletonJugador = SingletonJugador.Instance;
                     singletonJugador.NombreJugador = jugadorInicioSesion.NombreUsuario;

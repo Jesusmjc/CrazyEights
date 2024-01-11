@@ -202,12 +202,6 @@
   <wsdl:message name="IManejadorJugadoresEnLinea_RecibirInvitacionASala_InputCallbackMessage">
     <wsdl:part name="parameters" element="tns:RecibirInvitacionASalaResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioSala_ActualizarConfiguracionSala_InputMessage">
-    <wsdl:part name="parameters" element="tns:ActualizarConfiguracionSala" />
-  </wsdl:message>
-  <wsdl:message name="IServicioSala_ActualizarConfiguracionSala_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ActualizarConfiguracionSalaResponse" />
-  </wsdl:message>
   <wsdl:message name="IServicioSala_AgregarSalaAListaDeSalas_InputMessage">
     <wsdl:part name="parameters" element="tns:AgregarSalaAListaDeSalas" />
   </wsdl:message>
@@ -238,6 +232,12 @@
   <wsdl:message name="IServicioActualizacionSala_ActualizarEstadoJugadorEnSala_OutputMessage">
     <wsdl:part name="parameters" element="tns:ActualizarEstadoJugadorEnSalaResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioActualizacionSala_ActualizarConfiguracionDeSala_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarConfiguracionDeSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioActualizacionSala_ActualizarConfiguracionDeSala_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarConfiguracionDeSalaResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioActualizacionSala_MostrarNuevoJugadorEnSala_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:MostrarNuevoJugadorEnSala" />
   </wsdl:message>
@@ -249,6 +249,12 @@
   </wsdl:message>
   <wsdl:message name="IServicioActualizacionSala_MostrarNuevoEstadoJugadorEnSala_InputCallbackMessage">
     <wsdl:part name="parameters" element="tns:MostrarNuevoEstadoJugadorEnSalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioActualizacionSala_MostrarNuevoConfiguracionSala_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MostrarNuevoConfiguracionSala" />
+  </wsdl:message>
+  <wsdl:message name="IServicioActualizacionSala_MostrarNuevoConfiguracionSala_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MostrarNuevoConfiguracionSalaResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioManejoJugadores">
     <wsdl:operation name="GuardarJugador">
@@ -309,10 +315,6 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioSala">
-    <wsdl:operation name="ActualizarConfiguracionSala">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala" message="tns:IServicioSala_ActualizarConfiguracionSala_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/ActualizarConfiguracionSalaResponse" message="tns:IServicioSala_ActualizarConfiguracionSala_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="AgregarSalaAListaDeSalas">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalas" message="tns:IServicioSala_AgregarSalaAListaDeSalas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalasResponse" message="tns:IServicioSala_AgregarSalaAListaDeSalas_OutputMessage" />
@@ -335,6 +337,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioActualizacionSala/ActualizarEstadoJugadorEnSala" message="tns:IServicioActualizacionSala_ActualizarEstadoJugadorEnSala_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioActualizacionSala/ActualizarEstadoJugadorEnSalaResponse" message="tns:IServicioActualizacionSala_ActualizarEstadoJugadorEnSala_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ActualizarConfiguracionDeSala">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioActualizacionSala/ActualizarConfiguracionDeSala" message="tns:IServicioActualizacionSala_ActualizarConfiguracionDeSala_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioActualizacionSala/ActualizarConfiguracionDeSalaResponse" message="tns:IServicioActualizacionSala_ActualizarConfiguracionDeSala_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="MostrarNuevoJugadorEnSala">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoJugadorEnSala" message="tns:IServicioActualizacionSala_MostrarNuevoJugadorEnSala_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoJugadorEnSalaResponse" message="tns:IServicioActualizacionSala_MostrarNuevoJugadorEnSala_InputCallbackMessage" />
@@ -342,6 +348,10 @@
     <wsdl:operation name="MostrarNuevoEstadoJugadorEnSala">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoEstadoJugadorEnSala" message="tns:IServicioActualizacionSala_MostrarNuevoEstadoJugadorEnSala_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoEstadoJugadorEnSalaResponse" message="tns:IServicioActualizacionSala_MostrarNuevoEstadoJugadorEnSala_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MostrarNuevoConfiguracionSala">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoConfiguracionSala" message="tns:IServicioActualizacionSala_MostrarNuevoConfiguracionSala_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoConfiguracionSalaResponse" message="tns:IServicioActualizacionSala_MostrarNuevoConfiguracionSala_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioManejoJugadores" type="tns:IServicioManejoJugadores">
@@ -475,15 +485,6 @@
   <wsdl:binding name="NetTcpBinding_IServicioSala" type="tns:IServicioSala">
     <wsp:PolicyReference URI="#NetTcpBinding_IServicioSala_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="ActualizarConfiguracionSala">
-      <soap12:operation soapAction="http://tempuri.org/IServicioSala/ActualizarConfiguracionSala" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="AgregarSalaAListaDeSalas">
       <soap12:operation soapAction="http://tempuri.org/IServicioSala/AgregarSalaAListaDeSalas" style="document" />
       <wsdl:input>
@@ -533,6 +534,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ActualizarConfiguracionDeSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioActualizacionSala/ActualizarConfiguracionDeSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="MostrarNuevoJugadorEnSala">
       <soap12:operation soapAction="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoJugadorEnSala" style="document" />
       <wsdl:input>
@@ -544,6 +554,15 @@
     </wsdl:operation>
     <wsdl:operation name="MostrarNuevoEstadoJugadorEnSala">
       <soap12:operation soapAction="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoEstadoJugadorEnSala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarNuevoConfiguracionSala">
+      <soap12:operation soapAction="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoConfiguracionSala" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

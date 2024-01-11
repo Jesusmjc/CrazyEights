@@ -42,17 +42,15 @@ namespace CrazyEightsServicio
                                 && us.contraseña == usuario.Contrasena
                                 select us.IDUsuario).ToList();
 
-                Jugador jugador = null;
+                Jugador jugador = new Jugador();
 
-                if (usuarios.Count != 0)
+                if (usuarios.Count != 0 && !jugadoresEnLinea.ContainsKey(RecuperarInformacionJugador(usuarios[0]).NombreUsuario))
                 {
                     jugador = RecuperarInformacionJugador(usuarios[0]);
                 }
 
                 return jugador;
             }
-
-
         }
 
         private Jugador RecuperarInformacionJugador(int IdUsuario)

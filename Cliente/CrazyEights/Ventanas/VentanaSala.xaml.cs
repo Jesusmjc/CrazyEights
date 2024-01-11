@@ -26,7 +26,6 @@ namespace CrazyEights.Ventanas
         private Sala sala;
         private Grid[] gridsJugadoresEnSala = new Grid[4];
         private JugadorSala[] entradasJugadoresEnSala = new JugadorSala[4];
-        private bool jugadorEsHost;
 
         public VentanaSala()
         {
@@ -68,6 +67,13 @@ namespace CrazyEights.Ventanas
             VerificarSiJugadorNoEsHost();
         }
 
+        public void NotificarCambiosConfiguracionSala()
+        {
+            InstanceContext contexto = new InstanceContext(this);
+            ReferenciaServicioManejoJugadores.ServicioActualizacionSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioActualizacionSalaClient(contexto);
+            cliente.ActualizarConfiguracionDeSala(this.sala.Codigo, this.sala.Nombre, this.sala.ModoDeJuego, this.sala.TipoDeAcceso, this.sala.NumeroDeRondas, this.sala.TiempoPorTurno);
+        }
+
         private void CargarListaGridsEntradaJugadores()
         {
             gridsJugadoresEnSala[0] = gridJugadorSala1;
@@ -90,10 +96,6 @@ namespace CrazyEights.Ventanas
                 if (salaEnServidor.Host.NombreUsuario.Equals(jugador.Value.NombreUsuario))
                 {
                     entradaJugadorSala.imgCoronaHost.Visibility = Visibility.Visible;
-                    if (jugador.Value.NombreUsuario.Equals(SingletonJugador.Instance.NombreJugador))
-                    {
-                        jugadorEsHost = true;
-                    }
                 } 
                 
                 if (i < 4)
@@ -278,6 +280,17 @@ namespace CrazyEights.Ventanas
         private void EmpezarPartida(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("En este punto se iniciaría la partida.", "Empieza la partida", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public void MostrarNuevoConfiguracionSala(string nombre, string modoJuego, string tipoAcceso, int numeroRondas, int tiempoPorTurno)
+        {
+            this.sala.Nombre = nombre;
+            this.sala.ModoDeJuego = modoJuego;
+            this.sala.TipoDeAcceso = tipoAcceso;
+            this.sala.NumeroDeRondas = numeroRondas;
+            this.sala.TiempoPorTurno = tiempoPorTurno;
+
+            CargarConfiguracion();
         }
     }
 }

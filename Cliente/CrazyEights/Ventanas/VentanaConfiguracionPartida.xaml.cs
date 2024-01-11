@@ -71,9 +71,6 @@ namespace CrazyEights.Ventanas
             this.sala.TipoDeAcceso = cbAcceso.Text;
             this.sala.NumeroDeRondas = int.Parse(cbRondas.Text);
             this.sala.TiempoPorTurno = int.Parse(cbTiempoPorTurno.Text);
-
-            ReferenciaServicioManejoJugadores.ServicioSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioSalaClient();
-            cliente.ActualizarConfiguracionSala(this.sala);
         }
 
         private int GenerarNuevoCodigoSala()
@@ -102,17 +99,21 @@ namespace CrazyEights.Ventanas
         {
             if (ValidarCamposConfiguracion())
             {
+
+
                 if (this.sala.Codigo == 0)
                 {
                     CrearSala();
+
                 }
                 else
                 {
                     ActualizarSala();
                 }
-                
+
                 VentanaSala ventanaSala = new VentanaSala();
                 ventanaSala.EntrarASala(this.sala);
+                ventanaSala.NotificarCambiosConfiguracionSala();
                 this.Close();
                 ventanaSala.ShowDialog();
             }

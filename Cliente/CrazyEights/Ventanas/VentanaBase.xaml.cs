@@ -26,5 +26,10 @@ namespace CrazyEights.Ventanas
             this.ResizeMode = ResizeMode.NoResize;
             this.Closing += VentanaBase_Closing;
         }
+
+        private void VentanaBase_Closing()
+        {
+
+        }
     }
 }
