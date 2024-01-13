@@ -22,6 +22,8 @@ namespace CrazyEights.Ventanas
         public VentanaAyudaDeJuego()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.ResizeMode = ResizeMode.NoResize;
         }
 
         private void CerrarVentana(object sender, MouseButtonEventArgs e)

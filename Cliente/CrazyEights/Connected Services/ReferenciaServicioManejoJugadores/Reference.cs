@@ -630,6 +630,55 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ReferenciaServicioManejoJugadores.IServicioManejoDesconexiones")]
+    public interface IServicioManejoDesconexiones {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoDesconexiones/NotificarDesconexionJugador", ReplyAction="http://tempuri.org/IServicioManejoDesconexiones/NotificarDesconexionJugadorRespon" +
+            "se")]
+        void NotificarDesconexionJugador(string nombreJugadorDesconectado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoDesconexiones/NotificarDesconexionJugador", ReplyAction="http://tempuri.org/IServicioManejoDesconexiones/NotificarDesconexionJugadorRespon" +
+            "se")]
+        System.Threading.Tasks.Task NotificarDesconexionJugadorAsync(string nombreJugadorDesconectado);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioManejoDesconexionesChannel : CrazyEights.ReferenciaServicioManejoJugadores.IServicioManejoDesconexiones, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServicioManejoDesconexionesClient : System.ServiceModel.ClientBase<CrazyEights.ReferenciaServicioManejoJugadores.IServicioManejoDesconexiones>, CrazyEights.ReferenciaServicioManejoJugadores.IServicioManejoDesconexiones {
+        
+        public ServicioManejoDesconexionesClient() {
+        }
+        
+        public ServicioManejoDesconexionesClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ServicioManejoDesconexionesClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioManejoDesconexionesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioManejoDesconexionesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void NotificarDesconexionJugador(string nombreJugadorDesconectado) {
+            base.Channel.NotificarDesconexionJugador(nombreJugadorDesconectado);
+        }
+        
+        public System.Threading.Tasks.Task NotificarDesconexionJugadorAsync(string nombreJugadorDesconectado) {
+            return base.Channel.NotificarDesconexionJugadorAsync(nombreJugadorDesconectado);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ReferenciaServicioManejoJugadores.IManejadorJugadoresEnLinea", CallbackContract=typeof(CrazyEights.ReferenciaServicioManejoJugadores.IManejadorJugadoresEnLineaCallback))]
     public interface IManejadorJugadoresEnLinea {
         
@@ -643,11 +692,11 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarDesconexionAJugadoresEnLin" +
             "ea")]
-        void NotificarDesconexionAJugadoresEnLinea(string nombreJugador);
+        void NotificarDesconexionAJugadoresEnLinea(string nombreJugadorDesconectado);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarDesconexionAJugadoresEnLin" +
             "ea")]
-        System.Threading.Tasks.Task NotificarDesconexionAJugadoresEnLineaAsync(string nombreJugador);
+        System.Threading.Tasks.Task NotificarDesconexionAJugadoresEnLineaAsync(string nombreJugadorDesconectado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInformacionJugadoresEnLine" +
             "a", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/RecuperarInformacionJugadoresEnLine" +
@@ -726,12 +775,12 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
             return base.Channel.NotificarNuevaConexionAJugadoresEnLineaAsync(jugador);
         }
         
-        public void NotificarDesconexionAJugadoresEnLinea(string nombreJugador) {
-            base.Channel.NotificarDesconexionAJugadoresEnLinea(nombreJugador);
+        public void NotificarDesconexionAJugadoresEnLinea(string nombreJugadorDesconectado) {
+            base.Channel.NotificarDesconexionAJugadoresEnLinea(nombreJugadorDesconectado);
         }
         
-        public System.Threading.Tasks.Task NotificarDesconexionAJugadoresEnLineaAsync(string nombreJugador) {
-            return base.Channel.NotificarDesconexionAJugadoresEnLineaAsync(nombreJugador);
+        public System.Threading.Tasks.Task NotificarDesconexionAJugadoresEnLineaAsync(string nombreJugadorDesconectado) {
+            return base.Channel.NotificarDesconexionAJugadoresEnLineaAsync(nombreJugadorDesconectado);
         }
         
         public CrazyEights.ReferenciaServicioManejoJugadores.Jugador[] RecuperarInformacionJugadoresEnLinea() {
@@ -859,6 +908,12 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/ActualizarConfiguracionDeSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/ActualizarConfiguracionDeSalaRespon" +
             "se")]
         System.Threading.Tasks.Task ActualizarConfiguracionDeSalaAsync(int codigoSala, string nombre, string modoJuego, string tipoAcceso, int numeroRondas, int tiempoPorTurno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/NotificarDesconexionDeSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/NotificarDesconexionDeSalaResponse")]
+        void NotificarDesconexionDeSala(int codigoSala, string nombreJugadorDesconectado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/NotificarDesconexionDeSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/NotificarDesconexionDeSalaResponse")]
+        System.Threading.Tasks.Task NotificarDesconexionDeSalaAsync(int codigoSala, string nombreJugadorDesconectado);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -874,6 +929,12 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoConfiguracionSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/MostrarNuevoConfiguracionSalaRespon" +
             "se")]
         void MostrarNuevoConfiguracionSala(string nombre, string modoJuego, string tipoAcceso, int numeroRondas, int tiempoPorTurno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/MostrarDesconexionJugador", ReplyAction="http://tempuri.org/IServicioActualizacionSala/MostrarDesconexionJugadorResponse")]
+        void MostrarDesconexionJugador(string nombreJugadorDesconectado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioActualizacionSala/SalirDeSala", ReplyAction="http://tempuri.org/IServicioActualizacionSala/SalirDeSalaResponse")]
+        void SalirDeSala();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -926,6 +987,14 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         public System.Threading.Tasks.Task ActualizarConfiguracionDeSalaAsync(int codigoSala, string nombre, string modoJuego, string tipoAcceso, int numeroRondas, int tiempoPorTurno) {
             return base.Channel.ActualizarConfiguracionDeSalaAsync(codigoSala, nombre, modoJuego, tipoAcceso, numeroRondas, tiempoPorTurno);
+        }
+        
+        public void NotificarDesconexionDeSala(int codigoSala, string nombreJugadorDesconectado) {
+            base.Channel.NotificarDesconexionDeSala(codigoSala, nombreJugadorDesconectado);
+        }
+        
+        public System.Threading.Tasks.Task NotificarDesconexionDeSalaAsync(int codigoSala, string nombreJugadorDesconectado) {
+            return base.Channel.NotificarDesconexionDeSalaAsync(codigoSala, nombreJugadorDesconectado);
         }
     }
 }

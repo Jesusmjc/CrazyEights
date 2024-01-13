@@ -87,11 +87,14 @@ namespace CrazyEights
 
         private void CerrarSesion(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(Properties.Resources.msbCerrarSesion,
+            MessageBoxResult resultado = MessageBox.Show(Properties.Resources.msbCerrarSesion,
                 Properties.Resources.ttlCerrarSesion, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-            if (result == MessageBoxResult.Yes)
+            if (resultado == MessageBoxResult.Yes)
             {
+                ReferenciaServicioManejoJugadores.ServicioManejoDesconexionesClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoDesconexionesClient();
+                cliente.NotificarDesconexionJugador(SingletonJugador.Instance.NombreJugador);
+
                 MainWindow ventanaInicio = new MainWindow();
                 ventanaInicio.Show();
                 this.Close();

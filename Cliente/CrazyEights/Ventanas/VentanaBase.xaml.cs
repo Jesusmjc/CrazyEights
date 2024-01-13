@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ServiceModel;
+using CrazyEights.ReferenciaServicioManejoJugadores;
 
 namespace CrazyEights.Ventanas
 {
@@ -27,9 +29,10 @@ namespace CrazyEights.Ventanas
             this.Closing += VentanaBase_Closing;
         }
 
-        private void VentanaBase_Closing()
+        public static void VentanaBase_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            ReferenciaServicioManejoJugadores.ServicioManejoDesconexionesClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoDesconexionesClient();
+            cliente.NotificarDesconexionJugador(SingletonJugador.Instance.NombreJugador);
         }
     }
 }

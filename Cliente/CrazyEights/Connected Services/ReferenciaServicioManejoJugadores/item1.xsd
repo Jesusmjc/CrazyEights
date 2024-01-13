@@ -73,6 +73,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="NotificarDesconexionJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugadorDesconectado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotificarDesconexionJugadorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="NotificarNuevaConexionAJugadoresEnLinea">
     <xs:complexType>
       <xs:sequence>
@@ -83,7 +95,7 @@
   <xs:element name="NotificarDesconexionAJugadoresEnLinea">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreJugador" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreJugadorDesconectado" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -264,6 +276,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="NotificarDesconexionDeSala">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoSala" type="xs:int" />
+        <xs:element minOccurs="0" name="nombreJugadorDesconectado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotificarDesconexionDeSalaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="MostrarNuevoJugadorEnSala">
     <xs:complexType>
       <xs:sequence>
@@ -301,6 +326,28 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="MostrarNuevoConfiguracionSalaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarDesconexionJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreJugadorDesconectado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MostrarDesconexionJugadorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SalirDeSala">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SalirDeSalaResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

@@ -26,17 +26,21 @@ namespace CrazyEightsServicio
         string EnviarCodigoAlCorreoDelUsuario(string correoElectronico);
     }
 
+    [ServiceContract]
+    public interface IServicioManejoDesconexiones
+    {
+        [OperationContract]
+        void NotificarDesconexionJugador(string nombreJugadorDesconectado);
+    }
+
     [ServiceContract(CallbackContract = typeof(IManejadorJugadoresCallback))]
     public interface IManejadorJugadoresEnLinea
     {
         [OperationContract(IsOneWay = true)]
         void NotificarNuevaConexionAJugadoresEnLinea(Jugador jugador);
 
-        [OperationContract(IsOneWay = true)]
-        void NotificarDesconexionAJugadoresEnLinea(string nombreJugador);
-
-        [OperationContract]
-        List<Jugador> RecuperarInformacionJugadoresEnLinea();
+        //[OperationContract]
+        //List<Jugador> RecuperarInformacionJugadoresEnLinea();
 
         [OperationContract]
         bool InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);

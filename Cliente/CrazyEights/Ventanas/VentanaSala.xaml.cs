@@ -137,9 +137,19 @@ namespace CrazyEights.Ventanas
 
         private void NavegarAMenuPrincipal(object sender, MouseButtonEventArgs e)
         {
-            VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
-            this.Close();
-            ventanaMenuPrincipal.ShowDialog();
+            MessageBoxResult resultado = MessageBox.Show("Salir de Sala",
+                "¿Estás seguro de que quieres salir de la sala?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (resultado == MessageBoxResult.Yes)
+            {
+                InstanceContext contexto = new InstanceContext(this);
+                ReferenciaServicioManejoJugadores.ServicioActualizacionSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioActualizacionSalaClient(contexto);
+                cliente.NotificarDesconexionDeSala(this.sala.Codigo, SingletonJugador.Instance.NombreJugador);
+
+                VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
+                this.Close();
+                ventanaMenuPrincipal.ShowDialog();
+            }
         }
 
         private void NavegarAConfiguracionPartida(object sender, MouseButtonEventArgs e)
@@ -291,6 +301,40 @@ namespace CrazyEights.Ventanas
             this.sala.TiempoPorTurno = tiempoPorTurno;
 
             CargarConfiguracion();
+        }
+
+        public void MostrarDesconexionJugador(string nombreJugadorDesconectado)
+        {
+            for (int i = 0; i < this.sala.JugadoresEnSala.Count; i++)
+            {
+                if (entradasJugadoresEnSala[i].lbNombreJugador.Content.Equals(nombreJugadorDesconectado))
+                {
+                    gridsJugadoresEnSala[i].Children.Remove(entradasJugadoresEnSala[i]);
+
+                    AjustarEntradasJugadoresEnSala(i);
+                }
+            }
+
+            if (this.sala.JugadoresEnSala.ContainsKey(nombreJugadorDesconectado))
+            {
+                this.sala.JugadoresEnSala.Remove(nombreJugadorDesconectado);
+            }
+        }
+
+        public void SalirDeSala()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AjustarEntradasJugadoresEnSala(int posicionJugadorDesconectado)
+        {
+            for (int i = posicionJugadorDesconectado; i < this.sala.JugadoresEnSala.Count - 1; i++)
+            {
+                entradasJugadoresEnSala[i] = entradasJugadoresEnSala[i + 1];
+
+                gridsJugadoresEnSala[i + 1].Children.Remove(entradasJugadoresEnSala[i]);
+                gridsJugadoresEnSala[i].Children.Add(entradasJugadoresEnSala[i]);
+            }
         }
     }
 }

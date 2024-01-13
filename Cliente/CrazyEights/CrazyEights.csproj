@@ -101,6 +101,9 @@
     <Compile Include="Ventanas\VentanaAyudaDeJuego.xaml.cs">
       <DependentUpon>VentanaAyudaDeJuego.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VentanaBase.xaml.cs">
+      <DependentUpon>VentanaBase.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VentanaConfiguracionPartida.xaml.cs">
       <DependentUpon>VentanaConfiguracionPartida.xaml</DependentUpon>
     </Compile>
@@ -169,6 +172,10 @@
     <Page Include="Ventanas\VentanaAyudaDeJuego.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaBase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Ventanas\VentanaConfiguracionPartida.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -32,6 +32,9 @@ namespace CrazyEightsServicio
 
         [OperationContract]
         void ActualizarConfiguracionDeSala(int codigoSala, string nombre, string modoJuego, string tipoAcceso, int numeroRondas, int tiempoPorTurno);
+
+        [OperationContract]
+        void NotificarDesconexionDeSala(int codigoSala, string nombreJugadorDesconectado);
     }
 
     [ServiceContract]
@@ -45,6 +48,12 @@ namespace CrazyEightsServicio
 
         [OperationContract]
         void MostrarNuevoConfiguracionSala(string nombre, string modoJuego, string tipoAcceso, int numeroRondas, int tiempoPorTurno);
+
+        [OperationContract]
+        void MostrarDesconexionJugador(string nombreJugadorDesconectado);
+
+        [OperationContract]
+        void SalirDeSala();
     }
 
     [DataContract]

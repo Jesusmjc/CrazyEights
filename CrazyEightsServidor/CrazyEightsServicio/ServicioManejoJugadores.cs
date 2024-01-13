@@ -134,6 +134,23 @@ namespace CrazyEightsServicio
         }
     }
 
+    public partial class ServicioManejoJugadores : IServicioManejoDesconexiones
+    {
+        public void NotificarDesconexionJugador(string nombreJugadorDesconectado)
+        {
+            if (jugadoresEnLinea.ContainsKey(nombreJugadorDesconectado))
+            {
+                if (jugadoresEnLinea.Remove(nombreJugadorDesconectado))
+                {
+                    foreach (var jugadorEnLinea in jugadoresEnLinea)
+                    {
+                        jugadorEnLinea.Value.CanalCallbackManejadorJugadores.NotificarLogOutJugador(nombreJugadorDesconectado);
+                    }
+                }
+            }
+        }
+    }
+
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public partial class ServicioManejoJugadores : IManejadorJugadoresEnLinea
     {
@@ -159,30 +176,17 @@ namespace CrazyEightsServicio
             }
         }
 
-        public void NotificarDesconexionAJugadoresEnLinea(string nombreJugador)
-        {
-            if (jugadoresEnLinea.ContainsKey(nombreJugador))
-            {
-                jugadoresEnLinea.Remove(nombreJugador);
+        //public List<Jugador> RecuperarInformacionJugadoresEnLinea()
+        //{
+        //    List<Jugador> listaNombresJugadores = new List<Jugador>();
 
-                foreach (var jugador in jugadoresEnLinea)
-                {
-                    jugador.Value.CanalCallbackManejadorJugadores.NotificarLogOutJugador(nombreJugador);
-                }
-            }
-        }
+        //    foreach (var jugadorEnLinea in jugadoresEnLinea)
+        //    {
+        //        listaNombresJugadores.Add(jugadorEnLinea.Value);
+        //    }
 
-        public List<Jugador> RecuperarInformacionJugadoresEnLinea()
-        {
-            List<Jugador> listaNombresJugadores = new List<Jugador>();
-
-            foreach (var jugadorEnLinea in jugadoresEnLinea)
-            {
-                listaNombresJugadores.Add(jugadorEnLinea.Value);
-            }
-
-            return listaNombresJugadores;
-        }
+        //    return listaNombresJugadores;
+        //}
 
         public bool InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala) 
         {
