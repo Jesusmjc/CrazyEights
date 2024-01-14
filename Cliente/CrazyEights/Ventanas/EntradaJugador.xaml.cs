@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,12 +21,13 @@ namespace CrazyEights.Ventanas
     /// <summary>
     /// Interaction logic for EntradaJugador.xaml
     /// </summary>
-    public partial class EntradaJugador : UserControl, IManejadorJugadoresEnLineaCallback
+    public partial class EntradaJugador : UserControl
     {
         private Jugador jugador;
         private string nombreSala;
         private int codigoSala;
 
+        public EntradaJugador() {}
         public EntradaJugador(Jugador jugadorEnLinea)
         {
             InitializeComponent();
@@ -48,8 +50,7 @@ namespace CrazyEights.Ventanas
 
         private void InvitarJugadorAPartida(object sender, RoutedEventArgs e)
         {
-            InstanceContext contexto = new InstanceContext(this);
-            ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
+            ReferenciaServicioManejoJugadores.ServicioInvitacionesClient cliente = new ReferenciaServicioManejoJugadores.ServicioInvitacionesClient();
 
             if (cliente.InvitarJugadorASala(SingletonJugador.Instance.NombreJugador, jugador.NombreUsuario, this.codigoSala, this.nombreSala))
             {
@@ -58,26 +59,6 @@ namespace CrazyEights.Ventanas
             {
                 MessageBox.Show("No se ha podido enviar la invitación al jugador.", "Ocurrió un error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-        }
-
-        public void NotificarLogInJugador(Jugador nuevoJugadorEnLinea)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void NotificarLogOutJugador(string nombreJugador)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void NotificarJugadoresEnLinea(string[] nombresUsuariosEnLinea)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RecibirInvitacionASala(Invitacion invitacion)
-        {
-            throw new NotImplementedException();
         }
     }
 }

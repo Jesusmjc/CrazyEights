@@ -22,7 +22,7 @@ namespace CrazyEights
     /// <summary>
     /// Interaction logic for VentanaMenuPrincipal.xaml
     /// </summary>
-    public partial class VentanaMenuPrincipal : Window, IManejadorJugadoresEnLineaCallback
+    public partial class VentanaMenuPrincipal : Window
     {
         public VentanaMenuPrincipal()
         {
@@ -30,7 +30,6 @@ namespace CrazyEights
             CargarImagenDePerfil();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.ResizeMode = ResizeMode.NoResize;
-            MostrarComoJugadorEnLinea();
         }
 
         private void CargarImagenDePerfil()
@@ -101,10 +100,10 @@ namespace CrazyEights
             }
         }
 
-        private void MostrarComoJugadorEnLinea()
+        public void MostrarComoJugadorEnLinea()
         {
-            InstanceContext contexto = new InstanceContext(this);
-            ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
+            ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient();
+            
             Jugador jugador = new Jugador
             {
                 IdJugador = SingletonJugador.Instance.IdJugador,
@@ -113,27 +112,6 @@ namespace CrazyEights
             };
 
             cliente.NotificarNuevaConexionAJugadoresEnLinea(jugador);
-        }
-
-        //Es necesario implementarlos para ejecutar la línea 43, pero no hacen nada en esta ventana.
-        public void NotificarLogInJugador(Jugador jugador)
-        {
-            Console.WriteLine("Se ha conectado un nuevo usuario: " + jugador.NombreUsuario);
-        }
-
-        public void NotificarLogOutJugador(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void NotificarJugadoresEnLinea(string[] nombresUsuariosEnLinea)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RecibirInvitacionASala(Invitacion invitacion)
-        {
-            Console.WriteLine("Invitación a sala recibida: " + invitacion.NombreSala + " " + "de " + invitacion.NombreJugadorAnfitrion);
         }
     }
 }

@@ -48,7 +48,9 @@ namespace CrazyEights
                     singletonJugador.NombreJugador = jugadorInicioSesion.NombreUsuario;
                     singletonJugador.IdJugador = jugadorInicioSesion.IdJugador;
                     singletonJugador.Estado = "Conectado";
+
                     VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
+                    ventanaMenuPrincipal.MostrarComoJugadorEnLinea();
                     this.Close();
                     ventanaMenuPrincipal.ShowDialog();
                 }

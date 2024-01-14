@@ -33,33 +33,41 @@ namespace CrazyEightsServicio
         void NotificarDesconexionJugador(string nombreJugadorDesconectado);
     }
 
-    [ServiceContract(CallbackContract = typeof(IManejadorJugadoresCallback))]
+    [ServiceContract]
     public interface IManejadorJugadoresEnLinea
     {
         [OperationContract(IsOneWay = true)]
         void NotificarNuevaConexionAJugadoresEnLinea(Jugador jugador);
+    }
 
-        //[OperationContract]
-        //List<Jugador> RecuperarInformacionJugadoresEnLinea();
-
+    [ServiceContract]
+    public interface IServicioInvitaciones
+    {
         [OperationContract]
         bool InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala);
+
+        [OperationContract]
+        void QuitarInvitacionAJugador(string nombreJugador, Invitacion invitacionAQuitar);
+    }
+
+    [ServiceContract(CallbackContract = typeof(IServicioActualizacionJugadoresEnLineaCallback))]
+    public interface IServicioActualizacionJugadoresEnLinea
+    {
+        [OperationContract]
+        List<Jugador> RecuperarInformacionJugadoresEnLinea(string nombreJugador);
 
         [OperationContract]
         List<Invitacion> RecuperarInvitacionesDeJugador(string nombreJugador);
     }
 
     [ServiceContract]
-    public interface IManejadorJugadoresCallback
+    public interface IServicioActualizacionJugadoresEnLineaCallback
     {
         [OperationContract]
         void NotificarLogInJugador(Jugador nuevoJugadorEnLinea);
 
         [OperationContract]
         void NotificarLogOutJugador(string nombreJugador);
-
-        [OperationContract]
-        void NotificarJugadoresEnLinea(List<string> nombresUsuariosEnLinea);
 
         [OperationContract]
         void RecibirInvitacionASala(Invitacion invitacion);
@@ -98,7 +106,7 @@ namespace CrazyEightsServicio
         private string _fotoPerfil;
         private string _estado;
         private List<Invitacion> _invitaciones;
-        private IManejadorJugadoresCallback _canalCallbackManejadorJugadores;
+        private IServicioActualizacionJugadoresEnLineaCallback _canalCallbackActualizacionJugadores;
         private IServicioSalaCallback _canalCallbackServicioSala;
 
         [DataMember]
@@ -120,7 +128,7 @@ namespace CrazyEightsServicio
         public List<Invitacion> Invitaciones { get; set; }
 
         [DataMember]
-        public IManejadorJugadoresCallback CanalCallbackManejadorJugadores { get { return _canalCallbackManejadorJugadores; } set { _canalCallbackManejadorJugadores = value; } }
+        public IServicioActualizacionJugadoresEnLineaCallback CanalCallbackActualizacionJugadores { get { return _canalCallbackActualizacionJugadores; } set { _canalCallbackActualizacionJugadores = value; } }
         
         [DataMember]
         public IServicioSalaCallback CanalCallbackServicioSala { get; set; }
@@ -132,7 +140,6 @@ namespace CrazyEightsServicio
         private string _nombreJugadorAnfitrion;
         private int _codigoSala;
         private string _nombreSala;
-
 
         [DataMember]
         public string NombreJugadorAnfitrion { get; set; }

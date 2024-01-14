@@ -20,7 +20,7 @@ namespace CrazyEights.Ventanas
     /// <summary>
     /// Interaction logic for VentanaAmigos.xaml
     /// </summary>
-    public partial class VentanaAmigos : Window, IManejadorJugadoresEnLineaCallback
+    public partial class VentanaAmigos : Window, IServicioActualizacionJugadoresEnLineaCallback
     {
         private Sala sala = new Sala();
         public ObservableCollection<EntradaJugador> ListaDeJugadoresConectados { get; } = new ObservableCollection<EntradaJugador>();
@@ -48,8 +48,8 @@ namespace CrazyEights.Ventanas
         public void MostrarJugadoresEnLinea()
         {
             InstanceContext contexto = new InstanceContext(this);
-            ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
-            Jugador[] jugadoresEnLinea = cliente.RecuperarInformacionJugadoresEnLinea();
+            ReferenciaServicioManejoJugadores.ServicioActualizacionJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ServicioActualizacionJugadoresEnLineaClient(contexto);
+            Jugador[] jugadoresEnLinea = cliente.RecuperarInformacionJugadoresEnLinea(SingletonJugador.Instance.NombreJugador);
 
             ListaDeJugadoresConectados.Clear();
             svListaAmigos.Visibility = Visibility.Visible;
@@ -67,7 +67,7 @@ namespace CrazyEights.Ventanas
         private void MostrarInvitaciones(object sender, MouseButtonEventArgs e)
         {
             InstanceContext contexto = new InstanceContext(this);
-            ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
+            ReferenciaServicioManejoJugadores.ServicioActualizacionJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ServicioActualizacionJugadoresEnLineaClient(contexto);
             Invitacion[] invitacionesDelJugador = cliente.RecuperarInvitacionesDeJugador(SingletonJugador.Instance.NombreJugador);
 
             ListaDeInvitaciones.Clear();
@@ -101,6 +101,7 @@ namespace CrazyEights.Ventanas
 
             ListaDeInvitaciones.Add(entradaInvitacion);
         }
+
         public void NotificarLogInJugador(Jugador nuevoJugador)
         {
             MostrarEntradaJugadorEnLinea(nuevoJugador);
@@ -108,24 +109,21 @@ namespace CrazyEights.Ventanas
 
         public void NotificarLogOutJugador(string nombreJugador)
         {
+            EntradaJugador jugadorARemover = new EntradaJugador();
             foreach (var jugadorConectado in ListaDeJugadoresConectados)
             {
                 if (jugadorConectado.lbNombreJugador.Content.Equals(nombreJugador))
                 {
-                    ListaDeJugadoresConectados.Remove(jugadorConectado);
+                    jugadorARemover = jugadorConectado;
                 }
             }
-        }
 
-        public void NotificarJugadoresEnLinea(string[] nombresUsuariosEnLinea)
-        {
-            throw new NotImplementedException();
+            ListaDeJugadoresConectados.Remove(jugadorARemover);
         }
 
         public void RecibirInvitacionASala(Invitacion invitacion)
         {
             MostrarEntradaInvitacionDeJugador(invitacion);
-            Console.WriteLine("Se ha invocado el método de callback, ya debería aparecer la nueva invitación en la lista");
         }
 
         private void CerrarVentanaAmigos(object sender, MouseButtonEventArgs e)
@@ -143,6 +141,12 @@ namespace CrazyEights.Ventanas
                 this.Close();
                 ventanaSala.ShowDialog();
             }
+        }
+
+        public void OcultarInvitacion(Invitacion invitacion)
+        {
+            EntradaInvitación invitacionAOcultar = new EntradaInvitación(invitacion);
+            ListaDeInvitaciones.Remove(invitacionAOcultar);
         }
 
         private void CambiarAListaAmigos(object sender, MouseButtonEventArgs e)

@@ -123,20 +123,31 @@ namespace CrazyEightsServicio
                 {
                     listaSalas[codigoSala].JugadoresEnSala.Remove(nombreJugadorDesconectado);
 
-                    foreach (var jugador in listaSalas[codigoSala].JugadoresEnSala)
+                    if (listaSalas[codigoSala].JugadoresEnSala.Count > 0)
                     {
                         if (nombreJugadorDesconectado.Equals(listaSalas[codigoSala].Host.NombreUsuario))
                         {
-                            jugador.Value.CanalCallbackServicioSala.SalirDeSala();
+                            foreach (var jugador in listaSalas[codigoSala].JugadoresEnSala)
+                            {
+                                jugador.Value.CanalCallbackServicioSala.SalirDeSala();
+                            }
+
+                            listaSalas.Remove(codigoSala);
                         }
                         else
                         {
-                            jugador.Value.CanalCallbackServicioSala.MostrarDesconexionJugador(nombreJugadorDesconectado);
+                            foreach (var jugador in listaSalas[codigoSala].JugadoresEnSala)
+                            {
+                                jugador.Value.CanalCallbackServicioSala.MostrarDesconexionJugador(nombreJugadorDesconectado);
+                            }  
                         }
+                    }
+                    else
+                    {
+                        listaSalas.Remove(codigoSala);
                     }
                 }
             }
         }
-
     }
 }

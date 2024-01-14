@@ -12,7 +12,7 @@
   <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
   <xs:complexType name="Jugador">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CanalCallbackManejadorJugadores" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="CanalCallbackActualizacionJugadores" nillable="true" type="xs:anyType" />
       <xs:element minOccurs="0" name="CanalCallbackServicioSala" nillable="true" type="xs:anyType" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FotoPerfil" nillable="true" type="xs:string" />
@@ -37,12 +37,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Invitacion" nillable="true" type="tns:Invitacion" />
-  <xs:complexType name="ArrayOfJugador">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Jugador" nillable="true" type="tns:Jugador" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfJugador" nillable="true" type="tns:ArrayOfJugador" />
   <xs:complexType name="Sala">
     <xs:sequence>
       <xs:element minOccurs="0" name="Codigo" type="xs:int" />
@@ -57,4 +51,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Sala" nillable="true" type="tns:Sala" />
+  <xs:complexType name="ArrayOfJugador">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Jugador" nillable="true" type="tns:Jugador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJugador" nillable="true" type="tns:ArrayOfJugador" />
 </xs:schema>

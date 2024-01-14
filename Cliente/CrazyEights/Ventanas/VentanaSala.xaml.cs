@@ -137,8 +137,8 @@ namespace CrazyEights.Ventanas
 
         private void NavegarAMenuPrincipal(object sender, MouseButtonEventArgs e)
         {
-            MessageBoxResult resultado = MessageBox.Show("Salir de Sala",
-                "¿Estás seguro de que quieres salir de la sala?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult resultado = MessageBox.Show("¿Estás seguro de que quieres salir de la sala?",
+                "Salir de Sala", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (resultado == MessageBoxResult.Yes)
             {
@@ -323,7 +323,12 @@ namespace CrazyEights.Ventanas
 
         public void SalirDeSala()
         {
-            throw new NotImplementedException();
+            MessageBox.Show("El host ha abandonado la sala, por lo que se te regresará al Menú Principal.",
+                "Expulsado de la sala", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
+            this.Close();
+            ventanaMenuPrincipal.ShowDialog();
         }
 
         private void AjustarEntradasJugadoresEnSala(int posicionJugadorDesconectado)

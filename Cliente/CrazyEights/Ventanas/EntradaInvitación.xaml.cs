@@ -23,7 +23,7 @@ namespace CrazyEights.Ventanas
     public partial class EntradaInvitación : UserControl
     {
         private Invitacion invitacion;
-        private Window ventanaAmigos;
+        private VentanaAmigos ventanaAmigos;
 
         public EntradaInvitación(Invitacion invitacion)
         {
@@ -35,26 +35,44 @@ namespace CrazyEights.Ventanas
 
         private void UnirseASala(object sender, RoutedEventArgs e)
         {
-            ReferenciaServicioManejoJugadores.ServicioSalaClient cliente = new ReferenciaServicioManejoJugadores.ServicioSalaClient();
-            Sala sala = cliente.RecuperarSala(invitacion.CodigoSala);
+            ReferenciaServicioManejoJugadores.ServicioSalaClient clienteSala = new ReferenciaServicioManejoJugadores.ServicioSalaClient();
+            Sala sala = clienteSala.RecuperarSala(invitacion.CodigoSala);
 
-            VentanaSala ventanaSala = new VentanaSala();
-            ventanaSala.EntrarASala(sala);
-            if (ventanaAmigos != null)
+            ReferenciaServicioManejoJugadores.ServicioInvitacionesClient clienteInvitaciones = new ReferenciaServicioManejoJugadores.ServicioInvitacionesClient();
+            clienteInvitaciones.QuitarInvitacionAJugador(SingletonJugador.Instance.NombreJugador, invitacion);
+
+            if (sala.Codigo != 0)
             {
-                ventanaAmigos.Close();
+                VentanaSala ventanaSala = new VentanaSala();
+                ventanaSala.EntrarASala(sala);
+
+                if (ventanaAmigos != null)
+                {
+                    ventanaAmigos.Close();
+                }
+
+                ventanaAmigos.OcultarInvitacion(invitacion);
+                ventanaSala.ShowDialog();
             }
-            ventanaSala.ShowDialog();
+            else
+            {
+                MessageBox.Show("La sala a la que intenta unirse ya no existe.", "Sala no existe", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        private void RechazarInvitacion(object sender, RoutedEventArgs e)
+        private void QuitarInvitacion(object sender, RoutedEventArgs e)
         {
+            ReferenciaServicioManejoJugadores.ServicioInvitacionesClient clienteInvitaciones = new ReferenciaServicioManejoJugadores.ServicioInvitacionesClient();
+            clienteInvitaciones.QuitarInvitacionAJugador(SingletonJugador.Instance.NombreJugador, invitacion);
 
+            ventanaAmigos.OcultarInvitacion(invitacion);
         }
 
         private void EntradaInvitacion_Loaded(object sender, RoutedEventArgs e)
         {
-            ventanaAmigos = Window.GetWindow(this);
+            this.ventanaAmigos = (VentanaAmigos)Window.GetWindow(this);
         }
+
+        
     }
 }
