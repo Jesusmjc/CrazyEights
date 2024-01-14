@@ -558,6 +558,36 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuarioRespons" +
             "e")]
         System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(string correoElectronico);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ActualizarFotoPerfil", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ActualizarFotoPerfilResponse")]
+        bool ActualizarFotoPerfil(int idJugador, string nuevaDireccionFotoPerfil);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ActualizarFotoPerfil", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ActualizarFotoPerfilResponse")]
+        System.Threading.Tasks.Task<bool> ActualizarFotoPerfilAsync(int idJugador, string nuevaDireccionFotoPerfil);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ActualizarNombreUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ActualizarNombreUsuarioResponse")]
+        bool ActualizarNombreUsuario(int idJugador, string nuevoNombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ActualizarNombreUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ActualizarNombreUsuarioResponse")]
+        System.Threading.Tasks.Task<bool> ActualizarNombreUsuarioAsync(int idJugador, string nuevoNombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ObtenerDireccionFotoPerfil", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ObtenerDireccionFotoPerfilResponse")]
+        string ObtenerDireccionFotoPerfil(int idJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ObtenerDireccionFotoPerfil", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ObtenerDireccionFotoPerfilResponse")]
+        System.Threading.Tasks.Task<string> ObtenerDireccionFotoPerfilAsync(int idJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ObtenerNombreUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ObtenerNombreUsuarioResponse")]
+        string ObtenerNombreUsuario(int idJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/ObtenerNombreUsuario", ReplyAction="http://tempuri.org/IServicioManejoJugadores/ObtenerNombreUsuarioResponse")]
+        System.Threading.Tasks.Task<string> ObtenerNombreUsuarioAsync(int idJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/CambiarContraseña", ReplyAction="http://tempuri.org/IServicioManejoJugadores/CambiarContraseñaResponse")]
+        bool CambiarContraseña(string correoElectronico, string nuevaContrasena);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioManejoJugadores/CambiarContraseña", ReplyAction="http://tempuri.org/IServicioManejoJugadores/CambiarContraseñaResponse")]
+        System.Threading.Tasks.Task<bool> CambiarContraseñaAsync(string correoElectronico, string nuevaContrasena);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -626,6 +656,46 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         public System.Threading.Tasks.Task<string> EnviarCodigoAlCorreoDelUsuarioAsync(string correoElectronico) {
             return base.Channel.EnviarCodigoAlCorreoDelUsuarioAsync(correoElectronico);
         }
+        
+        public bool ActualizarFotoPerfil(int idJugador, string nuevaDireccionFotoPerfil) {
+            return base.Channel.ActualizarFotoPerfil(idJugador, nuevaDireccionFotoPerfil);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ActualizarFotoPerfilAsync(int idJugador, string nuevaDireccionFotoPerfil) {
+            return base.Channel.ActualizarFotoPerfilAsync(idJugador, nuevaDireccionFotoPerfil);
+        }
+        
+        public bool ActualizarNombreUsuario(int idJugador, string nuevoNombreUsuario) {
+            return base.Channel.ActualizarNombreUsuario(idJugador, nuevoNombreUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ActualizarNombreUsuarioAsync(int idJugador, string nuevoNombreUsuario) {
+            return base.Channel.ActualizarNombreUsuarioAsync(idJugador, nuevoNombreUsuario);
+        }
+        
+        public string ObtenerDireccionFotoPerfil(int idJugador) {
+            return base.Channel.ObtenerDireccionFotoPerfil(idJugador);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerDireccionFotoPerfilAsync(int idJugador) {
+            return base.Channel.ObtenerDireccionFotoPerfilAsync(idJugador);
+        }
+        
+        public string ObtenerNombreUsuario(int idJugador) {
+            return base.Channel.ObtenerNombreUsuario(idJugador);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerNombreUsuarioAsync(int idJugador) {
+            return base.Channel.ObtenerNombreUsuarioAsync(idJugador);
+        }
+        
+        public bool CambiarContraseña(string correoElectronico, string nuevaContrasena) {
+            return base.Channel.CambiarContraseña(correoElectronico, nuevaContrasena);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CambiarContraseñaAsync(string correoElectronico, string nuevaContrasena) {
+            return base.Channel.CambiarContraseñaAsync(correoElectronico, nuevaContrasena);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -681,12 +751,6 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ReferenciaServicioManejoJugadores.IManejadorJugadoresEnLinea")]
     public interface IManejadorJugadoresEnLinea {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/DoNothing", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/DoNothingResponse")]
-        void DoNothing();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManejadorJugadoresEnLinea/DoNothing", ReplyAction="http://tempuri.org/IManejadorJugadoresEnLinea/DoNothingResponse")]
-        System.Threading.Tasks.Task DoNothingAsync();
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarNuevaConexionAJugadoresEnL" +
             "inea")]
         void NotificarNuevaConexionAJugadoresEnLinea(CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador);
@@ -721,14 +785,6 @@ namespace CrazyEights.ReferenciaServicioManejoJugadores {
         
         public ManejadorJugadoresEnLineaClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public void DoNothing() {
-            base.Channel.DoNothing();
-        }
-        
-        public System.Threading.Tasks.Task DoNothingAsync() {
-            return base.Channel.DoNothingAsync();
         }
         
         public void NotificarNuevaConexionAJugadoresEnLinea(CrazyEights.ReferenciaServicioManejoJugadores.Jugador jugador) {

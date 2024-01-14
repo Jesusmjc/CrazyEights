@@ -1,515 +1,522 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
-	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-	<PropertyGroup>
-		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		<ProjectGuid>{50AFF31B-262A-4E9D-B784-F048271B1F36}</ProjectGuid>
-		<OutputType>WinExe</OutputType>
-		<RootNamespace>CrazyEights</RootNamespace>
-		<AssemblyName>CrazyEights</AssemblyName>
-		<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-		<FileAlignment>512</FileAlignment>
-		<ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-		<WarningLevel>4</WarningLevel>
-		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-		<Deterministic>true</Deterministic>
-		<NuGetPackageImportStamp>
-		</NuGetPackageImportStamp>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<PlatformTarget>AnyCPU</PlatformTarget>
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>full</DebugType>
-		<Optimize>false</Optimize>
-		<OutputPath>bin\Debug\</OutputPath>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<PlatformTarget>AnyCPU</PlatformTarget>
-		<DebugType>pdbonly</DebugType>
-		<Optimize>true</Optimize>
-		<OutputPath>bin\Release\</OutputPath>
-		<DefineConstants>TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<ItemGroup>
-		<Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-			<HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
-		</Reference>
-		<Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-			<HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-		</Reference>
-		<Reference Include="System" />
-		<Reference Include="System.ComponentModel.DataAnnotations" />
-		<Reference Include="System.Data" />
-		<Reference Include="System.Drawing" />
-		<Reference Include="System.Runtime.Serialization" />
-		<Reference Include="System.ServiceModel" />
-		<Reference Include="System.Xml" />
-		<Reference Include="Microsoft.CSharp" />
-		<Reference Include="System.Core" />
-		<Reference Include="System.Xml.Linq" />
-		<Reference Include="System.Data.DataSetExtensions" />
-		<Reference Include="System.Net.Http" />
-		<Reference Include="System.Xaml">
-			<RequiredTargetFramework>4.0</RequiredTargetFramework>
-		</Reference>
-		<Reference Include="WindowsBase" />
-		<Reference Include="PresentationCore" />
-		<Reference Include="PresentationFramework" />
-	</ItemGroup>
-	<ItemGroup>
-		<ApplicationDefinition Include="App.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</ApplicationDefinition>
-		<Compile Include="Baraja.cs" />
-		<Compile Include="Carta.cs" />
-		<Compile Include="Connected Services\ReferenciaServicioManejoJugadores\Reference.cs">
-			<AutoGen>True</AutoGen>
-			<DesignTime>True</DesignTime>
-			<DependentUpon>Reference.svcmap</DependentUpon>
-		</Compile>
-		<Compile Include="Encriptacion.cs" />
-		<Compile Include="LogicaDeJuego.cs" />
-		<Compile Include="MainWindow.xaml.cs">
-			<DependentUpon>MainWindow.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Properties\ResourcesDePerfil.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DesignTime>True</DesignTime>
-			<DependentUpon>ResourcesDePerfil.resx</DependentUpon>
-		</Compile>
-		<Compile Include="SingletonJugador.cs" />
-		<Compile Include="Ventanas\EntradaInvitación.xaml.cs">
-			<DependentUpon>EntradaInvitación.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\EntradaJugador.xaml.cs">
-			<DependentUpon>EntradaJugador.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\JugadorSala.xaml.cs">
-			<DependentUpon>JugadorSala.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaAmigos.xaml.cs">
-			<DependentUpon>VentanaAmigos.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaAyudaDeJuego.xaml.cs">
-			<DependentUpon>VentanaAyudaDeJuego.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaBase.xaml.cs">
-			<DependentUpon>VentanaBase.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaConfiguracionPartida.xaml.cs">
-			<DependentUpon>VentanaConfiguracionPartida.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaIngresarComoInvitado.xaml.cs">
-			<DependentUpon>VentanaIngresarComoInvitado.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Properties\Resources.en-US.Designer.cs">
-			<DependentUpon>Resources.en-US.resx</DependentUpon>
-			<AutoGen>True</AutoGen>
-			<DesignTime>True</DesignTime>
-		</Compile>
-		<Compile Include="Ventanas\VentanaJuegoDeCartas.xaml.cs">
-			<DependentUpon>VentanaJuegoDeCartas.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaMisionesDeJuego.xaml.cs">
-			<DependentUpon>VentanaMisionesDeJuego.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaPersonalizacionDePerfil.xaml.cs">
-			<DependentUpon>VentanaPersonalizacionDePerfil.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaRegistroUsuario.xaml.cs">
-			<DependentUpon>VentanaRegistroUsuario.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Utilidades.cs" />
-		<Compile Include="Ventanas\VentanaAdvertencia.xaml.cs">
-			<DependentUpon>VentanaAdvertencia.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaConfiguracion.xaml.cs">
-			<DependentUpon>VentanaConfiguracion.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaConfirmación.xaml.cs">
-			<DependentUpon>VentanaConfirmación.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaCódigoVerificación.xaml.cs">
-			<DependentUpon>VentanaCódigoVerificación.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaMenuPrincipal.xaml.cs">
-			<DependentUpon>VentanaMenuPrincipal.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaSala.xaml.cs">
-			<DependentUpon>VentanaSala.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Ventanas\VentanaTiendaDeJuego.xaml.cs">
-			<DependentUpon>VentanaTiendaDeJuego.xaml</DependentUpon>
-		</Compile>
-		<Page Include="MainWindow.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\EntradaInvitación.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\EntradaJugador.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\JugadorSala.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</Page>
-		<Page Include="Ventanas\VentanaAmigos.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\VentanaAyudaDeJuego.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\VentanaBase.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</Page>
-		<Page Include="Ventanas\VentanaConfiguracionPartida.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</Page>
-		<Page Include="Ventanas\VentanaIngresarComoInvitado.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</Page>
-		<Compile Include="App.xaml.cs">
-			<DependentUpon>App.xaml</DependentUpon>
-			<SubType>Code</SubType>
-		</Compile>
-		<Page Include="Ventanas\VentanaJuegoDeCartas.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\VentanaMisionesDeJuego.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\VentanaPersonalizacionDePerfil.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\VentanaRegistroUsuario.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\VentanaAdvertencia.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\VentanaConfiguracion.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</Page>
-		<Page Include="Ventanas\VentanaConfirmación.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\VentanaCódigoVerificación.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Ventanas\VentanaMenuPrincipal.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</Page>
-		<Page Include="Ventanas\VentanaSala.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</Page>
-		<Page Include="Ventanas\VentanaTiendaDeJuego.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</Page>
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Include="Properties\AssemblyInfo.cs">
-			<SubType>Code</SubType>
-		</Compile>
-		<Compile Include="Properties\Resources.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DesignTime>True</DesignTime>
-			<DependentUpon>Resources.resx</DependentUpon>
-		</Compile>
-		<Compile Include="Properties\Settings.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Settings.settings</DependentUpon>
-			<DesignTimeSharedInput>True</DesignTimeSharedInput>
-		</Compile>
-		<EmbeddedResource Include="Properties\Resources.en-US.resx">
-			<Generator>PublicResXFileCodeGenerator</Generator>
-			<LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Include="Properties\Resources.resx">
-			<Generator>PublicResXFileCodeGenerator</Generator>
-			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Include="Properties\ResourcesDePerfil.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>ResourcesDePerfil.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<Resource Include="fuentes\RobotoSlab-Regular.ttf" />
-		<Resource Include="fuentes\RobotoSlab-Black.ttf" />
-		<Resource Include="fuentes\RobotoSlab-Bold.ttf" />
-		<Resource Include="fuentes\RobotoSlab-ExtraBold.ttf" />
-		<Resource Include="fuentes\RobotoSlab-ExtraLight.ttf" />
-		<Resource Include="fuentes\RobotoSlab-Light.ttf" />
-		<Resource Include="fuentes\RobotoSlab-Medium.ttf" />
-		<Resource Include="fuentes\RobotoSlab-SemiBold.ttf" />
-		<Resource Include="fuentes\RobotoSlab-Thin.ttf" />
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Invitacion.datasource">
-			<DependentUpon>Reference.svcmap</DependentUpon>
-		</None>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Jugador.datasource">
-			<DependentUpon>Reference.svcmap</DependentUpon>
-		</None>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Sala.datasource">
-			<DependentUpon>Reference.svcmap</DependentUpon>
-		</None>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\item.xsd">
-			<SubType>Designer</SubType>
-		</None>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\item1.xsd">
-			<SubType>Designer</SubType>
-		</None>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\item2.xsd">
-			<SubType>Designer</SubType>
-		</None>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\item3.xsd">
-			<SubType>Designer</SubType>
-		</None>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\ServicioManejoJugadores.wsdl" />
-		<None Include="packages.config" />
-		<None Include="Properties\Settings.settings">
-			<Generator>SettingsSingleFileGenerator</Generator>
-			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
-		</None>
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="App.config" />
-	</ItemGroup>
-	<ItemGroup>
-		<WCFMetadata Include="Connected Services\" />
-	</ItemGroup>
-	<ItemGroup>
-		<WCFMetadataStorage Include="Connected Services\ReferenciaServicioManejoJugadores\" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\item.disco" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\configuration91.svcinfo" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\configuration.svcinfo" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Connected Services\ReferenciaServicioManejoJugadores\Reference.svcmap">
-			<Generator>WCF Proxy Generator</Generator>
-			<LastGenOutput>Reference.cs</LastGenOutput>
-		</None>
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\gear.png" />
-		<Resource Include="Recursos\iconoAmigos.png" />
-		<Resource Include="Recursos\iconoAyuda.png" />
-		<Resource Include="Recursos\iconoMisiones.png" />
-		<Resource Include="Recursos\iconoUsuario.png" />
-		<Resource Include="Recursos\Image2.png" />
-		<Resource Include="Recursos\mexico.png" />
-		<Resource Include="Recursos\R.png" />
-		<Resource Include="Recursos\united-states.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\Fondo1.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\FondoVentanaEmergente.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\Line 1.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\Fondo2.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\RectanguloSeleccion1.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\RectanguloSeleccion2.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\iconoCerrar.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\RectanguloEntradaListaAmigos.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\usuario.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\mesaJuego.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\iconoCerrarVentana.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Cartas\10C.png" />
-		<Resource Include="Cartas\10D.png" />
-		<Resource Include="Cartas\10P.png" />
-		<Resource Include="Cartas\10T.png" />
-		<Resource Include="Cartas\2C.png" />
-		<Resource Include="Cartas\2D.png" />
-		<Resource Include="Cartas\2P.png" />
-		<Resource Include="Cartas\2T.png" />
-		<Resource Include="Cartas\3C.png" />
-		<Resource Include="Cartas\3D.png" />
-		<Resource Include="Cartas\3P.png" />
-		<Resource Include="Cartas\3T.png" />
-		<Resource Include="Cartas\4C.png" />
-		<Resource Include="Cartas\4D.png" />
-		<Resource Include="Cartas\4P.png" />
-		<Resource Include="Cartas\4T.png" />
-		<Resource Include="Cartas\5C.png" />
-		<Resource Include="Cartas\5D.png" />
-		<Resource Include="Cartas\5P.png" />
-		<Resource Include="Cartas\5T.png" />
-		<Resource Include="Cartas\6C.png" />
-		<Resource Include="Cartas\6D.png" />
-		<Resource Include="Cartas\6P.png" />
-		<Resource Include="Cartas\6T.png" />
-		<Resource Include="Cartas\7C.png" />
-		<Resource Include="Cartas\7D.png" />
-		<Resource Include="Cartas\7P.png" />
-		<Resource Include="Cartas\7T.png" />
-		<Resource Include="Cartas\8C.png" />
-		<Resource Include="Cartas\8D.png" />
-		<Resource Include="Cartas\8P.png" />
-		<Resource Include="Cartas\8T.png" />
-		<Resource Include="Cartas\9C.png" />
-		<Resource Include="Cartas\9D.png" />
-		<Resource Include="Cartas\9P.png" />
-		<Resource Include="Cartas\9T.png" />
-		<Resource Include="Cartas\AC.png" />
-		<Resource Include="Cartas\AD.png" />
-		<Resource Include="Cartas\AP.png" />
-		<Resource Include="Cartas\AT.png" />
-		<Resource Include="Cartas\AtrasCarta.png" />
-		<Resource Include="Cartas\JC.png" />
-		<Resource Include="Cartas\JD.png" />
-		<Resource Include="Cartas\JP.png" />
-		<Resource Include="Cartas\JT.png" />
-		<Resource Include="Cartas\QC.png" />
-		<Resource Include="Cartas\QD.png" />
-		<Resource Include="Cartas\QP.png" />
-		<Resource Include="Cartas\QT.png" />
-		<Resource Include="Cartas\RC.png" />
-		<Resource Include="Cartas\RD.png" />
-		<Resource Include="Cartas\RP.png" />
-		<Resource Include="Cartas\RT.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="CartasMinimalistas\RC.png" />
-		<Resource Include="CartasMinimalistas\RD.png" />
-		<Resource Include="CartasMinimalistas\RP.png" />
-		<Resource Include="CartasMinimalistas\RT.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="CartasMinimalistas\10C.png" />
-		<Resource Include="CartasMinimalistas\10D.png" />
-		<Resource Include="CartasMinimalistas\10P.png" />
-		<Resource Include="CartasMinimalistas\10T.png" />
-		<Resource Include="CartasMinimalistas\2C.png" />
-		<Resource Include="CartasMinimalistas\2D.png" />
-		<Resource Include="CartasMinimalistas\2P.png" />
-		<Resource Include="CartasMinimalistas\2T.png" />
-		<Resource Include="CartasMinimalistas\3C.png" />
-		<Resource Include="CartasMinimalistas\3D.png" />
-		<Resource Include="CartasMinimalistas\3P.png" />
-		<Resource Include="CartasMinimalistas\3T.png" />
-		<Resource Include="CartasMinimalistas\4C.png" />
-		<Resource Include="CartasMinimalistas\4D.png" />
-		<Resource Include="CartasMinimalistas\4P.png" />
-		<Resource Include="CartasMinimalistas\4T.png" />
-		<Resource Include="CartasMinimalistas\5C.png" />
-		<Resource Include="CartasMinimalistas\5D.png" />
-		<Resource Include="CartasMinimalistas\5P.png" />
-		<Resource Include="CartasMinimalistas\5T.png" />
-		<Resource Include="CartasMinimalistas\6C.png" />
-		<Resource Include="CartasMinimalistas\6D.png" />
-		<Resource Include="CartasMinimalistas\6P.png" />
-		<Resource Include="CartasMinimalistas\6T.png" />
-		<Resource Include="CartasMinimalistas\7C.png" />
-		<Resource Include="CartasMinimalistas\7D.png" />
-		<Resource Include="CartasMinimalistas\7P.png" />
-		<Resource Include="CartasMinimalistas\7T.png" />
-		<Resource Include="CartasMinimalistas\8C.png" />
-		<Resource Include="CartasMinimalistas\8D.png" />
-		<Resource Include="CartasMinimalistas\8P.png" />
-		<Resource Include="CartasMinimalistas\8T.png" />
-		<Resource Include="CartasMinimalistas\9C.png" />
-		<Resource Include="CartasMinimalistas\9D.png" />
-		<Resource Include="CartasMinimalistas\9P.png" />
-		<Resource Include="CartasMinimalistas\9T.png" />
-		<Resource Include="CartasMinimalistas\AC.png" />
-		<Resource Include="CartasMinimalistas\AD.png" />
-		<Resource Include="CartasMinimalistas\AP.png" />
-		<Resource Include="CartasMinimalistas\AT.png" />
-		<Resource Include="CartasMinimalistas\AtrasCarta.png" />
-		<Resource Include="CartasMinimalistas\JC.png" />
-		<Resource Include="CartasMinimalistas\JD.png" />
-		<Resource Include="CartasMinimalistas\JP.png" />
-		<Resource Include="CartasMinimalistas\JT.png" />
-		<Resource Include="CartasMinimalistas\QC.png" />
-		<Resource Include="CartasMinimalistas\QD.png" />
-		<Resource Include="CartasMinimalistas\QP.png" />
-		<Resource Include="CartasMinimalistas\QT.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="FotosDePerfil\predeterminada.jpg" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="FotosDePerfil\amogus.jpeg" />
-		<Resource Include="FotosDePerfil\gatoEnojado.jpeg" />
-		<Resource Include="FotosDePerfil\godzilla.jpeg" />
-		<Resource Include="FotosDePerfil\jacket.jpeg" />
-		<Resource Include="FotosDePerfil\perry.jpeg" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\amogus.jpg" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\ConfigurarSala.png" />
-		<Resource Include="Recursos\corona.png" />
-		<Resource Include="Recursos\Fondo3.png" />
-		<Resource Include="Recursos\Palomita.png" />
-		<Resource Include="Recursos\PlaceholderJugadorSala.png" />
-		<Resource Include="Recursos\PuntosEspera.png" />
-		<Resource Include="Recursos\RectanguloSala1.png" />
-		<Resource Include="Recursos\RectanguloSala2.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="Recursos\flechaIniciarPartida.png" />
-	</ItemGroup>
-	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-	<Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-		<PropertyGroup>
-			<ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-		</PropertyGroup>
-		<Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-		<Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
-	</Target>
-	<Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{50AFF31B-262A-4E9D-B784-F048271B1F36}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CrazyEights</RootNamespace>
+    <AssemblyName>CrazyEights</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Baraja.cs" />
+    <Compile Include="Carta.cs" />
+    <Compile Include="Connected Services\ReferenciaServicioManejoJugadores\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Encriptacion.cs" />
+    <Compile Include="LogicaDeJuego.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\ResourcesDePerfil.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourcesDePerfil.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SingletonJugador.cs" />
+    <Compile Include="Ventanas\EntradaInvitación.xaml.cs">
+      <DependentUpon>EntradaInvitación.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\EntradaJugador.xaml.cs">
+      <DependentUpon>EntradaJugador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\JugadorSala.xaml.cs">
+      <DependentUpon>JugadorSala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaAmigos.xaml.cs">
+      <DependentUpon>VentanaAmigos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaAyudaDeJuego.xaml.cs">
+      <DependentUpon>VentanaAyudaDeJuego.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaBase.xaml.cs">
+      <DependentUpon>VentanaBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaConfiguracionPartida.xaml.cs">
+      <DependentUpon>VentanaConfiguracionPartida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaConfigurarContraseña.xaml.cs">
+      <DependentUpon>VentanaConfigurarContraseña.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaIngresarComoInvitado.xaml.cs">
+      <DependentUpon>VentanaIngresarComoInvitado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.en-US.Designer.cs">
+      <DependentUpon>Resources.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Ventanas\VentanaJuegoDeCartas.xaml.cs">
+      <DependentUpon>VentanaJuegoDeCartas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaMisionesDeJuego.xaml.cs">
+      <DependentUpon>VentanaMisionesDeJuego.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaPersonalizacionDePerfil.xaml.cs">
+      <DependentUpon>VentanaPersonalizacionDePerfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaRegistroUsuario.xaml.cs">
+      <DependentUpon>VentanaRegistroUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilidades.cs" />
+    <Compile Include="Ventanas\VentanaAdvertencia.xaml.cs">
+      <DependentUpon>VentanaAdvertencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaConfiguracion.xaml.cs">
+      <DependentUpon>VentanaConfiguracion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaConfirmación.xaml.cs">
+      <DependentUpon>VentanaConfirmación.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaCódigoVerificación.xaml.cs">
+      <DependentUpon>VentanaCódigoVerificación.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaMenuPrincipal.xaml.cs">
+      <DependentUpon>VentanaMenuPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaSala.xaml.cs">
+      <DependentUpon>VentanaSala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaTiendaDeJuego.xaml.cs">
+      <DependentUpon>VentanaTiendaDeJuego.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\EntradaInvitación.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\EntradaJugador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\JugadorSala.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventanas\VentanaAmigos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaAyudaDeJuego.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaBase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventanas\VentanaConfiguracionPartida.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventanas\VentanaConfigurarContraseña.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventanas\VentanaIngresarComoInvitado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Ventanas\VentanaJuegoDeCartas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaMisionesDeJuego.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaPersonalizacionDePerfil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaRegistroUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaAdvertencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaConfiguracion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventanas\VentanaConfirmación.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaCódigoVerificación.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaMenuPrincipal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventanas\VentanaSala.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventanas\VentanaTiendaDeJuego.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\ResourcesDePerfil.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesDePerfil.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="fuentes\RobotoSlab-Regular.ttf" />
+    <Resource Include="fuentes\RobotoSlab-Black.ttf" />
+    <Resource Include="fuentes\RobotoSlab-Bold.ttf" />
+    <Resource Include="fuentes\RobotoSlab-ExtraBold.ttf" />
+    <Resource Include="fuentes\RobotoSlab-ExtraLight.ttf" />
+    <Resource Include="fuentes\RobotoSlab-Light.ttf" />
+    <Resource Include="fuentes\RobotoSlab-Medium.ttf" />
+    <Resource Include="fuentes\RobotoSlab-SemiBold.ttf" />
+    <Resource Include="fuentes\RobotoSlab-Thin.ttf" />
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Invitacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Jugador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Sala.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\ServicioManejoJugadores.wsdl" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ReferenciaServicioManejoJugadores\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\gear.png" />
+    <Resource Include="Recursos\iconoAmigos.png" />
+    <Resource Include="Recursos\iconoAyuda.png" />
+    <Resource Include="Recursos\iconoMisiones.png" />
+    <Resource Include="Recursos\iconoUsuario.png" />
+    <Resource Include="Recursos\Image2.png" />
+    <Resource Include="Recursos\mexico.png" />
+    <Resource Include="Recursos\R.png" />
+    <Resource Include="Recursos\united-states.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Fondo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\FondoVentanaEmergente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Line 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Fondo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\RectanguloSeleccion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\RectanguloSeleccion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\iconoCerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\RectanguloEntradaListaAmigos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\mesaJuego.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\iconoCerrarVentana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cartas\10C.png" />
+    <Resource Include="Cartas\10D.png" />
+    <Resource Include="Cartas\10P.png" />
+    <Resource Include="Cartas\10T.png" />
+    <Resource Include="Cartas\2C.png" />
+    <Resource Include="Cartas\2D.png" />
+    <Resource Include="Cartas\2P.png" />
+    <Resource Include="Cartas\2T.png" />
+    <Resource Include="Cartas\3C.png" />
+    <Resource Include="Cartas\3D.png" />
+    <Resource Include="Cartas\3P.png" />
+    <Resource Include="Cartas\3T.png" />
+    <Resource Include="Cartas\4C.png" />
+    <Resource Include="Cartas\4D.png" />
+    <Resource Include="Cartas\4P.png" />
+    <Resource Include="Cartas\4T.png" />
+    <Resource Include="Cartas\5C.png" />
+    <Resource Include="Cartas\5D.png" />
+    <Resource Include="Cartas\5P.png" />
+    <Resource Include="Cartas\5T.png" />
+    <Resource Include="Cartas\6C.png" />
+    <Resource Include="Cartas\6D.png" />
+    <Resource Include="Cartas\6P.png" />
+    <Resource Include="Cartas\6T.png" />
+    <Resource Include="Cartas\7C.png" />
+    <Resource Include="Cartas\7D.png" />
+    <Resource Include="Cartas\7P.png" />
+    <Resource Include="Cartas\7T.png" />
+    <Resource Include="Cartas\8C.png" />
+    <Resource Include="Cartas\8D.png" />
+    <Resource Include="Cartas\8P.png" />
+    <Resource Include="Cartas\8T.png" />
+    <Resource Include="Cartas\9C.png" />
+    <Resource Include="Cartas\9D.png" />
+    <Resource Include="Cartas\9P.png" />
+    <Resource Include="Cartas\9T.png" />
+    <Resource Include="Cartas\AC.png" />
+    <Resource Include="Cartas\AD.png" />
+    <Resource Include="Cartas\AP.png" />
+    <Resource Include="Cartas\AT.png" />
+    <Resource Include="Cartas\AtrasCarta.png" />
+    <Resource Include="Cartas\JC.png" />
+    <Resource Include="Cartas\JD.png" />
+    <Resource Include="Cartas\JP.png" />
+    <Resource Include="Cartas\JT.png" />
+    <Resource Include="Cartas\QC.png" />
+    <Resource Include="Cartas\QD.png" />
+    <Resource Include="Cartas\QP.png" />
+    <Resource Include="Cartas\QT.png" />
+    <Resource Include="Cartas\RC.png" />
+    <Resource Include="Cartas\RD.png" />
+    <Resource Include="Cartas\RP.png" />
+    <Resource Include="Cartas\RT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CartasMinimalistas\RC.png" />
+    <Resource Include="CartasMinimalistas\RD.png" />
+    <Resource Include="CartasMinimalistas\RP.png" />
+    <Resource Include="CartasMinimalistas\RT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CartasMinimalistas\10C.png" />
+    <Resource Include="CartasMinimalistas\10D.png" />
+    <Resource Include="CartasMinimalistas\10P.png" />
+    <Resource Include="CartasMinimalistas\10T.png" />
+    <Resource Include="CartasMinimalistas\2C.png" />
+    <Resource Include="CartasMinimalistas\2D.png" />
+    <Resource Include="CartasMinimalistas\2P.png" />
+    <Resource Include="CartasMinimalistas\2T.png" />
+    <Resource Include="CartasMinimalistas\3C.png" />
+    <Resource Include="CartasMinimalistas\3D.png" />
+    <Resource Include="CartasMinimalistas\3P.png" />
+    <Resource Include="CartasMinimalistas\3T.png" />
+    <Resource Include="CartasMinimalistas\4C.png" />
+    <Resource Include="CartasMinimalistas\4D.png" />
+    <Resource Include="CartasMinimalistas\4P.png" />
+    <Resource Include="CartasMinimalistas\4T.png" />
+    <Resource Include="CartasMinimalistas\5C.png" />
+    <Resource Include="CartasMinimalistas\5D.png" />
+    <Resource Include="CartasMinimalistas\5P.png" />
+    <Resource Include="CartasMinimalistas\5T.png" />
+    <Resource Include="CartasMinimalistas\6C.png" />
+    <Resource Include="CartasMinimalistas\6D.png" />
+    <Resource Include="CartasMinimalistas\6P.png" />
+    <Resource Include="CartasMinimalistas\6T.png" />
+    <Resource Include="CartasMinimalistas\7C.png" />
+    <Resource Include="CartasMinimalistas\7D.png" />
+    <Resource Include="CartasMinimalistas\7P.png" />
+    <Resource Include="CartasMinimalistas\7T.png" />
+    <Resource Include="CartasMinimalistas\8C.png" />
+    <Resource Include="CartasMinimalistas\8D.png" />
+    <Resource Include="CartasMinimalistas\8P.png" />
+    <Resource Include="CartasMinimalistas\8T.png" />
+    <Resource Include="CartasMinimalistas\9C.png" />
+    <Resource Include="CartasMinimalistas\9D.png" />
+    <Resource Include="CartasMinimalistas\9P.png" />
+    <Resource Include="CartasMinimalistas\9T.png" />
+    <Resource Include="CartasMinimalistas\AC.png" />
+    <Resource Include="CartasMinimalistas\AD.png" />
+    <Resource Include="CartasMinimalistas\AP.png" />
+    <Resource Include="CartasMinimalistas\AT.png" />
+    <Resource Include="CartasMinimalistas\AtrasCarta.png" />
+    <Resource Include="CartasMinimalistas\JC.png" />
+    <Resource Include="CartasMinimalistas\JD.png" />
+    <Resource Include="CartasMinimalistas\JP.png" />
+    <Resource Include="CartasMinimalistas\JT.png" />
+    <Resource Include="CartasMinimalistas\QC.png" />
+    <Resource Include="CartasMinimalistas\QD.png" />
+    <Resource Include="CartasMinimalistas\QP.png" />
+    <Resource Include="CartasMinimalistas\QT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FotosDePerfil\predeterminada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FotosDePerfil\amogus.jpeg" />
+    <Resource Include="FotosDePerfil\gatoEnojado.jpeg" />
+    <Resource Include="FotosDePerfil\godzilla.jpeg" />
+    <Resource Include="FotosDePerfil\jacket.jpeg" />
+    <Resource Include="FotosDePerfil\perry.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amogus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\ConfigurarSala.png" />
+    <Resource Include="Recursos\corona.png" />
+    <Resource Include="Recursos\Fondo3.png" />
+    <Resource Include="Recursos\Palomita.png" />
+    <Resource Include="Recursos\PlaceholderJugadorSala.png" />
+    <Resource Include="Recursos\PuntosEspera.png" />
+    <Resource Include="Recursos\RectanguloSala1.png" />
+    <Resource Include="Recursos\RectanguloSala2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\flechaIniciarPartida.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

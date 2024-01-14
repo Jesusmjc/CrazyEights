@@ -241,17 +241,41 @@
   <wsdl:message name="IServicioManejoJugadores_EnviarCodigoAlCorreoDelUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:EnviarCodigoAlCorreoDelUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ActualizarFotoPerfil_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarFotoPerfil" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ActualizarFotoPerfil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarFotoPerfilResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ActualizarNombreUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarNombreUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ActualizarNombreUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarNombreUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ObtenerDireccionFotoPerfil_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerDireccionFotoPerfil" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ObtenerDireccionFotoPerfil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerDireccionFotoPerfilResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ObtenerNombreUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNombreUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_ObtenerNombreUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNombreUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_CambiarContraseña_InputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarContraseña" />
+  </wsdl:message>
+  <wsdl:message name="IServicioManejoJugadores_CambiarContraseña_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarContraseñaResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioManejoDesconexiones_NotificarDesconexionJugador_InputMessage">
     <wsdl:part name="parameters" element="tns:NotificarDesconexionJugador" />
   </wsdl:message>
   <wsdl:message name="IServicioManejoDesconexiones_NotificarDesconexionJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:NotificarDesconexionJugadorResponse" />
-  </wsdl:message>
-  <wsdl:message name="IManejadorJugadoresEnLinea_DoNothing_InputMessage">
-    <wsdl:part name="parameters" element="tns:DoNothing" />
-  </wsdl:message>
-  <wsdl:message name="IManejadorJugadoresEnLinea_DoNothing_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DoNothingResponse" />
   </wsdl:message>
   <wsdl:message name="IManejadorJugadoresEnLinea_NotificarNuevaConexionAJugadoresEnLinea_InputMessage">
     <wsdl:part name="parameters" element="tns:NotificarNuevaConexionAJugadoresEnLinea" />
@@ -385,6 +409,26 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuario" message="tns:IServicioManejoJugadores_EnviarCodigoAlCorreoDelUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/EnviarCodigoAlCorreoDelUsuarioResponse" message="tns:IServicioManejoJugadores_EnviarCodigoAlCorreoDelUsuario_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ActualizarFotoPerfil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ActualizarFotoPerfil" message="tns:IServicioManejoJugadores_ActualizarFotoPerfil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ActualizarFotoPerfilResponse" message="tns:IServicioManejoJugadores_ActualizarFotoPerfil_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarNombreUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ActualizarNombreUsuario" message="tns:IServicioManejoJugadores_ActualizarNombreUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ActualizarNombreUsuarioResponse" message="tns:IServicioManejoJugadores_ActualizarNombreUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDireccionFotoPerfil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ObtenerDireccionFotoPerfil" message="tns:IServicioManejoJugadores_ObtenerDireccionFotoPerfil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ObtenerDireccionFotoPerfilResponse" message="tns:IServicioManejoJugadores_ObtenerDireccionFotoPerfil_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombreUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ObtenerNombreUsuario" message="tns:IServicioManejoJugadores_ObtenerNombreUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/ObtenerNombreUsuarioResponse" message="tns:IServicioManejoJugadores_ObtenerNombreUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CambiarContraseña">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioManejoJugadores/CambiarContraseña" message="tns:IServicioManejoJugadores_CambiarContraseña_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioManejoJugadores/CambiarContraseñaResponse" message="tns:IServicioManejoJugadores_CambiarContraseña_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioManejoDesconexiones">
     <wsdl:operation name="NotificarDesconexionJugador">
@@ -393,10 +437,6 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IManejadorJugadoresEnLinea">
-    <wsdl:operation name="DoNothing">
-      <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/DoNothing" message="tns:IManejadorJugadoresEnLinea_DoNothing_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/DoNothingResponse" message="tns:IManejadorJugadoresEnLinea_DoNothing_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="NotificarNuevaConexionAJugadoresEnLinea">
       <wsdl:input wsaw:Action="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarNuevaConexionAJugadoresEnLinea" message="tns:IManejadorJugadoresEnLinea_NotificarNuevaConexionAJugadoresEnLinea_InputMessage" />
     </wsdl:operation>
@@ -531,6 +571,51 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ActualizarFotoPerfil">
+      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/ActualizarFotoPerfil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarNombreUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/ActualizarNombreUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDireccionFotoPerfil">
+      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/ObtenerDireccionFotoPerfil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombreUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/ObtenerNombreUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CambiarContraseña">
+      <soap12:operation soapAction="http://tempuri.org/IServicioManejoJugadores/CambiarContraseña" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_IServicioManejoDesconexiones" type="tns:IServicioManejoDesconexiones">
     <wsp:PolicyReference URI="#NetTcpBinding_IServicioManejoDesconexiones_policy" />
@@ -548,15 +633,6 @@
   <wsdl:binding name="NetTcpBinding_IManejadorJugadoresEnLinea" type="tns:IManejadorJugadoresEnLinea">
     <wsp:PolicyReference URI="#NetTcpBinding_IManejadorJugadoresEnLinea_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="DoNothing">
-      <soap12:operation soapAction="http://tempuri.org/IManejadorJugadoresEnLinea/DoNothing" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="NotificarNuevaConexionAJugadoresEnLinea">
       <soap12:operation soapAction="http://tempuri.org/IManejadorJugadoresEnLinea/NotificarNuevaConexionAJugadoresEnLinea" style="document" />
       <wsdl:input>
