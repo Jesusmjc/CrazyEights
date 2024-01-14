@@ -9,6 +9,8 @@ using System.Text;
 using System.Net;
 using System.Net.Mail;
 using System.Security.Cryptography.X509Certificates;
+using System.Data.Entity.Infrastructure;
+using System.Runtime.Remoting.Contexts;
 
 namespace CrazyEightsServicio
 {
@@ -131,6 +133,116 @@ namespace CrazyEightsServicio
             smtpCliente.Send(mensajeCorreo);
 
             return codigoGenerado;
+        }
+
+        public bool ActualizarFotoPerfil(int idJugador, string nuevaDireccionFotoPerfil)
+        {
+            bool resultado = false;
+            try
+            {
+                using (var contexto = new CrazyEightsEntities())
+                {
+                    var jugador = contexto.Jugadores.FirstOrDefault(j => j.IDJugador == idJugador);
+
+                    if (jugador != null)
+                    {
+                        jugador.fotoPerfil = nuevaDireccionFotoPerfil;
+                        contexto.SaveChanges();
+                        resultado = true;
+                    }
+
+                    return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                return resultado;
+            }
+        }
+
+        public string ObtenerDireccionFotoPerfil(int idJugador)
+        {
+            using (var contexto = new CrazyEightsEntities())
+            {
+                var jugador = contexto.Jugadores.FirstOrDefault(j => j.IDUsuario == idJugador);
+
+                if (jugador != null && !string.IsNullOrEmpty(jugador.fotoPerfil))
+                {
+                    return jugador.fotoPerfil;
+                }
+
+                return null;
+            }
+        }
+
+        public bool ActualizarNombreUsuario(int idJugador, string nuevoNombreUsuario)
+        {
+            bool resultado = false;
+            try
+            {
+                using (var contexto = new CrazyEightsEntities())
+                {
+                    var nombreUsuarioExistente = contexto.Jugadores.Any(j => j.nombreUsuario == nuevoNombreUsuario && j.IDJugador != idJugador);
+
+                    if (nombreUsuarioExistente)
+                    {
+                        return resultado;
+                    }
+
+                    var jugador = contexto.Jugadores.FirstOrDefault(j => j.IDJugador == idJugador);
+
+                    if (jugador != null)
+                    {
+                        jugador.nombreUsuario = nuevoNombreUsuario;
+                        contexto.SaveChanges();
+                        resultado = true;
+                    }
+                    return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                return resultado;
+            }
+
+        }
+
+        public string ObtenerNombreUsuario(int idJugador) //ToDo
+        {
+            using (var contexto = new CrazyEightsEntities())
+            {
+                var jugador = contexto.Jugadores.FirstOrDefault(j => j.IDUsuario == idJugador);
+
+                if (jugador != null && !string.IsNullOrEmpty(jugador.nombreUsuario))
+                {
+                    return jugador.nombreUsuario;
+                }
+                return null;
+            }
+        }
+
+        public bool CambiarContraseña(string correoElectronico, string nuevaContraseña)
+        {
+            bool resultado = false;
+            try
+            {
+                using (var contexto = new CrazyEightsEntities())
+                {
+                    var usuario = contexto.Usuarios.FirstOrDefault(u => u.correoElectrónico == correoElectronico);
+
+                    if (usuario != null)
+                    {
+                        usuario.contraseña = nuevaContraseña;
+                        contexto.SaveChanges();
+                        resultado = true;
+                    }
+                    return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                return resultado;
+            }
         }
     }
 

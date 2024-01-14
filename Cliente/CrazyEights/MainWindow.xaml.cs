@@ -47,6 +47,8 @@ namespace CrazyEights
                     SingletonJugador singletonJugador = SingletonJugador.Instance;
                     singletonJugador.NombreJugador = jugadorInicioSesion.NombreUsuario;
                     singletonJugador.IdJugador = jugadorInicioSesion.IdJugador;
+                    singletonJugador.FotoPerfil = jugadorInicioSesion.FotoPerfil;
+                    singletonJugador.CorreoElectronico = usuarioAValidar.CorreoElectronico;
                     singletonJugador.Estado = "Conectado";
 
                     VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
@@ -78,7 +80,7 @@ namespace CrazyEights
         private bool ValidarCampos()
         {
             lbAdvertenciaCamposVacios.Visibility = Visibility.Hidden;
-            lbAdvertenciaContrasenaInvalida.Visibility = Visibility.Hidden;
+            lbAdvertenciaContraseñaInvalida.Visibility = Visibility.Hidden;
             lbAdvertenciaCorreoElectronicoInvalido.Visibility = Visibility.Hidden;
 
             bool esCorreoElectronicoValido = false;
@@ -102,7 +104,7 @@ namespace CrazyEights
                 }
                 else
                 {
-                    lbAdvertenciaContrasenaInvalida.Visibility = Visibility.Visible;
+                    lbAdvertenciaContraseñaInvalida.Visibility = Visibility.Visible;
                 }
             }
             else

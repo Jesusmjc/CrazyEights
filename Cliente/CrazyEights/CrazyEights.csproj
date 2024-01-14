@@ -101,6 +101,8 @@
     <Compile Include="Ventanas\VentanaAyudaDeJuego.xaml.cs">
       <DependentUpon>VentanaAyudaDeJuego.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VentanaConfigurarContraseña.xaml.cs">
+      <DependentUpon>VentanaConfigurarContraseña.xaml</DependentUpon>
     <Compile Include="Ventanas\VentanaBase.xaml.cs">
       <DependentUpon>VentanaBase.xaml</DependentUpon>
     </Compile>
@@ -173,6 +175,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Ventanas\VentanaConfigurarContraseña.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     <Page Include="Ventanas\VentanaBase.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -293,7 +298,7 @@
     <None Include="Connected Services\ReferenciaServicioManejoJugadores\ServicioManejoJugadores.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
@@ -491,6 +496,7 @@
     <None Include="Resources\amogus.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="FotosDePerfil\catRunner.jpeg" />
     <Resource Include="Recursos\ConfigurarSala.png" />
     <Resource Include="Recursos\corona.png" />
     <Resource Include="Recursos\Fondo3.png" />

@@ -24,6 +24,7 @@ namespace CrazyEights
     /// </summary>
     public partial class VentanaMenuPrincipal : Window
     {
+        ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient actualizarCliente = new ServicioManejoJugadoresClient();
         public VentanaMenuPrincipal()
         {
             InitializeComponent();
@@ -38,7 +39,9 @@ namespace CrazyEights
             {
                 if (string.IsNullOrEmpty(SingletonJugador.Instance.FotoPerfil))
                 {
-                    SingletonJugador.Instance.FotoPerfil = "predeterminada"; //ToDo
+                    SingletonJugador singletonJugador = SingletonJugador.Instance;
+                    int idJugador = singletonJugador.IdJugador;
+                    actualizarCliente.ActualizarFotoPerfil(idJugador, Properties.Settings.Default.FotoPredeterminada);
                 }
             }
         }

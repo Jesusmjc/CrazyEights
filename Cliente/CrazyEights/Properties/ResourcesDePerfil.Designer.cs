@@ -73,6 +73,16 @@ namespace CrazyEights.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap catRunner {
+            get {
+                object obj = ResourceManager.GetObject("catRunner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gatoEnojado {
             get {
                 object obj = ResourceManager.GetObject("gatoEnojado", resourceCulture);
