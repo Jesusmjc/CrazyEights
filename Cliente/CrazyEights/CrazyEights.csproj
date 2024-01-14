@@ -86,8 +86,14 @@
       <DependentUpon>ResourcesDePerfil.resx</DependentUpon>
     </Compile>
     <Compile Include="SingletonJugador.cs" />
+    <Compile Include="Ventanas\EntradaInvitación.xaml.cs">
+      <DependentUpon>EntradaInvitación.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\EntradaJugador.xaml.cs">
       <DependentUpon>EntradaJugador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\JugadorSala.xaml.cs">
+      <DependentUpon>JugadorSala.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VentanaAmigos.xaml.cs">
       <DependentUpon>VentanaAmigos.xaml</DependentUpon>
@@ -97,6 +103,11 @@
     </Compile>
     <Compile Include="Ventanas\VentanaConfigurarContraseña.xaml.cs">
       <DependentUpon>VentanaConfigurarContraseña.xaml</DependentUpon>
+    <Compile Include="Ventanas\VentanaBase.xaml.cs">
+      <DependentUpon>VentanaBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaConfiguracionPartida.xaml.cs">
+      <DependentUpon>VentanaConfiguracionPartida.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VentanaIngresarComoInvitado.xaml.cs">
       <DependentUpon>VentanaIngresarComoInvitado.xaml</DependentUpon>
@@ -134,6 +145,9 @@
     <Compile Include="Ventanas\VentanaMenuPrincipal.xaml.cs">
       <DependentUpon>VentanaMenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VentanaSala.xaml.cs">
+      <DependentUpon>VentanaSala.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VentanaTiendaDeJuego.xaml.cs">
       <DependentUpon>VentanaTiendaDeJuego.xaml</DependentUpon>
     </Compile>
@@ -141,9 +155,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Ventanas\EntradaInvitación.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ventanas\EntradaJugador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\JugadorSala.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Ventanas\VentanaAmigos.xaml">
       <SubType>Designer</SubType>
@@ -156,6 +178,13 @@
     <Page Include="Ventanas\VentanaConfigurarContraseña.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    <Page Include="Ventanas\VentanaBase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ventanas\VentanaConfiguracionPartida.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Ventanas\VentanaIngresarComoInvitado.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +230,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Ventanas\VentanaSala.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Ventanas\VentanaTiendaDeJuego.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -241,7 +274,13 @@
     <Resource Include="fuentes\RobotoSlab-Medium.ttf" />
     <Resource Include="fuentes\RobotoSlab-SemiBold.ttf" />
     <Resource Include="fuentes\RobotoSlab-Thin.ttf" />
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Invitacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Jugador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReferenciaServicioManejoJugadores\CrazyEights.ReferenciaServicioManejoJugadores.Sala.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ReferenciaServicioManejoJugadores\item.xsd">
@@ -458,6 +497,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FotosDePerfil\catRunner.jpeg" />
+    <Resource Include="Recursos\ConfigurarSala.png" />
+    <Resource Include="Recursos\corona.png" />
+    <Resource Include="Recursos\Fondo3.png" />
+    <Resource Include="Recursos\Palomita.png" />
+    <Resource Include="Recursos\PlaceholderJugadorSala.png" />
+    <Resource Include="Recursos\PuntosEspera.png" />
+    <Resource Include="Recursos\RectanguloSala1.png" />
+    <Resource Include="Recursos\RectanguloSala2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\flechaIniciarPartida.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

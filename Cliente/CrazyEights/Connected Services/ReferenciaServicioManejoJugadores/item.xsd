@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8082/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="Usuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
@@ -11,15 +12,45 @@
   <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
   <xs:complexType name="Jugador">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CanalCallback" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="CanalCallbackActualizacionJugadores" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="CanalCallbackServicioSala" nillable="true" type="xs:anyType" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FotoPerfil" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdJugador" type="xs:int" />
+      <xs:element minOccurs="0" name="Invitaciones" nillable="true" type="tns:ArrayOfInvitacion" />
       <xs:element minOccurs="0" name="Monedas" type="xs:int" />
       <xs:element minOccurs="0" name="NombreUsuario" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Jugador" nillable="true" type="tns:Jugador" />
+  <xs:complexType name="ArrayOfInvitacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Invitacion" nillable="true" type="tns:Invitacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvitacion" nillable="true" type="tns:ArrayOfInvitacion" />
+  <xs:complexType name="Invitacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoSala" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreJugadorAnfitrion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreSala" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Invitacion" nillable="true" type="tns:Invitacion" />
+  <xs:complexType name="Sala">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="Host" nillable="true" type="tns:Jugador" />
+      <xs:element minOccurs="0" name="IdSala" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="JugadoresEnSala" nillable="true" type="q1:ArrayOfKeyValueOfstringJugadors4_Ps3q5I" />
+      <xs:element minOccurs="0" name="ModoDeJuego" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumeroDeRondas" type="xs:int" />
+      <xs:element minOccurs="0" name="TiempoPorTurno" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoDeAcceso" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Sala" nillable="true" type="tns:Sala" />
   <xs:complexType name="ArrayOfJugador">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Jugador" nillable="true" type="tns:Jugador" />

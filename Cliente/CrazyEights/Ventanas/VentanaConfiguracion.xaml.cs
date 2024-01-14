@@ -1,4 +1,5 @@
 ﻿using CrazyEights.Properties;
+using CrazyEights.Ventanas;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -25,6 +26,7 @@ namespace CrazyEights
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.ResizeMode = ResizeMode.NoResize;
         }
 
         private void IdiomaEspañol(object sender, MouseButtonEventArgs e)

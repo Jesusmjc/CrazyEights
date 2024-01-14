@@ -42,7 +42,7 @@ namespace CrazyEights
                 Jugador jugadorInicioSesion = new Jugador();
                 jugadorInicioSesion = cliente.ValidarInicioSesion(usuarioAValidar);
 
-                if (jugadorInicioSesion != null)
+                if (jugadorInicioSesion.IdJugador > 0)
                 {
                     SingletonJugador singletonJugador = SingletonJugador.Instance;
                     singletonJugador.NombreJugador = jugadorInicioSesion.NombreUsuario;
@@ -50,7 +50,9 @@ namespace CrazyEights
                     singletonJugador.FotoPerfil = jugadorInicioSesion.FotoPerfil;
                     singletonJugador.CorreoElectronico = usuarioAValidar.CorreoElectronico;
                     singletonJugador.Estado = "Conectado";
+
                     VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
+                    ventanaMenuPrincipal.MostrarComoJugadorEnLinea();
                     this.Close();
                     ventanaMenuPrincipal.ShowDialog();
                 }

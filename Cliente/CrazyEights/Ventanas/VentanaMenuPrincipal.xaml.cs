@@ -22,7 +22,7 @@ namespace CrazyEights
     /// <summary>
     /// Interaction logic for VentanaMenuPrincipal.xaml
     /// </summary>
-    public partial class VentanaMenuPrincipal : Window, IManejadorJugadoresEnLineaCallback
+    public partial class VentanaMenuPrincipal : Window
     {
         ReferenciaServicioManejoJugadores.ServicioManejoJugadoresClient actualizarCliente = new ServicioManejoJugadoresClient();
         public VentanaMenuPrincipal()
@@ -31,7 +31,6 @@ namespace CrazyEights
             CargarImagenDePerfil();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.ResizeMode = ResizeMode.NoResize;
-            MostrarComoJugadorEnLinea();
         }
 
         private void CargarImagenDePerfil()
@@ -67,12 +66,11 @@ namespace CrazyEights
             ventanaTiendaDeJuego.ShowDialog();
         }
 
-        private void NavegarAJuego(object sender, RoutedEventArgs e) //ToDoTemp
+        private void NavegarAConfiguracionPartida(object sender, RoutedEventArgs e)
         {
-            VentanaJuegoDeCartas ventanaJuegoDeCartas = new VentanaJuegoDeCartas();
-            ventanaJuegoDeCartas.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ventanaJuegoDeCartas.Show();
+            VentanaConfiguracionPartida ventanaConfiguracionPartida = new VentanaConfiguracionPartida();
             this.Close();
+            ventanaConfiguracionPartida.ShowDialog();
         }
 
         private void NavegarAMisiones(object sender, MouseButtonEventArgs e)
@@ -91,21 +89,24 @@ namespace CrazyEights
 
         private void CerrarSesion(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(Properties.Resources.msbCerrarSesion,
+            MessageBoxResult resultado = MessageBox.Show(Properties.Resources.msbCerrarSesion,
                 Properties.Resources.ttlCerrarSesion, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-            if (result == MessageBoxResult.Yes)
+            if (resultado == MessageBoxResult.Yes)
             {
+                ReferenciaServicioManejoJugadores.ServicioManejoDesconexionesClient cliente = new ReferenciaServicioManejoJugadores.ServicioManejoDesconexionesClient();
+                cliente.NotificarDesconexionJugador(SingletonJugador.Instance.NombreJugador);
+
                 MainWindow ventanaInicio = new MainWindow();
                 ventanaInicio.Show();
                 this.Close();
             }
         }
 
-        private void MostrarComoJugadorEnLinea()
+        public void MostrarComoJugadorEnLinea()
         {
-            InstanceContext contexto = new InstanceContext(this);
-            ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
+            ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient();
+            
             Jugador jugador = new Jugador
             {
                 IdJugador = SingletonJugador.Instance.IdJugador,
@@ -114,22 +115,6 @@ namespace CrazyEights
             };
 
             cliente.NotificarNuevaConexionAJugadoresEnLinea(jugador);
-        }
-
-        //Es necesario implementarlos para ejecutar la línea 43, pero no hacen nada en esta ventana.
-        public void NotificarLogInJugador(Jugador jugador)
-        {
-            Console.WriteLine("Se ha conectado un nuevo usuario: " + jugador.NombreUsuario);
-        }
-
-        public void NotificarLogOutJugador(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void NotificarJugadoresEnLinea(string[] nombresUsuariosEnLinea)
-        {
-            throw new NotImplementedException();
         }
     }
 }

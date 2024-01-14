@@ -10,25 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CrazyEights.ReferenciaServicioManejoJugadores;
 
 namespace CrazyEights.Ventanas
 {
     /// <summary>
-    /// Interaction logic for VentanaAyudaDeJuego.xaml
+    /// Interaction logic for JugadorSala.xaml
     /// </summary>
-    public partial class VentanaAyudaDeJuego : Window
+    public partial class JugadorSala : UserControl
     {
-        public VentanaAyudaDeJuego()
+        public JugadorSala(Jugador jugadorEnLaSala)
         {
             InitializeComponent();
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.ResizeMode = ResizeMode.NoResize;
-        }
-
-        private void CerrarVentana(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
+            lbNombreJugador.Content = jugadorEnLaSala.NombreUsuario;
         }
     }
 }

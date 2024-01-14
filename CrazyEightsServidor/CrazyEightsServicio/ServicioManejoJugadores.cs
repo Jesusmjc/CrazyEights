@@ -44,17 +44,15 @@ namespace CrazyEightsServicio
                                 && us.contraseña == usuario.Contrasena
                                 select us.IDUsuario).ToList();
 
-                Jugador jugador = null;
+                Jugador jugador = new Jugador();
 
-                if (usuarios.Count != 0)
+                if (usuarios.Count != 0 && !jugadoresEnLinea.ContainsKey(RecuperarInformacionJugador(usuarios[0]).NombreUsuario))
                 {
                     jugador = RecuperarInformacionJugador(usuarios[0]);
                 }
 
                 return jugador;
             }
-
-
         }
 
         private Jugador RecuperarInformacionJugador(int IdUsuario)
@@ -248,57 +246,125 @@ namespace CrazyEightsServicio
         }
     }
 
-    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
+    public partial class ServicioManejoJugadores : IServicioManejoDesconexiones
+    {
+        public void NotificarDesconexionJugador(string nombreJugadorDesconectado)
+        {
+            if (jugadoresEnLinea.ContainsKey(nombreJugadorDesconectado))
+            {
+                if (jugadoresEnLinea.Remove(nombreJugadorDesconectado))
+                {
+                    foreach (var jugadorEnLinea in jugadoresEnLinea)
+                    {
+                        if (jugadorEnLinea.Value.CanalCallbackActualizacionJugadores != null)
+                        {
+                            jugadorEnLinea.Value.CanalCallbackActualizacionJugadores.NotificarLogOutJugador(nombreJugadorDesconectado);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    [ServiceBehavior]
     public partial class ServicioManejoJugadores : IManejadorJugadoresEnLinea
     {
-        //private static Dictionary<string, IManejadorJugadoresCallback> jugadoresEnLinea = new Dictionary<string, IManejadorJugadoresCallback>();
         private static Dictionary<string, Jugador> jugadoresEnLinea = new Dictionary<string, Jugador>();
+
         public void NotificarNuevaConexionAJugadoresEnLinea(Jugador nuevoJugadorEnLinea)
         {
             if (!jugadoresEnLinea.ContainsKey(nuevoJugadorEnLinea.NombreUsuario))
             {
-                IManejadorJugadoresCallback canalDeCallbackActualDelJugador = OperationContext.Current.GetCallbackChannel<IManejadorJugadoresCallback>();
-                nuevoJugadorEnLinea.CanalCallback = canalDeCallbackActualDelJugador;
-
-                //List<string> nombresJugadoresEnLinea = jugadoresEnLinea.Keys.ToList();
-                //canalDeCallbackActualDelJugador.NotificarJugadoresEnLinea(nombresJugadoresEnLinea);
-
+                nuevoJugadorEnLinea.Invitaciones = new List<Invitacion>();
                 jugadoresEnLinea.Add(nuevoJugadorEnLinea.NombreUsuario, nuevoJugadorEnLinea);
 
                 foreach (var jugadorEnLinea in jugadoresEnLinea)
                 {
-                    if (!jugadorEnLinea.Key.Equals(nuevoJugadorEnLinea.NombreUsuario))
+                    if (!jugadorEnLinea.Key.Equals(nuevoJugadorEnLinea.NombreUsuario) && jugadorEnLinea.Value.CanalCallbackActualizacionJugadores != null)
                     {
-                        jugadorEnLinea.Value.CanalCallback.NotificarLogInJugador(nuevoJugadorEnLinea);
+                        jugadorEnLinea.Value.CanalCallbackActualizacionJugadores.NotificarLogInJugador(nuevoJugadorEnLinea);
                     }
                 }
 
             }
         }
+    }
 
-        public void NotificarDesconexionAJugadoresEnLinea(string nombreJugador)
+    public partial class ServicioManejoJugadores : IServicioInvitaciones
+    {
+        public bool InvitarJugadorASala(string nombreJugadorAnfitrion, string nombreJugadorInvitado, int codigoSala, string nombreSala)
         {
-            if (jugadoresEnLinea.ContainsKey(nombreJugador))
-            {
-                jugadoresEnLinea.Remove(nombreJugador);
+            bool operacionExitosa = false;
 
-                foreach (var jugador in jugadoresEnLinea)
+            if (jugadoresEnLinea.ContainsKey(nombreJugadorInvitado))
+            {
+                Invitacion nuevaInvitacion = new Invitacion
                 {
-                    jugador.Value.CanalCallback.NotificarLogOutJugador(nombreJugador);
+                    NombreJugadorAnfitrion = nombreJugadorAnfitrion,
+                    CodigoSala = codigoSala,
+                    NombreSala = nombreSala
+                };
+
+                if (!jugadoresEnLinea[nombreJugadorInvitado].Invitaciones.Contains(nuevaInvitacion))
+                {
+                    jugadoresEnLinea[nombreJugadorInvitado].Invitaciones.Add(nuevaInvitacion);
+                    if (jugadoresEnLinea[nombreJugadorInvitado].CanalCallbackActualizacionJugadores != null)
+                    {
+                        jugadoresEnLinea[nombreJugadorInvitado].CanalCallbackActualizacionJugadores.RecibirInvitacionASala(nuevaInvitacion);
+                    }
                 }
+
+                operacionExitosa = true;
             }
+
+            return operacionExitosa;
         }
 
-        public List<Jugador> RecuperarInformacionJugadoresEnLinea()
+        public void QuitarInvitacionAJugador(string nombreJugador, Invitacion invitacionAQuitar)
         {
-            List<Jugador> listaNombresJugadores = new List<Jugador>();
+            Invitacion invitacionAux = new Invitacion();
 
+            foreach (Invitacion invitacion in jugadoresEnLinea[nombreJugador].Invitaciones)
+            {
+                if (invitacion.NombreSala.Equals(invitacionAQuitar.NombreSala) && invitacion.NombreJugadorAnfitrion.Equals(invitacionAQuitar.NombreJugadorAnfitrion))
+                {
+                    invitacionAux = invitacion;
+                }
+            }
+
+            jugadoresEnLinea[nombreJugador].Invitaciones.Remove(invitacionAux);
+        }
+    }
+
+    public partial class ServicioManejoJugadores : IServicioActualizacionJugadoresEnLinea
+    {
+        public List<Jugador> RecuperarInformacionJugadoresEnLinea(string nombreJugador)
+        {
+            IServicioActualizacionJugadoresEnLineaCallback canalDeCallbackDelJugador = OperationContext.Current.GetCallbackChannel<IServicioActualizacionJugadoresEnLineaCallback>();
+            jugadoresEnLinea[nombreJugador].CanalCallbackActualizacionJugadores = canalDeCallbackDelJugador;
+
+            List<Jugador> listaNombresJugadores = new List<Jugador>();
             foreach (var jugadorEnLinea in jugadoresEnLinea)
             {
-                listaNombresJugadores.Add(jugadorEnLinea.Value);
+                if (!jugadorEnLinea.Value.NombreUsuario.Equals(nombreJugador))
+                {
+                    listaNombresJugadores.Add(jugadorEnLinea.Value);
+                }  
             }
 
             return listaNombresJugadores;
+        }
+
+        public List<Invitacion> RecuperarInvitacionesDeJugador(string nombreJugador)
+        {
+            List<Invitacion> invitacionesJugador = new List<Invitacion>();
+
+            if (jugadoresEnLinea.ContainsKey(nombreJugador))
+            {
+                invitacionesJugador = jugadoresEnLinea[nombreJugador].Invitaciones;
+            }
+
+            return invitacionesJugador;
         }
     }
 }

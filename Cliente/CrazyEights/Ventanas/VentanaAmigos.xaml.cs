@@ -20,9 +20,11 @@ namespace CrazyEights.Ventanas
     /// <summary>
     /// Interaction logic for VentanaAmigos.xaml
     /// </summary>
-    public partial class VentanaAmigos : Window, IManejadorJugadoresEnLineaCallback
+    public partial class VentanaAmigos : Window, IServicioActualizacionJugadoresEnLineaCallback
     {
+        private Sala sala = new Sala();
         public ObservableCollection<EntradaJugador> ListaDeJugadoresConectados { get; } = new ObservableCollection<EntradaJugador>();
+        public ObservableCollection<EntradaInvitación> ListaDeInvitaciones { get; } = new ObservableCollection<EntradaInvitación>();
 
         public VentanaAmigos()
         {
@@ -33,48 +35,123 @@ namespace CrazyEights.Ventanas
             MostrarJugadoresEnLinea();
         }
 
+        public VentanaAmigos(Sala sala)
+        {
+            InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.ResizeMode = ResizeMode.NoResize;
+            DataContext = this;
+            this.sala = sala;
+            MostrarJugadoresEnLinea();
+        }
+
         public void MostrarJugadoresEnLinea()
         {
             InstanceContext contexto = new InstanceContext(this);
-            ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ManejadorJugadoresEnLineaClient(contexto);
+            ReferenciaServicioManejoJugadores.ServicioActualizacionJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ServicioActualizacionJugadoresEnLineaClient(contexto);
+            Jugador[] jugadoresEnLinea = cliente.RecuperarInformacionJugadoresEnLinea(SingletonJugador.Instance.NombreJugador);
 
-            Jugador[] jugadoresEnLinea = cliente.RecuperarInformacionJugadoresEnLinea();
+            ListaDeJugadoresConectados.Clear();
+            svListaAmigos.Visibility = Visibility.Visible;
+            svListaInvitaciones.Visibility = Visibility.Collapsed;
 
             foreach (var jugadorEnLinea in jugadoresEnLinea)
             {
                 if (jugadorEnLinea.NombreUsuario != SingletonJugador.Instance.NombreJugador)
                 {
-                    ListaDeJugadoresConectados.Add(new EntradaJugador(jugadorEnLinea.NombreUsuario, "ID: " + jugadorEnLinea.IdJugador, jugadorEnLinea.Estado));
+                    MostrarEntradaJugadorEnLinea(jugadorEnLinea);
                 }
             }
+        }
+
+        private void MostrarInvitaciones(object sender, MouseButtonEventArgs e)
+        {
+            InstanceContext contexto = new InstanceContext(this);
+            ReferenciaServicioManejoJugadores.ServicioActualizacionJugadoresEnLineaClient cliente = new ReferenciaServicioManejoJugadores.ServicioActualizacionJugadoresEnLineaClient(contexto);
+            Invitacion[] invitacionesDelJugador = cliente.RecuperarInvitacionesDeJugador(SingletonJugador.Instance.NombreJugador);
+
+            ListaDeInvitaciones.Clear();
+            svListaAmigos.Visibility = Visibility.Collapsed;
+            svListaInvitaciones.Visibility = Visibility.Visible;
+
+            foreach (var invitacion in invitacionesDelJugador)
+            {
+                MostrarEntradaInvitacionDeJugador(invitacion);
+            }
+        }
+
+        private void MostrarEntradaJugadorEnLinea(Jugador jugadorEnLinea)
+        {
+            EntradaJugador entradaJugadorConectado = new EntradaJugador(jugadorEnLinea);
+
+            if (this.sala.Codigo == 0)
+            {
+                entradaJugadorConectado.btnInvitarAPartida.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                entradaJugadorConectado.EstablecerInformacionSala(this.sala.Codigo, this.sala.Nombre);
+            }
+            ListaDeJugadoresConectados.Add(entradaJugadorConectado);
+        }
+
+        private void MostrarEntradaInvitacionDeJugador(Invitacion invitacion)
+        {
+            EntradaInvitación entradaInvitacion = new EntradaInvitación(invitacion);
+
+            ListaDeInvitaciones.Add(entradaInvitacion);
         }
 
         public void NotificarLogInJugador(Jugador nuevoJugador)
         {
-            ListaDeJugadoresConectados.Add(new EntradaJugador(nuevoJugador.NombreUsuario, "ID: " + nuevoJugador.IdJugador, nuevoJugador.Estado));
+            MostrarEntradaJugadorEnLinea(nuevoJugador);
         }
 
         public void NotificarLogOutJugador(string nombreJugador)
         {
+            EntradaJugador jugadorARemover = new EntradaJugador();
             foreach (var jugadorConectado in ListaDeJugadoresConectados)
             {
                 if (jugadorConectado.lbNombreJugador.Content.Equals(nombreJugador))
                 {
-                    ListaDeJugadoresConectados.Remove(jugadorConectado);
+                    jugadorARemover = jugadorConectado;
                 }
+            }
+
+            ListaDeJugadoresConectados.Remove(jugadorARemover);
+        }
+
+        public void RecibirInvitacionASala(Invitacion invitacion)
+        {
+            MostrarEntradaInvitacionDeJugador(invitacion);
+        }
+
+        private void CerrarVentanaAmigos(object sender, MouseButtonEventArgs e)
+        {
+            if (this.sala.Codigo == 0)
+            {
+                VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
+                this.Close();
+                ventanaMenuPrincipal.ShowDialog();
+            }
+            else
+            {
+                VentanaSala ventanaSala = new VentanaSala();
+                ventanaSala.EntrarASala(this.sala);
+                this.Close();
+                ventanaSala.ShowDialog();
             }
         }
 
-        public void NotificarJugadoresEnLinea(string[] nombresUsuariosEnLinea)
+        public void OcultarInvitacion(Invitacion invitacion)
         {
-            throw new NotImplementedException();
+            EntradaInvitación invitacionAOcultar = new EntradaInvitación(invitacion);
+            ListaDeInvitaciones.Remove(invitacionAOcultar);
         }
 
-        private void NavegarAMenuPrincipal(object sender, MouseButtonEventArgs e)
+        private void CambiarAListaAmigos(object sender, MouseButtonEventArgs e)
         {
-            VentanaMenuPrincipal ventanaMenuPrincipal = new VentanaMenuPrincipal();
-            this.Close();
-            ventanaMenuPrincipal.ShowDialog();
+            MostrarJugadoresEnLinea();
         }
     }
 }

@@ -26,14 +26,14 @@
   <xs:element name="ValidarInicioSesionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ValidarInicioSesionResult" type="xs:boolean" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="ValidarInicioSesionResult" nillable="true" type="q4:Jugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ValidarNombreUsuarioRegistrado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="jugador" nillable="true" type="q4:Jugador" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="jugador" nillable="true" type="q5:Jugador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -47,7 +47,7 @@
   <xs:element name="ValidarCorreoElectronicoRegistrado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="usuario" nillable="true" type="q5:Usuario" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CrazyEightsServicio" minOccurs="0" name="usuario" nillable="true" type="q6:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
